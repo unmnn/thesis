@@ -1,0 +1,8 @@
+Package: thesis
+Type: Book
+Title: Does not matter (for now).
+Version: 0.0.1
+Imports: bookdown
+Remotes: rstudio/bookdown
+URL: https://github.com/unmnn/thesis
+BugReports: https://github.com/unmnn/thesis/issues
