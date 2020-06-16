@@ -1,0 +1,2 @@
+https://www.hvitfeldt.me/blog/bookdown-netlify-github-actions/
+https://app.netlify.com/start
