@@ -1,0 +1,13 @@
+# Feature extraction from short temporal sequences for clustering {#diabfoot}
+
+## Motivation and comparison with related work
+
+Based on: [@Niemann:CBMS2016; @Niemann:PONE2016; @Niemann:EBioMedicine2020]
+
+## The diabatic foot dataset
+
+## Overview of the mining workflow
+
+## Experiments and findings
+
+## Benefits our our method

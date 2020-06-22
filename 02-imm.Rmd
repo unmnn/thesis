@@ -1,0 +1,17 @@
+# (PART) SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA {-}
+
+# Interactive discovery and inspection of subpopulations {#imm}
+
+Based on: [@Niemann:ESWA2014]
+
+## Motivation and comparison with related work
+
+## The SHIP dataset
+
+## Subpopulation discovery workflow and interactive mining assistant
+
+## Experiments and findings  
+
+## Benefits of our workflow
+
+

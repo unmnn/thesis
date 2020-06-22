@@ -1,0 +1,15 @@
+# (PART) EXPLOITING TEMPORAL INFORMATION {-}
+
+# Constructing evolution features to capture change over time {#evo}
+
+Based on: [@Niemann:CBMS2015]
+
+## Motivation and comparison with related work
+
+## Overview of the mining workflow
+
+## Generating evolution features
+
+## Experiments and findings
+
+## Benefits our our method

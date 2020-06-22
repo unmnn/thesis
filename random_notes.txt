@@ -1,0 +1,16 @@
+Myra 11.06.2020
+- Gliederung: für jeden Datensatz "methods" und "applications" chapter?
+- Intro -> Underpinnings -> Related Work
+- Siehe Emmanuel Müller: jedes Kapitel hat eigene rel. Work und Experiments
+- Phenotyping-Paper: Experimente auf SHIP-Daten?
+- Wie viele Related Work für RQs?
+  - vieles wird underpinnings
+- Klinische Daten mit diagnostischen Assessments
+- Bezug Diagnose und Therapie + separat Diagnose
+- lässt sich generalisieren auf alle Datensätze
+
+Nächste Schritte:
+- Mensch-Machine-Interaktion als Überbegriff (wg. Explainablity)
+- Recommenders (Beratung, Empfehlung)
+- Computer-based decision support (Zielgruppe: Kliniker vs. Forscher (B. Mazurek))
+-----

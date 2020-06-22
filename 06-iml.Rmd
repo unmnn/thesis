@@ -1,0 +1,21 @@
+# (PART) POST-MINING FOR INTERPRETATION {-}
+
+# Post-hoc interpretation of classification models {#iml}
+
+Based on: [@Niemann:CBMS2018; @Niemann:SREP2020; @Niemann:PONE2020; @Niemann:Frontiers2020]
+
+## Motivation and comparison with related work
+
+## The aneurysm dataset
+
+## The tinnitus dataset
+
+## Overview of the mining workflow
+
+## Experiments and findings on aneurysm data
+
+## Experiments and findings on tinnitus data
+
+## Benefits our our method
+
+

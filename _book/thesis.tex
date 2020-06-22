@@ -1,0 +1,299 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data},
+  pdfauthor={Uli Niemann},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\usepackage[style=ieee,]{biblatex}
+\addbibresource{thesis.bib}
+
+\title{Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data}
+\author{Uli Niemann}
+\date{22.06.2020}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{structure}{%
+\section*{Structure}\label{structure}}
+\addcontentsline{toc}{section}{Structure}
+
+1 Thesis Overview\\
+1.1 Motivation\\
+1.2 Medical Applications\\
+1.3 Open Challenges\\
+1.4 Structure and Summary of Contributions\\
+
+\textbf{PART I SUBPOPULATION DISCOVERY}
+
+2 Interactive discovery and inspection of subpopulations\\
+2.1 The SHIP dataset\\
+2.2 Motivation and comparison with related work\\
+2.3 Subpopulation discovery workflow and interactive mining assistant\\
+2.4 Experiments and findings\\
+2.5 Benefits of our workflow\\
+
+3 Identifying diverse subpopulations\\
+3.1 Motivation and comparison with related work\\
+3.2 Finding diverse classification rules\\
+3.3 Experiments and findings\\
+3.4 Benefits our our method\\
+
+\textbf{PART II EXPLOITING TEMPORAL INFORMATION}
+
+4 Constructing evolution features to capture change over time\\
+4.1 Motivation and comparison with related work\\
+4.2 Overview of the mining workflow\\
+4.3 Generating evolution features\\
+4.4 Experiments and findings\\
+4.5 Benefits our our method\\
+
+5 Feature extraction from short temporal sequences for clustering\\
+5.1 The diabatic foot dataset\\
+5.1 Motivation and comparison with related work 5.2 Overview of the mining workflow\\
+5.3 Experiments and findings\\
+5.4 Benefits our our method\\
+
+\textbf{PART III POST-MINING FOR INTERPRETATION}
+
+6 Post-hoc interpretation of classification models\\
+6.1 Motivation and comparison with related work\\
+6.2 The aneurysm dataset\\
+6.3 The tinnitus dataset\\
+6.2 Overview of the mining workflow\\
+6.3 Experiments and findings on aneurysm data\\
+6.4 Experiments and findings on tinnitus data\\
+6.5 Benefits our our method\\
+
+\textbf{PART IV SUMMARY}
+
+7 Conclusion and future work\\
+7.1 Research results for medical expert-guided knowledge discovery\\
+7.2 Future work\\
+
+\textbf{PART V APPENDIX}
+
+Bibliography\\
+List of publications\\
+Abbreviations\\
+
+\hypertarget{intro}{%
+\chapter{Thesis overview}\label{intro}}
+
+\hypertarget{motivation}{%
+\section{Motivation}\label{motivation}}
+
+\hypertarget{medical-applications}{%
+\section{Medical applications}\label{medical-applications}}
+
+\hypertarget{open-challenges}{%
+\section{Open challenges}\label{open-challenges}}
+
+\hypertarget{structure-and-summary-of-contributions}{%
+\section{Structure and summary of contributions}\label{structure-and-summary-of-contributions}}
+
+\hypertarget{part-subpopulation-discovery-in-high-dimensional-data}{%
+\part{SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA}\label{part-subpopulation-discovery-in-high-dimensional-data}}
+
+\hypertarget{imm}{%
+\chapter{Interactive discovery and inspection of subpopulations}\label{imm}}
+
+Based on: \autocite{Niemann:ESWA2014}
+
+\hypertarget{motivation-and-comparison-with-related-work}{%
+\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work}}
+
+\hypertarget{the-ship-dataset}{%
+\section{The SHIP dataset}\label{the-ship-dataset}}
+
+\hypertarget{subpopulation-discovery-workflow-and-interactive-mining-assistant}{%
+\section{Subpopulation discovery workflow and interactive mining assistant}\label{subpopulation-discovery-workflow-and-interactive-mining-assistant}}
+
+\hypertarget{experiments-and-findings}{%
+\section{Experiments and findings}\label{experiments-and-findings}}
+
+\hypertarget{benefits-of-our-workflow}{%
+\section{Benefits of our workflow}\label{benefits-of-our-workflow}}
+
+\hypertarget{sdclu}{%
+\chapter{Identifying diverse subpopulations}\label{sdclu}}
+
+Based on: \autocite{Niemann:CBMS2017}
+
+\hypertarget{motivation-and-comparison-with-related-work-1}{%
+\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-1}}
+
+\hypertarget{finding-diverse-classification-rules}{%
+\section{Finding diverse classification rules}\label{finding-diverse-classification-rules}}
+
+\hypertarget{experiments-and-findings-1}{%
+\section{Experiments and findings}\label{experiments-and-findings-1}}
+
+\hypertarget{benefits-our-our-method}{%
+\section{Benefits our our method}\label{benefits-our-our-method}}
+
+\hypertarget{part-exploiting-temporal-information}{%
+\part{EXPLOITING TEMPORAL INFORMATION}\label{part-exploiting-temporal-information}}
+
+\hypertarget{evo}{%
+\chapter{Constructing evolution features to capture change over time}\label{evo}}
+
+Based on: \autocite{Niemann:CBMS2015}
+
+\hypertarget{motivation-and-comparison-with-related-work-2}{%
+\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-2}}
+
+\hypertarget{overview-of-the-mining-workflow}{%
+\section{Overview of the mining workflow}\label{overview-of-the-mining-workflow}}
+
+\hypertarget{generating-evolution-features}{%
+\section{Generating evolution features}\label{generating-evolution-features}}
+
+\hypertarget{experiments-and-findings-2}{%
+\section{Experiments and findings}\label{experiments-and-findings-2}}
+
+\hypertarget{benefits-our-our-method-1}{%
+\section{Benefits our our method}\label{benefits-our-our-method-1}}
+
+\hypertarget{diabfoot}{%
+\chapter{Feature extraction from short temporal sequences for clustering}\label{diabfoot}}
+
+\hypertarget{motivation-and-comparison-with-related-work-3}{%
+\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-3}}
+
+Based on: \autocite{Niemann:CBMS2016,Niemann:PONE2016,Niemann:EBioMedicine2020}
+
+\hypertarget{the-diabatic-foot-dataset}{%
+\section{The diabatic foot dataset}\label{the-diabatic-foot-dataset}}
+
+\hypertarget{overview-of-the-mining-workflow-1}{%
+\section{Overview of the mining workflow}\label{overview-of-the-mining-workflow-1}}
+
+\hypertarget{experiments-and-findings-3}{%
+\section{Experiments and findings}\label{experiments-and-findings-3}}
+
+\hypertarget{benefits-our-our-method-2}{%
+\section{Benefits our our method}\label{benefits-our-our-method-2}}
+
+\hypertarget{part-post-mining-for-interpretation}{%
+\part{POST-MINING FOR INTERPRETATION}\label{part-post-mining-for-interpretation}}
+
+\hypertarget{iml}{%
+\chapter{Post-hoc interpretation of classification models}\label{iml}}
+
+Based on: \autocite{Niemann:CBMS2018,Niemann:SREP2020,Niemann:PONE2020,Niemann:Frontiers2020}
+
+\hypertarget{motivation-and-comparison-with-related-work-4}{%
+\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-4}}
+
+\hypertarget{the-aneurysm-dataset}{%
+\section{The aneurysm dataset}\label{the-aneurysm-dataset}}
+
+\hypertarget{the-tinnitus-dataset}{%
+\section{The tinnitus dataset}\label{the-tinnitus-dataset}}
+
+\hypertarget{overview-of-the-mining-workflow-2}{%
+\section{Overview of the mining workflow}\label{overview-of-the-mining-workflow-2}}
+
+\hypertarget{experiments-and-findings-on-aneurysm-data}{%
+\section{Experiments and findings on aneurysm data}\label{experiments-and-findings-on-aneurysm-data}}
+
+\hypertarget{experiments-and-findings-on-tinnitus-data}{%
+\section{Experiments and findings on tinnitus data}\label{experiments-and-findings-on-tinnitus-data}}
+
+\hypertarget{benefits-our-our-method-3}{%
+\section{Benefits our our method}\label{benefits-our-our-method-3}}
+
+\hypertarget{part-summary}{%
+\part{SUMMARY}\label{part-summary}}
+
+\hypertarget{summary}{%
+\chapter{Conclusion and future work}\label{summary}}
+
+\hypertarget{research-results-for-medical-expert-guided-knowledge-discovery}{%
+\section{Research results for medical expert-guided knowledge discovery}\label{research-results-for-medical-expert-guided-knowledge-discovery}}
+
+\hypertarget{future-work}{%
+\section{Future work}\label{future-work}}
+
+\hypertarget{part-appendix}{%
+\part{APPENDIX}\label{part-appendix}}
+
+\printbibliography
+
+\end{document}

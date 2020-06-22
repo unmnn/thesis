@@ -1,0 +1,11 @@
+# Identifying diverse subpopulations {#sdclu}
+
+Based on: [@Niemann:CBMS2017]
+
+## Motivation and comparison with related work  
+
+## Finding diverse classification rules  
+
+## Experiments and findings  
+
+## Benefits our our method
