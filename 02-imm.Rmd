@@ -2,9 +2,45 @@
 
 # Interactive discovery and inspection of subpopulations {#imm}
 
-Based on: [@Niemann:ESWA2014]
+Based on [@Niemann:ESWA2014]
 
 ## Motivation and comparison with related work
+
+Medical decisions on diagnosis and treatment of multifactorial diseases are based on clinical and epidemiological studies. 
+The latter accommodate information on participants with and without the disorder and allow for discriminative model learning and, in the longitudinal design, for understanding the progress of a disorder (possibly towards a disease).
+For example, there are several studies on the identification of factors (like obesity or alcohol consumption) and outcomes (like cardiovascular diseases) associated with hepatic steatosis. 
+Findings on genetic and non-genetic factors include [@IttermannEtAl:Thyroid2012; @LauEtAl:2010], [@StickelEtAl:2011]; findings on associated outcomes include [@Targher:2010] and [@Markus:2013].
+However, these studies identified risk factors and/or associated outcomes that pertain to the whole population. 
+Our work emanates from the necessity to identify such factors and outcomes for subpopulations and thus to stimulate personalized diagnosis and treatment, as expected in personalized medicine&nbsp;[@Hingorani:2013; @Voelzke:Cardiol2013].
+
+Classification on subpopulations was studied by Zhanga and Kodell in [@AIM13].
+<!-- , albeit they analyze clinical data for diagnosis, while we analyze epidemiological data to identify variables associated with the outcome.  -->
+They pointed out that the complete population can be very heterogeneous, so that classifier performance on the whole dataset can be low. Therefore, they first trained an ensemble of classifiers, then associated with each training instance the predictions made on it by each ensemble member, thus creating a new feature space where the variables are the predictions. They then performed hierarchical clustering on the instances, thus building three subpopulations: one where the prediction accuracy is high, one where it is intermediate and one where it is low [@AIM13]. 
+With this approach, Zhanga and Kodell split the original dataset into subpopulations that are easy or difficult to classify&nbsp;[@AIM13]. 
+The method seems appealing in general, but does not look promising for the SHIP data: we investigate a three-class problem with a very skewed distribution, so we already know that low accuracy is partially caused by the skew. 
+Hence, we study the dataset exploratively _before_ classification, to identify subpopulations that exhibit less skew, and exploratively _after_ classification, to identify variables inside each subpopulation, which are associated to the outcome with high likelihood.
+
+**Classification Rule Mining.** Pinheiro et al. performed association rule discovery on patients with liver carcinoma&nbsp;[@PinheiroEtAl:ICCABS13]. 
+The authors pointed out that early detection of liver cancer may help reducing the five-year mortality rate (which is currently 86%&nbsp;[@PinheiroEtAl:ICCABS13]), but early detection is difficult, because in the onset of a liver carcinoma, the patient often observes no symptoms&nbsp;[@PinheiroEtAl:ICCABS13]. 
+Pinheiro et al. leveraged the association rule miner FP-growth&nbsp;[@HanEtAl:FP-Growth] to discover high-confidence association rules and high-confidence classification rules with respect to mortality in a liver cancer patients dataset. We also consider association rules promising for the analysis of medical data, because they are easy to compute and deliver results that are understandable by humans. Therefore, we also use association rules as baseline mining method, though for epidemiological data and for classification rather than mortality prediction. To use association rules for classification, we specify that the rule consequent should be the target variable. 
+<!-- \textcolor{red}{(the rules are then called "classification rules"; we use this term hereafter)}. -->
+
+<!-- \subsubsection{CBMS16} -->
+**Clustering.** Clustering algorithms are applied to a variety of application domains. 
+For example, clustering is traditionally used for the identification of patient groups, who apply pressure on their feet in a similar way [@BennettsEtAl:Biomechanics2013; @DeCockEtAl:FootTypeClusteringPlantarPressure2006; @DeschampsEtAL:KMeansDiabeticFoot2013; @GiacomozziMartelli:PeakPressure2006], whereby k-means is the typically the algorithm of choice.
+In [@GiacomozziMartelli:PeakPressure2006], Giacomozzi and Martelli
+studied the plantar pressure curves of patients with diabetic foot and of control persons, and clustered them on the similarity of the curves with respect to shape and amplitude. They juxtaposed the clusters with respect to predefined groups: for instance, all persons of the group with increased peak pressure and muscle weakness and/or limited mobility of the joints were in one cluster&nbsp;[@GiacomozziMartelli:PeakPressure2006]. 
+However, each cluster contained persons from many groups.
+Deschamps et al. recorded walking trials for patients and controls and studied the relative regional impulses recorded in six forefoot regions&nbsp;[@DeschampsEtAL:KMeansDiabeticFoot2013]: similarly to [@GiacomozziMartelli:PeakPressure2006], they also found one cluster that consists only of diabetic patients. 
+Other scholars focused on patients only and strived to understand the variability of pressure distributions among patients and to stratify the patients on plantar pressure similarity.
+De Cock et al. studied the pressure distributions recorded during jogging, whereby they concentrated on recordings of the six forefoot regions&nbsp;[@DeCockEtAl:FootTypeClusteringPlantarPressure2006]: they used k-means with k=4 and then
+compared differences in peak pressure and in regional impulse among the identified clusters.
+Bennetts et al. studied how patients applied pressure when they stood, and performed clustering on peak pressure 
+distinguishing among seven plantar regions [@BennettsEtAl:Biomechanics2013]. 
+They compared the clusters on mean peak pressure and studied how the number of clusters k affected the results.
+<!-- Similarly to \cite{BennettsEtAl:Biomechanics2013,DeCockEtAl:FootTypeClusteringPlantarPressure2006}, we focus on patient stratification with clustering. As in \cite{BennettsEtAl:Biomechanics2013,GiacomozziMartelli:PeakPressure2006}, we consider all regions of the foot, not forefoot only. Unlike all aforementioned methods who determined similarity in a single way and then used $k$-means for clustering, we consider alternative ways of modeling similarity with respect to pressure, we juxtapose the clusters built by different clustering algorithms in terms of quality, and -->
+<!-- we deliver visualization aids for the inspection of the most representative instance (patient foot) in each cluster. -->
+<!-- The tasks of modeling similarity, learning clusters with different algorithms, comparing them and inspecting the results, constitute a complete mining workflow. In \cite{GlasserEtAl:CBMS13,NiemannEtAl:CBMS15}, we proposed workflows that encompass the specification of similarity between instances, the tuning of clustering algorithms (in \cite{NiemannEtAl:CBMS15}) and the assessment of quality. However, these workflows concern the juxtaposition of patients to healthy people, while here we concentrate on the stratification of patients only and build the workflow accordingly. -->
 
 ## The SHIP dataset
 

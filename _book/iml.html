@@ -155,9 +155,33 @@
             <section class="normal" id="section-">
 <div id="iml" class="section level1" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Post-hoc interpretation of classification models</h1>
-<p>Based on: <span class="citation">[<a href="#ref-Niemann:CBMS2018" role="doc-biblioref">7</a>]–[<a href="#ref-Niemann:Frontiers2020" role="doc-biblioref">10</a>]</span></p>
+<p>Based on: <span class="citation">[<a href="#ref-Niemann:CBMS2018" role="doc-biblioref">4</a>], [<a href="#ref-Niemann:SREP2020" role="doc-biblioref">14</a>], [<a href="#ref-Niemann:PONE2020" role="doc-biblioref">37</a>], [<a href="#ref-Niemann:Frontiers2020" role="doc-biblioref">38</a>]</span></p>
 <div id="motivation-and-comparison-with-related-work-4" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Motivation and comparison with related work</h2>
+<p>For medical applications, it is essential for the epidemiological expert to be able to identify the features and feature-value pairs that are most important with respect to the model decision.
+Gaining actionable insights of a model beyond accuracy is important in order to derive hypotheses on the interaction between potential risk factors and a target outcome.</p>
+<p>A few of the widely used algorithms are <em>intrinsic interpretable</em> <span class="citation">[<a href="#ref-Lipton:ICML2015" role="doc-biblioref">39</a>]</span>, including linear regression, logistic regression and decision trees.
+In linear regression, the beta coefficient of a predictor variable denotes the difference in the predicted value of the response variable for an increase of 1 unit of the predictor, given all other predictors stay the same.
+Similarly, the coefficients of a logistic regression model can be interpreted in terms of change of odds for the positive outcome of the response, again given all other predictors stay the same.
+Decision trees can achieve higher accuracy than linear and logistic regression, in particular for axes-parallel decision boundaries.
+The tree structure of the model allows for an intuitive visualization and by transposing interpretable classification rules in form of {IF <span class="math inline">\(x \leq v1\)</span> AND <span class="math inline">\(y&gt;v_2\)</span> THEN outcome = positive} can be extracted.
+However, intrinsically interpretable models are often too simple to deal with complex non-linear feature interactions.
+Thus, more sophisticated algorithms yielding higher accuracy have become more popular, including support vector machines <span class="citation">[<a href="#ref-Boser:SVM1992" role="doc-biblioref">40</a>]</span>, gradient boosted trees <span class="citation">[<a href="#ref-Friedman:PDP2001" role="doc-biblioref">41</a>]</span> and, in particular, deep neural networks <span class="citation">[<a href="#ref-Goodfellow:DL2016" role="doc-biblioref">42</a>]</span>.
+The superior classification performance comes with a cost though: they lack internal mechanisms for direct model interpretation.
+To provide a trade-off between high accuracy and model transparency, methods for <em>post-hoc</em> explanations and visualizations have been proposed as remedy.
+One of the most popular <em>model-specific</em> interpretation method is the random forest feature importance which makes use of the instances not sampled for the induction of a single tree, the out-of-bag (OOB) instances <span class="citation">[<a href="#ref-Breiman:RandomForests2001" role="doc-biblioref">43</a>]</span>. First, the model error is measured on the OOB data. Then, the values of each predictor in the OOB data are randomly shuffled at a time and the model error is measured again.
+The assumption is that the more important a predictor is for the model, the more the error will increase if its values are shuffled.
+Finally, the difference between the two errors is calculated and averaged over all trees in the forest to yield a feature importance ranking.
+For neural networks, several scores exist that aggregate the connection weights of all internal and output units that originate from a specific input characterizing a predictor variable <span class="citation">[<a href="#ref-Olden:NNInterpretation2004" role="doc-biblioref">44</a>]</span>.</p>
+<p><em>Model-agnostic</em> methods have been proposed to provide algorithm-independent post-hoc explanations and hence, a trade-off between high accuracy and model interpretability.
+LIME <span class="citation">[<a href="#ref-RibeiroEtAl:KDD2016" role="doc-biblioref">45</a>]</span> is a framework for local model-agnostic explanations of an arbitrary classifier.
+For example, if a medical doctor uses a model to classify a patient of interest as low-risk or high-risk patient, he might be not only interested in the classifier decision but also in identifying which characteristics contributed most to the decision, i.e., whether laboratory values, socio-demographics or rather genetic markers have highest impact.
+For a complex black-box model, LIME learns a surrogate model to find explanations for the decision of the model for a specific instance of interest <span class="math inline">\(i\)</span>.
+A surrogate model is an interpretable model, e.g. a linear model or a decision tree, that is used to derive a ranking of feature value importance w.r.t. the classification decision of the model on <span class="math inline">\(i\)</span>.
+The procedure of LIME is as follows:
+First, a new dataset is created by random sampling from the training set weighted by the proximity to the instance of interest.
+The new dataset is applied on the complex model to obtain predictions. Then, the decision boundary of the local dataset is approximated by a simple model.
+The authors suggest Lasso regression to find the <span class="math inline">\(k\)</span> most important features for the local model.</p>
 </div>
 <div id="the-aneurysm-dataset" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> The aneurysm dataset</h2>
@@ -185,10 +209,37 @@
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Niemann:CBMS2018">
-<p>[7] U. Niemann <em>et al.</em>, “Rupture Status Classification of Intracranial Aneurysms Using Morphological Parameters,” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2018, pp. 48–53, doi: <a href="https://doi.org/10.1109/CBMS.2018.00016">10.1109/CBMS.2018.00016</a>.</p>
+<p>[4] U. Niemann <em>et al.</em>, “Rupture Status Classification of Intracranial Aneurysms Using Morphological Parameters,” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2018, pp. 48–53, doi: <a href="https://doi.org/10.1109/CBMS.2018.00016">10.1109/CBMS.2018.00016</a>.</p>
+</div>
+<div id="ref-Niemann:SREP2020">
+<p>[14] U. Niemann, P. Brueggemann, B. Boecking, B. Mazurek, and M. Spiliopoulou, “Development and internal validation of a depression severity prediction model for tinnitus patients based on questionnaire responses and socio-demographics,” <em>Scientific Reports</em>, vol. 10, no. 1, p. 4664, 2020, doi: <a href="https://doi.org/10.1038/s41598-020-61593-z">10.1038/s41598-020-61593-z</a>.</p>
+</div>
+<div id="ref-Niemann:PONE2020">
+<p>[37] B. A. B. Niemann Uli AND Boecking, “Tinnitus-related distress after multimodal treatment can be characterized using a key subset of baseline variables,” <em>PLOS ONE</em>, vol. 15, no. 1, pp. 1–18, Jan. 2020, doi: <a href="https://doi.org/10.1371/journal.pone.0228037">10.1371/journal.pone.0228037</a>.</p>
 </div>
 <div id="ref-Niemann:Frontiers2020">
-<p>[10] U. Niemann, B. Boecking, P. Brueggemann, B. Mazurek, and M. Spiliopoulou, “Gender-Specific Differences in Patients With Chronic Tinnitus—Baseline Characteristics and Treatment Effects,” <em>Frontiers in Neuroscience</em>, vol. 14, p. 487, 2020, doi: <a href="https://doi.org/10.3389/fnins.2020.00487">10.3389/fnins.2020.00487</a>.</p>
+<p>[38] U. Niemann, B. Boecking, P. Brueggemann, B. Mazurek, and M. Spiliopoulou, “Gender-Specific Differences in Patients With Chronic Tinnitus—Baseline Characteristics and Treatment Effects,” <em>Frontiers in Neuroscience</em>, vol. 14, p. 487, 2020, doi: <a href="https://doi.org/10.3389/fnins.2020.00487">10.3389/fnins.2020.00487</a>.</p>
+</div>
+<div id="ref-Lipton:ICML2015">
+<p>[39] Z. C. Lipton, “The Mythos of Model Interpretability,” in <em>IEEE ICML Workshop on Human Interpretability of Machine Learning</em>, 2015, pp. 121–126.</p>
+</div>
+<div id="ref-Boser:SVM1992">
+<p>[40] B. E. Boser, I. M. Guyon, and V. N. Vapnik, “A training algorithm for optimal margin classifiers,” in <em>Proc. of Workshop on Computational Learning Theory</em>, 1992, pp. 144–152.</p>
+</div>
+<div id="ref-Friedman:PDP2001">
+<p>[41] J. H. Friedman, “Greedy function approximation: a gradient boosting machine,” <em>Annals of Statistics</em>, pp. 1189–1232, 2001.</p>
+</div>
+<div id="ref-Goodfellow:DL2016">
+<p>[42] I. Goodfellow, Y. Bengio, and A. Courville, <em>Deep learning</em>. MIT press, 2016.</p>
+</div>
+<div id="ref-Breiman:RandomForests2001">
+<p>[43] L. Breiman, “Random forests,” <em>Machine learning</em>, vol. 45, no. 1, pp. 5–32, 2001.</p>
+</div>
+<div id="ref-Olden:NNInterpretation2004">
+<p>[44] J. D. Olden, M. K. Joy, and R. G. Death, “An accurate comparison of methods for quantifying variable importance in artificial neural networks using simulated data,” <em>Ecological Modelling</em>, vol. 178, nos. 3-4, pp. 389–397, 2004.</p>
+</div>
+<div id="ref-RibeiroEtAl:KDD2016">
+<p>[45] M. T. Ribeiro, S. Singh, and C. Guestrin, “Why Should I Trust You?: Explaining the Predictions of Any Classifier,” in <em>Proc. of ACM SIGKDD Knowledge Discovery and Data Mining</em>, 2016, pp. 1135–1144.</p>
 </div>
 </div>
             </section>
@@ -228,8 +279,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/06-iml.Rmd",
-"text": "Edit"
+"link": "https://github.com/unmnn/thesis/06-iml.Rmd",
+"text": "Source"
 },
 "history": {
 "link": null,
@@ -247,6 +298,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

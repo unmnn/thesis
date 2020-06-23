@@ -6,6 +6,32 @@ Based on: [@Niemann:CBMS2015]
 
 ## Motivation and comparison with related work
 
+Exploitation of temporal information in medicine and healthcare is often observed, foremostly in the analysis of patient records in healthcare applications. For example, Pechenizkiy et al. analyzed streams of recordings to predict whether a patient will need a re-hospitalization after a health failure treatment [@PechenizkiyEtAl:CBMS10]. Patient monitoring was also the application area of [@SunEtAl:ICDM10], where the emphasis was on computing the similarity between streams of patients for prediction. Combi et al. reported both on the study of streams, e.g. on streams of life signals, and on the temporal analysis of the timestamped medical records of hospital patients [@CombiEtAl:2010]. 
+Patient evolution with clustering was studied in [@SiddiquiEtAl:BIH14]: Siddiqui et al. proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in [@SiddiquiEtAl:BIH14] are labeled at each moment.
+
+<!-- There is extensive research on extracting temporal information from medical  -->
+<!-- time-series [@Orphanou:AIM2014; @Singh:BiomedInformatics2015; @Zhao:BiomedInformatics2017].  -->
+A general approach of extracting temporal information is to augment the feature space with variables capturing 
+how individuals _evolve_ over time [@Orphanou:AIM2014; @Singh:BiomedInformatics2015; @Zhao:BiomedInformatics2017]. 
+These approaches include deriving summary statistics (mean, standard deviation, etc.) from the whole time-series, 
+cutting time-series into small windows before computing aggregations, 
+building separate models for each of the windows which are later combined to an ensemble classifier, 
+or generating shapelets to improve classification accuracy.  
+For example, Karlsson et al. introduced a framework for the extraction of 
+shapelets from (medical) time-series which are fed into a random forest classifier 
+that uses shapelets as attribute-test conditions instead of regular features [@Karlsson:DAMI2016].
+While these approaches are promising for medical time-series with a large number 
+of observations for each individual and only numerical features, they are not 
+applicable for our SHIP and Dan-MONICA data which comprise only three measurement time-points, contain both continuous and categorical features and where the outcome is measured only in the last wave.  
+
+There is few work on using temporal information in longitudinal cohort study data with less than 10 waves, 
+although insights from these models could contribute to identify subpopulations that exhibit early signs for an emerging disease, so that timely countermeasures could be initiated. 
+<!-- Currently, there is a lack of frameworks that exploit temporal information that could contribute to classification accuracy improvements.  -->
+However, with the increasing popularity of deep learning and its many hailed success stories, an alternative to the tedious feature engineering could be the application of deep neuronal networks which automatically construct multiple layers of meta-features that reflect complex non-linear interactions between input features from multiple time points. 
+While these methods often outperform more traditional approaches, they produce so called _black-box models_ which are harder to interpret and communicate to a medical expert. 
+For example, in handwriting and speech recognition, it is not important to understand _why_ a digit is identified as a _2_ rather than a _7_ or an audio sample is recognized as _tail_ instead of _tale_, as long as the model is accurate. 
+In contrast, for medical applications it is crucial to understand the reasoning behind a model in order to trust its decision which can have substantial impact on the patient's life quality. 
+
 ## Overview of the mining workflow
 
 ## Generating evolution features

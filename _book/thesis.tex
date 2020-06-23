@@ -41,6 +41,7 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage{longtable,booktabs}
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -80,7 +81,7 @@
 
 \title{Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data}
 \author{Uli Niemann}
-\date{22.06.2020}
+\date{23.06.2020}
 
 \begin{document}
 \maketitle
@@ -158,14 +159,257 @@ Abbreviations\\
 \hypertarget{motivation}{%
 \section{Motivation}\label{motivation}}
 
+The analysis of medical data typically strives towards (1) the identification of long-term determinants and protective factors for an outcome of interest, (2) the discovery of subpopulations with increased disease prevalence, and (3) the generation of robust models capable of explaining relationships between one or several independent variables and the outcome.
+For example, epidemiologists aim to discover causal associations between multiple risk factors and an outcome in cohort studies collecting data which encompass rich information about the participants, gathered from questionnaires, medical examinations, laboratory analyses and image acquisition.
+Often, these data are repeatedly collected over time, for example in longitudinal studies. Thus, researchers incorporate a participants history in their analyses to account for temporal aspects.\\
+Finding causal associations between variables commonly requires medical scholars to first carefully derive some hypotheses from clinical daily routine, experimental studies or extensive literature research, and then formally test them on statistical significance.
+However, with the ever-growing volume and heterogeneity of medical data, traditional hypothesis-driven workflows become increasingly impractical because some important inherent associations between variables might remain undiscovered.
+
+Data Mining (DM) and Machine Learning\footnote{The terms Data Mining and Machine Learning are used synonymously.} (ML) can enhance medical research by discovering subpopulations of study participants which are similar with respect to the outcome, and thus can be used to generate new hypotheses.
+The proliferation of medical ML applications is triggered by multiple reasons, such as the desire of exploiting the plethora of gathered study participant information and the ubiquitousness of ``A.I.'' success stories in the media.
+However, simply building complex data-driven models does not guarantee that knowledge can be derived without effort.
+Most state-of-the-art ML algorithms such as deep neuronal networks and gradient boosting machines generate so called black-box models with multiple layers of complexity incorporating many multi-variate, non-linear interactions among variables, which are hard to present intuitively.
+It is vital that the application expert, which is not a practitioner, but a scholar working in a clinical or epidemiological environment, is equipped with means to understand, explore and visualize the models, so that s/he can drill down to specific individual patterns and gain actionable insights that ultimately contribute to prevention, diagnosis and treatment of diseases.
+Since health care data can be derived from diverse sources such as epidemiological studies or clinical trials, major characteristics of collected datasets vary which requires an adaption of methods tailored to the characteristics of the application scenario.
+
+The goal of this thesis is to support medical experts by providing an intelligent assistance for the analysis of high-dimensional time-stamped medical data.
+During the phases of model generation and model post-processing, several challenges have to be dealt with, so that the expert is able to derive actionable knowledge. These challenges translate to the following four demands:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+  \emph{Interpretability of Patterns}: patterns, i.e.~clusters, rules, classification models, must be interpretable; the process of pattern generation must be interpretable.
+\item
+  \emph{Exploitation of Time}: time must be exploited, while satisfying requirement (1).
+  Medical scholars search for long-term determinants of severe diseases. Finding patterns in the patient history and evolution can contribute to this aim.
+\item
+  \emph{Minimization of Redundancy}: redundancy must be minimized, while satisfying requirement (1). Patterns might be overlapping with respect to the subjects they cover. This leads to a redundancy of patterns which negatively affects the perceived quality of the model. One task is to minimize redundancy and deliver only a list of relevant patterns to the expert.
+\item
+  \emph{Validation}: validation must be part of the analysis, while satisfying (1), (2) and (3).
+\end{enumerate}
+
+There are several aspects to deal with:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Dimensionality: to what extend can the same methods be used on low-dimensional and high-dimensional data?
+\item
+  Time granularity: to what extend can the same methods be used on data with few discrete waves and with dense time-stamped recordings?
+\item
+  The impact of the protocol: both data recorded for specific research questions (DIAB, Dan-Monica, AneurD) are investigated as well as data recorded independently of the research questions (SHIP, TinD). To what extend can the same approaches be used, what deviations are needed?
+\end{enumerate}
+
 \hypertarget{medical-applications}{%
 \section{Medical applications}\label{medical-applications}}
+
+\textbf{A categorization of time-stamped medical data.} The structure of medical data naturally depends on the study design. In this thesis proposal, medical data is categorized using the following five criteria.
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Number of variables}: number of variables, features, attributes or dimensions
+\item
+  \emph{Number of individuals}: number of individuals, subjects, instances, patients or study participants
+\item
+  \emph{Temporal horizon}: timespan from first to last assessment
+\item
+  \emph{Number of assessments over time}: number of repeated assessments over time
+\item
+  \emph{Temporal granularity}: frequency of repeated assessments
+\end{itemize}
+
+Table~\ref{tab:data} juxtaposes the five application datasets with respect to the five criteria depicted above.
+
+\begin{longtable}[]{@{}llllll@{}}
+\caption{\label{tab:data} Study dataset characteristics.}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.14\columnwidth}\raggedright
+~\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Number of variables\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Number of individuals\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Temporal horizon\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Number of assessments\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Temporal granularity\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.14\columnwidth}\raggedright
+~\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Number of variables\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Number of individuals\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Temporal horizon\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Number of assessments\strut
+\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+Temporal granularity\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.14\columnwidth}\raggedright
+SHIP\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textgreater100)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\rightarrow\) (\textgreater800)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textasciitilde15 yr)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (3 obs.)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (1 ass./5 yr)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.14\columnwidth}\raggedright
+DFSS\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (\textless10)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (\textless60)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (\textasciitilde100 min)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textgreater{} 100 obs.)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\(\geq 3\) rec./min)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.14\columnwidth}\raggedright
+AneurD\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (\textless30)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\rightarrow\) (100)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\bullet\) (none)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\bullet\) (none)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\bullet\) (none)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.14\columnwidth}\raggedright
+Dan-MONICA\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textgreater100)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\rightarrow\) (\textgreater1000)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textasciitilde10 yr)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (3 obs.)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (1 ass./5 yr)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.14\columnwidth}\raggedright
+TinD\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textgreater100)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\rightarrow\) (\textgreater1000)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\downarrow\) (\textasciitilde10 days)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\(\uparrow\) (\textgreater{} 2 obs.)\strut
+\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+NA\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+We will evaluate our methods on five medical datasets.\\
+\textbf{SHIP}. The ``Study of Health in Pomerania'' (SHIP) \autocite{Voelzke:SHIP11} encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region.
+Baseline examinations for SHIP-CORE were performed between 1997 and 2001 (SHIP-0, n=4308). Three follow-up examinations were conducted in intervals of 5 years, continuously adding new variables including MRI scans beginning from the second follow-up (SHIP-2).
+Baseline information for the SHIP-TREND (TREND-0, n=4420) was collected in 2008-2012.
+In both cohorts, a broad range of participant information was gathered, including socio-demographics, lifestyle and consumption behavior, medication intake, anthropometric values, blood and urine laboratory values, whole-body magnet resonance imaging, and others.
+
+\textbf{DFSS}. While SHIP investigates associations between risk factors of common diseases and health-related conditions in general, the ``Diabetic Foot Syndrome'\,' study~\autocite{Niemann:PONE2016,Niemann:EBioMedicine2020} is a case-control study specifically investigating differences between diabetes patients diagnosed with severe polyneuropathy and healthy controls.
+In a pre-specified sequence of actions alternating between two postures, standing and sitting, custom-made sensor-bearing insoles placed in a closed shoe measured changes of a subject's plantar pressures and temperatures with high frequency over time.
+These measurements allowed for the analysis of pathophysiological and sensation-related differences between the two groups.
+
+\textbf{Aneurysm database (AneurD)}. The ``aneurysm database'' contains angiographical image data of 74 patients with a total of 100 intracranial aneurysms~\autocite{Niemann:CBMS2018}.
+Intracranial aneurysms are pathologic dilations of the intracranial vessel wall, bearing the risk of rupture and thus subarachnoidal hemorrhages with often fatal consequences for the patient.
+Since treatment may cause severe complications as well, the goal is to generate models that can separate between ruptured and non-ruptured aneurysms.
+
+\textbf{MONICA}. This dataset is derived from the Danish population of the WHO project MONICA (Multinational MONItoring of trends and determinants in CArdiovascular disease).
+MONICA is a longitudinal epidemiological cohort study focusing on risk factors of cardio-vascular diseases, as well as causes and trends regarding the differences in the mortality between countries \autocite{WHO:MONICA1989}.
+Overall, 37 centers from 21 countries participated in the cohort study conducted between 1976 and 2002.
+Accomplishments of the project include the establishment of a profound database for prevention research and improvements on treatment of cardio-vascular diseases due to the identification of risk factors such as increased cholesterol and nicotine levels.
+In the Danish MONICA cohort, over 30,000 residents from the south-western of Copenhagen County, aged between 25 and 74 years, participated in three waves from 1982 to 1991 \autocite{Bronnum:DanMONICA2001}.
+The baseline examinations were conducted in 1982-1986 (DAN-MONICA I) with the first two follow-ups in 1986-1987 (DAN-MONICA II) and in 1991-1992 (DAN-MONICA III).
+
+\textbf{Tinnitus dataset (TinD)}. This dataset contains information on a cohort of a total of 3,971 tinnitus patients who had been treated at the tinnitus centre of the university medicine in Berlin between January 2011 and October 2015. All included patients had been suffering from tinnitus for 3 months or longer, were 18 years of age or older and had sufficient knowledge of the German language.
+At registration, patients were asked to complete 15 questionnaires on socio-demographics, tinnitus-related distress, frequency, loudness, localization and quality as well as physical and mental health status, including levels of depression and perceived stress.
+To assess efficacy of the treatment, patients filled the same battery of questionnaires a second time.
 
 \hypertarget{open-challenges}{%
 \section{Open challenges}\label{open-challenges}}
 
+The motivation described in the previous section leads to the following research questions, including the core research question (RQ). The core research question of the thesis is: \textbf{How to generate accurate yet understandable patterns for subpopulation discovery in high-dimensional time-stamped medical data?}
+This question is central for the thesis. Since it includes multiple aspects, such as feature engineering, model learning, and post-mining steps, the question is subdivided into the following three research questions.
+
+\begin{bfseries}
+    \begin{itemize}
+        \item[RQ 1] How to leverage understandable models for high-dimensional time-stamped medical data?
+        \item[RQ 2] How to effectively capture and exploit implicit temporal information to improve model quality?
+        \item[RQ 3] How to extract, process and display the most relevant (temporal) patterns for an efficient expert-driven model exploration?
+    \end{itemize}
+\end{bfseries}
+
+Table~\ref{tab:mapping} shows a mapping between scientific articles associated with this thesis and addressed research questions.
+
 \hypertarget{structure-and-summary-of-contributions}{%
 \section{Structure and summary of contributions}\label{structure-and-summary-of-contributions}}
+
+Contributions of the published and submitted work include
+
+\begin{itemize}
+\tightlist
+\item
+  a workflow and interactive application for data preparation, mining, and inspection of patterns for epidemiological data \autocite{Niemann:ESWA2014,Niemann:IMM2014},
+\item
+  a feature engineering framework for modeling and exploitation of the cohort participant evolution over time to improve classification quality \autocite{Niemann:CBMS2015,Niemann:SciRep2020},
+\item
+  a mechanism for feature extraction from raw multi-variate time-series to identify relevant subgroups in patients and healthy controls and \autocite{Niemann:CBMS2016,Niemann:PONE2016},
+\item
+  a clustering-based algorithm that hierarchically reorganizes classification rule sets and summarizes all important concepts wihle maintaining diversity between the rule clusters to reduce pattern redundancy \autocite{Niemann:CBMS2017},
+\item
+  a pipeline for feature extraction, classification with post-mining functionalities such as feature ranking and inspection \autocite{Niemann:CBMS2018}, and
+\item
+  results that confirm findings from medical literature or results that can be validated in independent studies.
+\end{itemize}
+
+\begin{longtable}[]{@{}rcccl@{}}
+\caption{\label{tab:mapping} Mapping of published and planned articles to research questions.}\tabularnewline
+\toprule
+Article & \textbf{RQ1} & \textbf{RQ2} & \textbf{RQ3} & Datasets\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Article & \textbf{RQ1} & \textbf{RQ2} & \textbf{RQ3} & Datasets\tabularnewline
+\midrule
+\endhead
+\autocite{Niemann:ESWA2014} & \(\checkmark\) & & \(\checkmark\) & SHIP\tabularnewline
+\autocite{Niemann:IMM2014} & \(\checkmark\) & & \(\checkmark\) & SHIP\tabularnewline
+\autocite{NiemannEtAl:FCDS2014} & \(\checkmark\) & & & SHIP\tabularnewline
+\autocite{Niemann:CBMS2015} & \(\checkmark\) & \(\checkmark\) & & SHIP\tabularnewline
+\autocite{Niemann:CBMS2016} & \(\checkmark\) & \(\checkmark\) & & DFSS\tabularnewline
+\autocite{Niemann:PONE2016} & \(\checkmark\) & \(\checkmark\) & & DFSS\tabularnewline
+\autocite{Niemann:CBMS2017} & \(\checkmark\) & & & SHIP\tabularnewline
+\autocite{Niemann:CBMS2018} & \(\checkmark\) & & & AneurD\tabularnewline
+\autocite{Niemann:SREP2020} & \(\checkmark\) & \(\checkmark\) & & SHIP, MONICA\tabularnewline
+\autocite{Niemann:SciRep2020} & \(\checkmark\) & & \(\checkmark\) & TinD\tabularnewline
+\autocite{Niemann:EBioMedicine2020} & \(\checkmark\) & & \(\checkmark\) & DFSS\tabularnewline
+\bottomrule
+\end{longtable}
 
 \hypertarget{part-subpopulation-discovery-in-high-dimensional-data}{%
 \part{SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA}\label{part-subpopulation-discovery-in-high-dimensional-data}}
@@ -173,10 +417,40 @@ Abbreviations\\
 \hypertarget{imm}{%
 \chapter{Interactive discovery and inspection of subpopulations}\label{imm}}
 
-Based on: \autocite{Niemann:ESWA2014}
+Based on \autocite{Niemann:ESWA2014}
 
 \hypertarget{motivation-and-comparison-with-related-work}{%
 \section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work}}
+
+Medical decisions on diagnosis and treatment of multifactorial diseases are based on clinical and epidemiological studies.
+The latter accommodate information on participants with and without the disorder and allow for discriminative model learning and, in the longitudinal design, for understanding the progress of a disorder (possibly towards a disease).
+For example, there are several studies on the identification of factors (like obesity or alcohol consumption) and outcomes (like cardiovascular diseases) associated with hepatic steatosis.
+Findings on genetic and non-genetic factors include \autocite{IttermannEtAl:Thyroid2012,LauEtAl:2010}, \autocite{StickelEtAl:2011}; findings on associated outcomes include \autocite{Targher:2010} and \autocite{Markus:2013}.
+However, these studies identified risk factors and/or associated outcomes that pertain to the whole population.
+Our work emanates from the necessity to identify such factors and outcomes for subpopulations and thus to stimulate personalized diagnosis and treatment, as expected in personalized medicine~\autocite{Hingorani:2013,Voelzke:Cardiol2013}.
+
+Classification on subpopulations was studied by Zhanga and Kodell in \autocite{AIM13}.
+They pointed out that the complete population can be very heterogeneous, so that classifier performance on the whole dataset can be low. Therefore, they first trained an ensemble of classifiers, then associated with each training instance the predictions made on it by each ensemble member, thus creating a new feature space where the variables are the predictions. They then performed hierarchical clustering on the instances, thus building three subpopulations: one where the prediction accuracy is high, one where it is intermediate and one where it is low \autocite{AIM13}.
+With this approach, Zhanga and Kodell split the original dataset into subpopulations that are easy or difficult to classify~\autocite{AIM13}.
+The method seems appealing in general, but does not look promising for the SHIP data: we investigate a three-class problem with a very skewed distribution, so we already know that low accuracy is partially caused by the skew.
+Hence, we study the dataset exploratively \emph{before} classification, to identify subpopulations that exhibit less skew, and exploratively \emph{after} classification, to identify variables inside each subpopulation, which are associated to the outcome with high likelihood.
+
+\textbf{Classification Rule Mining.} Pinheiro et al.~performed association rule discovery on patients with liver carcinoma~\autocite{PinheiroEtAl:ICCABS13}.
+The authors pointed out that early detection of liver cancer may help reducing the five-year mortality rate (which is currently 86\%~\autocite{PinheiroEtAl:ICCABS13}), but early detection is difficult, because in the onset of a liver carcinoma, the patient often observes no symptoms~\autocite{PinheiroEtAl:ICCABS13}.
+Pinheiro et al.~leveraged the association rule miner FP-growth~\autocite{HanEtAl:FP-Growth} to discover high-confidence association rules and high-confidence classification rules with respect to mortality in a liver cancer patients dataset. We also consider association rules promising for the analysis of medical data, because they are easy to compute and deliver results that are understandable by humans. Therefore, we also use association rules as baseline mining method, though for epidemiological data and for classification rather than mortality prediction. To use association rules for classification, we specify that the rule consequent should be the target variable.
+
+\textbf{Clustering.} Clustering algorithms are applied to a variety of application domains.
+For example, clustering is traditionally used for the identification of patient groups, who apply pressure on their feet in a similar way \autocite{BennettsEtAl:Biomechanics2013,DeCockEtAl:FootTypeClusteringPlantarPressure2006,DeschampsEtAL:KMeansDiabeticFoot2013,GiacomozziMartelli:PeakPressure2006}, whereby k-means is the typically the algorithm of choice.
+In \autocite{GiacomozziMartelli:PeakPressure2006}, Giacomozzi and Martelli
+studied the plantar pressure curves of patients with diabetic foot and of control persons, and clustered them on the similarity of the curves with respect to shape and amplitude. They juxtaposed the clusters with respect to predefined groups: for instance, all persons of the group with increased peak pressure and muscle weakness and/or limited mobility of the joints were in one cluster~\autocite{GiacomozziMartelli:PeakPressure2006}.
+However, each cluster contained persons from many groups.
+Deschamps et al.~recorded walking trials for patients and controls and studied the relative regional impulses recorded in six forefoot regions~\autocite{DeschampsEtAL:KMeansDiabeticFoot2013}: similarly to \autocite{GiacomozziMartelli:PeakPressure2006}, they also found one cluster that consists only of diabetic patients.
+Other scholars focused on patients only and strived to understand the variability of pressure distributions among patients and to stratify the patients on plantar pressure similarity.
+De Cock et al.~studied the pressure distributions recorded during jogging, whereby they concentrated on recordings of the six forefoot regions~\autocite{DeCockEtAl:FootTypeClusteringPlantarPressure2006}: they used k-means with k=4 and then
+compared differences in peak pressure and in regional impulse among the identified clusters.
+Bennetts et al.~studied how patients applied pressure when they stood, and performed clustering on peak pressure
+distinguishing among seven plantar regions \autocite{BennettsEtAl:Biomechanics2013}.
+They compared the clusters on mean peak pressure and studied how the number of clusters k affected the results.
 
 \hypertarget{the-ship-dataset}{%
 \section{The SHIP dataset}\label{the-ship-dataset}}
@@ -217,6 +491,29 @@ Based on: \autocite{Niemann:CBMS2015}
 
 \hypertarget{motivation-and-comparison-with-related-work-2}{%
 \section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-2}}
+
+Exploitation of temporal information in medicine and healthcare is often observed, foremostly in the analysis of patient records in healthcare applications. For example, Pechenizkiy et al.~analyzed streams of recordings to predict whether a patient will need a re-hospitalization after a health failure treatment \autocite{PechenizkiyEtAl:CBMS10}. Patient monitoring was also the application area of \autocite{SunEtAl:ICDM10}, where the emphasis was on computing the similarity between streams of patients for prediction. Combi et al.~reported both on the study of streams, e.g.~on streams of life signals, and on the temporal analysis of the timestamped medical records of hospital patients \autocite{CombiEtAl:2010}.
+Patient evolution with clustering was studied in \autocite{SiddiquiEtAl:BIH14}: Siddiqui et al.~proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in \autocite{SiddiquiEtAl:BIH14} are labeled at each moment.
+
+A general approach of extracting temporal information is to augment the feature space with variables capturing
+how individuals \emph{evolve} over time \autocite{Orphanou:AIM2014,Singh:BiomedInformatics2015,Zhao:BiomedInformatics2017}.
+These approaches include deriving summary statistics (mean, standard deviation, etc.) from the whole time-series,
+cutting time-series into small windows before computing aggregations,
+building separate models for each of the windows which are later combined to an ensemble classifier,
+or generating shapelets to improve classification accuracy.\\
+For example, Karlsson et al.~introduced a framework for the extraction of
+shapelets from (medical) time-series which are fed into a random forest classifier
+that uses shapelets as attribute-test conditions instead of regular features \autocite{Karlsson:DAMI2016}.
+While these approaches are promising for medical time-series with a large number
+of observations for each individual and only numerical features, they are not
+applicable for our SHIP and Dan-MONICA data which comprise only three measurement time-points, contain both continuous and categorical features and where the outcome is measured only in the last wave.
+
+There is few work on using temporal information in longitudinal cohort study data with less than 10 waves,
+although insights from these models could contribute to identify subpopulations that exhibit early signs for an emerging disease, so that timely countermeasures could be initiated.
+However, with the increasing popularity of deep learning and its many hailed success stories, an alternative to the tedious feature engineering could be the application of deep neuronal networks which automatically construct multiple layers of meta-features that reflect complex non-linear interactions between input features from multiple time points.
+While these methods often outperform more traditional approaches, they produce so called \emph{black-box models} which are harder to interpret and communicate to a medical expert.
+For example, in handwriting and speech recognition, it is not important to understand \emph{why} a digit is identified as a \emph{2} rather than a \emph{7} or an audio sample is recognized as \emph{tail} instead of \emph{tale}, as long as the model is accurate.
+In contrast, for medical applications it is crucial to understand the reasoning behind a model in order to trust its decision which can have substantial impact on the patient's life quality.
 
 \hypertarget{overview-of-the-mining-workflow}{%
 \section{Overview of the mining workflow}\label{overview-of-the-mining-workflow}}
@@ -260,6 +557,33 @@ Based on: \autocite{Niemann:CBMS2018,Niemann:SREP2020,Niemann:PONE2020,Niemann:F
 
 \hypertarget{motivation-and-comparison-with-related-work-4}{%
 \section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-4}}
+
+For medical applications, it is essential for the epidemiological expert to be able to identify the features and feature-value pairs that are most important with respect to the model decision.
+Gaining actionable insights of a model beyond accuracy is important in order to derive hypotheses on the interaction between potential risk factors and a target outcome.
+
+A few of the widely used algorithms are \emph{intrinsic interpretable} \autocite{Lipton:ICML2015}, including linear regression, logistic regression and decision trees.
+In linear regression, the beta coefficient of a predictor variable denotes the difference in the predicted value of the response variable for an increase of 1 unit of the predictor, given all other predictors stay the same.
+Similarly, the coefficients of a logistic regression model can be interpreted in terms of change of odds for the positive outcome of the response, again given all other predictors stay the same.
+Decision trees can achieve higher accuracy than linear and logistic regression, in particular for axes-parallel decision boundaries.
+The tree structure of the model allows for an intuitive visualization and by transposing interpretable classification rules in form of \{IF \(x \leq v1\) AND \(y>v_2\) THEN outcome = positive\} can be extracted.
+However, intrinsically interpretable models are often too simple to deal with complex non-linear feature interactions.
+Thus, more sophisticated algorithms yielding higher accuracy have become more popular, including support vector machines~\autocite{Boser:SVM1992}, gradient boosted trees~\autocite{Friedman:PDP2001} and, in particular, deep neural networks~\autocite{Goodfellow:DL2016}.
+The superior classification performance comes with a cost though: they lack internal mechanisms for direct model interpretation.
+To provide a trade-off between high accuracy and model transparency, methods for \emph{post-hoc} explanations and visualizations have been proposed as remedy.
+One of the most popular \emph{model-specific} interpretation method is the random forest feature importance which makes use of the instances not sampled for the induction of a single tree, the out-of-bag (OOB) instances~\autocite{Breiman:RandomForests2001}. First, the model error is measured on the OOB data. Then, the values of each predictor in the OOB data are randomly shuffled at a time and the model error is measured again.
+The assumption is that the more important a predictor is for the model, the more the error will increase if its values are shuffled.
+Finally, the difference between the two errors is calculated and averaged over all trees in the forest to yield a feature importance ranking.
+For neural networks, several scores exist that aggregate the connection weights of all internal and output units that originate from a specific input characterizing a predictor variable \autocite{Olden:NNInterpretation2004}.
+
+\emph{Model-agnostic} methods have been proposed to provide algorithm-independent post-hoc explanations and hence, a trade-off between high accuracy and model interpretability.
+LIME \autocite{RibeiroEtAl:KDD2016} is a framework for local model-agnostic explanations of an arbitrary classifier.
+For example, if a medical doctor uses a model to classify a patient of interest as low-risk or high-risk patient, he might be not only interested in the classifier decision but also in identifying which characteristics contributed most to the decision, i.e., whether laboratory values, socio-demographics or rather genetic markers have highest impact.
+For a complex black-box model, LIME learns a surrogate model to find explanations for the decision of the model for a specific instance of interest \(i\).
+A surrogate model is an interpretable model, e.g.~a linear model or a decision tree, that is used to derive a ranking of feature value importance w.r.t. the classification decision of the model on \(i\).
+The procedure of LIME is as follows:
+First, a new dataset is created by random sampling from the training set weighted by the proximity to the instance of interest.
+The new dataset is applied on the complex model to obtain predictions. Then, the decision boundary of the local dataset is approximated by a simple model.
+The authors suggest Lasso regression to find the \(k\) most important features for the local model.
 
 \hypertarget{the-aneurysm-dataset}{%
 \section{The aneurysm dataset}\label{the-aneurysm-dataset}}

@@ -19,6 +19,7 @@ bibliography: [thesis.bib]
 # biblio-style: apalike
 biblio-style: ieee
 link-citations: yes
+geometry: "left=2cm, right=2cm, top=2.5cm, bottom=2.5cm"
 ---
 
 `r if(!knitr:::is_html_output()) '<!--'`

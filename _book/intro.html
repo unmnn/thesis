@@ -157,15 +157,242 @@
 <h1><span class="header-section-number">Chapter 1</span> Thesis overview</h1>
 <div id="motivation" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
+<p>The analysis of medical data typically strives towards (1) the identification of long-term determinants and protective factors for an outcome of interest, (2) the discovery of subpopulations with increased disease prevalence, and (3) the generation of robust models capable of explaining relationships between one or several independent variables and the outcome.
+For example, epidemiologists aim to discover causal associations between multiple risk factors and an outcome in cohort studies collecting data which encompass rich information about the participants, gathered from questionnaires, medical examinations, laboratory analyses and image acquisition.
+Often, these data are repeatedly collected over time, for example in longitudinal studies. Thus, researchers incorporate a participants history in their analyses to account for temporal aspects.<br />
+Finding causal associations between variables commonly requires medical scholars to first carefully derive some hypotheses from clinical daily routine, experimental studies or extensive literature research, and then formally test them on statistical significance.
+However, with the ever-growing volume and heterogeneity of medical data, traditional hypothesis-driven workflows become increasingly impractical because some important inherent associations between variables might remain undiscovered.</p>
+<p>Data Mining (DM) and Machine Learning<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> (ML) can enhance medical research by discovering subpopulations of study participants which are similar with respect to the outcome, and thus can be used to generate new hypotheses.
+The proliferation of medical ML applications is triggered by multiple reasons, such as the desire of exploiting the plethora of gathered study participant information and the ubiquitousness of “A.I.” success stories in the media.
+However, simply building complex data-driven models does not guarantee that knowledge can be derived without effort.
+Most state-of-the-art ML algorithms such as deep neuronal networks and gradient boosting machines generate so called black-box models with multiple layers of complexity incorporating many multi-variate, non-linear interactions among variables, which are hard to present intuitively.
+It is vital that the application expert, which is not a practitioner, but a scholar working in a clinical or epidemiological environment, is equipped with means to understand, explore and visualize the models, so that s/he can drill down to specific individual patterns and gain actionable insights that ultimately contribute to prevention, diagnosis and treatment of diseases.
+Since health care data can be derived from diverse sources such as epidemiological studies or clinical trials, major characteristics of collected datasets vary which requires an adaption of methods tailored to the characteristics of the application scenario.</p>
+<p>The goal of this thesis is to support medical experts by providing an intelligent assistance for the analysis of high-dimensional time-stamped medical data.
+During the phases of model generation and model post-processing, several challenges have to be dealt with, so that the expert is able to derive actionable knowledge. These challenges translate to the following four demands:</p>
+<ol style="list-style-type: decimal">
+<li><em>Interpretability of Patterns</em>: patterns, i.e. clusters, rules, classification models, must be interpretable; the process of pattern generation must be interpretable.</li>
+<li><em>Exploitation of Time</em>: time must be exploited, while satisfying requirement (1).
+Medical scholars search for long-term determinants of severe diseases. Finding patterns in the patient history and evolution can contribute to this aim.</li>
+<li><em>Minimization of Redundancy</em>: redundancy must be minimized, while satisfying requirement (1). Patterns might be overlapping with respect to the subjects they cover. This leads to a redundancy of patterns which negatively affects the perceived quality of the model. One task is to minimize redundancy and deliver only a list of relevant patterns to the expert.</li>
+<li><em>Validation</em>: validation must be part of the analysis, while satisfying (1), (2) and (3).</li>
+</ol>
+<p>There are several aspects to deal with:</p>
+<ol style="list-style-type: decimal">
+<li>Dimensionality: to what extend can the same methods be used on low-dimensional and high-dimensional data?</li>
+<li>Time granularity: to what extend can the same methods be used on data with few discrete waves and with dense time-stamped recordings?</li>
+<li>The impact of the protocol: both data recorded for specific research questions (DIAB, Dan-Monica, AneurD) are investigated as well as data recorded independently of the research questions (SHIP, TinD). To what extend can the same approaches be used, what deviations are needed?</li>
+</ol>
 </div>
 <div id="medical-applications" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Medical applications</h2>
+<p><strong>A categorization of time-stamped medical data.</strong> The structure of medical data naturally depends on the study design. In this thesis proposal, medical data is categorized using the following five criteria.</p>
+<ul>
+<li><em>Number of variables</em>: number of variables, features, attributes or dimensions</li>
+<li><em>Number of individuals</em>: number of individuals, subjects, instances, patients or study participants</li>
+<li><em>Temporal horizon</em>: timespan from first to last assessment</li>
+<li><em>Number of assessments over time</em>: number of repeated assessments over time</li>
+<li><em>Temporal granularity</em>: frequency of repeated assessments</li>
+</ul>
+<p>Table  juxtaposes the five application datasets with respect to the five criteria depicted above.</p>
+<table style="width:100%;">
+<caption><span id="tab:data">Table 1.1: </span> Study dataset characteristics.</caption>
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"> </th>
+<th align="left">Number of variables</th>
+<th align="left">Number of individuals</th>
+<th align="left">Temporal horizon</th>
+<th align="left">Number of assessments</th>
+<th align="left">Temporal granularity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">SHIP</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (&gt;100)</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> (&gt;800)</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (~15 yr)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (3 obs.)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (1 ass./5 yr)</td>
+</tr>
+<tr class="even">
+<td align="left">DFSS</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (&lt;10)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (&lt;60)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (~100 min)</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (&gt; 100 obs.)</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (<span class="math inline">\(\geq 3\)</span> rec./min)</td>
+</tr>
+<tr class="odd">
+<td align="left">AneurD</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (&lt;30)</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> (100)</td>
+<td align="left"><span class="math inline">\(\bullet\)</span> (none)</td>
+<td align="left"><span class="math inline">\(\bullet\)</span> (none)</td>
+<td align="left"><span class="math inline">\(\bullet\)</span> (none)</td>
+</tr>
+<tr class="even">
+<td align="left">Dan-MONICA</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (&gt;100)</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> (&gt;1000)</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (~10 yr)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (3 obs.)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (1 ass./5 yr)</td>
+</tr>
+<tr class="odd">
+<td align="left">TinD</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (&gt;100)</td>
+<td align="left"><span class="math inline">\(\rightarrow\)</span> (&gt;1000)</td>
+<td align="left"><span class="math inline">\(\downarrow\)</span> (~10 days)</td>
+<td align="left"><span class="math inline">\(\uparrow\)</span> (&gt; 2 obs.)</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+<p>We will evaluate our methods on five medical datasets.<br />
+<strong>SHIP</strong>. The “Study of Health in Pomerania” (SHIP) <span class="citation">[<a href="#ref-Voelzke:SHIP11" role="doc-biblioref">1</a>]</span> encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region.
+Baseline examinations for SHIP-CORE were performed between 1997 and 2001 (SHIP-0, n=4308). Three follow-up examinations were conducted in intervals of 5 years, continuously adding new variables including MRI scans beginning from the second follow-up (SHIP-2).
+Baseline information for the SHIP-TREND (TREND-0, n=4420) was collected in 2008-2012.
+In both cohorts, a broad range of participant information was gathered, including socio-demographics, lifestyle and consumption behavior, medication intake, anthropometric values, blood and urine laboratory values, whole-body magnet resonance imaging, and others.</p>
+<p><strong>DFSS</strong>. While SHIP investigates associations between risk factors of common diseases and health-related conditions in general, the ``Diabetic Foot Syndrome’’ study <span class="citation">[<a href="#ref-Niemann:PONE2016" role="doc-biblioref">2</a>], [<a href="#ref-Niemann:EBioMedicine2020" role="doc-biblioref">3</a>]</span> is a case-control study specifically investigating differences between diabetes patients diagnosed with severe polyneuropathy and healthy controls.
+In a pre-specified sequence of actions alternating between two postures, standing and sitting, custom-made sensor-bearing insoles placed in a closed shoe measured changes of a subject’s plantar pressures and temperatures with high frequency over time.
+These measurements allowed for the analysis of pathophysiological and sensation-related differences between the two groups.</p>
+<p><strong>Aneurysm database (AneurD)</strong>. The “aneurysm database” contains angiographical image data of 74 patients with a total of 100 intracranial aneurysms <span class="citation">[<a href="#ref-Niemann:CBMS2018" role="doc-biblioref">4</a>]</span>.
+Intracranial aneurysms are pathologic dilations of the intracranial vessel wall, bearing the risk of rupture and thus subarachnoidal hemorrhages with often fatal consequences for the patient.
+Since treatment may cause severe complications as well, the goal is to generate models that can separate between ruptured and non-ruptured aneurysms.</p>
+<p><strong>MONICA</strong>. This dataset is derived from the Danish population of the WHO project MONICA (Multinational MONItoring of trends and determinants in CArdiovascular disease).
+MONICA is a longitudinal epidemiological cohort study focusing on risk factors of cardio-vascular diseases, as well as causes and trends regarding the differences in the mortality between countries <span class="citation">[<a href="#ref-WHO:MONICA1989" role="doc-biblioref">5</a>]</span>.
+Overall, 37 centers from 21 countries participated in the cohort study conducted between 1976 and 2002.
+Accomplishments of the project include the establishment of a profound database for prevention research and improvements on treatment of cardio-vascular diseases due to the identification of risk factors such as increased cholesterol and nicotine levels.
+In the Danish MONICA cohort, over 30,000 residents from the south-western of Copenhagen County, aged between 25 and 74 years, participated in three waves from 1982 to 1991 <span class="citation">[<a href="#ref-Bronnum:DanMONICA2001" role="doc-biblioref">6</a>]</span>.
+The baseline examinations were conducted in 1982-1986 (DAN-MONICA I) with the first two follow-ups in 1986-1987 (DAN-MONICA II) and in 1991-1992 (DAN-MONICA III).
+<!-- %Our dataset contains 400 variables from the first three study waves for a random sample of 4,000 participants. -->
+<!-- %The variables include questionnaire answers with participant information on socio-demographics, medication, lifestyle and psychological factors, as well as anthropometrics, genetic markers and laboratory values.  -->
+<!-- %Our binary target variable \texttt{heart\_blood\_disease} denotes whether at least one of the following disorders or conditions are present in the second follow-up: heart attack, stroke, blood clot in brain, hypertension, other heart disease. % -->
+<!-- %Out of 2648 participants, 688 are positive w.r.t. \texttt{heart\_blood\_disease} ($\approx 26\%$). --></p>
+<p><strong>Tinnitus dataset (TinD)</strong>. This dataset contains information on a cohort of a total of 3,971 tinnitus patients who had been treated at the tinnitus centre of the university medicine in Berlin between January 2011 and October 2015. All included patients had been suffering from tinnitus for 3 months or longer, were 18 years of age or older and had sufficient knowledge of the German language.
+<!-- Treatment comprised a 7-day multi-modal treatment encompassing tinnitus-specific components, CBT, physiotherapy and information counselling.  -->
+At registration, patients were asked to complete 15 questionnaires on socio-demographics, tinnitus-related distress, frequency, loudness, localization and quality as well as physical and mental health status, including levels of depression and perceived stress.
+<!-- Clinicians analyzed the questionnaire answers to derive patient-tailored treatment pathways. -->
+To assess efficacy of the treatment, patients filled the same battery of questionnaires a second time.</p>
 </div>
 <div id="open-challenges" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Open challenges</h2>
+<p>The motivation described in the previous section leads to the following research questions, including the core research question (RQ). The core research question of the thesis is: <strong>How to generate accurate yet understandable patterns for subpopulation discovery in high-dimensional time-stamped medical data?</strong>
+This question is central for the thesis. Since it includes multiple aspects, such as feature engineering, model learning, and post-mining steps, the question is subdivided into the following three research questions.</p>
+<p>Table  shows a mapping between scientific articles associated with this thesis and addressed research questions.</p>
 </div>
 <div id="structure-and-summary-of-contributions" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Structure and summary of contributions</h2>
+<p>Contributions of the published and submitted work include</p>
+<ul>
+<li>a workflow and interactive application for data preparation, mining, and inspection of patterns for epidemiological data <span class="citation">[<a href="#ref-Niemann:ESWA2014" role="doc-biblioref">7</a>], [<a href="#ref-Niemann:IMM2014" role="doc-biblioref">8</a>]</span>,</li>
+<li>a feature engineering framework for modeling and exploitation of the cohort participant evolution over time to improve classification quality <span class="citation">[<a href="#ref-Niemann:CBMS2015" role="doc-biblioref">9</a>], [<a href="#ref-Niemann:SciRep2020" role="doc-biblioref">10</a>]</span>,</li>
+<li>a mechanism for feature extraction from raw multi-variate time-series to identify relevant subgroups in patients and healthy controls and <span class="citation">[<a href="#ref-Niemann:PONE2016" role="doc-biblioref">2</a>], [<a href="#ref-Niemann:CBMS2016" role="doc-biblioref">11</a>]</span>,</li>
+<li>a clustering-based algorithm that hierarchically reorganizes classification rule sets and summarizes all important concepts wihle maintaining diversity between the rule clusters to reduce pattern redundancy <span class="citation">[<a href="#ref-Niemann:CBMS2017" role="doc-biblioref">12</a>]</span>,</li>
+<li>a pipeline for feature extraction, classification with post-mining functionalities such as feature ranking and inspection <span class="citation">[<a href="#ref-Niemann:CBMS2018" role="doc-biblioref">4</a>]</span>, and</li>
+<li>results that confirm findings from medical literature or results that can be validated in independent studies.</li>
+</ul>
+<table>
+<caption><span id="tab:mapping">Table 1.2: </span> Mapping of published and planned articles to research questions.</caption>
+<thead>
+<tr class="header">
+<th align="right">Article</th>
+<th align="center"><strong>RQ1</strong></th>
+<th align="center"><strong>RQ2</strong></th>
+<th align="center"><strong>RQ3</strong></th>
+<th align="left">Datasets</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:ESWA2014" role="doc-biblioref">7</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">SHIP</td>
+</tr>
+<tr class="even">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:IMM2014" role="doc-biblioref">8</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">SHIP</td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="citation">[<a href="#ref-NiemannEtAl:FCDS2014" role="doc-biblioref">13</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left">SHIP</td>
+</tr>
+<tr class="even">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:CBMS2015" role="doc-biblioref">9</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="left">SHIP</td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:CBMS2016" role="doc-biblioref">11</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="left">DFSS</td>
+</tr>
+<tr class="even">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:PONE2016" role="doc-biblioref">2</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="left">DFSS</td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:CBMS2017" role="doc-biblioref">12</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left">SHIP</td>
+</tr>
+<tr class="even">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:CBMS2018" role="doc-biblioref">4</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left">AneurD</td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:SREP2020" role="doc-biblioref">14</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="left">SHIP, MONICA</td>
+</tr>
+<tr class="even">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:SciRep2020" role="doc-biblioref">10</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">TinD</td>
+</tr>
+<tr class="odd">
+<td align="right"><span class="citation">[<a href="#ref-Niemann:EBioMedicine2020" role="doc-biblioref">3</a>]</span></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="center"></td>
+<td align="center"><span class="math inline">\(\checkmark\)</span></td>
+<td align="left">DFSS</td>
+</tr>
+</tbody>
+</table>
 <!-- # Introduction {#intro} -->
 <!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
 <!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
@@ -177,6 +404,57 @@
 
 
 
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Voelzke:SHIP11">
+<p>[1] H. Völzke, D. Alte, C. O. Schmidt, D. Radke, and others, “Cohort profile: The Study of Health in Pomerania,” <em>International Journal of Epidemiology</em>, vol. 40, pp. 294–307, 2011, doi: <a href="https://doi.org/10.1093/ije/dyp394">10.1093/ije/dyp394</a>.</p>
+</div>
+<div id="ref-Niemann:PONE2016">
+<p>[2] U. Niemann <em>et al.</em>, “Comparative Clustering of Plantar Pressure Distributions in Diabetics with Polyneuropathy May Be Applied to Reveal Inappropriate Biomechanical Stress,” <em>PLOS ONE</em>, vol. 11, no. 8, pp. 1–12, 2016, doi: <a href="https://doi.org/10.1371/journal.pone.0161326">10.1371/journal.pone.0161326</a>.</p>
+</div>
+<div id="ref-Niemann:EBioMedicine2020">
+<p>[3] U. Niemann <em>et al.</em>, “Plantar temperatures in stance position: A comparative study with healthy volunteers and diabetes patients diagnosed with sensoric neuropathy,” <em>EBioMedicine</em>, vol. 54, p. 102712, 2020, doi: <a href="https://doi.org/https://doi.org/10.1016/j.ebiom.2020.102712">https://doi.org/10.1016/j.ebiom.2020.102712</a>.</p>
+</div>
+<div id="ref-Niemann:CBMS2018">
+<p>[4] U. Niemann <em>et al.</em>, “Rupture Status Classification of Intracranial Aneurysms Using Morphological Parameters,” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2018, pp. 48–53, doi: <a href="https://doi.org/10.1109/CBMS.2018.00016">10.1109/CBMS.2018.00016</a>.</p>
+</div>
+<div id="ref-WHO:MONICA1989">
+<p>[5] J. Tuomilehto and K. Kuulasmaa, “WHO MONICA Project: assessing CHD mortality and morbidity,” <em>International Journal of Epidemiology</em>, vol. 18, no. 3 Suppl 1, pp. 38–45, 1989.</p>
+</div>
+<div id="ref-Bronnum:DanMONICA2001">
+<p>[6] H. Brønnum-Hansen <em>et al.</em>, “Survival and cause of death after myocardial infarction: The Danish MONICA study,” <em>Journal of Clinical Epidemiology</em>, vol. 54, no. 12, pp. 1244–1250, 2001.</p>
+</div>
+<div id="ref-Niemann:ESWA2014">
+<p>[7] U. Niemann, H. Völzke, J.-P. Kühn, and M. Spiliopoulou, “Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis,” <em>Expert Systems with Applications</em>, vol. 41, no. 11, pp. 5405–5415, 2014, doi: <a href="https://doi.org/10.1016/j.eswa.2014.02.040">10.1016/j.eswa.2014.02.040</a>.</p>
+</div>
+<div id="ref-Niemann:IMM2014">
+<p>[8] U. Niemann, M. Spiliopoulou, H. Völzke, and J.-P. Kühn, “Interactive Medical Miner: Interactively exploring subpopulations in epidemiological datasets,” in <em>ECML PKDD 2014, Part III, LNCS 8726</em>, 2014, pp. 460–463, doi: <a href="https://doi.org/10.1007/978-3-662-44845-8_35">10.1007/978-3-662-44845-8_35</a>.</p>
+</div>
+<div id="ref-Niemann:CBMS2015">
+<p>[9] U. Niemann, T. Hielscher, M. Spiliopoulou, H. Völzke, and J.-P. Kühn, “Can we classify the participants of a longitudinal epidemiological study from their previous evolution?” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2015, pp. 121–126, doi: <a href="https://doi.org/10.1109/CBMS.2015.12">10.1109/CBMS.2015.12</a>.</p>
+</div>
+<div id="ref-Niemann:SciRep2020">
+<p>[10] U. Niemann, T. Hielscher, H. Völzke, T. Ittermann, T. Skaaby, and M. Spiliopoulou, “Exploiting the evolution of study participants to improve classification in longitudinal epidemiological data,” <em>Scientific Reports. To be submitted.</em>, 2020.</p>
+</div>
+<div id="ref-Niemann:CBMS2016">
+<p>[11] U. Niemann <em>et al.</em>, “Learning Pressure Patterns for Patients with Diabetic Foot Syndrome,” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2016, pp. 54–59, doi: <a href="https://doi.org/10.1109/CBMS.2016.31">10.1109/CBMS.2016.31</a>.</p>
+</div>
+<div id="ref-Niemann:CBMS2017">
+<p>[12] U. Niemann, M. Spiliopoulou, B. Preim, T. Ittermann, and H. Völzke, “Combining Subgroup Discovery and Clustering to Identify Diverse Subpopulations in Cohort Study Data,” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2017, pp. 582–587, doi: <a href="https://doi.org/10.1109/CBMS.2017.15">10.1109/CBMS.2017.15</a>.</p>
+</div>
+<div id="ref-NiemannEtAl:FCDS2014">
+<p>[13] U. Niemann, M. Spiliopoulou, H. Völzke, and J.-P. Kühn, “Subpopulation Discovery in Epidemiological Data with Subspace Clustering,” <em>Foundations of Computing and Decision Sciences (FCDS)</em>, vol. 39, no. 4, pp. 271–300, 2014, doi: <a href="https://doi.org/10.2478/fcds-2014-0015">10.2478/fcds-2014-0015</a>.</p>
+</div>
+<div id="ref-Niemann:SREP2020">
+<p>[14] U. Niemann, P. Brueggemann, B. Boecking, B. Mazurek, and M. Spiliopoulou, “Development and internal validation of a depression severity prediction model for tinnitus patients based on questionnaire responses and socio-demographics,” <em>Scientific Reports</em>, vol. 10, no. 1, p. 4664, 2020, doi: <a href="https://doi.org/10.1038/s41598-020-61593-z">10.1038/s41598-020-61593-z</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>The terms Data Mining and Machine Learning are used synonymously.<a href="intro.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
@@ -214,8 +492,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
-"text": "Edit"
+"link": "https://github.com/unmnn/thesis/01-intro.Rmd",
+"text": "Source"
 },
 "history": {
 "link": null,
@@ -233,6 +511,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 andere/
-.bak
-.sav
+*[.bak,.sav]
+

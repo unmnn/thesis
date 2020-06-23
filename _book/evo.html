@@ -155,9 +155,32 @@
             <section class="normal" id="section-">
 <div id="evo" class="section level1" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Constructing evolution features to capture change over time</h1>
-<p>Based on: <span class="citation">[<a href="#ref-Niemann:CBMS2015" role="doc-biblioref">3</a>]</span></p>
+<p>Based on: <span class="citation">[<a href="#ref-Niemann:CBMS2015" role="doc-biblioref">9</a>]</span></p>
 <div id="motivation-and-comparison-with-related-work-2" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Motivation and comparison with related work</h2>
+<p>Exploitation of temporal information in medicine and healthcare is often observed, foremostly in the analysis of patient records in healthcare applications. For example, Pechenizkiy et al. analyzed streams of recordings to predict whether a patient will need a re-hospitalization after a health failure treatment <span class="citation">[<a href="#ref-PechenizkiyEtAl:CBMS10" role="doc-biblioref">29</a>]</span>. Patient monitoring was also the application area of <span class="citation">[<a href="#ref-SunEtAl:ICDM10" role="doc-biblioref">30</a>]</span>, where the emphasis was on computing the similarity between streams of patients for prediction. Combi et al. reported both on the study of streams, e.g. on streams of life signals, and on the temporal analysis of the timestamped medical records of hospital patients <span class="citation">[<a href="#ref-CombiEtAl:2010" role="doc-biblioref">31</a>]</span>.
+Patient evolution with clustering was studied in <span class="citation">[<a href="#ref-SiddiquiEtAl:BIH14" role="doc-biblioref">32</a>]</span>: Siddiqui et al. proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in <span class="citation">[<a href="#ref-SiddiquiEtAl:BIH14" role="doc-biblioref">32</a>]</span> are labeled at each moment.</p>
+<!-- There is extensive research on extracting temporal information from medical  -->
+<!-- time-series [@Orphanou:AIM2014; @Singh:BiomedInformatics2015; @Zhao:BiomedInformatics2017].  -->
+<p>A general approach of extracting temporal information is to augment the feature space with variables capturing
+how individuals <em>evolve</em> over time <span class="citation">[<a href="#ref-Orphanou:AIM2014" role="doc-biblioref">33</a>]–[<a href="#ref-Zhao:BiomedInformatics2017" role="doc-biblioref">35</a>]</span>.
+These approaches include deriving summary statistics (mean, standard deviation, etc.) from the whole time-series,
+cutting time-series into small windows before computing aggregations,
+building separate models for each of the windows which are later combined to an ensemble classifier,
+or generating shapelets to improve classification accuracy.<br />
+For example, Karlsson et al. introduced a framework for the extraction of
+shapelets from (medical) time-series which are fed into a random forest classifier
+that uses shapelets as attribute-test conditions instead of regular features <span class="citation">[<a href="#ref-Karlsson:DAMI2016" role="doc-biblioref">36</a>]</span>.
+While these approaches are promising for medical time-series with a large number
+of observations for each individual and only numerical features, they are not
+applicable for our SHIP and Dan-MONICA data which comprise only three measurement time-points, contain both continuous and categorical features and where the outcome is measured only in the last wave.</p>
+<p>There is few work on using temporal information in longitudinal cohort study data with less than 10 waves,
+although insights from these models could contribute to identify subpopulations that exhibit early signs for an emerging disease, so that timely countermeasures could be initiated.
+<!-- Currently, there is a lack of frameworks that exploit temporal information that could contribute to classification accuracy improvements.  -->
+However, with the increasing popularity of deep learning and its many hailed success stories, an alternative to the tedious feature engineering could be the application of deep neuronal networks which automatically construct multiple layers of meta-features that reflect complex non-linear interactions between input features from multiple time points.
+While these methods often outperform more traditional approaches, they produce so called <em>black-box models</em> which are harder to interpret and communicate to a medical expert.
+For example, in handwriting and speech recognition, it is not important to understand <em>why</em> a digit is identified as a <em>2</em> rather than a <em>7</em> or an audio sample is recognized as <em>tail</em> instead of <em>tale</em>, as long as the model is accurate.
+In contrast, for medical applications it is crucial to understand the reasoning behind a model in order to trust its decision which can have substantial impact on the patient’s life quality.</p>
 </div>
 <div id="overview-of-the-mining-workflow" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Overview of the mining workflow</h2>
@@ -176,7 +199,28 @@
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Niemann:CBMS2015">
-<p>[3] U. Niemann, T. Hielscher, M. Spiliopoulou, H. Völzke, and J.-P. Kühn, “Can we classify the participants of a longitudinal epidemiological study from their previous evolution?” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2015, pp. 121–126, doi: <a href="https://doi.org/10.1109/CBMS.2015.12">10.1109/CBMS.2015.12</a>.</p>
+<p>[9] U. Niemann, T. Hielscher, M. Spiliopoulou, H. Völzke, and J.-P. Kühn, “Can we classify the participants of a longitudinal epidemiological study from their previous evolution?” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2015, pp. 121–126, doi: <a href="https://doi.org/10.1109/CBMS.2015.12">10.1109/CBMS.2015.12</a>.</p>
+</div>
+<div id="ref-PechenizkiyEtAl:CBMS10">
+<p>[29] M. Pechenizkiy, E. Vasilyeva, I. Zliobaite, A. Tesanovic, and G. Manev, “Heart Failure Hospitalization Prediction in Remote Patient Management Systems,” in <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>, 2010, pp. 44–49, doi: <a href="https://doi.org/http://dx.doi.org/10.1109/CBMS.2010.6042612">http://dx.doi.org/10.1109/CBMS.2010.6042612</a>.</p>
+</div>
+<div id="ref-SunEtAl:ICDM10">
+<p>[30] J. Sun, D. Sow, J. Hu, and S. Ebadollahi, “A System for Mining Temporal Physiological Data Streams for Advanced Prognostic Decision Support,” in <em>IEEE Int. Conf. on Data Mining (ICDM)</em>, 2010, pp. 1061–1066, doi: <a href="https://doi.org/10.1109/ICDM.2010.102">10.1109/ICDM.2010.102</a>.</p>
+</div>
+<div id="ref-CombiEtAl:2010">
+<p>[31] C. Combi, E. Keravnou-Papailiou, and Y. Shahar, <em>Temporal Information Systems in Medicine</em>. Springer, 2010.</p>
+</div>
+<div id="ref-SiddiquiEtAl:BIH14">
+<p>[32] Z. F. Siddiqui, G. Krempl, M. Spiliopoulou, J. M. Pena, N. Paul, and F. Maestu, “Predicting the post-treatment recovery of the patients suffering from TBI,” Aug. 2014.</p>
+</div>
+<div id="ref-Orphanou:AIM2014">
+<p>[33] K. Orphanou, A. Stassopoulou, and E. Keravnou, “Temporal abstraction and temporal Bayesian networks in clinical domains: A survey,” <em>Artificial Intelligence in Medicine</em>, vol. 60, no. 3, pp. 133–149, 2014.</p>
+</div>
+<div id="ref-Zhao:BiomedInformatics2017">
+<p>[35] J. Zhao, P. Papapetrou, L. Asker, and H. Boström, “Learning from heterogeneous temporal data in electronic health records,” <em>Journal of Biomedical Informatics</em>, vol. 65, pp. 105–119, 2017.</p>
+</div>
+<div id="ref-Karlsson:DAMI2016">
+<p>[36] I. Karlsson, P. Papapetrou, and H. Boström, “Generalized random shapelet forests,” <em>Data Mining and Knowledge Discovery</em>, vol. 30, no. 5, pp. 1053–1085, 2016.</p>
 </div>
 </div>
             </section>
@@ -216,8 +260,8 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/04-evo.Rmd",
-"text": "Edit"
+"link": "https://github.com/unmnn/thesis/04-evo.Rmd",
+"text": "Source"
 },
 "history": {
 "link": null,
@@ -235,6 +279,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

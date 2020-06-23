@@ -6,6 +6,33 @@ Based on: [@Niemann:CBMS2018; @Niemann:SREP2020; @Niemann:PONE2020; @Niemann:Fro
 
 ## Motivation and comparison with related work
 
+For medical applications, it is essential for the epidemiological expert to be able to identify the features and feature-value pairs that are most important with respect to the model decision.
+Gaining actionable insights of a model beyond accuracy is important in order to derive hypotheses on the interaction between potential risk factors and a target outcome. 
+
+A few of the widely used algorithms are _intrinsic interpretable_ [@Lipton:ICML2015], including linear regression, logistic regression and decision trees.
+In linear regression, the beta coefficient of a predictor variable denotes the difference in the predicted value of the response variable for an increase of 1 unit of the predictor, given all other predictors stay the same. 
+Similarly, the coefficients of a logistic regression model can be interpreted in terms of change of odds for the positive outcome of the response, again given all other predictors stay the same. 
+Decision trees can achieve higher accuracy than linear and logistic regression, in particular for axes-parallel decision boundaries. 
+The tree structure of the model allows for an intuitive visualization and by transposing interpretable classification rules in form of  {IF $x \leq v1$ AND $y>v_2$ THEN outcome = positive} can be extracted. 
+However, intrinsically interpretable models are often too simple to deal with complex non-linear feature interactions. 
+Thus, more sophisticated algorithms yielding higher accuracy have become more popular, including support vector machines&nbsp;[@Boser:SVM1992], gradient boosted trees&nbsp;[@Friedman:PDP2001] and, in particular, deep neural networks&nbsp;[@Goodfellow:DL2016]. 
+The superior classification performance comes with a cost though: they lack internal mechanisms for direct model interpretation. 
+To provide a trade-off between high accuracy and model transparency, methods for _post-hoc_ explanations and visualizations have been proposed as remedy. 
+One of the most popular _model-specific_ interpretation method is the random forest feature importance which makes use of the instances not sampled for the induction of a single tree, the  out-of-bag (OOB) instances&nbsp;[@Breiman:RandomForests2001]. First, the model error is measured on the OOB data. Then, the values of each predictor in the OOB data are randomly shuffled at a time and the model error is measured again. 
+The assumption is that the more important a predictor is for the model, the more the error will increase if its values are shuffled. 
+Finally, the difference between the two errors is calculated and averaged over all trees in the forest to yield a feature importance ranking.
+For neural networks, several scores exist that aggregate the connection weights of all internal and output units that originate from a specific input characterizing a predictor variable [@Olden:NNInterpretation2004]. 
+
+_Model-agnostic_ methods have been proposed to provide algorithm-independent post-hoc explanations and hence, a trade-off between high accuracy and model interpretability.
+LIME [@RibeiroEtAl:KDD2016] is a framework for local model-agnostic explanations of an arbitrary classifier.
+For example, if a medical doctor uses a model to classify a patient of interest as low-risk or high-risk patient, he might be not only interested in the classifier decision but also in identifying which characteristics contributed most to the decision, i.e., whether laboratory values, socio-demographics or rather genetic markers have highest impact.
+For a complex black-box model, LIME learns a surrogate model to find explanations for the decision of the model for a specific instance of interest $i$.
+A surrogate model is an interpretable model, e.g. a linear model or a decision tree, that is used to derive a ranking of feature value importance w.r.t. the classification decision  of the model on $i$. 
+The procedure of LIME is as follows:
+First, a new dataset is created by random sampling from the training set weighted by the proximity to the instance of interest. 
+The new dataset is applied on the complex model to obtain predictions. Then, the decision boundary of the local dataset is approximated by a simple model. 
+The authors suggest Lasso regression to find the $k$ most important features for the local model. 
+
 ## The aneurysm dataset
 
 ## The tinnitus dataset
