@@ -14,3 +14,7 @@ Nächste Schritte:
 - Recommenders (Beratung, Empfehlung)
 - Computer-based decision support (Zielgruppe: Kliniker vs. Forscher (B. Mazurek))
 -----
+
+
+\\ref\{(.+)\}
+\\@ref(\1)

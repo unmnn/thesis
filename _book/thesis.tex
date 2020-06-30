@@ -76,12 +76,17 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
-\usepackage[style=ieee,]{biblatex}
+\usepackage[]{biblatex}
 \addbibresource{thesis.bib}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{cslreferences}%
+  {}%
+  {\par}
 
 \title{Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data}
 \author{Uli Niemann}
-\date{23.06.2020}
+\date{30.06.2020}
 
 \begin{document}
 \maketitle
@@ -96,56 +101,65 @@
 
 1 Thesis Overview\\
 1.1 Motivation\\
-1.2 Medical Applications\\
-1.3 Open Challenges\\
+1.2 Research Questions\\
+1.3 Epidemiological and Clinical Applications\\
 1.4 Structure and Summary of Contributions\\
 
-\textbf{PART I SUBPOPULATION DISCOVERY}
+2 Medical Background\\
+2.1 Important Terms\\
+2.2 Study Types\\
+2.3 The Study of Health in Pomerania (SHIP)\\
+2.4 The Diabetic Foot Clinical Trial (DF)\\
+2.5 The Intracranial Aneurysm Angiography Image Dataset (IAD)\\
+2.6 The Tinnitus Patients Pre-Post Interventional Study (TPD)\\
 
-2 Interactive discovery and inspection of subpopulations\\
-2.1 The SHIP dataset\\
-2.2 Motivation and comparison with related work\\
-2.3 Subpopulation discovery workflow and interactive mining assistant\\
-2.4 Experiments and findings\\
-2.5 Benefits of our workflow\\
+\textbf{PART I SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA}
 
-3 Identifying diverse subpopulations\\
-3.1 Motivation and comparison with related work\\
-3.2 Finding diverse classification rules\\
+3 Interactive discovery and inspection of subpopulations\\
+3.1 Motivation and Comparison with Related Work\\
+3.2 Subpopulation discovery workflow and interactive mining assistant\\
 3.3 Experiments and findings\\
-3.4 Benefits our our method\\
+3.4 Benefits of our workflow\\
 
-\textbf{PART II EXPLOITING TEMPORAL INFORMATION}
+4 Identification of Distinct Subpopulations\\
+4.1 Motivation and Comparison with Related Work\\
+4.2 Finding Distinct Classification Rules\\
+4.3 Experiments and Findings\\
+4.4 Benefits of our Method\\
 
-4 Constructing evolution features to capture change over time\\
-4.1 Motivation and comparison with related work\\
-4.2 Overview of the mining workflow\\
-4.3 Generating evolution features\\
-4.4 Experiments and findings\\
-4.5 Benefits our our method\\
+5 Visual Identification of Informative Features\\
 
-5 Feature extraction from short temporal sequences for clustering\\
-5.1 The diabatic foot dataset\\
-5.1 Motivation and comparison with related work 5.2 Overview of the mining workflow\\
-5.3 Experiments and findings\\
-5.4 Benefits our our method\\
+6 Extraction of Static Features\\
+
+\textbf{PART II EXPLOITING DYNAMICS}
+
+7 Extraction of Evolution Features for Cohort Data\\
+7.1 Motivation and Comparison with Related Work\\
+7.2 Overview of The Mining Workflow\\
+7.3 Generating Evolution Features\\
+7.4 Experiments and Findings\\
+7.5 Benefits of our Method\\
+
+8 Extraction of Features From Short Temporal Sequences\\
+8.1 Motivation and Comparison with Related Work\\
+8.2 Overview of the Mining Workflow\\
+8.3 Experiments and Findings\\
+8.4 Benefits of our Method\\
 
 \textbf{PART III POST-MINING FOR INTERPRETATION}
 
-6 Post-hoc interpretation of classification models\\
-6.1 Motivation and comparison with related work\\
-6.2 The aneurysm dataset\\
-6.3 The tinnitus dataset\\
-6.2 Overview of the mining workflow\\
-6.3 Experiments and findings on aneurysm data\\
-6.4 Experiments and findings on tinnitus data\\
-6.5 Benefits our our method\\
+9 Post-hoc Interpretation of Classification Models\\
+9.1 Motivation and Comparison with Related Work\\
+9.2 Overview of the Mining Workflow\\
+9.3 Experiments and Findings on IAD\\
+9.4 Experiments and findings on TPD\\
+9.5 Benefits of our Method\\
 
 \textbf{PART IV SUMMARY}
 
-7 Conclusion and future work\\
-7.1 Research results for medical expert-guided knowledge discovery\\
-7.2 Future work\\
+10 Conclusion and Future Work\\
+10.1 Research Results for Medical Expert-guided Knowledge Discovery\\
+10.2 Future Work\\
 
 \textbf{PART V APPENDIX}
 
@@ -154,25 +168,25 @@ List of publications\\
 Abbreviations\\
 
 \hypertarget{intro}{%
-\chapter{Thesis overview}\label{intro}}
+\chapter{Thesis Overview}\label{intro}}
 
 \hypertarget{motivation}{%
 \section{Motivation}\label{motivation}}
 
 The analysis of medical data typically strives towards (1) the identification of long-term determinants and protective factors for an outcome of interest, (2) the discovery of subpopulations with increased disease prevalence, and (3) the generation of robust models capable of explaining relationships between one or several independent variables and the outcome.
-For example, epidemiologists aim to discover causal associations between multiple risk factors and an outcome in cohort studies collecting data which encompass rich information about the participants, gathered from questionnaires, medical examinations, laboratory analyses and image acquisition.
+For example, epidemiologists aim to discover associations between multiple risk factors and an outcome in cohort studies collecting data which encompass rich information about the participants, gathered from questionnaires, medical examinations, laboratory analyses and image acquisition.
 Often, these data are repeatedly collected over time, for example in longitudinal studies. Thus, researchers incorporate a participants history in their analyses to account for temporal aspects.\\
-Finding causal associations between variables commonly requires medical scholars to first carefully derive some hypotheses from clinical daily routine, experimental studies or extensive literature research, and then formally test them on statistical significance.
+Finding associations between variables commonly requires medical scholars to first carefully derive some hypotheses from clinical daily routine, experimental studies or extensive literature research, and then formally test them on statistical significance.
 However, with the ever-growing volume and heterogeneity of medical data, traditional hypothesis-driven workflows become increasingly impractical because some important inherent associations between variables might remain undiscovered.
 
-Data Mining (DM) and Machine Learning\footnote{The terms Data Mining and Machine Learning are used synonymously.} (ML) can enhance medical research by discovering subpopulations of study participants which are similar with respect to the outcome, and thus can be used to generate new hypotheses.
+Data Mining (DM) and Machine Learning\footnote{The terms Data Mining and Machine Learning are used synonymously.} (ML) can enhance medical research by discovering subpopulations of study participants which are similar with respect to the outcome, and thus can be used to derive new hypotheses.
 The proliferation of medical ML applications is triggered by multiple reasons, such as the desire of exploiting the plethora of gathered study participant information and the ubiquitousness of ``A.I.'' success stories in the media.
 However, simply building complex data-driven models does not guarantee that knowledge can be derived without effort.
 Most state-of-the-art ML algorithms such as deep neuronal networks and gradient boosting machines generate so called black-box models with multiple layers of complexity incorporating many multi-variate, non-linear interactions among variables, which are hard to present intuitively.
 It is vital that the application expert, which is not a practitioner, but a scholar working in a clinical or epidemiological environment, is equipped with means to understand, explore and visualize the models, so that s/he can drill down to specific individual patterns and gain actionable insights that ultimately contribute to prevention, diagnosis and treatment of diseases.
 Since health care data can be derived from diverse sources such as epidemiological studies or clinical trials, major characteristics of collected datasets vary which requires an adaption of methods tailored to the characteristics of the application scenario.
 
-The goal of this thesis is to support medical experts by providing an intelligent assistance for the analysis of high-dimensional time-stamped medical data.
+The goal of this thesis is to support medical experts by providing an intelligent assistance for the analysis of high-dimensional temporal medical data.
 During the phases of model generation and model post-processing, several challenges have to be dealt with, so that the expert is able to derive actionable knowledge. These challenges translate to the following four demands:
 
 \begin{enumerate}
@@ -197,18 +211,40 @@ There are several aspects to deal with:
 \item
   Dimensionality: to what extend can the same methods be used on low-dimensional and high-dimensional data?
 \item
-  Time granularity: to what extend can the same methods be used on data with few discrete waves and with dense time-stamped recordings?
+  Time granularity: to what extend can the same methods be used on data with few discrete waves and with dense temporal recordings?
 \item
-  The impact of the protocol: both data recorded for specific research questions (DIAB, Dan-Monica, AneurD) are investigated as well as data recorded independently of the research questions (SHIP, TinD). To what extend can the same approaches be used, what deviations are needed?
+  The impact of the protocol: both data recorded for specific research questions (DIAB, Dan-Monica, IAD) are investigated as well as data recorded independently of the research questions (SHIP, TPD). To what extend can the same approaches be used, what deviations are needed?
 \end{enumerate}
 
-\hypertarget{medical-applications}{%
-\section{Medical applications}\label{medical-applications}}
+\hypertarget{research-questions}{%
+\section{Research Questions}\label{research-questions}}
 
-\textbf{A categorization of time-stamped medical data.} The structure of medical data naturally depends on the study design. In this thesis proposal, medical data is categorized using the following five criteria.
+The motivation described in the previous section leads to the following research questions, including the core research question (RQ).
+The core research question of the thesis is: \textbf{How to derive accurate yet understandable patterns for subpopulation discovery in high-dimensional temporal medical data?}
+This question is central for the thesis. Since it includes multiple aspects, such as feature engineering, model learning, and post-mining steps, the question is subdivided into the following three research questions.
 
 \begin{itemize}
 \tightlist
+\item
+  \textbf{RQ 1}: How to leverage understandable models for high-dimensional temporal medical data?
+\item
+  \textbf{RQ 2}: How to effectively capture and exploit implicit temporal information to improve model quality?
+\item
+  \textbf{RQ 3}: How to extract, process and display the most relevant (temporal) patterns for an efficient expert-driven model exploration?
+\end{itemize}
+
+Table~\ref{tab:mapping} shows a mapping between scientific articles associated with this thesis and addressed research questions.
+
+\hypertarget{epidemiological-and-clinical-applications}{%
+\section{Epidemiological and Clinical Applications}\label{epidemiological-and-clinical-applications}}
+
+\textbf{A categorization of temporal medical data.} The structure of medical data naturally depends on the study design.
+In this thesis proposal, medical data is categorized using the following six criteria.
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Study type}: epidemiological vs.~clinical
 \item
   \emph{Number of variables}: number of variables, features, attributes or dimensions
 \item
@@ -221,123 +257,142 @@ There are several aspects to deal with:
   \emph{Temporal granularity}: frequency of repeated assessments
 \end{itemize}
 
-Table~\ref{tab:data} juxtaposes the five application datasets with respect to the five criteria depicted above.
+Table~\ref{tab:data} juxtaposes the five application datasets with respect to the six criteria depicted above. E = epidemiological; C = clinical.
 
-\begin{longtable}[]{@{}llllll@{}}
+\begin{longtable}[]{@{}lllllll@{}}
 \caption{\label{tab:data} Study dataset characteristics.}\tabularnewline
 \toprule
-\begin{minipage}[b]{0.14\columnwidth}\raggedright
+\begin{minipage}[b]{0.08\columnwidth}\raggedright
 ~\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+Study type\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Number of variables\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Number of individuals\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Temporal horizon\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Number of assessments\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Temporal granularity\strut
 \end{minipage}\tabularnewline
 \midrule
 \endfirsthead
 \toprule
-\begin{minipage}[b]{0.14\columnwidth}\raggedright
+\begin{minipage}[b]{0.08\columnwidth}\raggedright
 ~\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.05\columnwidth}\raggedright
+Study type\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Number of variables\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Number of individuals\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Temporal horizon\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Number of assessments\strut
-\end{minipage} & \begin{minipage}[b]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\raggedright
 Temporal granularity\strut
 \end{minipage}\tabularnewline
 \midrule
 \endhead
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
 SHIP\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+E\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textgreater100)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\rightarrow\) (\textgreater800)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textasciitilde15 yr)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (3 obs.)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (1 ass./5 yr)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
-DFSS\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+DFD\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+C\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (\textless10)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (\textless60)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (\textasciitilde100 min)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textgreater{} 100 obs.)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\(\geq 3\) rec./min)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
-AneurD\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+IAD\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+C\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (\textless30)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\rightarrow\) (100)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\bullet\) (none)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\bullet\) (none)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\bullet\) (none)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
 Dan-MONICA\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+E\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textgreater100)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\rightarrow\) (\textgreater1000)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textasciitilde10 yr)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (3 obs.)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (1 ass./5 yr)\strut
 \end{minipage}\tabularnewline
-\begin{minipage}[t]{0.14\columnwidth}\raggedright
-TinD\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\begin{minipage}[t]{0.08\columnwidth}\raggedright
+TPD\strut
+\end{minipage} & \begin{minipage}[t]{0.05\columnwidth}\raggedright
+C\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textgreater100)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\rightarrow\) (\textgreater1000)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\downarrow\) (\textasciitilde10 days)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 \(\uparrow\) (\textgreater{} 2 obs.)\strut
-\end{minipage} & \begin{minipage}[t]{0.14\columnwidth}\raggedright
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\raggedright
 NA\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
 We will evaluate our methods on five medical datasets.\\
-\textbf{SHIP}. The ``Study of Health in Pomerania'' (SHIP) \autocite{Voelzke:SHIP11} encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region.
+\textbf{Study of Health in Pomerania (SHIP)}. The ``Study of Health in Pomerania'' (SHIP) \autocite{Voelzke:SHIP11} encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region.
 Baseline examinations for SHIP-CORE were performed between 1997 and 2001 (SHIP-0, n=4308). Three follow-up examinations were conducted in intervals of 5 years, continuously adding new variables including MRI scans beginning from the second follow-up (SHIP-2).
 Baseline information for the SHIP-TREND (TREND-0, n=4420) was collected in 2008-2012.
 In both cohorts, a broad range of participant information was gathered, including socio-demographics, lifestyle and consumption behavior, medication intake, anthropometric values, blood and urine laboratory values, whole-body magnet resonance imaging, and others.
 
-\textbf{DFSS}. While SHIP investigates associations between risk factors of common diseases and health-related conditions in general, the ``Diabetic Foot Syndrome'\,' study~\autocite{Niemann:PONE2016,Niemann:EBioMedicine2020} is a case-control study specifically investigating differences between diabetes patients diagnosed with severe polyneuropathy and healthy controls.
+\textbf{The diabetic foot clinical trial dataset (DFD)}. While SHIP investigates associations between risk factors of common diseases and health-related conditions in general, the ``diabetic foot clinical trial''~\autocite{Niemann:PONE2016,Niemann:EBioMedicine2020}
+investigates differences between diabetes patients diagnosed with severe polyneuropathy and healthy controls.
 In a pre-specified sequence of actions alternating between two postures, standing and sitting, custom-made sensor-bearing insoles placed in a closed shoe measured changes of a subject's plantar pressures and temperatures with high frequency over time.
 These measurements allowed for the analysis of pathophysiological and sensation-related differences between the two groups.
 
-\textbf{Aneurysm database (AneurD)}. The ``aneurysm database'' contains angiographical image data of 74 patients with a total of 100 intracranial aneurysms~\autocite{Niemann:CBMS2018}.
+\textbf{The intracranial aneurysm angiography image dataset (IAD)}. The ``intracranial aneurysm angiography image dataset'' (AD) contains angiographical image data of 74 patients with a total of 100 intracranial aneurysms~\autocite{Niemann:CBMS2018}.
 Intracranial aneurysms are pathologic dilations of the intracranial vessel wall, bearing the risk of rupture and thus subarachnoidal hemorrhages with often fatal consequences for the patient.
 Since treatment may cause severe complications as well, the goal is to generate models that can separate between ruptured and non-ruptured aneurysms.
+
+\textcolor{red}{red}
+
+\textbf{REMOVE MONICA?}
 
 \textbf{MONICA}. This dataset is derived from the Danish population of the WHO project MONICA (Multinational MONItoring of trends and determinants in CArdiovascular disease).
 MONICA is a longitudinal epidemiological cohort study focusing on risk factors of cardio-vascular diseases, as well as causes and trends regarding the differences in the mortality between countries \autocite{WHO:MONICA1989}.
@@ -346,28 +401,12 @@ Accomplishments of the project include the establishment of a profound database 
 In the Danish MONICA cohort, over 30,000 residents from the south-western of Copenhagen County, aged between 25 and 74 years, participated in three waves from 1982 to 1991 \autocite{Bronnum:DanMONICA2001}.
 The baseline examinations were conducted in 1982-1986 (DAN-MONICA I) with the first two follow-ups in 1986-1987 (DAN-MONICA II) and in 1991-1992 (DAN-MONICA III).
 
-\textbf{Tinnitus dataset (TinD)}. This dataset contains information on a cohort of a total of 3,971 tinnitus patients who had been treated at the tinnitus centre of the university medicine in Berlin between January 2011 and October 2015. All included patients had been suffering from tinnitus for 3 months or longer, were 18 years of age or older and had sufficient knowledge of the German language.
+\textbf{The tinnitus patients pre-post interventional study dataset (TPD)}. This dataset contains information on a cohort of a total of 3,971 tinnitus patients who had been treated at the tinnitus centre of the university medicine in Berlin between January 2011 and October 2015. All included patients had been suffering from tinnitus for 3 months or longer, were 18 years of age or older and had sufficient knowledge of the German language.
 At registration, patients were asked to complete 15 questionnaires on socio-demographics, tinnitus-related distress, frequency, loudness, localization and quality as well as physical and mental health status, including levels of depression and perceived stress.
 To assess efficacy of the treatment, patients filled the same battery of questionnaires a second time.
 
-\hypertarget{open-challenges}{%
-\section{Open challenges}\label{open-challenges}}
-
-The motivation described in the previous section leads to the following research questions, including the core research question (RQ). The core research question of the thesis is: \textbf{How to generate accurate yet understandable patterns for subpopulation discovery in high-dimensional time-stamped medical data?}
-This question is central for the thesis. Since it includes multiple aspects, such as feature engineering, model learning, and post-mining steps, the question is subdivided into the following three research questions.
-
-\begin{bfseries}
-    \begin{itemize}
-        \item[RQ 1] How to leverage understandable models for high-dimensional time-stamped medical data?
-        \item[RQ 2] How to effectively capture and exploit implicit temporal information to improve model quality?
-        \item[RQ 3] How to extract, process and display the most relevant (temporal) patterns for an efficient expert-driven model exploration?
-    \end{itemize}
-\end{bfseries}
-
-Table~\ref{tab:mapping} shows a mapping between scientific articles associated with this thesis and addressed research questions.
-
 \hypertarget{structure-and-summary-of-contributions}{%
-\section{Structure and summary of contributions}\label{structure-and-summary-of-contributions}}
+\section{Structure and Summary of Contributions}\label{structure-and-summary-of-contributions}}
 
 Contributions of the published and submitted work include
 
@@ -387,7 +426,7 @@ Contributions of the published and submitted work include
   results that confirm findings from medical literature or results that can be validated in independent studies.
 \end{itemize}
 
-\begin{longtable}[]{@{}rcccl@{}}
+\begin{longtable}[]{@{}lcccl@{}}
 \caption{\label{tab:mapping} Mapping of published and planned articles to research questions.}\tabularnewline
 \toprule
 Article & \textbf{RQ1} & \textbf{RQ2} & \textbf{RQ3} & Datasets\tabularnewline
@@ -401,26 +440,52 @@ Article & \textbf{RQ1} & \textbf{RQ2} & \textbf{RQ3} & Datasets\tabularnewline
 \autocite{Niemann:IMM2014} & \(\checkmark\) & & \(\checkmark\) & SHIP\tabularnewline
 \autocite{NiemannEtAl:FCDS2014} & \(\checkmark\) & & & SHIP\tabularnewline
 \autocite{Niemann:CBMS2015} & \(\checkmark\) & \(\checkmark\) & & SHIP\tabularnewline
-\autocite{Niemann:CBMS2016} & \(\checkmark\) & \(\checkmark\) & & DFSS\tabularnewline
-\autocite{Niemann:PONE2016} & \(\checkmark\) & \(\checkmark\) & & DFSS\tabularnewline
+\autocite{Niemann:CBMS2016} & \(\checkmark\) & \(\checkmark\) & & DFD\tabularnewline
+\autocite{Niemann:PONE2016} & \(\checkmark\) & \(\checkmark\) & & DFD\tabularnewline
 \autocite{Niemann:CBMS2017} & \(\checkmark\) & & & SHIP\tabularnewline
-\autocite{Niemann:CBMS2018} & \(\checkmark\) & & & AneurD\tabularnewline
-\autocite{Niemann:SREP2020} & \(\checkmark\) & \(\checkmark\) & & SHIP, MONICA\tabularnewline
-\autocite{Niemann:SciRep2020} & \(\checkmark\) & & \(\checkmark\) & TinD\tabularnewline
-\autocite{Niemann:EBioMedicine2020} & \(\checkmark\) & & \(\checkmark\) & DFSS\tabularnewline
+\autocite{Niemann:CBMS2018} & \(\checkmark\) & & & IAD\tabularnewline
+\autocite{Niemann:EBioMedicine2020} & \(\checkmark\) & & \(\checkmark\) & DFD\tabularnewline
+\autocite{Niemann:SREP2020} & \(\checkmark\) & & \(\checkmark\) & TPD\tabularnewline
+\autocite{Niemann:PONE2020} & \(\checkmark\) & & \(\checkmark\) & TPD\tabularnewline
+\autocite{Niemann:Frontiers2020} & \(\checkmark\) & & \(\checkmark\) & TPD\tabularnewline
+\autocite{Niemann:Pheno2020} & \(\checkmark\) & & \(\checkmark\) & TPD\tabularnewline
+\autocite{Niemann:SciRep2020} & \(\checkmark\) & \(\checkmark\) & & SHIP, MONICA\tabularnewline
 \bottomrule
 \end{longtable}
+
+\hypertarget{medical-background}{%
+\chapter{Medical Background}\label{medical-background}}
+
+\textbf{TODO: Begriffe erläutern} populationsbasierte Studie, Kohorten, Samples, experimentelle Daten, klinische Samples, Medizinforschungs-Samples etc.
+
+\hypertarget{important-terms}{%
+\section{Important Terms}\label{important-terms}}
+
+\hypertarget{study-types}{%
+\section{Study Types}\label{study-types}}
+
+\hypertarget{the-study-of-health-in-pomerania-ship}{%
+\section{The Study of Health in Pomerania (SHIP)}\label{the-study-of-health-in-pomerania-ship}}
+
+\hypertarget{the-diabetic-foot-clinical-trial-df}{%
+\section{The Diabetic Foot Clinical Trial (DF)}\label{the-diabetic-foot-clinical-trial-df}}
+
+\hypertarget{the-intracranial-aneurysm-angiography-image-dataset-iad}{%
+\section{The Intracranial Aneurysm Angiography Image Dataset (IAD)}\label{the-intracranial-aneurysm-angiography-image-dataset-iad}}
+
+\hypertarget{the-tinnitus-patients-pre-post-interventional-study-tpd}{%
+\section{The Tinnitus Patients Pre-Post Interventional Study (TPD)}\label{the-tinnitus-patients-pre-post-interventional-study-tpd}}
 
 \hypertarget{part-subpopulation-discovery-in-high-dimensional-data}{%
 \part{SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA}\label{part-subpopulation-discovery-in-high-dimensional-data}}
 
 \hypertarget{imm}{%
-\chapter{Interactive discovery and inspection of subpopulations}\label{imm}}
+\chapter{Interactive Discovery and Inspection of Subpopulations}\label{imm}}
 
 Based on \autocite{Niemann:ESWA2014}
 
 \hypertarget{motivation-and-comparison-with-related-work}{%
-\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work}}
+\section{Motivation and Comparison with Related Work}\label{motivation-and-comparison-with-related-work}}
 
 Medical decisions on diagnosis and treatment of multifactorial diseases are based on clinical and epidemiological studies.
 The latter accommodate information on participants with and without the disorder and allow for discriminative model learning and, in the longitudinal design, for understanding the progress of a disorder (possibly towards a disease).
@@ -452,45 +517,52 @@ Bennetts et al.~studied how patients applied pressure when they stood, and perfo
 distinguishing among seven plantar regions \autocite{BennettsEtAl:Biomechanics2013}.
 They compared the clusters on mean peak pressure and studied how the number of clusters k affected the results.
 
-\hypertarget{the-ship-dataset}{%
-\section{The SHIP dataset}\label{the-ship-dataset}}
-
 \hypertarget{subpopulation-discovery-workflow-and-interactive-mining-assistant}{%
-\section{Subpopulation discovery workflow and interactive mining assistant}\label{subpopulation-discovery-workflow-and-interactive-mining-assistant}}
+\section{Subpopulation Discovery Workflow and Interactive Mining Assistant}\label{subpopulation-discovery-workflow-and-interactive-mining-assistant}}
 
 \hypertarget{experiments-and-findings}{%
-\section{Experiments and findings}\label{experiments-and-findings}}
+\section{Experiments and Findings}\label{experiments-and-findings}}
 
 \hypertarget{benefits-of-our-workflow}{%
-\section{Benefits of our workflow}\label{benefits-of-our-workflow}}
+\section{Benefits of Our Workflow}\label{benefits-of-our-workflow}}
 
 \hypertarget{sdclu}{%
-\chapter{Identifying diverse subpopulations}\label{sdclu}}
+\chapter{Identifying Distinct Subpopulations}\label{sdclu}}
 
 Based on: \autocite{Niemann:CBMS2017}
 
 \hypertarget{motivation-and-comparison-with-related-work-1}{%
-\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-1}}
+\section{Motivation and Comparison with Related Work}\label{motivation-and-comparison-with-related-work-1}}
 
-\hypertarget{finding-diverse-classification-rules}{%
-\section{Finding diverse classification rules}\label{finding-diverse-classification-rules}}
+\hypertarget{finding-distinct-classification-rules}{%
+\section{Finding Distinct Classification Rules}\label{finding-distinct-classification-rules}}
 
 \hypertarget{experiments-and-findings-1}{%
-\section{Experiments and findings}\label{experiments-and-findings-1}}
+\section{Experiments and Findings}\label{experiments-and-findings-1}}
 
-\hypertarget{benefits-our-our-method}{%
-\section{Benefits our our method}\label{benefits-our-our-method}}
+\hypertarget{benefits-of-our-method}{%
+\section{Benefits of our Method}\label{benefits-of-our-method}}
 
-\hypertarget{part-exploiting-temporal-information}{%
-\part{EXPLOITING TEMPORAL INFORMATION}\label{part-exploiting-temporal-information}}
+\hypertarget{visual-identification-of-informative-features}{%
+\chapter{Visual Identification of Informative Features}\label{visual-identification-of-informative-features}}
+
+Based on \autocite{Niemann:Pheno2020,Niemann:SREP2020,Niemann:PONE2020,Niemann:Frontiers2020}
+
+\hypertarget{extraction-of-static-features}{%
+\chapter{Extraction of Static Features}\label{extraction-of-static-features}}
+
+Based on: \autocite{Niemann:CBMS2018}
+
+\hypertarget{part-exploiting-dynamics}{%
+\part{EXPLOITING DYNAMICS}\label{part-exploiting-dynamics}}
 
 \hypertarget{evo}{%
-\chapter{Constructing evolution features to capture change over time}\label{evo}}
+\chapter{Constructing Evolution Features to Capture Change over Time}\label{evo}}
 
 Based on: \autocite{Niemann:CBMS2015}
 
 \hypertarget{motivation-and-comparison-with-related-work-2}{%
-\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-2}}
+\section{Motivation and Comparison with Related Work}\label{motivation-and-comparison-with-related-work-2}}
 
 Exploitation of temporal information in medicine and healthcare is often observed, foremostly in the analysis of patient records in healthcare applications. For example, Pechenizkiy et al.~analyzed streams of recordings to predict whether a patient will need a re-hospitalization after a health failure treatment \autocite{PechenizkiyEtAl:CBMS10}. Patient monitoring was also the application area of \autocite{SunEtAl:ICDM10}, where the emphasis was on computing the similarity between streams of patients for prediction. Combi et al.~reported both on the study of streams, e.g.~on streams of life signals, and on the temporal analysis of the timestamped medical records of hospital patients \autocite{CombiEtAl:2010}.
 Patient evolution with clustering was studied in \autocite{SiddiquiEtAl:BIH14}: Siddiqui et al.~proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in \autocite{SiddiquiEtAl:BIH14} are labeled at each moment.
@@ -516,47 +588,44 @@ For example, in handwriting and speech recognition, it is not important to under
 In contrast, for medical applications it is crucial to understand the reasoning behind a model in order to trust its decision which can have substantial impact on the patient's life quality.
 
 \hypertarget{overview-of-the-mining-workflow}{%
-\section{Overview of the mining workflow}\label{overview-of-the-mining-workflow}}
+\section{Overview of the Mining Workflow}\label{overview-of-the-mining-workflow}}
 
 \hypertarget{generating-evolution-features}{%
-\section{Generating evolution features}\label{generating-evolution-features}}
+\section{Generating Evolution Features}\label{generating-evolution-features}}
 
 \hypertarget{experiments-and-findings-2}{%
-\section{Experiments and findings}\label{experiments-and-findings-2}}
+\section{Experiments and Findings}\label{experiments-and-findings-2}}
 
-\hypertarget{benefits-our-our-method-1}{%
-\section{Benefits our our method}\label{benefits-our-our-method-1}}
+\hypertarget{benefits-of-our-method-1}{%
+\section{Benefits of our Method}\label{benefits-of-our-method-1}}
 
 \hypertarget{diabfoot}{%
-\chapter{Feature extraction from short temporal sequences for clustering}\label{diabfoot}}
+\chapter{Feature Extraction From Short Temporal Sequences for Clustering}\label{diabfoot}}
 
 \hypertarget{motivation-and-comparison-with-related-work-3}{%
-\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-3}}
+\section{Motivation and Comparison with Related Work}\label{motivation-and-comparison-with-related-work-3}}
 
 Based on: \autocite{Niemann:CBMS2016,Niemann:PONE2016,Niemann:EBioMedicine2020}
 
-\hypertarget{the-diabatic-foot-dataset}{%
-\section{The diabatic foot dataset}\label{the-diabatic-foot-dataset}}
-
 \hypertarget{overview-of-the-mining-workflow-1}{%
-\section{Overview of the mining workflow}\label{overview-of-the-mining-workflow-1}}
+\section{Overview of the Mining Workflow}\label{overview-of-the-mining-workflow-1}}
 
 \hypertarget{experiments-and-findings-3}{%
-\section{Experiments and findings}\label{experiments-and-findings-3}}
+\section{Experiments and Findings}\label{experiments-and-findings-3}}
 
-\hypertarget{benefits-our-our-method-2}{%
-\section{Benefits our our method}\label{benefits-our-our-method-2}}
+\hypertarget{benefits-of-our-method-2}{%
+\section{Benefits of our Method}\label{benefits-of-our-method-2}}
 
 \hypertarget{part-post-mining-for-interpretation}{%
 \part{POST-MINING FOR INTERPRETATION}\label{part-post-mining-for-interpretation}}
 
 \hypertarget{iml}{%
-\chapter{Post-hoc interpretation of classification models}\label{iml}}
+\chapter{Post-hoc Interpretation of Classification Models}\label{iml}}
 
 Based on: \autocite{Niemann:CBMS2018,Niemann:SREP2020,Niemann:PONE2020,Niemann:Frontiers2020}
 
 \hypertarget{motivation-and-comparison-with-related-work-4}{%
-\section{Motivation and comparison with related work}\label{motivation-and-comparison-with-related-work-4}}
+\section{Motivation and Comparison with Related Work}\label{motivation-and-comparison-with-related-work-4}}
 
 For medical applications, it is essential for the epidemiological expert to be able to identify the features and feature-value pairs that are most important with respect to the model decision.
 Gaining actionable insights of a model beyond accuracy is important in order to derive hypotheses on the interaction between potential risk factors and a target outcome.
@@ -585,38 +654,52 @@ First, a new dataset is created by random sampling from the training set weighte
 The new dataset is applied on the complex model to obtain predictions. Then, the decision boundary of the local dataset is approximated by a simple model.
 The authors suggest Lasso regression to find the \(k\) most important features for the local model.
 
-\hypertarget{the-aneurysm-dataset}{%
-\section{The aneurysm dataset}\label{the-aneurysm-dataset}}
-
-\hypertarget{the-tinnitus-dataset}{%
-\section{The tinnitus dataset}\label{the-tinnitus-dataset}}
-
 \hypertarget{overview-of-the-mining-workflow-2}{%
-\section{Overview of the mining workflow}\label{overview-of-the-mining-workflow-2}}
+\section{Overview of the Mining Workflow}\label{overview-of-the-mining-workflow-2}}
 
-\hypertarget{experiments-and-findings-on-aneurysm-data}{%
-\section{Experiments and findings on aneurysm data}\label{experiments-and-findings-on-aneurysm-data}}
+\hypertarget{experiments-and-findings-on-iad}{%
+\section{Experiments and Findings on IAD}\label{experiments-and-findings-on-iad}}
 
-\hypertarget{experiments-and-findings-on-tinnitus-data}{%
-\section{Experiments and findings on tinnitus data}\label{experiments-and-findings-on-tinnitus-data}}
+\hypertarget{experiments-and-findings-on-tpd}{%
+\section{Experiments and findings on TPD}\label{experiments-and-findings-on-tpd}}
 
-\hypertarget{benefits-our-our-method-3}{%
-\section{Benefits our our method}\label{benefits-our-our-method-3}}
+\hypertarget{benefits-of-our-method-3}{%
+\section{Benefits of our Method}\label{benefits-of-our-method-3}}
 
 \hypertarget{part-summary}{%
 \part{SUMMARY}\label{part-summary}}
 
 \hypertarget{summary}{%
-\chapter{Conclusion and future work}\label{summary}}
+\chapter{Conclusion and Future Work}\label{summary}}
 
 \hypertarget{research-results-for-medical-expert-guided-knowledge-discovery}{%
-\section{Research results for medical expert-guided knowledge discovery}\label{research-results-for-medical-expert-guided-knowledge-discovery}}
+\section{Research Results for Medical Expert-guided Knowledge Discovery}\label{research-results-for-medical-expert-guided-knowledge-discovery}}
 
 \hypertarget{future-work}{%
-\section{Future work}\label{future-work}}
+\section{Future Work}\label{future-work}}
 
-\hypertarget{part-appendix}{%
-\part{APPENDIX}\label{part-appendix}}
+\hypertarget{appendix-appendix}{%
+\appendix}
+
+
+\hypertarget{refs}{}
+\begin{cslreferences}
+\end{cslreferences}
+
+\hypertarget{abbreviations}{%
+\chapter*{Abbreviations}\label{abbreviations}}
+\addcontentsline{toc}{chapter}{Abbreviations}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+~ & ~\tabularnewline
+\midrule
+\endhead
+AI & Artificial Intelligence\tabularnewline
+DM & Data Mining\tabularnewline
+ML & Machine Learning\tabularnewline
+\bottomrule
+\end{longtable}
 
 \printbibliography
 

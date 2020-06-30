@@ -1,0 +1,15 @@
+# Medical Background
+
+**TODO: Begriffe erläutern** populationsbasierte Studie, Kohorten, Samples, experimentelle Daten, klinische Samples, Medizinforschungs-Samples etc.
+
+## Important Terms
+
+## Study Types
+
+## The Study of Health in Pomerania (SHIP)
+
+## The Diabetic Foot Clinical Trial (DF)
+
+## The Intracranial Aneurysm Angiography Image Dataset (IAD)
+
+## The Tinnitus Patients Pre-Post Interventional Study (TPD)

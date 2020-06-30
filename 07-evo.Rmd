@@ -1,10 +1,10 @@
-# (PART) EXPLOITING TEMPORAL INFORMATION {-}
+# (PART) EXPLOITING DYNAMICS {-}
 
-# Constructing evolution features to capture change over time {#evo}
+# Constructing Evolution Features to Capture Change over Time {#evo}
 
 Based on: [@Niemann:CBMS2015]
 
-## Motivation and comparison with related work
+## Motivation and Comparison with Related Work
 
 Exploitation of temporal information in medicine and healthcare is often observed, foremostly in the analysis of patient records in healthcare applications. For example, Pechenizkiy et al. analyzed streams of recordings to predict whether a patient will need a re-hospitalization after a health failure treatment [@PechenizkiyEtAl:CBMS10]. Patient monitoring was also the application area of [@SunEtAl:ICDM10], where the emphasis was on computing the similarity between streams of patients for prediction. Combi et al. reported both on the study of streams, e.g. on streams of life signals, and on the temporal analysis of the timestamped medical records of hospital patients [@CombiEtAl:2010]. 
 Patient evolution with clustering was studied in [@SiddiquiEtAl:BIH14]: Siddiqui et al. proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in [@SiddiquiEtAl:BIH14] are labeled at each moment.
@@ -32,10 +32,10 @@ While these methods often outperform more traditional approaches, they produce s
 For example, in handwriting and speech recognition, it is not important to understand _why_ a digit is identified as a _2_ rather than a _7_ or an audio sample is recognized as _tail_ instead of _tale_, as long as the model is accurate. 
 In contrast, for medical applications it is crucial to understand the reasoning behind a model in order to trust its decision which can have substantial impact on the patient's life quality. 
 
-## Overview of the mining workflow
+## Overview of the Mining Workflow
 
-## Generating evolution features
+## Generating Evolution Features
 
-## Experiments and findings
+## Experiments and Findings
 
-## Benefits our our method
+## Benefits of our Method

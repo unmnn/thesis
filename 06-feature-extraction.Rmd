@@ -1,0 +1,3 @@
+# Extraction of Static Features
+
+Based on: [@Niemann:CBMS2018]

@@ -1,10 +1,10 @@
 # (PART) SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA {-}
 
-# Interactive discovery and inspection of subpopulations {#imm}
+# Interactive Discovery and Inspection of Subpopulations {#imm}
 
 Based on [@Niemann:ESWA2014]
 
-## Motivation and comparison with related work
+## Motivation and Comparison with Related Work
 
 Medical decisions on diagnosis and treatment of multifactorial diseases are based on clinical and epidemiological studies. 
 The latter accommodate information on participants with and without the disorder and allow for discriminative model learning and, in the longitudinal design, for understanding the progress of a disorder (possibly towards a disease).
@@ -42,12 +42,10 @@ They compared the clusters on mean peak pressure and studied how the number of c
 <!-- we deliver visualization aids for the inspection of the most representative instance (patient foot) in each cluster. -->
 <!-- The tasks of modeling similarity, learning clusters with different algorithms, comparing them and inspecting the results, constitute a complete mining workflow. In \cite{GlasserEtAl:CBMS13,NiemannEtAl:CBMS15}, we proposed workflows that encompass the specification of similarity between instances, the tuning of clustering algorithms (in \cite{NiemannEtAl:CBMS15}) and the assessment of quality. However, these workflows concern the juxtaposition of patients to healthy people, while here we concentrate on the stratification of patients only and build the workflow accordingly. -->
 
-## The SHIP dataset
+## Subpopulation Discovery Workflow and Interactive Mining Assistant
 
-## Subpopulation discovery workflow and interactive mining assistant
+## Experiments and Findings  
 
-## Experiments and findings  
-
-## Benefits of our workflow
+## Benefits of Our Workflow
 
 

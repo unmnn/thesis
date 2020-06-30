@@ -22,4 +22,4 @@ bookdown::pdf_book:
 # bookdown::epub_book: default
 bookdown::word_document2:
   reference_docx: default
-  pandoc_args: ["--csl", "csl/ieee.csl"]
+  # pandoc_args: ["--csl", "csl/ieee.csl"]

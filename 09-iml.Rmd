@@ -1,10 +1,10 @@
 # (PART) POST-MINING FOR INTERPRETATION {-}
 
-# Post-hoc interpretation of classification models {#iml}
+# Post-hoc Interpretation of Classification Models {#iml}
 
 Based on: [@Niemann:CBMS2018; @Niemann:SREP2020; @Niemann:PONE2020; @Niemann:Frontiers2020]
 
-## Motivation and comparison with related work
+## Motivation and Comparison with Related Work
 
 For medical applications, it is essential for the epidemiological expert to be able to identify the features and feature-value pairs that are most important with respect to the model decision.
 Gaining actionable insights of a model beyond accuracy is important in order to derive hypotheses on the interaction between potential risk factors and a target outcome. 
@@ -33,16 +33,12 @@ First, a new dataset is created by random sampling from the training set weighte
 The new dataset is applied on the complex model to obtain predictions. Then, the decision boundary of the local dataset is approximated by a simple model. 
 The authors suggest Lasso regression to find the $k$ most important features for the local model. 
 
-## The aneurysm dataset
+## Overview of the Mining Workflow
 
-## The tinnitus dataset
+## Experiments and Findings on IAD
 
-## Overview of the mining workflow
+## Experiments and findings on TPD
 
-## Experiments and findings on aneurysm data
-
-## Experiments and findings on tinnitus data
-
-## Benefits our our method
+## Benefits of our Method
 
 

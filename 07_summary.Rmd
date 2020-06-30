@@ -1,7 +1,0 @@
-# (PART) SUMMARY {-}
-
-# Conclusion and future work {#summary}
-
-## Research results for medical expert-guided knowledge discovery
-
-## Future work

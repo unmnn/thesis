@@ -27,3 +27,7 @@ pre code {
 .book.with-summary .book-body {
     left: 350px;
 }
+
+.red {
+  color: "Crimson";
+}

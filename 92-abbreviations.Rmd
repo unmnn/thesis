@@ -1,0 +1,7 @@
+# Abbreviations {.unnumbered}
+
+&nbsp; | &nbsp;
+:----- | :-----
+AI     | Artificial Intelligence
+DM     | Data Mining
+ML     | Machine Learning

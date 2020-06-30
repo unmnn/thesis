@@ -1,0 +1,11 @@
+# Feature Extraction From Short Temporal Sequences for Clustering {#diabfoot}
+
+## Motivation and Comparison with Related Work
+
+Based on: [@Niemann:CBMS2016; @Niemann:PONE2016; @Niemann:EBioMedicine2020]
+
+## Overview of the Mining Workflow
+
+## Experiments and Findings
+
+## Benefits of our Method

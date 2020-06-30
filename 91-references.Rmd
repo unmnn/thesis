@@ -1,5 +1,7 @@
-# (PART) APPENDIX {-}
+# (APPENDIX) APPENDIX {-}
 
 `r if (!knitr:::is_latex_output()) '
 # References {-}
 '`
+
+<div id="refs"></div>
