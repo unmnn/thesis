@@ -1,0 +1,45 @@
+# Subpopulation-Specific Learning and Post-Hoc Model Interpretation {#gender}
+
+```{r 10-setup, eval = FALSE, echo = FALSE, cache = TRUE, message = FALSE, results='asis'}
+source("code/00-chapter-start-bib.R")
+print_bib("Niemann:Frontiers2020", bib = bib)
+```
+
+:::: {.infobox .chapter-summary data-latex="{tasks.pdf}"}
+
+#### Brief Chapter Summary {-}
+
+We present a workflow to examine how subpopulations differ with respect to their most predictive characteristics in temporal data. To do so, we derive a post-hoc interpretation measure to assess the difference in association of predictors between two subpopulations. We report results for CHA on gender differences (subpopulations of female and male patients) for the two outcomes of tinnitus-related distress and depression, and the effect of treatment for both outcomes.
+
+::::
+
+:::: {.infobox .chapter-literature data-latex=""}
+This chapter is partly based on:
+
+Uli Niemann, Benjamin Boecking, Petra Brueggemann, Birgit Mazurek, and Myra Spiliopoulou. “Gender-Specific Differences in Patients With Chronic Tinnitus -- Baseline Characteristics and Treatment Effects”. In: _Frontiers in Neuroscience_ 14 (2020), p. 487. DOI: [10.3389/fnins.2020.00487](https://doi.org/10.3389%2Ffnins.2020.00487).
+
+::::
+
+## Motivation and Comparison to Related Work {#gender-intro}
+
+**to be written**
+
+## Comparing Differences in Feature Importance between Two Subpopulations {#gender-measure}
+
+**to be written**
+
+## Workflow {#gender-workflow}
+
+### Learning Tasks
+
+**to be written**
+
+### Model Evaluation and Hyperparameter Tuning
+
+## Results {#gender-results}
+
+**to be written**
+
+## Conclusions on Subpopulation-Specific Differences in Feature Importance {#gender-conclusions}
+
+**to be written**

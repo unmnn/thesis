@@ -1,3 +1,0 @@
-# Visual Identification of Informative Features
-
-Based on [@Niemann:Pheno2020; @Niemann:SREP2020; @Niemann:PONE2020; @Niemann:Frontiers2020]

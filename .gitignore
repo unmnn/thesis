@@ -4,4 +4,8 @@
 .Ruserdata
 andere/
 *[.bak,.sav]
-
+code/
+tmp/
+frontiers.txt
+random_notes.md
+thesis.log

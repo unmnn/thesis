@@ -1,11 +1,50 @@
 # Feature Extraction From Short Temporal Sequences for Clustering {#diabfoot}
 
-## Motivation and Comparison with Related Work
+```{r 08-setup, eval = FALSE, echo = FALSE, cache = TRUE, message = FALSE, results='asis'}
+source("code/00-chapter-start-bib.R")
+print_bib(c("Niemann:CBMS2016",
+            "Niemann:PONE2016", 
+            "Niemann:EBioMedicine2020")
+          , bib = bib)
+```
 
-Based on: [@Niemann:CBMS2016; @Niemann:PONE2016; @Niemann:EBioMedicine2020]
+:::: {.infobox .chapter-summary data-latex="{tasks.pdf}"}
 
-## Overview of the Mining Workflow
+#### Brief Chapter Summary {-}
 
-## Experiments and Findings
+We present an approach to build representations from short temporal sequences via clustering by the example of pressure- and posture-dependent plantar temperature and pressure in patients with diabetic foot syndrome. 
 
-## Benefits of our Method
+::::
+
+:::: {.infobox .chapter-literature data-latex=""}
+This chapter is partly based on:
+
+- Uli Niemann, Myra Spiliopoulou, Fred Samland, Thorsten Szczepanski, Jens Grützner, Antao Ming, Juliane Kellersmann, Jan Malanowski, Silke Klose, and Peter R. Mertens. "Learning Pressure Patterns for Patients with Diabetic Foot Syndrome". In: _Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)_. 2016, pp. 54--59. DOI: [10.1109/CBMS.2016.31](https://doi.org/10.1109%2FCBMS.2016.31).
+- Uli Niemann, Myra Spiliopoulou, Thorsten Szczepanski, Fred Samland, Jens Grützner, Dominik Senk, Antao Ming, Juliane Kellersmann, Jan Malanowski, Silke Klose, and Peter R. Mertens. "Comparative Clustering of Plantar Pressure Distributions in Diabetics with Polyneuropathy May Be Applied to Reveal Inappropriate Biomechanical Stress". In: _PLOS ONE_ 11.8 (2016), pp. 1--12. DOI: [10.1371/journal.pone.0161326](https://doi.org/10.1371%2Fjournal.pone.0161326).
+- Uli Niemann, Myra Spiliopoulou, Jan Malanowski, Juliane Kellersmann, Thorsten Szczepanski, Silke Klose, Eirini Dedonaki, Isabell Walter, Antao Ming, and Peter R. Mertens. "Plantar temperatures in stance position: A comparative study with healthy volunteers and diabetes patients diagnosed with sensoric neuropathy". In: _EBioMedicine_ 54 (2020), p. 102712. DOI: [10.1016/j.ebiom.2020.102712](https://doi.org/10.1016%2Fj.ebiom.2020.102712).
+
+::::
+
+<!-- ## Motivation and Comparison to Related Work {#diabfoot-intro} -->
+
+**to be written**
+
+<!-- ## Comparing Differences in Feature Importance between Two Subpopulations {#gender-measure} -->
+
+<!-- **to be written** -->
+
+<!-- ## Workflow {#gender-workflow} -->
+
+<!-- ### Learning Tasks -->
+
+<!-- **to be written** -->
+
+<!-- ### Model Evaluation and Hyperparameter Tuning -->
+
+<!-- ## Results {#gender-results} -->
+
+<!-- **to be written** -->
+
+<!-- ## Conclusions on Subpopulation-Specific Differences in Feature Importance {#gender-conclusions} -->
+
+<!-- **to be written** -->

@@ -1,45 +1,62 @@
-# Thesis Overview {#intro}
+# Introduction {#intro}
 
-## Motivation
+## Motivation and Objectives
 
-The analysis of medical data typically strives towards (1) the identification of long-term determinants and protective factors for an outcome of interest, (2) the discovery of subpopulations with increased disease prevalence, and (3) the generation of robust models capable of explaining relationships between one or several independent variables and the outcome. 
-For example, epidemiologists aim to discover associations between multiple risk factors and an outcome in cohort studies collecting data which encompass rich information about the participants, gathered from questionnaires, medical examinations, laboratory analyses and image acquisition. 
-Often, these data are repeatedly collected over time, for example in longitudinal studies. Thus, researchers incorporate a participants history in their analyses to account for temporal aspects.  
-Finding associations between variables commonly requires medical scholars to first carefully derive some hypotheses from clinical daily routine, experimental studies or extensive literature research, and then formally test them on statistical significance. 
-However, with the ever-growing volume and heterogeneity of medical data, traditional hypothesis-driven workflows become increasingly impractical because some important inherent associations between variables might remain undiscovered. 
+<!-- REPRESENTATIONS -->
+<!-- - temporal representations: zum Beispiel CBMS2015 -->
+<!-- - representation learning -> move auf derived/ -->
+<!-- embedded feature space -->
 
-Data Mining (DM) and Machine Learning^[The terms Data Mining and Machine Learning are used synonymously.] (ML) can enhance medical research by discovering subpopulations of study participants which are similar with respect to the outcome, and thus can be used to derive new hypotheses. 
-The proliferation of medical ML applications is triggered by multiple reasons, such as the desire of exploiting the plethora of gathered study participant information and the ubiquitousness of "A.I." success stories in the media. 
-However, simply building complex data-driven models does not guarantee that knowledge can be derived without effort. 
-Most state-of-the-art ML algorithms such as deep neuronal networks and gradient boosting machines generate so called black-box models with multiple layers of complexity incorporating many multi-variate, non-linear interactions among variables, which are hard to present intuitively. 
-It is vital that the application expert, which is not a practitioner, but a scholar working in a clinical or epidemiological environment, is equipped with means to understand, explore and visualize the models, so that s/he can drill down to specific individual patterns and gain actionable insights that ultimately contribute to prevention, diagnosis and treatment of diseases. 
-Since health care data can be derived from diverse sources such as epidemiological studies or clinical trials, major characteristics of collected datasets vary which requires an adaption of methods tailored to the characteristics of the application scenario. 
+<!-- methods and applications, workflows -->
+<!-- show variety of medical applications -->
+<!-- - subpopulation-specific analysiss -->
 
-The goal of this thesis is to support medical experts by providing an intelligent assistance for the analysis of high-dimensional temporal medical data. 
-During the phases of model generation and model post-processing, several challenges have to be dealt with, so that the expert is able to derive actionable knowledge. These challenges translate to the following four demands: 
+Common objectives of data analysis in medical research include (i) identifying long-term determinants and protective factors of a medical condition of interest, (ii) discovering subpopulations with increased outcome prevalence, and (iii) generating robust statistical models that can explain relationships between one or more independent variables and the target variable. 
+For example, epidemiologists attempt to discover associations between multiple risk factors and an outcome in cohort studies by collecting data that include extensive information about participants obtained from questionnaires, medical examinations, laboratory analyses, and imaging. 
+Often these data are collected repeatedly over time, for example in longitudinal studies. 
+This means that there is latent but often overlooked temporal information in such data, the investigation of which can potentially lead to new insights.
 
-(1) _Interpretability of Patterns_: patterns, i.e. clusters, rules, classification models, must be interpretable; the process of pattern generation must be interpretable.
-(1) _Exploitation of Time_: time must be exploited, while satisfying requirement (1).
-Medical scholars search for long-term determinants of severe diseases. Finding patterns in the patient history and evolution can contribute to this aim.
-(1) _Minimization of Redundancy_: redundancy must be minimized, while satisfying requirement (1). Patterns might be overlapping with respect to the subjects they cover. This leads to a redundancy of patterns which negatively affects the perceived quality of the model. One task is to minimize redundancy and deliver only a list of relevant patterns to the expert.
-(1) _Validation_: validation must be part of the analysis, while satisfying (1), (2) and (3).
+To find associations between variables, medical researchers usually first carefully derive some hypotheses from clinical practice, experimental studies, or extensive literature reviews to then test them formally for statistical significance. 
+However, with the ever-increasing volume and heterogeneity of medical data, traditional hypothesis-driven workflows are becoming increasingly impractical, as for this reason some important inherent associations between variables may go undetected. 
+Machine learning can improve medical research by discovering understandable descriptions of patient or study participant subpopulations that are similar in outcome, and thus can be used to derive new hypotheses. 
 
-There are several aspects to deal with:
+The proliferation of medical machine learning applications is triggered by several reasons, such as the desire to make automated use of the plethora of information collected about study subjects, but sometimes just based on the ubiquity of deep learning success stories in the media. 
+However, the ease of creating complex data-driven models is no guarantee that insights can be effortlessly derived. 
+Most state-of-the-art machine learning algorithms such as deep neural networks and gradient boosting machines generate so-called black-box models with multiple layers of complexity that involve many multivariate, nonlinear interactions between variables that are difficult to represent intuitively. 
+It is critical that the application expert, who is not a practitioner but a scientist working in a clinical or epidemiological setting, be equipped with tools to understand, explore, and visualize the models so that they can drill down to specific individual patterns and gain actionable insights that ultimately contribute to prevention, diagnosis, and treatment in clinical practice. 
+Because medical data come from a wide variety of sources key characteristics of the collected datasets vary, requiring adaptation of methods to the specifics of each application scenario. 
 
-1. Dimensionality: to what extend can the same methods be used on low-dimensional and high-dimensional data?
-1. Time granularity: to what extend can the same methods be used on data with few discrete waves and with dense temporal recordings?
-1. The impact of the protocol: both data recorded for specific research questions (DIAB, Dan-Monica, IAD) are investigated as well as data recorded independently of the research questions (SHIP, TPD). To what extend can the same approaches be used, what deviations are needed?
+The goal of our work is to develop methods that serve as intelligent assistance to medical researchers in the analysis of high-dimensional, temporal medical data. 
+Hence, the core research question of the thesis is: How to derive accurate yet understandable patterns for subpopulation discovery in high-dimensional temporal medical data? 
+Both before, during, and after the generation of machine learning models, several challenges must be overcome in order for the domain expert to be able to derive actionable knowledge. 
+These challenges can be translated into the following four requirements. 
+(1) _Comprehensibility of patterns_: the extracted models, including clusters, rules, and other patterns, must be made understandable; preferably, the model generation process is also comprehensible.
+(2) _Exploitation of time_: latent temporal information must be exploited, while satisfying requirement 1.
+<!-- Medical scholars search for long-term determinants of severe diseases. Finding patterns in the patient history and evolution can contribute to this aim. -->
+(3) _Minimization of redundancy_: redundancy must be minimized, while satisfying requirement (1). 
+Patterns may overlap in terms of the topics they cover. 
+This leads to a redundancy of patterns, which has a negative impact on the perceived quality of the model. 
+Our task is to extract, process and display the most relevant (temporal) patterns for expert-driven model exploration.
 
-## Research Questions
+<!-- - temporal representations: zum Beispiel CBMS2015 -->
+<!-- - representation learning -> move auf derived/ -->
+<!-- embedded feature space -->
 
-The motivation described in the previous section leads to the following research questions, including the core research question (RQ). 
-The core research question of the thesis is: **How to derive accurate yet understandable patterns for subpopulation discovery in high-dimensional temporal medical data?** 
-This question is central for the thesis. Since it includes multiple aspects, such as feature engineering, model learning, and post-mining steps, the question is subdivided into the following three research questions.
+<!-- When tackling these requirements, the following aspects have to be dealt with: -->
+<!-- (i) _Dimensionality_: to what extent can the same methods be used on low-dimensional and high-dimensional data?  -->
+<!-- (ii) _Time granularity_: to what extent can the same methods be used on data with few discrete waves and with dense temporal recordings? -->
+<!-- (iii) The _impact of the protocol_: to what extent can the same approaches be used both for data recorded in clinical studies to answer a small number of specific research questions and data from population-based studies with a wider scope of research questions.  -->
+
+<!-- ## Research Questions -->
+
+<!-- The motivation described in the previous section leads to the following research questions, including the core research question (RQ).  -->
+<!-- The core research question of the thesis is: **How to derive accurate yet understandable patterns for subpopulation discovery in high-dimensional temporal medical data?**  -->
+<!-- This question is central for the thesis. Since it includes multiple aspects, such as feature engineering, model learning, and post-mining steps, the question is subdivided into the following three research questions. -->
 
 
-- **RQ 1**: How to leverage understandable models for high-dimensional temporal medical data?
-- **RQ 2**: How to effectively capture and exploit implicit temporal information to improve model quality?
-- **RQ 3**: How to extract, process and display the most relevant (temporal) patterns for an efficient expert-driven model exploration?
+<!-- - **RQ 1**: How to leverage understandable models for high-dimensional temporal medical data? -->
+<!-- - **RQ 2**: How to effectively capture and exploit implicit temporal information to improve model quality? -->
+<!-- - **RQ 3**: How to extract, process and display the most relevant (temporal) patterns for expert-driven model exploration? -->
 
 <!-- \begin{bfseries} -->
 <!-- 	\begin{itemize} -->
@@ -49,120 +66,109 @@ This question is central for the thesis. Since it includes multiple aspects, suc
 <!-- 	\end{itemize} -->
 <!-- \end{bfseries} -->
 
-Table&nbsp;\@ref(tab:mapping) shows a mapping between scientific articles associated with this thesis and addressed research questions.
-
-## Epidemiological and Clinical Applications
-
-**A categorization of temporal medical data.** The structure of medical data naturally depends on the study design. 
-In this thesis proposal, medical data is categorized using the following six criteria.
-
-- _Study type_: epidemiological vs. clinical
-- _Number of variables_: number of variables, features, attributes or dimensions
-- _Number of individuals_: number of individuals, subjects, instances, patients or study participants
-- _Temporal horizon_: timespan from first to last assessment
-- _Number of assessments over time_: number of repeated assessments over time
-- _Temporal granularity_: frequency of repeated assessments
 
 
-Table&nbsp;\@ref(tab:data) juxtaposes the five application datasets with respect to the six criteria depicted above. E = epidemiological; C = clinical.
-
-&nbsp; | Study type | Number of variables | Number of individuals | Temporal horizon | Number of assessments | Temporal granularity
-:-- | :- | :---- | :---- | :---- | :---- | :----
-SHIP | E | $\uparrow$ (>100)       | $\rightarrow$ (>800)  | $\uparrow$ (~15 yr)     | $\downarrow$ (3 obs.)   | $\downarrow$ (1 ass./5 yr) 
-DFD | C | $\downarrow$ (<10)      | $\downarrow$ (<60)    | $\downarrow$ (~100 min) | $\uparrow$ (> 100 obs.) | $\uparrow$ ($\geq 3$ rec./min)
-IAD | C | $\downarrow$ (<30)    | $\rightarrow$ (100)   | $\bullet$ (none)           | $\bullet$ (none)        | $\bullet$ (none)
-Dan-MONICA | E | $\uparrow$ (>100) | $\rightarrow$ (>1000) | $\uparrow$ (~10 yr)     | $\downarrow$ (3 obs.)   | $\downarrow$ (1 ass./5 yr)
-TPD | C | $\uparrow$ (>100)       | $\rightarrow$ (>1000) | $\downarrow$ (~10 days) | $\uparrow$ (> 2 obs.)   | NA
-
-Table: (\#tab:data) Study dataset characteristics. 
-
-We will evaluate our methods on five medical datasets.  
-**Study of Health in Pomerania (SHIP)**. The "Study of Health in Pomerania" (SHIP) [@Voelzke:SHIP11] encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region. 
-Baseline examinations for SHIP-CORE were performed between 1997 and 2001 (SHIP-0, n=4308). Three follow-up examinations were conducted in intervals of 5 years, continuously adding new variables including MRI scans beginning from the second follow-up (SHIP-2). 
-Baseline information for the SHIP-TREND (TREND-0, n=4420) was collected in 2008-2012. 
-In both cohorts, a broad range of participant information was gathered, including socio-demographics, lifestyle and consumption behavior, medication intake, anthropometric values, blood and urine laboratory values, whole-body magnet resonance imaging, and others.
-
-**The diabetic foot clinical trial dataset (DFD)**. While SHIP investigates associations between risk factors of common diseases and health-related conditions in general, the "diabetic foot clinical trial"&nbsp;[@Niemann:PONE2016;@Niemann:EBioMedicine2020] 
-<!-- is a case-control study specifically investigating  -->
-investigates differences between diabetes patients diagnosed with severe polyneuropathy and healthy controls.
-In a pre-specified sequence of actions alternating between two postures, standing and sitting, custom-made sensor-bearing insoles placed in a closed shoe measured changes of a subject's plantar pressures and temperatures with high frequency over time. 
-These measurements allowed for the analysis of pathophysiological and sensation-related differences between the two groups. 
-
-**The intracranial aneurysm angiography image dataset (IAD)**. The "intracranial aneurysm angiography image dataset" (AD) contains angiographical image data of 74 patients with a total of 100 intracranial aneurysms&nbsp;[@Niemann:CBMS2018]. 
-Intracranial aneurysms are pathologic dilations of the intracranial vessel wall, bearing the risk of rupture and thus subarachnoidal hemorrhages with often fatal consequences for the patient. 
-Since treatment may cause severe complications as well, the goal is to generate models that can separate between ruptured and non-ruptured aneurysms. 
-
-\textcolor{red}{red}
-
-**REMOVE MONICA?**
-
-**MONICA**. This dataset is derived from the Danish population of the WHO project MONICA (Multinational MONItoring of trends and determinants in CArdiovascular disease).
-MONICA is a longitudinal epidemiological cohort study focusing on risk factors of cardio-vascular diseases, as well as causes and trends regarding the differences in the mortality between countries [@WHO:MONICA1989]. 
-Overall, 37 centers from 21 countries participated in the cohort study conducted between 1976 and 2002. 
-Accomplishments of the project include the establishment of a profound database for prevention research and improvements on treatment of cardio-vascular diseases due to the identification of risk factors such as increased cholesterol and nicotine levels. 
-In the Danish MONICA cohort, over 30,000 residents from the south-western of Copenhagen County, aged between 25 and 74 years, participated in three waves from  1982 to 1991 [@Bronnum:DanMONICA2001]. 
-The baseline examinations were conducted in 1982-1986 (DAN-MONICA I) with the first two follow-ups in 1986-1987 (DAN-MONICA II) and in 1991-1992 (DAN-MONICA III). 
-<!-- %Our dataset contains 400 variables from the first three study waves for a random sample of 4,000 participants. -->
-<!-- %The variables include questionnaire answers with participant information on socio-demographics, medication, lifestyle and psychological factors, as well as anthropometrics, genetic markers and laboratory values.  -->
-<!-- %Our binary target variable \texttt{heart\_blood\_disease} denotes whether at least one of the following disorders or conditions are present in the second follow-up: heart attack, stroke, blood clot in brain, hypertension, other heart disease. % -->
-<!-- %Out of 2648 participants, 688 are positive w.r.t. \texttt{heart\_blood\_disease} ($\approx 26\%$). -->
-
-**The tinnitus patients pre-post interventional study dataset (TPD)**. This dataset contains information on a cohort of a total of 3,971 tinnitus patients who had been treated at the tinnitus centre of the university medicine in Berlin between January 2011 and October 2015. All included patients had been suffering from tinnitus for 3 months or longer, were 18 years of age or older and had sufficient knowledge of the German language. 
-<!-- Treatment comprised a 7-day multi-modal treatment encompassing tinnitus-specific components, CBT, physiotherapy and information counselling.  -->
-At registration, patients were asked to complete 15 questionnaires on socio-demographics, tinnitus-related distress, frequency, loudness, localization and quality as well as physical and mental health status, including levels of depression and perceived stress. 
-<!-- Clinicians analyzed the questionnaire answers to derive patient-tailored treatment pathways. -->
-To assess efficacy of the treatment, patients filled the same battery of questionnaires a second time. 
-
-## Structure and Summary of Contributions
-
-Contributions of the published and submitted work include
-
-- a workflow and interactive application for data preparation, mining, and inspection of patterns for epidemiological data [@Niemann:ESWA2014; @Niemann:IMM2014],
-- a feature engineering framework for modeling and exploitation of the cohort participant evolution over time to improve classification quality  [@Niemann:CBMS2015; @Niemann:SciRep2020],
-- a mechanism for feature extraction from raw multi-variate time-series to identify relevant subgroups in patients and healthy controls and [@Niemann:CBMS2016; @Niemann:PONE2016],
-- a clustering-based algorithm that hierarchically reorganizes classification rule sets and summarizes all important concepts wihle maintaining diversity between the rule clusters to reduce pattern redundancy [@Niemann:CBMS2017],
-- a pipeline for feature extraction, classification with post-mining functionalities such as feature ranking and inspection [@Niemann:CBMS2018], and
-- results that confirm findings from medical literature or results that can be validated in independent studies.
 
 
-Article | **RQ1** | **RQ2** | **RQ3** | Datasets
-:-- | :--: | :--: | :--: | :--
-[@Niemann:ESWA2014] | $\checkmark$ |  |  $\checkmark$ | SHIP
-[@Niemann:IMM2014] | $\checkmark$ |  | $\checkmark$  | SHIP
-[@NiemannEtAl:FCDS2014] | $\checkmark$ |  |   | SHIP
-[@Niemann:CBMS2015] | $\checkmark$ | $\checkmark$ |   | SHIP
-[@Niemann:CBMS2016] | $\checkmark$ | $\checkmark$ |   | DFD
-[@Niemann:PONE2016] | $\checkmark$ | $\checkmark$ |   | DFD
-[@Niemann:CBMS2017] | $\checkmark$ |  |   | SHIP
-[@Niemann:CBMS2018] | $\checkmark$ |  |   | IAD
-[@Niemann:EBioMedicine2020] | $\checkmark$ |  | $\checkmark$ | DFD
-[@Niemann:SREP2020] | $\checkmark$ |  | $\checkmark$ | TPD
-[@Niemann:PONE2020] | $\checkmark$ |  | $\checkmark$ | TPD
-[@Niemann:Frontiers2020] | $\checkmark$ |  | $\checkmark$ | TPD
-[@Niemann:Pheno2020] | $\checkmark$ |  | $\checkmark$ | TPD
-[@Niemann:SciRep2020] | $\checkmark$ | $\checkmark$ |   | SHIP, MONICA
 
-Table: (\#tab:mapping) Mapping of published and planned articles to research questions. 
+<!-- Table&nbsp;\@ref(tab:mapping) shows a mapping between scientific articles associated with this thesis and addressed research questions. -->
 
-<!-- # Introduction {#intro} -->
+<!-- ## Epidemiological and Clinical Applications -->
+
+<!-- **A categorization of temporal medical data.** The structure of medical data naturally depends on the study design.  -->
+<!-- In this thesis proposal, medical data is categorized using the following six criteria. -->
+
+<!-- - _Study type_: epidemiological vs. clinical -->
+<!-- - _Number of variables_: number of variables, features, attributes or dimensions -->
+<!-- - _Number of individuals_: number of individuals, subjects, instances, patients or study participants -->
+<!-- - _Temporal horizon_: timespan from first to last assessment -->
+<!-- - _Number of assessments over time_: number of repeated assessments over time -->
+<!-- - _Temporal granularity_: frequency of repeated assessments -->
 
 
-<!-- You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods). -->
+<!-- Table&nbsp;\@ref(tab:data) juxtaposes the five application datasets with respect to the six criteria depicted above. E = epidemiological; C = clinical. -->
 
-<!-- Figures and tables with captions will be placed in `figure` and `table` environments, respectively. -->
+<!-- &nbsp; | Study type | Number of variables | Number of individuals | Temporal horizon | Number of assessments | Temporal granularity -->
+<!-- :-- | :- | :---- | :---- | :---- | :---- | :---- -->
+<!-- SHIP | E | $\uparrow$ (>100)       | $\rightarrow$ (>800)  | $\uparrow$ (~15 yr)     | $\downarrow$ (3 obs.)   | $\downarrow$ (1 ass./5 yr)  -->
+<!-- DFD | C | $\downarrow$ (<10)      | $\downarrow$ (<60)    | $\downarrow$ (~100 min) | $\uparrow$ (> 100 obs.) | $\uparrow$ ($\geq 3$ rec./min) -->
+<!-- IAD | C | $\downarrow$ (<30)    | $\rightarrow$ (100)   | $\bullet$ (none)           | $\bullet$ (none)        | $\bullet$ (none) -->
+<!-- Dan-MONICA | E | $\uparrow$ (>100) | $\rightarrow$ (>1000) | $\uparrow$ (~10 yr)     | $\downarrow$ (3 obs.)   | $\downarrow$ (1 ass./5 yr) -->
+<!-- CHA | C | $\uparrow$ (>100)       | $\rightarrow$ (>1000) | $\downarrow$ (~10 days) | $\uparrow$ (> 2 obs.)   | NA -->
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center', eval=FALSE, echo=FALSE}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+<!-- Table: (\#tab:data) Study dataset characteristics.  -->
 
-<!-- Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab). -->
+## Structure and Contributions of This Thesis
 
-```{r nice-tab, tidy=FALSE, eval=FALSE, echo=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+<!-- • Chapter 2 presents relevant medical background information about cerebral aneurysms includ- -->
+<!-- ing possible treatment options. -->
+<!-- • Chapter 3 summarizes the ﬂow data generation according to simulated data. It gives an overview -->
+<!-- of pertinent image and data processing steps as well as important hemodynamic attributes. -->
+<!-- • Chapter 4 provides an overview of existing techniques to visualize blood ﬂow data, where the -->
+<!-- approaches are classiﬁed according to a task taxonomy. -->
 
-<!-- You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015]. -->
+<!-- Based on the limitations of current visual exploration techniques for medical ﬂow data, we made -->
+<!-- the following main contributions: -->
+<!-- • Consistent Data Management and Guided Exploration: Until now, measured and simulated -->
+<!-- ﬂow data are primarily used for research purpose. A signiﬁcant reason is the lack of a consistent -->
+<!-- data management between domain experts with a different professional background as well -->
+
+<!-- as standardized and easy-to-use exploration software with guided workﬂows and automatic -->
+<!-- techniques to classify interesting features. -->
+<!-- The research prototype Aneulysis [431] was developed in collaboration with our domain experts. -->
+<!-- The general workﬂow, as well as the structure to manage the data, is presented in Chapter 5. -->
+<!-- Besides a general concept to administrate aneurysm data, Aneulysis provides ﬁve modules for -->
+<!-- visualizing the data. The ﬁrst module focuses on an automatic extraction and visualization -->
+<!-- of morphological aneurysm descriptors, which is also introduced in Chapter 5. This includes -->
+<!-- the automatic detection of the ostium surface separating the aneurysm from the healthy parent -->
+<!-- vessel from which other essential descriptors are derived. Providing automatic measurement -->
+<!-- methods leads to reproducible and less error-prone results compared to manually performed -->
+<!-- measurements, where measurement deviations can signiﬁcantly inﬂuence treatment decisions. -->
+
+This thesis presents solutions to support medical researchers in the data-driven analysis of high-dimensional, temporal medical data. 
+Design decisions and developments were partly inspired by suggestions from the respective domain experts and cooperation partners, including a specialist for internal medicine, an epidemiologist with statistical expertise, a diabetes expert and three tinnitus specialists. 
+The thesis is organized into three parts and ten chapters tackling the aforementioned research question and challenges. 
+PART I covers methods for discovering subpopulations in high-dimensional data. 
+PART II focuses specifically on temporal aspects of medical datasets and provides approaches that extract informative representations from latent temporal data. 
+PART III addresses post-hoc analysis of machine learning models and includes solutions to derive model-, observation-, and subpopulation-level insights from otherwise "opaque" black boxes. 
+
+* Chapter&nbsp;\@ref(background) (_Medical Background_) presents relevant medical background information, a brief comparison of medical study types and an overview of the case studies our solutions are tailored to.
+* Chapter&nbsp;\@ref(imm) (_Interactive Discovery and Inspection of Subpopulations_) presents a workflow for the **TODO**
+* Chapter&nbsp;\@ref(sdclu) (_Identifying Distinct Subpopulations_) examines redundancy in large rule sets describing subpopulations. We present a workflow that extracts a smaller number of representative rules. These rules are selected to avoid instance overlap as much as possible, thus covering different concepts in the data space. We evaluate our workflow on two samples of the longitudinal cohort study for each of two target variables, respectively.
+* Chapter&nbsp;\@ref(phenotypes) (_Visual Identification of Informative Features_) describes our approach to identify distinct tinnitus phenotypes with parameter-free clustering, and presents novel visualizations to juxtapose phenotypes in a high-dimensional feature space and to explore phenotype-specific characteristics.
+* Chapter&nbsp;\@ref(evo) (_Constructing Evolution Features to Capture Study Participant Change over Time_) present a framework for cohort analysis in longitudinal cohort studies which constructs "evolution features" from latent temporal information describing the change of cohort participants over time. We show that exploiting these novel features improves the generalization performance of classification models and report on results for the longitudinal cohort study.
+* Chapter&nbsp;\@ref(diabfoot) (_Feature Extraction From Short Temporal Sequences for Clustering_) present an approach to build representations from short temporal sequences via clustering by the example of pressure- and posture-dependent plantar temperature and pressure in patients with diabetic foot syndrome. 
+* Chapter&nbsp;\@ref(iml) (_Post-Hoc Interpretation of Classification Models_) focuses on making already learned, complex classification models understandable to the domain experts. We provide a workflow that combines classification of high-dimensional medical data and model explanation using post-hoc interpretation methods.
+To this end, we use Shapely value explanations (SHAP), LASSO coefficients, and partial dependency graphs. 
+Our approach delivers statistics and visualizations representing global feature importance, instance-individual feature importance, and subpopulation-specific feature importance, all of which help illuminate complex black-box machine learning models.
+We report our results on three applications: (i) tinnitus-related distress in tinnitus patients, (ii) depressivity in tinnitus patients, and (iii) rupture risk in intracranial aneurysms.
+* Chapter&nbsp;\@ref(gender) (_Subpopulation-Specific Learning and Post-Hoc Model Interpretation_) describes an approach that examines how subpopulations differ with respect to their most predictive characteristics in temporal data. To do so, we derive a post-hoc interpretation measure to assess the difference in association of predictors between two subpopulations. We report results for CHA on gender differences (subpopulations of female and male patients) for the two outcomes of tinnitus-related distress and depression, and the effect of treatment for both outcomes.
+* Chapter&nbsp;\@ref(summary) (_Conclusion and Future Work_) concludes the thesis by giving a summary of the contributions and detailed perspectives for the presented work.
+
+<!-- - a workflow and interactive application for data preparation, mining, and inspection of patterns for epidemiological data [@Niemann:ESWA2014; @Niemann:IMM2014], -->
+<!-- - a feature engineering framework for modeling and exploitation of the cohort participant evolution over time to improve classification quality  [@Niemann:CBMS2015; @Niemann:SciRep2020], -->
+<!-- - a mechanism for feature extraction from raw multi-variate time-series to identify relevant subgroups in patients and healthy controls and [@Niemann:CBMS2016; @Niemann:PONE2016], -->
+<!-- - a clustering-based algorithm that hierarchically reorganizes classification rule sets and summarizes all important concepts wihle maintaining diversity between the rule clusters to reduce pattern redundancy [@Niemann:CBMS2017], -->
+<!-- - a pipeline for feature extraction, classification with post-mining functionalities such as feature ranking and inspection [@Niemann:CBMS2018], and -->
+<!-- - results that confirm findings from medical literature or results that can be validated in independent studies. -->
+
+
+<!-- Article | **RQ1** | **RQ2** | **RQ3** | Datasets -->
+<!-- :-- | :--: | :--: | :--: | :-- -->
+<!-- [@Niemann:ESWA2014] | $\checkmark$ |  |  $\checkmark$ | SHIP -->
+<!-- [@Niemann:IMM2014] | $\checkmark$ |  | $\checkmark$  | SHIP -->
+<!-- [@NiemannEtAl:FCDS2014] | $\checkmark$ |  |   | SHIP -->
+<!-- [@Niemann:CBMS2015] | $\checkmark$ | $\checkmark$ |   | SHIP -->
+<!-- [@Niemann:CBMS2016] | $\checkmark$ | $\checkmark$ |   | DFD -->
+<!-- [@Niemann:PONE2016] | $\checkmark$ | $\checkmark$ |   | DFD -->
+<!-- [@Niemann:CBMS2017] | $\checkmark$ |  |   | SHIP -->
+<!-- [@Niemann:CBMS2018] | $\checkmark$ |  |   | IAD -->
+<!-- [@Niemann:EBioMedicine2020] | $\checkmark$ |  | $\checkmark$ | DFD -->
+<!-- [@Niemann:SREP2020] | $\checkmark$ |  | $\checkmark$ | CHA -->
+<!-- [@Niemann:PONE2020] | $\checkmark$ |  | $\checkmark$ | CHA -->
+<!-- [@Niemann:Frontiers2020] | $\checkmark$ |  | $\checkmark$ | CHA -->
+<!-- [@Niemann:SREP_Pheno2020] | $\checkmark$ |  | $\checkmark$ | CHA -->
+<!-- [@Niemann:SciRep2020] | $\checkmark$ | $\checkmark$ |   | SHIP, MONICA -->
+
+<!-- Table: (\#tab:mapping) Mapping of published and planned articles to research questions.  -->
+

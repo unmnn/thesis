@@ -1,321 +1,2074 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Interactive Discovery and Inspection of Subpopulations | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
-  <meta name="description" content="This is a preview of the current status of Uli’s thesis." />
-  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Chapter 3 Interactive Discovery and Inspection of Subpopulations | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data" />
-  <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://ulis-thesis.netlify.app/" />
-  
-  <meta property="og:description" content="This is a preview of the current status of Uli’s thesis." />
-  <meta name="github-repo" content="unmnn/thesis" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Interactive Discovery and Inspection of Subpopulations | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data" />
-  
-  <meta name="twitter:description" content="This is a preview of the current status of Uli’s thesis." />
-  
-
-<meta name="author" content="Uli Niemann" />
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="medical-background.html"/>
-<link rel="next" href="sdclu.html"/>
-<script src="libs/header-attrs-2.2/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-
-
-
-
-<link rel="stylesheet" href="style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 Interactive Discovery and Inspection of Subpopulations | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
+<meta name="author" content="Uli Niemann">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.5.3/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.2.9002/tabs.js"></script><script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="font-awesome.min.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
 
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
 
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Uli's Thesis Preview</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#timeline"><i class="fa fa-check"></i>Timeline</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Thesis Overview</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#research-questions"><i class="fa fa-check"></i><b>1.2</b> Research Questions</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#epidemiological-and-clinical-applications"><i class="fa fa-check"></i><b>1.3</b> Epidemiological and Clinical Applications</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#structure-and-summary-of-contributions"><i class="fa fa-check"></i><b>1.4</b> Structure and Summary of Contributions</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="medical-background.html"><a href="medical-background.html"><i class="fa fa-check"></i><b>2</b> Medical Background</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="medical-background.html"><a href="medical-background.html#important-terms"><i class="fa fa-check"></i><b>2.1</b> Important Terms</a></li>
-<li class="chapter" data-level="2.2" data-path="medical-background.html"><a href="medical-background.html#study-types"><i class="fa fa-check"></i><b>2.2</b> Study Types</a></li>
-<li class="chapter" data-level="2.3" data-path="medical-background.html"><a href="medical-background.html#the-study-of-health-in-pomerania-ship"><i class="fa fa-check"></i><b>2.3</b> The Study of Health in Pomerania (SHIP)</a></li>
-<li class="chapter" data-level="2.4" data-path="medical-background.html"><a href="medical-background.html#the-diabetic-foot-clinical-trial-df"><i class="fa fa-check"></i><b>2.4</b> The Diabetic Foot Clinical Trial (DF)</a></li>
-<li class="chapter" data-level="2.5" data-path="medical-background.html"><a href="medical-background.html#the-intracranial-aneurysm-angiography-image-dataset-iad"><i class="fa fa-check"></i><b>2.5</b> The Intracranial Aneurysm Angiography Image Dataset (IAD)</a></li>
-<li class="chapter" data-level="2.6" data-path="medical-background.html"><a href="medical-background.html#the-tinnitus-patients-pre-post-interventional-study-tpd"><i class="fa fa-check"></i><b>2.6</b> The Tinnitus Patients Pre-Post Interventional Study (TPD)</a></li>
-</ul></li>
-<li class="part"><span><b>I SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</b></span></li>
-<li class="chapter" data-level="3" data-path="imm.html"><a href="imm.html"><i class="fa fa-check"></i><b>3</b> Interactive Discovery and Inspection of Subpopulations</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="imm.html"><a href="imm.html#motivation-and-comparison-with-related-work"><i class="fa fa-check"></i><b>3.1</b> Motivation and Comparison with Related Work</a></li>
-<li class="chapter" data-level="3.2" data-path="imm.html"><a href="imm.html#subpopulation-discovery-workflow-and-interactive-mining-assistant"><i class="fa fa-check"></i><b>3.2</b> Subpopulation Discovery Workflow and Interactive Mining Assistant</a></li>
-<li class="chapter" data-level="3.3" data-path="imm.html"><a href="imm.html#experiments-and-findings"><i class="fa fa-check"></i><b>3.3</b> Experiments and Findings</a></li>
-<li class="chapter" data-level="3.4" data-path="imm.html"><a href="imm.html#benefits-of-our-workflow"><i class="fa fa-check"></i><b>3.4</b> Benefits of Our Workflow</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="sdclu.html"><a href="sdclu.html"><i class="fa fa-check"></i><b>4</b> Identifying Distinct Subpopulations</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="sdclu.html"><a href="sdclu.html#motivation-and-comparison-with-related-work-1"><i class="fa fa-check"></i><b>4.1</b> Motivation and Comparison with Related Work</a></li>
-<li class="chapter" data-level="4.2" data-path="sdclu.html"><a href="sdclu.html#finding-distinct-classification-rules"><i class="fa fa-check"></i><b>4.2</b> Finding Distinct Classification Rules</a></li>
-<li class="chapter" data-level="4.3" data-path="sdclu.html"><a href="sdclu.html#experiments-and-findings-1"><i class="fa fa-check"></i><b>4.3</b> Experiments and Findings</a></li>
-<li class="chapter" data-level="4.4" data-path="sdclu.html"><a href="sdclu.html#benefits-of-our-method"><i class="fa fa-check"></i><b>4.4</b> Benefits of our Method</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="visual-identification-of-informative-features.html"><a href="visual-identification-of-informative-features.html"><i class="fa fa-check"></i><b>5</b> Visual Identification of Informative Features</a></li>
-<li class="chapter" data-level="6" data-path="extraction-of-static-features.html"><a href="extraction-of-static-features.html"><i class="fa fa-check"></i><b>6</b> Extraction of Static Features</a></li>
-<li class="part"><span><b>II EXPLOITING DYNAMICS</b></span></li>
-<li class="chapter" data-level="7" data-path="evo.html"><a href="evo.html"><i class="fa fa-check"></i><b>7</b> Constructing Evolution Features to Capture Change over Time</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="evo.html"><a href="evo.html#motivation-and-comparison-with-related-work-2"><i class="fa fa-check"></i><b>7.1</b> Motivation and Comparison with Related Work</a></li>
-<li class="chapter" data-level="7.2" data-path="evo.html"><a href="evo.html#overview-of-the-mining-workflow"><i class="fa fa-check"></i><b>7.2</b> Overview of the Mining Workflow</a></li>
-<li class="chapter" data-level="7.3" data-path="evo.html"><a href="evo.html#generating-evolution-features"><i class="fa fa-check"></i><b>7.3</b> Generating Evolution Features</a></li>
-<li class="chapter" data-level="7.4" data-path="evo.html"><a href="evo.html#experiments-and-findings-2"><i class="fa fa-check"></i><b>7.4</b> Experiments and Findings</a></li>
-<li class="chapter" data-level="7.5" data-path="evo.html"><a href="evo.html#benefits-of-our-method-1"><i class="fa fa-check"></i><b>7.5</b> Benefits of our Method</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="diabfoot.html"><a href="diabfoot.html"><i class="fa fa-check"></i><b>8</b> Feature Extraction From Short Temporal Sequences for Clustering</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="diabfoot.html"><a href="diabfoot.html#motivation-and-comparison-with-related-work-3"><i class="fa fa-check"></i><b>8.1</b> Motivation and Comparison with Related Work</a></li>
-<li class="chapter" data-level="8.2" data-path="diabfoot.html"><a href="diabfoot.html#overview-of-the-mining-workflow-1"><i class="fa fa-check"></i><b>8.2</b> Overview of the Mining Workflow</a></li>
-<li class="chapter" data-level="8.3" data-path="diabfoot.html"><a href="diabfoot.html#experiments-and-findings-3"><i class="fa fa-check"></i><b>8.3</b> Experiments and Findings</a></li>
-<li class="chapter" data-level="8.4" data-path="diabfoot.html"><a href="diabfoot.html#benefits-of-our-method-2"><i class="fa fa-check"></i><b>8.4</b> Benefits of our Method</a></li>
-</ul></li>
-<li class="part"><span><b>III POST-MINING FOR INTERPRETATION</b></span></li>
-<li class="chapter" data-level="9" data-path="iml.html"><a href="iml.html"><i class="fa fa-check"></i><b>9</b> Post-hoc Interpretation of Classification Models</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="iml.html"><a href="iml.html#motivation-and-comparison-with-related-work-4"><i class="fa fa-check"></i><b>9.1</b> Motivation and Comparison with Related Work</a></li>
-<li class="chapter" data-level="9.2" data-path="iml.html"><a href="iml.html#overview-of-the-mining-workflow-2"><i class="fa fa-check"></i><b>9.2</b> Overview of the Mining Workflow</a></li>
-<li class="chapter" data-level="9.3" data-path="iml.html"><a href="iml.html#experiments-and-findings-on-iad"><i class="fa fa-check"></i><b>9.3</b> Experiments and Findings on IAD</a></li>
-<li class="chapter" data-level="9.4" data-path="iml.html"><a href="iml.html#experiments-and-findings-on-tpd"><i class="fa fa-check"></i><b>9.4</b> Experiments and findings on TPD</a></li>
-<li class="chapter" data-level="9.5" data-path="iml.html"><a href="iml.html#benefits-of-our-method-3"><i class="fa fa-check"></i><b>9.5</b> Benefits of our Method</a></li>
-</ul></li>
-<li class="part"><span><b>IV SUMMARY</b></span></li>
-<li class="chapter" data-level="10" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>10</b> Conclusion and Future Work</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="summary.html"><a href="summary.html#research-results-for-medical-expert-guided-knowledge-discovery"><i class="fa fa-check"></i><b>10.1</b> Research Results for Medical Expert-guided Knowledge Discovery</a></li>
-<li class="chapter" data-level="10.2" data-path="summary.html"><a href="summary.html#future-work"><i class="fa fa-check"></i><b>10.2</b> Future Work</a></li>
-</ul></li>
-<li class="appendix"><span><b>APPENDIX</b></span></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="chapter" data-level="" data-path="abbreviations.html"><a href="abbreviations.html"><i class="fa fa-check"></i>Abbreviations</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
+<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li><a class="active" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
+<li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
+<li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
+<li class="book-part">EXPLOITING DYNAMICS</li>
+<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Study Participant Change over Time</a></li>
+<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering</a></li>
+<li class="book-part">POST-MINING FOR INTERPRETATION</li>
+<li><a class="" href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></li>
+<li><a class="" href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
+<li class="book-part">SUMMARY</li>
+<li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
+<li class="book-part">APPENDIX</li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="abbreviations.html">Abbreviations</a></li>
+<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
 </ul>
 
-      </nav>
-    </div>
-
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
-          </h1>
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="imm" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Interactive Discovery and Inspection of Subpopulations</h1>
-<p>Based on <span class="citation">[<a href="#ref-Niemann:ESWA2014" role="doc-biblioref">7</a>]</span></p>
-<div id="motivation-and-comparison-with-related-work" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Motivation and Comparison with Related Work</h2>
-<p>Medical decisions on diagnosis and treatment of multifactorial diseases are based on clinical and epidemiological studies.
-The latter accommodate information on participants with and without the disorder and allow for discriminative model learning and, in the longitudinal design, for understanding the progress of a disorder (possibly towards a disease).
-For example, there are several studies on the identification of factors (like obesity or alcohol consumption) and outcomes (like cardiovascular diseases) associated with hepatic steatosis.
-Findings on genetic and non-genetic factors include <span class="citation">[<a href="#ref-IttermannEtAl:Thyroid2012" role="doc-biblioref">18</a>], [<a href="#ref-LauEtAl:2010" role="doc-biblioref">19</a>]</span>, <span class="citation">[<a href="#ref-StickelEtAl:2011" role="doc-biblioref">20</a>]</span>; findings on associated outcomes include <span class="citation">[<a href="#ref-Targher:2010" role="doc-biblioref">21</a>]</span> and <span class="citation">[<a href="#ref-Markus:2013" role="doc-biblioref">22</a>]</span>.
-However, these studies identified risk factors and/or associated outcomes that pertain to the whole population.
-Our work emanates from the necessity to identify such factors and outcomes for subpopulations and thus to stimulate personalized diagnosis and treatment, as expected in personalized medicine <span class="citation">[<a href="#ref-Hingorani:2013" role="doc-biblioref">23</a>], [<a href="#ref-Voelzke:Cardiol2013" role="doc-biblioref">24</a>]</span>.</p>
-<p>Classification on subpopulations was studied by Zhanga and Kodell in <span class="citation">[<a href="#ref-AIM13" role="doc-biblioref">25</a>]</span>.
-<!-- , albeit they analyze clinical data for diagnosis, while we analyze epidemiological data to identify variables associated with the outcome.  -->
-They pointed out that the complete population can be very heterogeneous, so that classifier performance on the whole dataset can be low. Therefore, they first trained an ensemble of classifiers, then associated with each training instance the predictions made on it by each ensemble member, thus creating a new feature space where the variables are the predictions. They then performed hierarchical clustering on the instances, thus building three subpopulations: one where the prediction accuracy is high, one where it is intermediate and one where it is low <span class="citation">[<a href="#ref-AIM13" role="doc-biblioref">25</a>]</span>.
-With this approach, Zhanga and Kodell split the original dataset into subpopulations that are easy or difficult to classify <span class="citation">[<a href="#ref-AIM13" role="doc-biblioref">25</a>]</span>.
-The method seems appealing in general, but does not look promising for the SHIP data: we investigate a three-class problem with a very skewed distribution, so we already know that low accuracy is partially caused by the skew.
-Hence, we study the dataset exploratively <em>before</em> classification, to identify subpopulations that exhibit less skew, and exploratively <em>after</em> classification, to identify variables inside each subpopulation, which are associated to the outcome with high likelihood.</p>
-<p><strong>Classification Rule Mining.</strong> Pinheiro et al. performed association rule discovery on patients with liver carcinoma <span class="citation">[<a href="#ref-PinheiroEtAl:ICCABS13" role="doc-biblioref">26</a>]</span>.
-The authors pointed out that early detection of liver cancer may help reducing the five-year mortality rate (which is currently 86% <span class="citation">[<a href="#ref-PinheiroEtAl:ICCABS13" role="doc-biblioref">26</a>]</span>), but early detection is difficult, because in the onset of a liver carcinoma, the patient often observes no symptoms <span class="citation">[<a href="#ref-PinheiroEtAl:ICCABS13" role="doc-biblioref">26</a>]</span>.
-Pinheiro et al. leveraged the association rule miner FP-growth <span class="citation">[<a href="#ref-HanEtAl:FP-Growth" role="doc-biblioref">27</a>]</span> to discover high-confidence association rules and high-confidence classification rules with respect to mortality in a liver cancer patients dataset. We also consider association rules promising for the analysis of medical data, because they are easy to compute and deliver results that are understandable by humans. Therefore, we also use association rules as baseline mining method, though for epidemiological data and for classification rather than mortality prediction. To use association rules for classification, we specify that the rule consequent should be the target variable.
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="imm" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations<a class="anchor" aria-label="anchor" href="#imm"><i class="fas fa-link"></i></a>
+</h1>
+<div id="brief-chapter-summary" class="section level4 unnumbered infobox chapter-summary">
+<h4>Brief Chapter Summary<a class="anchor" aria-label="anchor" href="#brief-chapter-summary"><i class="fas fa-link"></i></a>
+</h4>
+<p>We study the separation between two positive and a negative outcome for a disease in epidemiological data.
+Our goal is to identify compact subpopulations that are as pure as possible with respect to the target variable.</p>
+</div>
+<div class="infobox chapter-literature">
+<p>This chapter is partly based on:</p>
+<p>Uli Niemann, Henry Völzke, Jens-Peter Kühn, and Myra Spiliopoulou. “Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis.” In: <em>Expert Systems with Applications</em> 41.11 (2014), pp. 5405-5415. DOI: <a href="https://doi.org/10.1016%2Fj.eswa.2014.02.040">10.1016/j.eswa.2014.02.040</a>.</p>
+</div>
+<div id="motivation-and-comparison-to-related-work" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Motivation and Comparison to Related Work<a class="anchor" aria-label="anchor" href="#motivation-and-comparison-to-related-work"><i class="fas fa-link"></i></a>
+</h2>
+<p>Medical decisions on diagnosis and treatment of multifactorial conditions such as diseases and disorders are based on clinical and epidemiological studies; the latter accommodate information on participants with and without a condition and allow for learning discriminative models and, in the longitudinal design, for understanding the progress of the condition.
+For example, several studies identified risk factors (like obesity or alcohol consumption) and co-morbidities (like cardiovascular diseases) associated with hepatic steatosis (“fatty liver”) <span class="citation"><a href="references.html#ref-IttermannEtAl:Thyroid2012" role="doc-biblioref">[63]</a>–<a href="references.html#ref-Markus:2013" role="doc-biblioref">[67]</a></span>.
+However, these studies identified risk factors and associated outcomes that pertain to the whole population.
+Our work originated from the necessity to identify such factors and outcomes for subpopulations and thus to promote personalized diagnosis and treatment, as expected in personalized medicine <span class="citation"><a href="references.html#ref-Hingorani:2013" role="doc-biblioref">[68]</a>, <a href="references.html#ref-Voelzke:Cardiol2013" role="doc-biblioref">[69]</a></span>.</p>
+<p>Classification on subpopulations was studied by Zhanga and Kodell <span class="citation"><a href="references.html#ref-AIM13" role="doc-biblioref">[70]</a></span> who pointed out that classifier performance on the whole dataset can be low if the complete population is very heterogeneous.
+Therefore, they first trained an ensemble of classifiers, and then used the predictions of each ensemble member to create a new feature space.
+They performed hierarchical clustering to partitioned the instances into three subpopulations: one where the prediction accuracy is high, one where it is intermediate and one where it is low.
+With this approach, Zhanga and Kodell split the original dataset into subpopulations that are easy or difficult to classify.
+While the method seems appealing in general, it appeared unsuitable for the three-class problem of the SHIP data which exhibits a very skewed distribution, hence it is clear that low classification accuracy is (partially) caused by the skew.
+Hence, we studied the dataset exploratively <em>before</em> classification, to identify less skewed subpopulations, and exploratively <em>after</em> classification, to identify - inside each subpopulation - variables which are highly associated to the outcome.</p>
+<!-- **Classification Rule Mining.**  -->
+<p>Pinheiro et al. performed association rule discovery on patients with liver carcinoma <span class="citation"><a href="references.html#ref-PinheiroEtAl:ICCABS13" role="doc-biblioref">[71]</a></span>.
+The authors pointed out that early detection of liver cancer may help reducing the five-year mortality rate, but early detection is difficult, because in the onset of a liver carcinoma, the patient often observes no symptoms <span class="citation"><a href="references.html#ref-PinheiroEtAl:ICCABS13" role="doc-biblioref">[71]</a></span>.
+Pinheiro et al. leveraged the association rule algorithm FP-growth <span class="citation"><a href="references.html#ref-Han:FPGrowth00" role="doc-biblioref">[72]</a></span> to discover high-confidence association rules and high-confidence classification rules regarding mortality in liver cancer patients.
+We also considered association rules promising for the analysis of medical data, because they are easy to compute and deliver results that are understandable by humans.
+Therefore, we also used association rules as baseline method, though for epidemiological data and for classification rather than mortality prediction.
+To use association rules for classification, we specified that the rule consequent is the target variable.
 <!-- \textcolor{red}{(the rules are then called "classification rules"; we use this term hereafter)}. --></p>
+<!-- TODO: move this paragraph  -->
 <!-- \subsubsection{CBMS16} -->
-<p><strong>Clustering.</strong> Clustering algorithms are applied to a variety of application domains.
-For example, clustering is traditionally used for the identification of patient groups, who apply pressure on their feet in a similar way <span class="citation">[<a href="#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">28</a>]–[<a href="#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">31</a>]</span>, whereby k-means is the typically the algorithm of choice.
-In <span class="citation">[<a href="#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">31</a>]</span>, Giacomozzi and Martelli
-studied the plantar pressure curves of patients with diabetic foot and of control persons, and clustered them on the similarity of the curves with respect to shape and amplitude. They juxtaposed the clusters with respect to predefined groups: for instance, all persons of the group with increased peak pressure and muscle weakness and/or limited mobility of the joints were in one cluster <span class="citation">[<a href="#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">31</a>]</span>.
-However, each cluster contained persons from many groups.
-Deschamps et al. recorded walking trials for patients and controls and studied the relative regional impulses recorded in six forefoot regions <span class="citation">[<a href="#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">30</a>]</span>: similarly to <span class="citation">[<a href="#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">31</a>]</span>, they also found one cluster that consists only of diabetic patients.
-Other scholars focused on patients only and strived to understand the variability of pressure distributions among patients and to stratify the patients on plantar pressure similarity.
-De Cock et al. studied the pressure distributions recorded during jogging, whereby they concentrated on recordings of the six forefoot regions <span class="citation">[<a href="#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">29</a>]</span>: they used k-means with k=4 and then
-compared differences in peak pressure and in regional impulse among the identified clusters.
-Bennetts et al. studied how patients applied pressure when they stood, and performed clustering on peak pressure
-distinguishing among seven plantar regions <span class="citation">[<a href="#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">28</a>]</span>.
-They compared the clusters on mean peak pressure and studied how the number of clusters k affected the results.
+<!-- **Clustering.**  -->
+<!-- Clustering algorithms are applied to a variety of application domains. -->
+<!-- For example, clustering is traditionally used for the identification of patient groups, who apply pressure on their feet in a similar way [@BennettsEtAl:Biomechanics2013; @DeCockEtAl:FootTypeClusteringPlantarPressure2006; @DeschampsEtAL:KMeansDiabeticFoot2013; @GiacomozziMartelli:PeakPressure2006], whereby k-means is the typically the algorithm of choice. -->
+<!-- In [@GiacomozziMartelli:PeakPressure2006], Giacomozzi and Martelli -->
+<!-- studied the plantar pressure curves of patients with diabetic foot and of control persons, and clustered them on the similarity of the curves with respect to shape and amplitude. They juxtaposed the clusters with respect to predefined groups: for instance, all persons of the group with increased peak pressure and muscle weakness and/or limited mobility of the joints were in one cluster&nbsp;[@GiacomozziMartelli:PeakPressure2006].  -->
+<!-- However, each cluster contained persons from many groups. -->
+<!-- Deschamps et al. recorded walking trials for patients and controls and studied the relative regional impulses recorded in six forefoot regions&nbsp;[@DeschampsEtAL:KMeansDiabeticFoot2013]: similarly to [@GiacomozziMartelli:PeakPressure2006], they also found one cluster that consists only of diabetic patients.  -->
+<!-- Other scholars focused on patients only and strived to understand the variability of pressure distributions among patients and to stratify the patients on plantar pressure similarity. -->
+<!-- De Cock et al. studied the pressure distributions recorded during jogging, whereby they concentrated on recordings of the six forefoot regions&nbsp;[@DeCockEtAl:FootTypeClusteringPlantarPressure2006]: they used k-means with k=4 and then -->
+<!-- compared differences in peak pressure and in regional impulse among the identified clusters. -->
+<!-- Bennetts et al. studied how patients applied pressure when they stood, and performed clustering on peak pressure  -->
+<!-- distinguishing among seven plantar regions [@BennettsEtAl:Biomechanics2013].  -->
+<!-- They compared the clusters on mean peak pressure and studied how the number of clusters k affected the results. -->
 <!-- Similarly to \cite{BennettsEtAl:Biomechanics2013,DeCockEtAl:FootTypeClusteringPlantarPressure2006}, we focus on patient stratification with clustering. As in \cite{BennettsEtAl:Biomechanics2013,GiacomozziMartelli:PeakPressure2006}, we consider all regions of the foot, not forefoot only. Unlike all aforementioned methods who determined similarity in a single way and then used $k$-means for clustering, we consider alternative ways of modeling similarity with respect to pressure, we juxtapose the clusters built by different clustering algorithms in terms of quality, and -->
 <!-- we deliver visualization aids for the inspection of the most representative instance (patient foot) in each cluster. -->
-<!-- The tasks of modeling similarity, learning clusters with different algorithms, comparing them and inspecting the results, constitute a complete mining workflow. In \cite{GlasserEtAl:CBMS13,NiemannEtAl:CBMS15}, we proposed workflows that encompass the specification of similarity between instances, the tuning of clustering algorithms (in \cite{NiemannEtAl:CBMS15}) and the assessment of quality. However, these workflows concern the juxtaposition of patients to healthy people, while here we concentrate on the stratification of patients only and build the workflow accordingly. --></p>
+<!-- The tasks of modeling similarity, learning clusters with different algorithms, comparing them and inspecting the results, constitute a complete mining workflow. In \cite{GlasserEtAl:CBMS13,NiemannEtAl:CBMS15}, we proposed workflows that encompass the specification of similarity between instances, the tuning of clustering algorithms (in \cite{NiemannEtAl:CBMS15}) and the assessment of quality. However, these workflows concern the juxtaposition of patients to healthy people, while here we concentrate on the stratification of patients only and build the workflow accordingly. -->
+<!-- ANSWER QUESTIONS LIKE -->
+<!-- Leverage Partial Dependence Plots to answer the following questions: -->
+<!-- What impact does a feature have on an actual patient? -->
+<!-- Does the model behave correctly on a case-to-case basis? -->
+<!-- What are the most important features for a given patient? -->
+<!-- Why are certain patients not being accurately predicted? -->
+<!-- Can we identify high impact actionable features? -->
+<!-- - Cohort analytics: efﬁciency and applicability -->
+<!--     - Representation of a cohort helps understand the evo- -->
+<!-- lution of diseases and treatments for cohort members. The -->
+<!-- aggregation of demographics (e.g., age, gender, life status) -->
+<!-- and medical actions (e.g., diseases, prognoses, treatments, -->
+<!-- marker observations) forms cohorts such as “middle-age -->
+<!-- females in Paris with Bronchitis” and “old male patients with -->
+<!-- a sudden BMI decrease during hospitalization.” [@Omidvar:CORE2020] -->
+<!-- ## General articles -->
+<!-- - Improving health and healthcare with interactive visualization methods [@shneiderman2013improving] -->
+<!-- Interactive machine learning for health informatics: when do we need the human-in-the-loop?[@holzinger2016interactive] -->
+<!-- - interactive machine learning: "human-in-the-loop" -->
+<!-- - integration of the knowledge of a domain expert: incomplete data, missing data, noisy data, untidy data -->
+<!-- - when is it beneficial to include the domain expert? humans sometimes still outperform ML-algorithms (diagnostic radiologic imaging); ML models perform badly on a number of extrapolation problmes, which otherwise would be very easy to solve for humans; interactive selection of interesting/non-irrelevant features for subspace clustering; similarity measure definition; for clustering where the user gives feedback on an intermediate solution during the algorithm's iterative phase; interactive reinforcment learning; interactive active learning -->
+<!-- Big survey: Interactive Information Visualization to Explore and Query Electronic Health Records [@rind2013interactive] -->
+<!-- Cohort analysis aims to uncover meaningful associations between risk factors (or preventive factors) and an outcome.  -->
+<!-- Nowadays, large medical data with comprehensive historical data about patients, possibly over time spans of many years, have become available.  -->
+<!-- Domain experts lack the technical expertise to perform tasks such as data management, analysis and summarization on very large datasets.  -->
+<!-- For example, whereas in the past it was sufficient to have working knowledge of basic statistics and a spreadsheet software like Microsoft Excel, data storage and retrieving has become technically challenging, as data from heterogeneous sources (tables, images, text and speech recordings) have to be queried.  -->
+<!-- Thus, domain experts usually rely on technical experts to help them perform these tasks.  -->
+<!-- However, this process is often slow, tedious and expensive.  -->
+<!-- It would be better to equip the domain expert with a technical tool that allows them to quickly perform exploratory analyses on their own.  -->
+<!-- CAVA -->
+<p>Zhang et al. <span class="citation"><a href="references.html#ref-Zhang:CAVA2015" role="doc-biblioref">[73]</a></span> addressed the increasing technical challenges of medical expert-driven subpopulation discovery due to increasingly large and complex medical data which often comprise information of hundrets of variables for thousands of patients in form of tables, images or text.
+Whereas in the past it was sufficient for a physician to have working knowledge of basic statistics and a spreadsheet software like Microsoft Excel to analyze a small table with patient data, nowadays more effective and efficient approaches are required for management, analysis and summarization of very large medical data.<br>
+As a result, domain experts usually rely on technical experts to help them perform these tasks.
+However, this back and forth process is often slow, tedious and expensive.
+Hence, it would be better to equip the domain expert with a technical tool that allows them to quickly perform exploratory analyses on their own.
+Zhang et al. <span class="citation"><a href="references.html#ref-Zhang:CAVA2015" role="doc-biblioref">[73]</a></span> presented CAVA, a system that incorporates miscellaneous subgroup visualizations (called “Views”) and analytic components (called “Analytics”) for subgroup comparison.
+The main panel in Figure <a href="imm.html#fig:03-cava">3.1</a> shows one of the Views: a flow diagram <span class="citation"><a href="references.html#ref-wongsuphasawat2012exploring" role="doc-biblioref">[74]</a></span> of patient subgroups with the same sequence of symptoms.
+Users can obtain additional summaries by interacting with the visualization, e.g. by placing one of the boxes in the flow diagram onto one of the entries in the Analytics panel via drag-and-drop.
+Further, user can expand the selected cohort by letting the tool search patients who do not strictly match the current inclusion criteria but are somewhat <em>similar</em> to the current patient subpopulation <span class="citation"><a href="references.html#ref-ebadollahi2010predicting" role="doc-biblioref">[75]</a></span>.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-cava"></span>
+<img src="figures/03-cava.png" alt="CAVA’s graphical user interface. The flow chart visualizes cardiac patient subgroups organized by shared symptom occurrence. Color represents hospitalization risk. The user can switch between graphical representations and data processing methods via drag-and-drop operations. The top-right panel provides detailed information for the currently selected patients. The bottom-right panel contains a provenance graph that allows the user to undo operations and to revisit previous interaction steps. (from: [73])" width="80%"><p class="caption">
+Figure 3.1: CAVA’s graphical user interface. The flow chart visualizes cardiac patient subgroups organized by shared symptom occurrence. Color represents hospitalization risk. The user can switch between graphical representations and data processing methods via drag-and-drop operations. The top-right panel provides detailed information for the currently selected patients. The bottom-right panel contains a provenance graph that allows the user to undo operations and to revisit previous interaction steps. (from: <span class="citation"><a href="references.html#ref-Zhang:CAVA2015" role="doc-biblioref">[73]</a></span>)
+</p>
+</div>
+<!-- PROSPECTOR -->
+<p>Krause et al. <span class="citation"><a href="references.html#ref-Krause:Prospector2016" role="doc-biblioref">[76]</a></span> argued that model selection should not be based solely on global performance metrics like accuracy, because these statistics do not contribute to a better understanding of the model’s reasoning.
+Furthermore, a complex yet very accurate model does not automatically warrant actionable insights.
+Krause et al. propose Prospector <span class="citation"><a href="references.html#ref-Krause:Prospector2016" role="doc-biblioref">[76]</a></span>, a system that provides diagnostic components for complex classification models based on the concepts of partial dependence (PD) plots <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[81]</a></span>.
+PD plots are a popular tool to visualize the marginal effect of a feature on the predicted outcome probability.
+Briefly, each point of a PD curve represents the average prediction of the model over all observations, given that these observations had a fixed value for a feature of interest.
+A feature whose PD curve has a high range or variability is considered to be more impactful to the model prediction than a feature with a flat PD curve.
+Closely related to PD plots are individual conditional expectation (ICE) plots <span class="citation"><a href="references.html#ref-Goldstein:ICE2015" role="doc-biblioref">[82]</a></span>, which display one curve for every observation, and thus help to uncover contrasting subpopulations who might “average out” in a PD plot.
+Prospector combines PD and ICE curves to depict the relationship between a feature and the model prediction on a (<em>global</em>) model level and a (<em>local</em>) patient-individual level.
+Further, a color bar is provided as more compact alternative to ICE curves (Figure <a href="imm.html#fig:03-prospector">3.2</a>) (a).
+A stacked bar chart shows the distribution of predicted risk scores for each study group (Figure <a href="imm.html#fig:03-prospector">3.2</a> (b)), and the user can click on a specific decile to get a list of individual patients with their exact prediciton score and label.
+In this way, patients whose prediction score is close to the decision boundary can be further investigated.
+The authors calculate for each feature the “most impactful feature change”: given the actual feature value of a patient, they identify a near counterfactual value that led to a large change in the predicted risk score, by minimizing difference to the original feature value and maximizing predicted risk score.
+The top-5 of these so called “suggested changes” are displayed – separately for inreasing and decreasing disease risk – in a table (cf. Figure <a href="imm.html#fig:03-prospector">3.2</a> (c)), and incorporated as interactive elements into the IC color bars (cf. Figure <a href="imm.html#fig:03-prospector">3.2</a> (d)).<!--
+2016_Perer_Prospector_CHI2016--></p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-prospector"></span>
+<img src="figures/03-prospector.png" alt="A selection of Prospector’s model diagnostics. (a) The upper chart depicts two curves for the feature “age”: the gray partial dependence (PD) curve represents the marginal prediction of the model over all patients whereas the black individual conditional expectation (ICE) curve illustrates the effect of counterfactual age values on the predicted diabetes risk for an example patient. The histogram shows the age distribution. The color bar placed beneath is a compact depiction of the ICE curve above; the encircled value represents the feature value of the selected patient. (b) Stacked bars show the distribution of predicted risk scores for each study group. Clicking on one of the bars opens a table that shows ID, predicted risk and true label for all patients belonging to the selected prediction risk decile. (c) Summary table of the most “impactful feature changes” for decreasing (upper group) and increasing (lower group) predicted risk: each row shows the actual feature value and the “suggested change,” i.e., a similar but counterfactual value that led to a considerable change in predicted risk. (d) Multiple PD color bars augmented with suggested changes (white encircled labels). (adapted from: [76])" width="100%"><p class="caption">
+Figure 3.2: A selection of Prospector’s model diagnostics. (a) The upper chart depicts two curves for the feature “age”: the gray partial dependence (PD) curve represents the marginal prediction of the model over all patients whereas the black individual conditional expectation (ICE) curve illustrates the effect of counterfactual age values on the predicted diabetes risk for an example patient. The histogram shows the age distribution. The color bar placed beneath is a compact depiction of the ICE curve above; the encircled value represents the feature value of the selected patient. (b) Stacked bars show the distribution of predicted risk scores for each study group. Clicking on one of the bars opens a table that shows ID, predicted risk and true label for all patients belonging to the selected prediction risk decile. (c) Summary table of the most “impactful feature changes” for decreasing (upper group) and increasing (lower group) predicted risk: each row shows the actual feature value and the “suggested change,” i.e., a similar but counterfactual value that led to a considerable change in predicted risk. (d) Multiple PD color bars augmented with suggested changes (white encircled labels). (adapted from: <span class="citation"><a href="references.html#ref-Krause:Prospector2016" role="doc-biblioref">[76]</a></span>)
+</p>
+</div>
+<p>Pahins et al. <span class="citation"><a href="references.html#ref-Pahins:COVIZ2019" role="doc-biblioref">[83]</a></span> presented COVIZ, a system for cohort construction in large spatiotemporal datasets.
+COVIZ comprises mechanisms for explorative data analysis of treatment pathways and event trajectories, visual cohort comparison and visual querying.
+One of COVIZ’ design goals is being fast, e.g. by using efficient data structures like Quantile Data Structure <span class="citation"><a href="references.html#ref-de2019real" role="doc-biblioref">[84]</a></span> to ensure low latency for all computational operations and hence suitablity for large datasets.</p>
+<!-- A visual-Interactive System for Prostate Cancer Cohort Analysis -->
+<p>Bernard et al. <span class="citation"><a href="references.html#ref-bernard2015visual" role="doc-biblioref">[85]</a></span> proposed a system for cohort construction in temporal prostate cancer cohort data which comprised visualizations for both subgroups and individual patients.
+To guide users during exploration, visual markers indicate interesting relationships between attributes derived from statistical tests.</p>
+<div id="other-related-work" class="section level3" number="3.1.1">
+<h3>
+<span class="header-section-number">3.1.1</span> Other related work<a class="anchor" aria-label="anchor" href="#other-related-work"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>IIComPath: <span class="citation"><a href="references.html#ref-Corvo2020" role="doc-biblioref">[86]</a></span>
+</li>
+</ul>
+</div>
+<div id="previous-work-on-ship" class="section level3" number="3.1.2">
+<h3>
+<span class="header-section-number">3.1.2</span> Previous Work on SHIP<a class="anchor" aria-label="anchor" href="#previous-work-on-ship"><i class="fas fa-link"></i></a>
+</h3>
+<!-- if possible write more on the specific results for ship -->
+<p>Klemm et al. <span class="citation"><a href="references.html#ref-Klemm:RegressionHeatmap2015" role="doc-biblioref">[87]</a></span> presented a “3D regression cube” system which enables interactive exploration of feature correlations in epidemiological datasets.
+The system generates a large number of multiple regression models from various combinations of one dependent and two independent variables and displays their goodness of fit in a three-dimensional heatmap.
+The system allows the user to modify the regression equation, for example, by changing the number of independent variables, by specifying interaction terms or by fixing one of the variables to reduce computational complexity or to specifically focus on a variable of interest.
+Our approach is also capable of identifying variables that are highly associated with the outcome, but we search for subpopulation-specific relationships instead of generating a global model for the whole dataset, and we further provide predictive value ranges.</p>
+<p>Klemm et al. <span class="citation"><a href="references.html#ref-Klemm14" role="doc-biblioref">[90]</a></span> presented a system which combines visual representations of non-image and image data.
+They identify clusters of backpain patients on the SHIP data.
+As we fixed hepatic steatosis as outcome, we rather opted to build supervised models and classification rules that directly captured the relationships between predictive variables and the outcome.</p>
+<!-- S-ADVIsED -->
+<p>Alemzadeh et al. <span class="citation"><a href="references.html#ref-eurova.20171118" role="doc-biblioref">[91]</a></span> presented S-ADVIsED, a system for interactive exploration of subspace clusters, incorporating various visualization types, such as donut charts, correlation heatmaps, scatterplot matrices, mosaic charts and error bar graphs.
+While S-ADVIsED requires the user to input the mining results obtained in advance outside of the system, our tool allows for an expert-driven interactive subpopulation discovery.<br><!-- our tool is more interactive --></p>
+<p>Hielscher et al. <span class="citation"><a href="references.html#ref-Hielscher16" role="doc-biblioref">[94]</a></span> developed a semi-supervised constrained-based subspace clustering algorithm to find diverse sets of <em>interesting</em> feature subsets using the SHIP data.
+To guide the search for interesting feature subsets, the expert can provide their domain knowledge in form of instance-level constraints, thus forcing pairs of instances to be assigned either to the same or a different cluster.
+Hielscher et al. <span class="citation"><a href="references.html#ref-Hielscher2018" role="doc-biblioref">[95]</a></span> extended their work and introduced a mechanism to compare subpopulations between independent cohorts.</p>
+<p>As a consequence, thesame group developed a constrained-based technique, where theclustering is guided by a small set of constraints, given by an expert[HNP*18]. As an example, for a few pairs of participants diagnosedwith fatty liver, the expert specifies that these participants must be inthe same clusters, whereas some other pairs of participants are forcedto be in different clusters since one in each pair is diagnosed withthe disorder and the other is not. This semi-supervised subspaceclustering turned out to yield relevant results for epidemiologists[HNP*18].</p>
+<p><strong>TODO:</strong> Preim: Visual analytics of image-centric cohort studies in epidemiology</p>
+</div>
 </div>
 <div id="subpopulation-discovery-workflow-and-interactive-mining-assistant" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Subpopulation Discovery Workflow and Interactive Mining Assistant</h2>
+<h2>
+<span class="header-section-number">3.2</span> Subpopulation Discovery Workflow and Interactive Mining Assistant<a class="anchor" aria-label="anchor" href="#subpopulation-discovery-workflow-and-interactive-mining-assistant"><i class="fas fa-link"></i></a>
+</h2>
+<p>Our subpopulation discovery workflow is presented hereafter.
+The dataset used for population partitioning and class sepration on the target variable hepatic steatosis come from the Study of Health in Pomerania (SHIP) which is described in Subsection <a href="background.html#ship">2.6.1</a>.</p>
+<p>In subsection <a href="imm.html#imm-target">3.2.1</a>, explains origin and availability of the target variable.
+In subsection <a href="imm.html#imm-partitioning">3.2.2</a>, the motivation for partitioning of the data and the partitioning steps are presented.
+Then, the used methods for class separation on the whole dataset and on the partitions are discussed in Subsection <a href="imm.html#imm-classification">3.2.3</a>.</p>
+<!-- SUBSECTION: Description of the SHIP-2 subset: what does the target variable look like? -->
+<div id="imm-target" class="section level3" number="3.2.1">
+<h3>
+<span class="header-section-number">3.2.1</span> Target variable<a class="anchor" aria-label="anchor" href="#imm-target"><i class="fas fa-link"></i></a>
+</h3>
+<p>The target variable is derived from the participant’s liver fat concentration computed with magnetic resonance imaging (MRI).
+At the time of writing the original manuscript, MRI results were available only for 578 SHIP-2 participants.
+We use the data of these participants for classifier learning, while our interactive ruleInspector (cf. section <strong>???</strong>) also juxtaposes these data to the data of the remaining 1755 participants, for whom the MRI recordings were not made available.</p>
+<p>Participants with a liver fat concentration of 10% or less are mapped to class A (“negative” class, i.e., absence of the disorder), values greater than 10% and lower than 25% are mapped to class B (increased liver fat / fatty liver tendency), and values greater than 25% are mapped to class C (high liver fat).
+We consider classes B and C as “positive.”
+Although the cut-off value of 10% is higher than the value of 5% suggested by <span class="citation"><a href="references.html#ref-KuehnEtAl:2011" role="doc-biblioref">[96]</a></span> for separation between subjects with and without hepatic steatosis.
+However, the primary interest from the medical perspective was the identification of important variables for individuals that are likely to be ill. 
+The selection of a high cut-off value exacerbated class imbalance and made the data analysis more challenging. Figure <a href="imm.html#fig:03-fatty-liver-mosaic">3.3</a> depicts the class distribution by gender.
+Out of the 578 participants, 438 belong to class A (ca. 76%), 108 to B (ca. 19%) and 32 to C (ca. 6%).
+Men are more likely to exhibit increased or high liver fat than women (30.7% vs. 18.8% in classes B or C).</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-fatty-liver-mosaic"></span>
+<img src="figures/03-fatty-liver-mosaic.png" alt="Gender-specific distribution of the target variable." width="50%"><p class="caption">
+Figure 3.3: Gender-specific distribution of the target variable.
+</p>
+</div>
+<p>Next to the target variable, the dataset contains 66 variables extracted from participants’ questionnaire answers and medical tests (cf. <span class="citation"><a href="references.html#ref-Voelzke:SHIP2011" role="doc-biblioref">[100]</a></span>).
+They are variables on sociodemographics (gender, age, etc.),
+variables on consumption behaviour (e.g. alcohol and cigarettes), SNPs (genetic information), variables extracted from laboratory data (e.g. sera concentrations), and two variables on the results of the liver ultrasound – <code>stea_s2</code> and <code>stea_alt75_s2</code>.
+Both variables take symbolic values that reflect the likelihood that the participant has fatty liver; the latter is a combination of the former and the ALAT recording for the participant; details are in (cf. <span class="citation"><a href="references.html#ref-Voelzke:SHIP2011" role="doc-biblioref">[100]</a></span>).
+Almost all variables mentioned hereafter have the suffix <code>_s2</code> which indicates measurements of the SHIP-2 followup, as opposed to SHIP-0 (<code>_s0</code>) and SHIP-1 (<code>_s1</code>).
+Exceptions are gender, highest school degree and the 10 SNP variables.</p>
+</div>
+<div id="imm-partitioning" class="section level3" number="3.2.2">
+<h3>
+<span class="header-section-number">3.2.2</span> Partitioning the Dataset into Subpopulations<a class="anchor" aria-label="anchor" href="#imm-partitioning"><i class="fas fa-link"></i></a>
+</h3>
+<!-- \label{subsec:partitioning} -->
+<p>Since the dataset is imbalanced with respect to gender (314 women, 264 men), we decided to partition the dataset before classification.
+First, we investigated the class distributions in the two partitions on gender.
+We observed that the distributions are very different, most notably with respect to class B (cf. Figure <a href="imm.html#fig:03-fatty-liver-mosaic">3.3</a>.
+As second step, we studied the class distribution by gender and age, whereupon we detected that age is associated with PartitionF but not with PartitionM.
+Third, we identified a cut-off point for age by introducing a heuristic that identifies the age value which minimizes the standard deviation with respect to the target variable.
+Afterwards, we performed supervised learning separately on the partitions of male and female participants.
+Furthermore, we built an additional learner for the subpopulation of older female participants aged above the cut-off point 52.</p>
+<!-- \subsubsection{Partitioning the Original Dataset on Gender}%2 -->
+<!-- \label{subsub:partitionsongender} -->
+<!-- In Table ~\@ref(tab:classdistribution), we depict the absolute and relative distribution of the target variable: for the whole dataset, for the subset of female participants and the subset of male participants. These subsets are called $\mathsf{PartitionF}$ and $\mathsf{PartitionM}$ hereafter. The gender-based separation leads to very different target variable distributions: the portion of A participants in $\mathsf{PartitionM}$ is much lower than in $\mathsf{PartitionF}$ (69\,\% vs. 81\,\%). The last entry of Table ~\@ref(tab:classdistribution) is discussed in \@ref(subsub:swsd). -->
+<!-- \begin{table}[htb] -->
+<!-- \footnotesize -->
+<!-- \centering -->
+<!-- \begin{tabular}{p{1.7cm}|c|ccc|ccc} -->
+<!--    &   &   \multicolumn{3}{c|}{absolute} & \multicolumn{3}{|c}{relative} \\ -->
+<!--    Partition           &   total   &   A   &   B   &   C   &   A   &   B   &   C \\ -->
+<!--    \hline \hline -->
+<!--    All                                     &   578     &   438 &   108 &   32  &   76\,\%  &   19\,\%  &   6\,\% \\ -->
+<!--    \hline -->
+<!--    $\mathsf{PartitionM}$                               &   264     &   183 &   66  &   15  &   69\,\%  &   25\,\%  &   6\,\% \\ -->
+<!--    $\mathsf{PartitionF}$                           &   314     &   255 &   42  &   17  &   81\,\%  &   13\,\%  &   5\,\% \\ -->
+<!--    \hline -->
+<!--    $\mathsf{F:age>52}$     &   183     &   131 &   40  &   12  &   72\,\%  &   22\,\%  &   7\,\% \\     -->
+<!-- \end{tabular} -->
+<!-- \caption{Class Distribution on Gender} -->
+<!-- \label{tab:classdistribution} -->
+<!-- \normalsize -->
+<!-- \end{table} -->
+<!-- The disparity of the distributions on gender becomes more clear in Figure ~\@ref(fig:boxplot), where the values for median, first and third quartile are different in the two partitions: -->
+<!-- (i) the median of $\mathsf{PartitionF}$ is lower than the median of $\mathsf{PartitionM}$ (3.7\,\% vs. 5.9\,\%) and (ii) the difference between the first and the third quartile for $\mathsf{PartitionF}$ is smaller than for $\mathsf{PartitionM}$ (4.2\,\% vs. 7.7\,\%). -->
+<!-- The maximum length of the whiskers in this boxplot is defined by $1.5 \cdot \left(q_3-q_1\right)$, where $q_1$ is the value of the first quartile and $q_3$ is the value of the 3rd quartile for the distribution of \textsf{mrt\_liverfat\_s2}: a participant with a liver fat concentration outside the whiskers is then termed an "outlier".  -->
+<!-- There are more outliers with very high fat liver concentrations in $\mathsf{PartitionF}$ than in $\mathsf{PartitionM}$ (47 vs. 15). Additionally, if we observe the number of outliers with a fat liver concentration of more than 23.3\,\%, i.e. at the approximate position of the upper whisker in $\mathsf{PartitionM}$, we see that (iii) the absolute number of female participants with even higher concentration is larger than the corresponding number of male participants (19 vs. 15). -->
+<!-- These findings lead us to further investigations of the class distribution in the partition $\mathsf{PartitionF}$. -->
+<!-- \begin{figure}[htb] -->
+<!--    \centering -->
+<!--    \includegraphics[width=0.75\linewidth]{Figures/boxpl.pdf} -->
+<!--    \caption{Boxplots for $\mathsf{PartitionF}$ and $\mathsf{PartitionM}$} -->
+<!--    \label{fig:boxplot} -->
+<!-- \end{figure} -->
+<!-- %--------------------------------------------------------------------------- -->
+<!-- % SUBSUBSECTION: Partitioning the one subset on menopause -->
+<!-- %--------------------------------------------------------------------------- -->
+<!-- \subsubsection{Splitting the Set of Female Participants on Age} -->
+<!-- \label{subsub:swsd} -->
+<p>To understand how age affects the class distribution, we introduced a heuristic that determines the cutoff age value at which <code>partitionF</code> splits into two bins, so that the standard deviations of the liver fat concentration in each bin are minimized.
+Let <span class="math inline">\(\mathsf{splitAge}\)</span> denote the cutoff value and <span class="math inline">\(X_y=\{x\in\mathsf{PartitionF}|\text{age of } x \leq \mathsf{splitAge}\}\)</span>, <span class="math inline">\(X_z=\{x\in\mathsf{PartitionF}|\text{age of } x &gt; \mathsf{splitAge}\}\)</span> denote the bins.
+Further, let <span class="math inline">\(n\)</span> be the cardinality of <span class="math inline">\(X_y\cup{}X_z\)</span> i.e. of PartitionF.
+Then, we define the Sum of weighted Standard Deviations (<span class="math inline">\(SwSD\)</span>) as</p>
+<p><span class="math display" id="eq:03-swsd">\[\begin{equation}
+SwSD\left(X_y,X_z\right) = \frac{|X_y|}{n}\sigma({X_y})+\frac{|X_z|}{n}\sigma({X_z})
+\tag{3.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(|X_i|\)</span> is the cardinality of <span class="math inline">\(X_i\)</span> and <span class="math inline">\(\sigma(X_i)\)</span> the standard deviation of the original liver fat values.
+Our heuristic selects the <span class="math inline">\(\mathsf{splitAge}\)</span> such that <span class="math inline">\(SwSD\)</span> is minimal.
+For <span class="math inline">\(\mathsf{PartitionF}\)</span>, the minimum value was 7.44 at the age of 52,
+i.e. close to the onset of menopause.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-histogram-partitions-age-liverfat"></span>
+<img src="figures/03-histogram-partitions-age-liverfat.png" alt="Distribution of liver fat concentration in male participants, and in female younger and older than 52 years. The horizontal axis shows the liver fat concentration in bins of 5%, while the vertical axis shows the number of participants in each bin." width="75%"><p class="caption">
+Figure 3.4: Distribution of liver fat concentration in male participants, and in female younger and older than 52 years. The horizontal axis shows the liver fat concentration in bins of 5%, while the vertical axis shows the number of participants in each bin.
+</p>
+</div>
+<!-- \begin{figure}[htb] -->
+<!--    \centering -->
+<!--    \includegraphics[width=0.9\linewidth]{Figures/fatty_liver_distr.pdf} -->
+<!--    \caption{ -->
+<!--    Class Distribution on male participants and on females older than 52 and younger: the horizontal axis shows the liver fat concentration in bins of 5\,\%, while the vertical axis shows the ratio of participants in each bin among the participants in the whole partition ($\mathsf{PartitionM}$, $\mathsf{F:age>52}$Leq and $\mathsf{F:age>52}$ respectively) -->
+<!--    } -->
+<!--    \label{fig:classdistribution}    -->
+<!-- \end{figure} -->
+<p>The histograms in Figure <a href="imm.html#fig:03-histogram-partitions-age-liverfat">3.4</a> depict the differences in the liver fat concentration distributions at the age cutoff value of 52.
+Next to <span class="math inline">\(\mathsf{PartitionM}\)</span> (n=264), we show the subpartitions <span class="math inline">\(\mathsf{F:age\leq{}52}\)</span> (n=131) and <span class="math inline">\(\mathsf{F:age&gt;52}\)</span> (n=183) of <span class="math inline">\(\mathsf{PartitionF}\)</span>.
+Most of female participants in <span class="math inline">\(\mathsf{F:age\leq{}52}\)</span> have no more than 5% liver fat concentration and ca. 95% have no more than 10%, i.e., they belong to the negative class A.
+In contrast, ca. 28% of the participants in <span class="math inline">\(\mathsf{F:age&gt;52}\)</span> have a liver fat concentration of more than 10%; they belong to the positive classes B and C.</p>
+<!-- %--------------------------------------------------------------------------- -->
+<!-- % SUBSECTION: Outline of decision trees, Hotspot classification rules, regression trees -->
+<!-- %--------------------------------------------------------------------------- -->
+<!-- \subsection{Classification Methods} -->
+<!-- \label{subsec:classification} -->
+<p>For the classification of the cohort participants we concentrated on algorithms that deliver interpretable models, since we wanted to identify predictive <em>conditions</em>, i.e., variables and values/ranges in the models.
+Hence, we considered decision trees, classification rules and regression trees.</p>
+<!-- \subsubsection{Decision Trees} -->
+<!-- \label{subsub:decisiontrees} -->
+<p>We employed the J4.8 decision tree classification algorithm (equivalent to the C4.5 algorithm <span class="citation"><a href="references.html#ref-Q92" role="doc-biblioref">[101]</a></span>) of the Waikato Environment for Knowledge Analysis (Weka) workbench <span class="citation"><a href="references.html#ref-FrankEtAl:Weka2016" role="doc-biblioref">[102]</a></span>.
+This algorithm builds a tree successively, by splitting each node (subset of the dataset) on the variable that maximizes information gain within that node.
+The original algorithm operates only on variables that take categorical values and creates one child node per value.
+However, the implementation in the Weka library also provides an option that forces the algorithm to always create exactly two child nodes: one for the best separating value and one for all other values.
+We used this option in our experiments, because it delivers trees of better quality.
+Moreover, the Weka algorithm also supports variables that take numeric values:
+a node is split into two child nodes by partitioning the value range of the variable into two intervals.</p>
+<p>To deal with the skewed distribution, we considered the following classification variants:</p>
+<ul>
+<li>
+<em>Naive</em>: the problem of imbalanced data is ignored.</li>
+<li>
+<em>InfoGain</em>: we keep only the top-30 of the 66 variables, by sorting the variables on information gain towards the target variable.</li>
+<li>
+<em>Oversampling</em>: We use SMOTE <span class="citation"><a href="references.html#ref-CBHea02" role="doc-biblioref">[103]</a></span> to resample the dataset with minority-oversampling: for class B, 100% new instances are generated, for class C 300% new instances are generated, resulting in following distribution A:438, B:216, C:128.</li>
+<li>
+<em>CostMatrix</em>: We prefered to misclassify a negative case rather than not detecting a positive case, so we penalized false negatives (FN) more than false positives (FP).
+We used the cost matrix depicted in Table <a href="imm.html#tab:03-costmatrix">3.1</a>.</li>
+</ul>
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:03-costmatrix">Table 3.1: </span><strong>Cost matrix.</strong> Cost matrix penalizing misclassification under class skew.
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="2">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Predicted class
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:center;">
+</th>
+<th style="text-align:center;">
+</th>
+<th style="text-align:center;">
+A
+</th>
+<th style="text-align:center;">
+B
+</th>
+<th style="text-align:center;">
+C
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;font-weight: bold;vertical-align: middle !important;" rowspan="3">
+True class
+</td>
+<td style="text-align:center;">
+A
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+B
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+C
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table></div>
+<!-- \begin{table}[htb] --><!-- \centering --><!-- \begin{tabular}{l|l|l|l} --><!-- Classified as $\Rightarrow$    &   A   &   B   &   C   \\ --><!-- \hline --><!-- A  &   0   &   1   &   2\\ --><!-- B  &   2   &   0   &   1\\ --><!-- C & 3 & 2 & 0\\ --><!-- \end{tabular} --><!-- \caption{Cost Matrix penalizing misclassification under class skew --><!-- } --><!-- \label{tab:CostMatrix} --><!-- \end{table} --><!-- \end{description} --><!-- %--------------------------------------------------------------------------- --><!-- % Classification Rule Discovery --><!-- %--------------------------------------------------------------------------- --><!-- \subsubsection{Classification Rule Discovery} --><!-- \label{subsub:crules} --><!-- Classification rules are association rules, the consequent of which consists of one of the classes. --><!-- For example, consider following association rules, where $\&$ stands for "AND": --><!-- \noindent --><!-- $\bullet$ {\small \textsf{stea\_s2~=~1 $\&$ gx\_rs11597390~=~1 $\&$ age\_ship\_s2$~>~59$ $\rightarrow$ class~=~B}} \\ --><!-- $\bullet$ {\small \textsf{som\_waist\_s2 $\leq~80$ $\rightarrow$ stea\_s2~=~1}} --><!-- The features (variables and value ranges) at the left of the arrow constitute the rule's \emph{antecedent}, while the feature at the right is the rule's \emph{consequent}. The first rule in the example is a \emph{classification rule} referring to class B. --><!-- The second rule is not a classification rule, since the variable in the consequent is not a class. --><!-- The reader may notice that variables with real values (e.g. age, waist) are restricted within a specific range. This range is chosen by the mining algorithm in such a way as to maximize the support of the rule within the cohort and the confidence of the rule's consequent given the antecedent. The first rule in the example belongs to the results on $\mathsf{PartitionF}$ (see Table \@ref(03-rule-list-women), described in the next section): out of the 20 participants supporting the antecedent, 17 belong to class B. --><!-- Note that we use the expressions \emph{"[number] participants support rule [ruledescription] "} and \emph{"[number] participants support the rule's \emph{antecedent}"}. --><!-- For classification rule discovery we use the Weka algorithm HotSpot. For each class, this algorithm determines the rules with the best confidence \emph{and} the optimal boundary values for the features in the antecedent. We have wrapped the algorithm into a mechanism that selects for each class only rules supported by at least $\tau$ participants. In our experiments, we use $\tau=\frac{1}{3}$, but our interactive tool (section \@ref(sec:ruleinspector)) allows the expert to set this threshold freely. --><!-- %--------------------------------------------------------------------------- --><!-- % Regression --><!-- %--------------------------------------------------------------------------- --><!-- \subsubsection{Regression Trees} --><!-- \label{subsub:regression} --><!-- We learn regression trees on the original continuous target variable \textsf{mrt\_liverfat\_s2} using the Weka algorithms REPTree (Error Pruning Tree), M5P and MP5Rules.  --><!-- !!! Consider adding a pseudo code block here. --><!-- (ref:foo) A scatterplot of the data `cars` using **base** R graphics.  --><!-- ```{r foo, fig.cap='(ref:foo)'} --><!-- plot(cars)  # a scatterplot --><!-- ``` --><!-- For each class, this algorithm determines the rules with the best confidence \emph{and} the optimal boundary values for the features in the antecedent. We have wrapped the algorithm into a mechanism that selects for each class only rules supported by at least $\tau$ participants. In our experiments, we use $\tau=\frac{1}{3}$, but our interactive tool (section \@ref(sec:ruleinspector)) allows the expert to set this threshold freely. --><!--    \item Minimum value count: the minimum percentage (or number) of instances supporting the rule AND belonging to specified target class, --><!--    \item Maximum rule length: the number of variables in the antecedent, --><!--    \item Maximum branching factor: the maximum number of variables that may be added to an existing classification rule,%; if rule generation takes too long, lower values are recommended, --><!--    \item Minimum improvement: the minimum relative confidence improvement to be achieved by the addition of a further variable to the classification rule.%; if this improvement is not achieved, the rule is not expanded. --><!-- Class implementing an Apriori-type algorithm. Iteratively reduces the minimum support until it finds the required number of rules with the given minimum confidence. --><!-- The algorithm has an option to mine class association rules. It is adapted as explained in the second reference. --><!-- SYNOPSIS --><!-- HotSpot learns a set of rules (displayed in a tree-like structure) that maximize/minimize a target variable/value of interest. With a nominal target, one might want to look for segments of the data where there is a high probability of a minority value occuring (given the constraint of a minimum support). For a numeric target, one might be interested in finding segments where this is higher on average than in the whole data set. For example, in a health insurance scenario, find which health insurance groups are at the highest risk (have the highest claim ratio), or, which groups have the highest average insurance payout. -->
+</div>
+<div id="imm-classification" class="section level3" number="3.2.3">
+<h3>
+<span class="header-section-number">3.2.3</span> Classification Rule Discovery<a class="anchor" aria-label="anchor" href="#imm-classification"><i class="fas fa-link"></i></a>
+</h3>
+<p>Classification rules can uncover interesting relationships between one or more features and the outcome <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[104]</a>, <a href="references.html#ref-Herrera11" role="doc-biblioref">[105]</a></span>.
+Compared to model families such as deep neural networks, support vector machines and random forests, classification rules achieve inferior accuracy most of the time.
+However, they are easier to interpret and reason about, and hence lend themselves better for interactive subpopulation discovery.
+In epidemiological research, interesting subpopulations could be subsequently used to formulate and validate a small set of hypotheses or just to explore associations between risk factors for a specific outcome.
+An interesting subpopulation could be phrased as “In the sample of this study, the prevalence of goiter is 32%, while the likelihood in the subpopulation described by <em>thyroid-stimulating hormone</em> smaller equal 1.63 mU/l and <em>body mass index</em> greater than 32.5 kg/m<sup>2</sup> is 49%.”</p>
+<p>Classification rule algorithms induce descriptions of ``<em>interesting</em>’’ subpopulations of the data where interestingness is quantified by a quality function.
+A classification rule is an association rule whose consequent is fixed to a specific class value.
+Consider the exemplary classification rule <span class="math inline">\(r_1\)</span>:
+<!-- , where $\wedge$ represents the logical conjunction operator:  --></p>
+<!-- $$ -->
+<!-- r_1: \underbrace{\text{som_waist_s2} < 80 \wedge \text{age_ship_s2} > 59 \left(\wedge \ldots \right)}_{\text{Antecedent}} \longrightarrow \underbrace{\vphantom{\text{som_waist_s2} < 80 \wedge \text{age_ship_s2} > 59 \left(\wedge \ldots \right)}\text{hepatic_steatosis = pos}}_{\text{Consequent}} -->
+<!-- (\#eq:rule) -->
+<!-- $$ -->
+<p><span class="math display" id="eq:03-rule">\[\begin{equation}
+r_1: \underbrace{som\_waist\_s2 &lt; 80 \wedge age\_ship\_s2 &gt; 59 \left(\wedge \ldots \right)}_{\text{Antecedent}} \longrightarrow \underbrace{\vphantom{som\_waist\_s2 &lt; 80 \wedge age\_ship\_s2 &gt; 59 \left(\wedge \ldots \right)}hepatic\_steatosis = pos}_{\text{Consequent}}
+\tag{3.2}
+\end{equation}\]</span></p>
+<div id="underpinnings" class="section level4 unnumbered">
+<h4>Underpinnings<a class="anchor" aria-label="anchor" href="#underpinnings"><i class="fas fa-link"></i></a>
+</h4>
+<p>Classification rules are expressed in the form of <span class="math inline">\(r: \text{antecedent} \longrightarrow T=v\)</span>.
+The conjunction of <em>conditions</em> (i.e. feature - feature value pairs) left to the arrow constitutes the rule’s <span class="math inline">\(\text{antecedent}\)</span> (or left hand site).
+In the <span class="math inline">\(\text{consequent}\)</span> (or right hand side), <span class="math inline">\(v\)</span> is the requested value for the target variable <span class="math inline">\(T\)</span>.</p>
+<p>We define <span class="math inline">\(s(r)\)</span> as the subpopulation or <em>cover set</em> of <span class="math inline">\(r\)</span>, i.e. the set of instances that satisfy the antecedent of <span class="math inline">\(r\)</span>.
+The <em>coverage</em> of <span class="math inline">\(r\)</span>, which is the fraction of instances covered by <span class="math inline">\(r\)</span>, is then defined as <span class="math inline">\(Cov(r)=|s(r)|/N\)</span>, where <span class="math inline">\(N\)</span> is the total number of instances.
+The <em>support</em> of <span class="math inline">\(r\)</span> quantifies the percentage of instances covered by <span class="math inline">\(r\)</span> that additionally have <span class="math inline">\(T=v\)</span>, calculated as <span class="math inline">\(Sup(r)=|s(r)_{T=v}|/N\)</span>.
+The <em>confidence</em> of <span class="math inline">\(r\)</span> (also referred to as precision or accuracy) is defined as <span class="math inline">\(Conf(r)= |s(r)_{T=v}|/|s(r)|\)</span> and expresses the relative frequency of instances satisfying the complete rule (i.e., both the antecedent and the consequent) among those satisfying only the antecedent.
+The <em>recall</em> or <em>sensitivity</em> of <span class="math inline">\(r\)</span> with respect to <span class="math inline">\(T=v\)</span> is defined as <span class="math inline">\(Recall(r)=Sensitivity(r)=\frac{|s(r)_{T=v}|}{n_{T=v}}\)</span>.
+The <em>Weighted Relative Accuracy</em> of a rule is an interestingness measure which balances coverage and confidence gain and is often used as internal quality criterion for candidate generation <span class="citation"><a href="references.html#ref-Herrera11" role="doc-biblioref">[105]</a></span>.
+It is defined as <span class="math inline">\(WRAcc(r) = Cov(r)\cdot \left(Conf(r)-\frac{n_{T=v}}{N} \right)\)</span>.
+<!-- The _odds ratio_ of $r$ with respect to $T=v$ is defined as  -->
+<!-- $OR(r)$ --></p>
+<!-- odds.P <- (cov.P / (cov - cov.P)) / (data$Target.P.n / data$Target.N.n) -->
+<p>As an example, Figure <a href="imm.html#fig:03-rule-intro">3.5</a> illustrates an exemplary rule <span class="math inline">\(r_2\)</span> in a dataset with 10 instances and a binary target, where circles in cyan color represent instances from the negative class and red circles are positive instances.
+The cover set of <span class="math inline">\(r_2\)</span> contains instances 7, 8, 9 and 10, hence <span class="math inline">\(Cov(r_2)=0.40\)</span>.
+Further, <span class="math inline">\(Sup(r_2)=0.30\)</span>, <span class="math inline">\(Conf(r_2)=0.75\)</span> and <span class="math inline">\(WRAcc(r_2)=0.4\cdot\left(0.75-0.4\right)=0.14\)</span>.</p>
+<div class="figure" style="text-align: center">
+<span id="fig:03-rule-intro"></span>
+<img src="figures/03-rule-intro.png" alt="Exemplary classification rule." width="50%"><p class="caption">
+Figure 3.5: Exemplary classification rule.
+</p>
+</div>
+</div>
+</div>
+<div id="hotspot" class="section level3" number="3.2.4">
+<h3>
+<span class="header-section-number">3.2.4</span> HotSpot<a class="anchor" aria-label="anchor" href="#hotspot"><i class="fas fa-link"></i></a>
+</h3>
+<p>For classification rule discovery we use the algorithm HotSpot<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;&lt;a href="https://weka.sourceforge.io/packageMetaData/hotSpot/1.0.4.html" class="uri"&gt;https://weka.sourceforge.io/packageMetaData/hotSpot/1.0.4.html&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a> provided in the Waikato Environment for Knowledge Analyis (WEKA) workbench <span class="citation"><a href="references.html#ref-FrankEtAl:Weka2016" role="doc-biblioref">[102]</a></span>.
+HotSpot is a beam search algorithm that implements a general-to-specific approach for extracting rules.
+A single rule is constructed by successively adding the condition to the
+antecedent that locally maximizes confidence.
+<!-- greedy -->
+Contrary to general hill-climbing which considers only the best rule candidate at each iteration, HotSpot’s beam search keeps the <span class="math inline">\(b\)</span> highest ranked candidates and refines them in later steps.
+Consequently, HotSpot reduces the <em>“myopia”</em> <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[104]</a></span> hill-climbing search typically suffers from.
+Briefly, hill-climbing approaches consider only the locally optimal candidate at each iteration.
+As a consequence a globally optimal rule is not found if it is not locally optimal in every iteration.
+From an application point of view, it is also desirable to generate more than one rule, as alternative descriptions of subpopulations can facilitate hypothesis generation.
+The beam width can be specified as <code>maximum branching factor</code>, the maximum number of conditions that may be added to a rule candidate.
+In every iteration, rule candidates must satisfy the <code>minimum value count</code> which is the sensitivity threshold.
+To avoid adding a condition that leads only to a marginal improvement in confidence, the parameter <code>minimum improvement</code>, i.e. the minimum relative improvement in confidence by adding a further condition can be specified.
+Computational complexity of the rule search can be reduced by specifying a <code>maximum rule length</code>, which is the number of conditions in the antecedent.</p>
+<p><strong>describe parametrization in experiments</strong></p>
+</div>
+<div id="interactive-medical-miner" class="section level3" number="3.2.5">
+<h3>
+<span class="header-section-number">3.2.5</span> Interactive Medical Miner<a class="anchor" aria-label="anchor" href="#interactive-medical-miner"><i class="fas fa-link"></i></a>
+</h3>
+<p>Classification rules can provide valuable insights on potentially prevalent conditions for different subpopulations of the cohort under study.
+However, if the number of rules produced is large, as it is usually the case in large epidemiological data, the conditions of the rules overlap and some conditions are present under each of the target feature’s classes.
+Hence, the medical expert needs inspection aids to decide which rules are informative and which features should be studied further.
+Our Interactive Medical Miner (IMM) allows the expert to (a) discover classification rules subject to frequency constraints, inspect the frequency of those rules (b) towards each class and (c) against the unlabeled part of the cohort, and (d) study the statistics of each rule for the values of selected variables.
+We describe these functionalities below, referring to the screenshot in Figure <a href="imm.html#fig:03-imm-modified">3.6</a>.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-imm-modified"></span>
+<img src="figures/03-imm-modified.png" alt="The Interactive Medical Miner: classification rules are discovered for class B and shown in the bottom left panel. For the selected rule som_huef_s2 &gt; 109 &amp; crea_u_s2 &gt; 5.38 \(\longrightarrow\) mrt_liverfat_s2 = B, the distribution of the participants covered by the rule among all three classes is shown in absolute values (top middle panel) and as histogram (bottom right panel) with respect to age (top right panel)." width="90%"><p class="caption">
+Figure 3.6: The Interactive Medical Miner: classification rules are discovered for class B and shown in the bottom left panel. For the selected rule som_huef_s2 &gt; 109 &amp; crea_u_s2 &gt; 5.38 <span class="math inline">\(\longrightarrow\)</span> mrt_liverfat_s2 = B, the distribution of the participants covered by the rule among all three classes is shown in absolute values (top middle panel) and as histogram (bottom right panel) with respect to age (top right panel).
+</p>
+</div>
+<p>The user interface consists of six panels.
+The “Settings” panel (upper left) allows the medical expert to set the parameters for rule induction before pressing the button “Build Rules.”
+Below this panel, the discovered rules are displayed.
+The panel “Sorting preference” allows the expert to specify whether rules should be sorted by confidence, by coverage, or rather alphabetically for better overview of overlapping rules.</p>
+<p>The mining criteria include the dataset (choosing between the whole dataset versus one of the partitions), the class for which rules should be generated (drop-down list “Class”) and the constraints with respect to this class, i.e., <code>min value count</code> (which can also be given as relative number), <code>maximum rule length</code>, <code>maximum branching factor</code> and <code>minimum improvement</code>.
+As an example how these parameters affect the rule search, consider the selected rule in Figure xxx, som_huef_s2 &gt; 109 &amp; crea_u_s2 &gt; 5.38 <span class="math inline">\(\longrightarrow\)</span> mrt_liverfat_s2 = B, which has a coverage of 0.12 and a confidence of 0.56.
+The sensitivity of 38/108 = 0.352 satisfies the minimum value count threshold of 0.33.
+From the Apriori property, it is apparent that each of the two conditions in the rule’s antecedent, namely som_huef_s2 &gt; 109 and crea_u_s2 &gt; 5.38 must also exceed this threshold.
+The position of a condition within the antecedent indicates at which refinement step it was added to the rule candidate.
+For example, the first condition som_huef_s2 &gt; 109 with a confidence of 44/107 = 0.41 was expanded by the second condition crea_u_s2 &gt; 5.38, because the gain in confidence exceeds the minimum improvement threshold, i.e., 38/68 - 44/107 = 0.15 &gt; 0.05.
+This rule, however, cannot be further expanded because the maximum rule length is set to 2.
+The maximum branching factor was set conservatively to 1000, to prevent potentially interesting rules from not being generated due to small beam width.
+The parameter can be lowered interactively, if the number of discovered rules is to high or rule induction takes too long.</p>
+<p>The output list of an execution run (area below the “Settings”) is scrollable and interactive.
+When the expert clicks on a rule, the top middle area “Summary Statistics” is updated.
+The first row shows the distribution of the cohort participants among the classes for the whole dataset, while the second row shows how the participants covered by the rule (column “Total” in the second row) are distributed among the classes.
+Hence, the expert can specify the discovery of classification rules for one of the classes and then study how often the antecedent of each rule appears among the participants in the other classes.
+A rule that covers most of the participants of the selected class (class B in Figure <a href="imm.html#fig:03-imm-modified">3.6</a>) is not necessarly interesting, for example, if it covers also a high number of participants of the other classes.
+The rule som_huef_s2 &gt; 109 &amp; crea_u_s2 &gt; 5.38 <span class="math inline">\(\longrightarrow\)</span> mrt_liverfat_s2 = B covers 68 participants in total, 38 of them having class B.
+To lower the number of covered participants from other classes , i.e., to increase confidence, the user can lower the minimum value count, to allow for the generation of rules with lower sensitivity, but more homogeneity with respect to the selected class.</p>
+<p>Some of the data might be incomplete. For example, not all participants in the cohort have been subjected to liver MRI.
+Hence, it is also of interest to know the distribution of the unlabeled participants who support the antecedent of a given rule.
+The “Histogram” panel can be used to this purpose: the expert chooses a further feature from the interactive area “Variable selection” in the upper right panel and can then see how the values of these variable are distributed among the study participants - both the labeled ones and the unlabeled ones; the latter are marked as “Missing” in the color legend.
+For plotting the histograms we make use of the free Java chart library JFreeChart .
+Numeric variables are discretized using “Scott’s rule” <span class="citation"><a href="references.html#ref-scott1979optimal" role="doc-biblioref">[106]</a></span> as follows:
+let <span class="math inline">\(X_{s(r)}\)</span> be the set of values for a numeric variable <span class="math inline">\(X\)</span> with respect to the cover set <span class="math inline">\(s(r)\)</span>.
+The bin width <span class="math inline">\(h\)</span> is then calculated as <span class="math inline">\(h(X_{s(r)})=\frac{\max{X_{s(r)}}-\min{X_{s(r)}}}{3.49\text{sd}_{s(r)}}\cdot |s(r)|^{\frac{1}{3}}\)</span>.</p>
+<p>If the expert does not choose any variable, the target variable is used by default, and only the distribution of the labeled participants is visible.
+The histogram in Figure <a href="imm.html#fig:03-imm-modified">3.6</a> shows the age distribution of both labeled and unlabeled participants covered by our example rule som_huef_s2 &gt; 109 &amp; crea_u_s2 &gt; 5.38 <span class="math inline">\(\longrightarrow\)</span> mrt_liverfat_s2 = B.
+The value distribution among the labeled participants reveals that ageing might be a risk factor for the displayed subpopulation as the likelihood of class B increases with higher age.
+This visual finding suggests adding the condition age_ship_s2 &gt; 56.8 to the rule’s antecedent.
+Indeed, the confidence of this more specific rule increases from 38/68 = 0.56 to 27/40 = 0.675.
+However, since the sensitivity reduces from 38/108 = 0.352 to 27/108 = 0.250, the minimum value count threshold is no longer satisfied.
+Hence, the visualization of the participants’ statistics for selected rules can deliver indications on subpopulations that should be monitored closer, and hints on how to alter the algorithm parameters for subsequent runs, in our example, to lower the minimum value count to 0.25 and to increase the maximum rule length to 3.</p>
+</div>
 </div>
 <div id="experiments-and-findings" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Experiments and Findings</h2>
+<h2>
+<span class="header-section-number">3.3</span> Experiments and Findings<a class="anchor" aria-label="anchor" href="#experiments-and-findings"><i class="fas fa-link"></i></a>
+</h2>
+<!-- We learned models on the full dataset and on each partition for each of the classification variants described in \@ref(subsub:decisiontrees) and for HotSpot rules. We also studied tree regression on the complete dataset. However, the predicitive power of the regression trees was very poor: either the regression tree consisted solely of one node with the mean of the complete dataset as predictor, i.e. the regression algorithm could not find appropriate split attributes, or two or more leaf nodes had very similar prediction values, whereupon interpreting the tree was very hard. We therefore focussed on classification trees and classification rules. We report on our findings with these methods hereafter. -->
+<div id="results-of-decision-tree-classifiers" class="section level3" number="3.3.1">
+<h3>
+<span class="header-section-number">3.3.1</span> Results of Decision Tree Classifiers<a class="anchor" aria-label="anchor" href="#results-of-decision-tree-classifiers"><i class="fas fa-link"></i></a>
+</h3>
+<!-- \label{subsec:DTs} -->
+<p>For the evaluation of decision tree classifiers, we consider accuracy, i.e., the ratio of correctly classified participants, sensitivity and specificity, and the <span class="math inline">\(F_1\)</span> score, i.e., the harmonic mean between precision and recall.
+For <strong>specificity</strong>, precision and recall, we consider the two classes B and C together as positive class.</p>
+<p><em>Oversampling</em> achieved best performance with an accuracy of ca. 80% and an <span class="math inline">\(F_1\)</span>score of 62%.
+The best decision trees were found for partition <span class="math inline">\(\mathsf{F:age&gt;52}\)</span>, followed by those for <span class="math inline">\(\mathsf{PartitionF}\)</span>, then <span class="math inline">\(\mathsf{PartitionM}\)</span>.
+<strong>The large discrepancy between accuracy and <span class="math inline">\(F_1\)</span>score appears also in the models of the partitions, underlying that accuracy scores are unreliable in such a skewed distribution. Therefore, we do not report on accuracy hereafter.</strong></p>
+<p>On partition <span class="math inline">\(\mathsf{F:age&gt;52}\)</span>, the overall best decision tree is achieved by the oversampling variant.
+On the larger <span class="math inline">\(\mathsf{PartitionF}\)</span>, best performance was achieved by the decision tree produced with the InfoGain variant, while the best decision tree on <span class="math inline">\(\mathsf{PartitionM}\)</span> was built with the CostMatrix variant.
+Sensitivity and specificity values for these trees are shown in Table <a href="imm.html#tab:03-tree-performance-sens-spec">3.2</a>, while the trees themselves are depicted in Figures <a href="imm.html#fig:03-tree-menopause">3.7</a> - <a href="imm.html#fig:03-tree-men">3.9</a> respectively and discussed in Section <a href="imm.html#imm-important-features">3.3.3</a>.</p>
+
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:03-tree-performance-sens-spec">Table 3.2: </span>Best decision trees for the three partitions: best separation is achieved in <span class="math inline">\(\mathsf{F:age&gt;52}\)</span>; <span class="math inline">\(\mathsf{PartitionM}\)</span> is the most heterogeneous one, the performance values are lowest.
+</caption>
+<thead><tr>
+<th style="text-align:left;font-weight: bold;">
+Partition
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variant
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sensitivity (%)
+</th>
+<th style="text-align:right;font-weight: bold;">
+Specificity (%)
+</th>
+<th style="text-align:right;font-weight: bold;">
+F1 score (%)
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathsf{F:age}&amp;gt;\mathsf{52}\)</span>
+</td>
+<td style="text-align:left;">
+Oversampling
+</td>
+<td style="text-align:right;">
+63.5
+</td>
+<td style="text-align:right;">
+93.9
+</td>
+<td style="text-align:right;">
+81.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathsf{PartitionF}\)</span>
+</td>
+<td style="text-align:left;">
+InfoGain
+</td>
+<td style="text-align:right;">
+52.4
+</td>
+<td style="text-align:right;">
+94.9
+</td>
+<td style="text-align:right;">
+69.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\mathsf{PartitionM}\)</span>
+</td>
+<td style="text-align:left;">
+CostMatrix
+</td>
+<td style="text-align:right;">
+38.3
+</td>
+<td style="text-align:right;">
+86.3
+</td>
+<td style="text-align:right;">
+53.0
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>Table <a href="imm.html#tab:03-tree-performance-sens-spec">3.2</a> indicates that the decision tree variants perform differently on different partitions.
+Oversampling is beneficial for <span class="math inline">\(\mathsf{F:age&gt;52}\)</span>, because it partially compensates the skew problem.
+As <span class="math inline">\(\mathsf{PartitionM}\)</span> has the most heterogeneous class distribution out of all paritions, all variants perform relatively poor on it.
+Hence, we expected most insights from the decision trees on <span class="math inline">\(\mathsf{F:age&gt;52}\)</span> and <span class="math inline">\(\mathsf{PartitionF}\)</span>, where better separation is achieved.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-tree-menopause"></span>
+<img src="figures/03-tree-menopause.png" alt="Best decision tree for \(\mathsf{F:age&gt;52}\), achieved by the variant Oversampling." width="100%"><p class="caption">
+Figure 3.7: <strong>Best decision tree for <span class="math inline">\(\mathsf{F:age&gt;52}\)</span></strong>, achieved by the variant <em>Oversampling</em>.
+</p>
 </div>
-<div id="benefits-of-our-workflow" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Benefits of Our Workflow</h2>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-tree-women"></span>
+<img src="figures/03-tree-women.png" alt="Best decision tree for \(\mathsf{PartitionF}\), achieved by the variant InfoGain." width="100%"><p class="caption">
+Figure 3.8: <strong>Best decision tree for <span class="math inline">\(\mathsf{PartitionF}\)</span></strong>, achieved by the variant <em>InfoGain</em>.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span id="fig:03-tree-men"></span>
+<img src="figures/03-tree-men.png" alt="Best decision tree for \(\mathsf{PartitionF}\), achieved by the variant InfoGain." width="100%"><p class="caption">
+Figure 3.9: <strong>Best decision tree for <span class="math inline">\(\mathsf{PartitionF}\)</span></strong>, achieved by the variant <em>InfoGain</em>.
+</p>
+</div>
+</div>
+<div id="discovered-classification-rules" class="section level3" number="3.3.2">
+<h3>
+<span class="header-section-number">3.3.2</span> Discovered Classification Rules<a class="anchor" aria-label="anchor" href="#discovered-classification-rules"><i class="fas fa-link"></i></a>
+</h3>
+<p>While the classification rules found by HotSpot on the whole dataset were conclusive for class A but not for the positive classes B and C, we omit reporting these rules as they are not useful for diagnostic purposes.
+The classification rules found on the partitions were more informative.
+However, classification rules with only one feature in the antecedent had low confidence.
+To ensure high confidence, we restricted the output on rules with at least two features in the antecedent.
+To ensure a still high coverage, we allowed for at most three features.
+A selection of high confidence and high coverage rules for each partition and class are shown in Tables <a href="imm.html#tab:03-rule-list-women">3.3</a> – <a href="imm.html#tab:03-rule-list-men">3.5</a>, respectively.
+We describe the most important features in the antecedent of these rules in the next subsection, together with the most important features of the best decision trees.</p>
+
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:03-rule-list-women">Table 3.3: </span>Best HotSpot classification rules (<em>maxLength</em> = 3) for <span class="math inline">\(\mathsf{PartitionF}\)</span> (excerpt).
+</caption>
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Rule antecedent
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cov
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Sup
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Conf
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Variable 1
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variable 2
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variable 3
+</th>
+<th style="text-align:right;font-weight: bold;">
+Abs
+</th>
+<th style="text-align:right;font-weight: bold;">
+Abs
+</th>
+<th style="text-align:right;font-weight: bold;">
+Rel [%]
+</th>
+<th style="text-align:right;font-weight: bold;">
+Rel [%]
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: A</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_waist_s2 <span class="math inline">\(\leq\)</span> 80
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 <span class="math inline">\(\leq\)</span> 24.82
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_huef_s2 <span class="math inline">\(\leq\)</span> 97.8
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+99
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 0
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+218
+</td>
+<td style="text-align:right;">
+214
+</td>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_alt75_s2 = 0
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+202
+</td>
+<td style="text-align:right;">
+198
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+98
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: B</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+gx_rs11597390 = 1
+</td>
+<td style="text-align:left;">
+age_ship_s2 &gt; 59
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_alt75_s2 = 1
+</td>
+<td style="text-align:left;">
+hrs_s_s2 &gt; 263
+</td>
+<td style="text-align:left;">
+age_ship_s2 &gt; 59
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_alt75_s2 = 1
+</td>
+<td style="text-align:left;">
+hrs_s_s2 &gt; 263
+</td>
+<td style="text-align:left;">
+ldl_s_s2 &gt; 3.22
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+85
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+age_ship_s2 &gt; 66
+</td>
+<td style="text-align:left;">
+tg_s_s2 &gt; 1.58
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+82
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+age_ship_s2 &gt; 64
+</td>
+<td style="text-align:left;">
+hrs_s_s2 &gt; 263
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+82
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: C</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+gluc_s_s2 &gt; 7
+</td>
+<td style="text-align:left;">
+tsh_s2 &gt; 0.996
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 38.42
+</td>
+<td style="text-align:left;">
+age_ship_s2 <span class="math inline">\(\leq\)</span> 66
+</td>
+<td style="text-align:left;">
+asat_s_s2 &gt; 0.22
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 38.42
+</td>
+<td style="text-align:left;">
+sleeph_s2 &gt; 6
+</td>
+<td style="text-align:left;">
+blt_beg_s2 <span class="math inline">\(\leq\)</span> 38340
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 38.42
+</td>
+<td style="text-align:left;">
+sleeph_s2 &gt; 6
+</td>
+<td style="text-align:left;">
+stea_s2 = 1
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+hrs_s_s2 &gt; 371
+</td>
+<td style="text-align:left;">
+sleepp_s2 = 0
+</td>
+<td style="text-align:left;">
+ggt_s_s2 &gt; 0.55
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:03-rule-list-menopause">Table 3.4: </span>Best HotSpot classification rules (<em>maxLength</em> = 3) for <span class="math inline">\(\mathsf{F:age&gt;52}\)</span> (excerpt).
+</caption>
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Rule antecedent
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cov
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Sup
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Conf
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Variable 1
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variable 2
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variable 3
+</th>
+<th style="text-align:right;font-weight: bold;">
+Abs
+</th>
+<th style="text-align:right;font-weight: bold;">
+Abs
+</th>
+<th style="text-align:right;font-weight: bold;">
+Rel [%]
+</th>
+<th style="text-align:right;font-weight: bold;">
+Rel [%]
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: A</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+crea_u_s2 <span class="math inline">\(\leq\)</span> 5.39
+</td>
+<td style="text-align:left;">
+stea_s2 = 0
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+crea_u_s2 <span class="math inline">\(\leq\)</span> 5.39
+</td>
+<td style="text-align:left;">
+stea_alt75_s2 = 0
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_waist_s2 <span class="math inline">\(\leq\)</span> 80
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 <span class="math inline">\(\leq\)</span> 24.82
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+crea_u_s2 <span class="math inline">\(\leq\)</span> 5.39
+</td>
+<td style="text-align:left;">
+ggt_s_s2 <span class="math inline">\(\leq\)</span> 0.43
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: B</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+ggt_s_s2 &gt; 0.48
+</td>
+<td style="text-align:left;">
+ggt_s_s2 <span class="math inline">\(\leq\)</span> 0.63
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+gx_rs11597390 = 1
+</td>
+<td style="text-align:left;">
+hdl_s_s2 <span class="math inline">\(\leq\)</span> 1.53
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+gx_rs11597390 = 1
+</td>
+<td style="text-align:left;">
+fib_cl_s2 &gt; 3.4
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+crea_s_s2 <span class="math inline">\(\leq\)</span> 61
+</td>
+<td style="text-align:left;">
+som_waist_s2 &gt; 86
+</td>
+<td style="text-align:left;">
+stea_s2 = 1
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+93
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 1
+</td>
+<td style="text-align:left;">
+gx_rs11597390 = 1
+</td>
+<td style="text-align:left;">
+hrs_s_s2 &gt; 261
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+90
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: C</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 38.42
+</td>
+<td style="text-align:left;">
+age_ship_s2 <span class="math inline">\(\leq\)</span> 66
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 38.42
+</td>
+<td style="text-align:left;">
+stea_alt75_s2 = 3
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_huef_s2 &gt; 124
+</td>
+<td style="text-align:left;">
+stea_alt75_s2 = 3
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_waist_s2 &gt; 108
+</td>
+<td style="text-align:left;">
+gluc_s_s2 &gt; 6.2
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_alt75_s2 = 3
+</td>
+<td style="text-align:left;">
+som_bmi_s2 &gt; 37.32
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table></div>
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:03-rule-list-men">Table 3.5: </span>Best HotSpot classification rules (<em>maxLength</em> = 3) for <span class="math inline">\(\mathsf{PartitionM}\)</span> (excerpt).
+</caption>
+<thead>
+<tr>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="3">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Rule antecedent
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cov
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Sup
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="1">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Conf
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Variable 1
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variable 2
+</th>
+<th style="text-align:left;font-weight: bold;">
+Variable 3
+</th>
+<th style="text-align:right;font-weight: bold;">
+Abs
+</th>
+<th style="text-align:right;font-weight: bold;">
+Abs
+</th>
+<th style="text-align:right;font-weight: bold;">
+Rel [%]
+</th>
+<th style="text-align:right;font-weight: bold;">
+Rel [%]
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: A</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_alt75_s2 = 0
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+stea_s2 = 0
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+95
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+ggt_s_s2 <span class="math inline">\(\leq\)</span> 0.52
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+92
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+hrs_s_s2 <span class="math inline">\(\leq\)</span> 310
+</td>
+<td style="text-align:left;">
+ggt_s_s2 <span class="math inline">\(\leq\)</span> 0.77
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+91
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_waist_s2 <span class="math inline">\(\leq\)</span> 90.8
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+91
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: B</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_huef_s2 &gt; 108.1
+</td>
+<td style="text-align:left;">
+age_ship_s2 &gt; 39
+</td>
+<td style="text-align:left;">
+crea_u_s2 &gt; 7.59
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 32.29
+</td>
+<td style="text-align:left;">
+hdl_s_s2 &gt; 0.94
+</td>
+<td style="text-align:left;">
+ATC_C09AA02_s2 = 0
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+76
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_bmi_s2 &gt; 32.29
+</td>
+<td style="text-align:left;">
+hgb_s2 &gt; 8.1
+</td>
+<td style="text-align:left;">
+gout_s2 = 0
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+76
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_waist_s2 &gt; 109
+</td>
+<td style="text-align:left;">
+sleeph_s2 <span class="math inline">\(\leq\)</span> 8
+</td>
+<td style="text-align:left;">
+jodid_u_s2 &gt; 9.44
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+76
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+som_huef_s2 &gt; 108.1
+</td>
+<td style="text-align:left;">
+hdl_s_s2 &gt; 0.97
+</td>
+<td style="text-align:left;">
+crea_u_s2 &gt; 5.38
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+76
+</td>
+</tr>
+<tr grouplength="5">
+<td colspan="7" style="border-bottom: 0;">
+<strong>Target class: C</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+ggt_s_s2 &gt; 1.9
+</td>
+<td style="text-align:left;">
+crea_s_s2 <span class="math inline">\(\leq\)</span> 90
+</td>
+<td style="text-align:left;">
+quick_s2 &gt; 59
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+ggt_s_s2 &gt; 1.9
+</td>
+<td style="text-align:left;">
+crea_s_s2 <span class="math inline">\(\leq\)</span> 90
+</td>
+<td style="text-align:left;">
+chol_s_s2 &gt; 4.3
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+ggt_s_s2 &gt; 1.9
+</td>
+<td style="text-align:left;">
+crea_s_s2 <span class="math inline">\(\leq\)</span> 90
+</td>
+<td style="text-align:left;">
+fib_cl_s2 &gt; 1.9
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+ggt_s_s2 &gt; 1.9
+</td>
+<td style="text-align:left;">
+crea_s_s2 <span class="math inline">\(\leq\)</span> 90
+</td>
+<td style="text-align:left;">
+crea_u_s2 &gt; 4.74
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+ggt_s_s2 &gt; 1.9
+</td>
+<td style="text-align:left;">
+tg_s_s2 &gt; 2.01
+</td>
+<td style="text-align:left;">
+som_waist_s2 &gt; 93.5
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="imm-important-features" class="section level3" number="3.3.3">
+<h3>
+<span class="header-section-number">3.3.3</span> Important Features for Each Subpopulation<a class="anchor" aria-label="anchor" href="#imm-important-features"><i class="fas fa-link"></i></a>
+</h3>
+<!-- \label{subsec:features} -->
+<p>The most important features in the decision trees of Figures <a href="imm.html#fig:03-tree-menopause">3.7</a> - <a href="imm.html#fig:03-tree-men">3.9</a> are those closer to the root.
+For better readability, the tree nodes in the figures contain short descriptions instead of the original variable names.
+In all three decision trees, the root node is the ultrasound diagnosis variable stea_s2.
+A negative ultrasound diagnosis points to the negative class A, but
+a positive ultrasound diagnosis does not directly lead to one of the positive classes B and C.
+The decision trees of the three partitions differ in the nodes placed near the root.</p>
+<!-- \subsubsection{Important Features for  $\mathsf{PartitionF}$}  -->
+<p>In the best decision tree of <span class="math inline">\(\mathsf{PartitionF}\)</span> (cf. Figure <a href="imm.html#fig:03-tree-women">3.8</a>) we observe that
+if the ultrasound report is positive <em>and</em> the HbA1C concentration is more than 6.8%, the class is C.
+The classification rules with high coverage and confidence in Table <a href="imm.html#tab:03-rule-list-women">3.3</a>) point to further interesting features:
+a waist circumference of at most 80 cm, a BMI of no more than 24.82 kg/m<sup>2</sup>, a hip circumference of 97.8 cm or less characterize participants of the negative class.
+All 6 participants with a serum glucose concentration greater than 7 mmol/l <em>and</em> a TSH concentration greater than 0.996 mu/l belong to class C.
+Further, severe obesity (a BMI value of more than 38.42 kg/m<sup>2</sup> points to class C with high confidence – but only in combination with other variables.</p>
+<!-- \subsubsection{Important Features for  $\mathsf{F:age>52}$}  -->
+<p>In contrast to the best tree for <span class="math inline">\(\mathsf{PartitionF}\)</span>, the best decision tree for the subpartition <span class="math inline">\(\mathsf{F:age&gt;52}\)</span> (cf. Figure ~<a href="imm.html#fig:03-tree-menopause">3.7</a>) also contains nodes with SNPs, indicating potentially genetic associations to fatty liver for these participants.
+Classification rules with high coverage and confidence for class B also contain SNPs, as can be seen in Table ~<a href="imm.html#tab:03-rule-list-menopause">3.4</a>.
+Similarly to <span class="math inline">\(\mathsf{PartitionF}\)</span>, high BMI values point to a positive class when combined with other features: in Table <a href="imm.html#tab:03-rule-list-menopause">3.4</a>, we see that all four participants with stea_alt75_s2 = 3 (i.e. a positive ultrasound diagnosis combined with a critical ALAT value) and a BMI larger than 38.42 kg/m<sup>2</sup> belong to class C.
+A similar association holds for stea_alt75_s2 = 3 combined with a high waist circumference (&gt; 124 cm).
+19 out of 20 participants in class B having a positive ultrasound diagnosis, a genetic marker gx_rs11597390 = 1 and a serum HDL concentration of at most 1.53 mmol/l.</p>
+<!-- \subsubsection{Important Features for $\mathsf{PartitionM}$} -->
+<p>The role of the ultrasound report in predicting the negative class is the same for <span class="math inline">\(\mathsf{PartitionM}\)</span> (cf. Figure <a href="imm.html#fig:03-tree-men">3.9</a> as for <span class="math inline">\(\mathsf{PartitionF}\)</span>.
+As with the best tree for <span class="math inline">\(\mathsf{F:age&gt;52}\)</span>, the best tree for <span class="math inline">\(\mathsf{PartitionM}\)</span> contains nodes with SNPs and serum GGT value ranges.
+Such features are also in the antecedent of top Hotspot rules (cf. Table ~<a href="imm.html#tab:03-rule-list-men">3.5</a>):
+a Serum GGT concentration of more than 1.9,<span class="math inline">\(\mu\)</span>mol/sl in combination with creatinine concentration of at most 90 mmol/l or a thromboplastin time ratio (quick_s2) of more than 59% point to class C.
+Similarly, positive ultrasound diagnosis and a serum HDL concentration not exceeding 0.84 mmol/l point to class C.</p>
+<!-- \subsubsection{Conclusion on important features}  -->
+<p>The decision trees and classification rules give insights into features that seem diagnostically important.
+However, the medical expert needs additional information to decide whether a feature is worth further investigation.
+In particular, decision trees highlight the importance of a feature only in the context of the subtree it is located; a subtree describes a subpopulation that is usually very small.
+In contrast, classification rules return information on larger subpopulations.
+However, these subpopulations may overlap; for example, the first four rules on class C for <span class="math inline">\(\mathsf{PartitionM}\)</span> (cf. Table <a href="imm.html#tab:03-rule-list-men">3.5</a>) may refer to the same 6 participants.
+Moreover, unless a classification rule has a confidence close to 100 %, there may be participants in the other classes that also support it.
+Hence, to decide whether the features in the rule’s antecedent deserve further investigation, the expert also needs insights on the rule’s statistics for the other classes as well.
+To assist the expert in this task, we propose the Interactive Medical Miner, a tool that discovers classification rules for each class <em>and</em> delivers information on the statistics of these rules for all classes.</p>
+<div id="enhancements" class="section level4" number="3.3.3.1">
+<h4>
+<span class="header-section-number">3.3.3.1</span> Enhancements<a class="anchor" aria-label="anchor" href="#enhancements"><i class="fas fa-link"></i></a>
+</h4>
+<p>In <span class="citation"><a href="references.html#ref-Niemann:IMM2014" role="doc-biblioref">[107]</a></span>, we added functionalities to specify a (sub-)cohort of the dataset, for example, to focus on the subset of female participants.
+In an additional window, the expert can specify filtering queries in the form of <code>Variable</code> <code>Operator</code> <code>Value</code>.
+The defined restrictions are shown in a table where the user can undo previous constraints.
+<!-- or: filtering steps -->
+Further, the user can (de-)select variables for model generation.
+For example, the expert might exclude a variable that is known to be highly correlated with another variable that is already considered for model learning.</p>
+<p><span class="citation"><a href="references.html#ref-Schleicher:CBMS17" role="doc-biblioref">[108]</a></span> added panels that contain tables displaying additional rule statistics such as lift and p-value.
+Further, a mosaic chart juxtaposes the class distributions of a subpopulation and its “complements” which are subgroups of participants who do not match one or both of the conditions of the length-2 rule which describes that subpopulation.</p>
+<p>In this paper, we study SD on a binary target variable problem (positive or negative outcome). A subpopulation of <span class="math inline">\(r\)</span>, <span class="math inline">\(s(r)\)</span> is the set of instances that satisfy the antecedent of a rule <span class="math inline">\(r\)</span>, also known as cover set of <span class="math inline">\(r\)</span>. % %
+%A subpopulation comprises of instances that fulfill the logical condition of a rule’s antecedent; ae a rule is described as:<br>
+%
+%Further, <span class="math inline">\(|s(r)_{T=v}|\)</span> is the number of instances that additionally belong to the value for the target variable in <span class="math inline">\(s(r)\)</span>, the support set; <span class="math inline">\(n\)</span> is the total number of instances in the dataset; <span class="math inline">\(n_{T=v}\)</span> is the total number of instances which exhibit the target variable value of interest. %
+%</p>
+<p>The conjunction of feature - feature value pairs of left to the arrow constitute the rule’s <em>antecedent</em> (or left hand site), while the pair of target feature - target feature value right to the arrow is the rule’s <em>consequent</em> (or right hand side).
+The rule in Equation <a href="imm.html#eq:03-rule">(3.2)</a> is a <em>classification rule</em> referring to class B.</p>
+<p>Features with continuous values (e.g. age, waist) are restricted within a specific range.
+This range is chosen by the algorithm in such a way as to maximize the support of the rule within the cohort and the confidence of the rule’s consequent given the antecedent. The first rule in the example belongs to the results on <span class="math inline">\(\mathsf{PartitionF}\)</span> (see Table <a href="imm.html#tab:03-rule-list-women">3.3</a>, described in the next section): out of the 20 participants supporting the antecedent, 17 belong to class B.
+Note that we use the expressions  and .</p>
+<p>For classification rule discovery we use the Weka algorithm HotSpot. For each class, this algorithm determines the rules with the best confidence  the optimal boundary values for the features in the antecedent. We have wrapped the algorithm into a mechanism that selects for each class only rules supported by at least <span class="math inline">\(\tau\)</span> participants. In our experiments, we use <span class="math inline">\(\tau=\frac{1}{3}\)</span>, but our interactive tool (section <a href="#sec:ruleinspector"><strong>??</strong></a>) allows the expert to set this threshold freely.</p>
+</div>
+</div>
+</div>
+<div id="conclusions-on" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Conclusions on …<a class="anchor" aria-label="anchor" href="#conclusions-on"><i class="fas fa-link"></i></a>
+</h2>
+<p><span class="citation"><a href="references.html#ref-qing2020improved" role="doc-biblioref">[109]</a></span></p>
+<!-- But like Apriori algorithm, HotSpot algorithm has one obvious shortcoming: support selection needs to be set artificially based on experience and cannot be set accurately according to the actual scale of the problem [3]. If the support threshold is set too low, a cumbersome and complicated tree structure may be generated; if the support threshold is set too high, some associated intervals existing in the rare target attribute values may be ignored. Therefore, in the process of support selection, multiple comparison experiments are needed to determine the optimal support based on the mining results. -->
 
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-Niemann:ESWA2014">
-<p>[7] U. Niemann, H. Völzke, J.-P. Kühn, and M. Spiliopoulou, “Learning and inspecting classification rules from longitudinal epidemiological data to identify predictive features on hepatic steatosis,” <em>Expert Systems with Applications</em>, vol. 41, no. 11, pp. 5405–5415, 2014, doi: <a href="https://doi.org/10.1016/j.eswa.2014.02.040">10.1016/j.eswa.2014.02.040</a>.</p>
-</div>
-<div id="ref-IttermannEtAl:Thyroid2012">
-<p>[18] T. Ittermann <em>et al.</em>, “Inverse Association Between Serum Free Thyroxine Levels and Hepatic Steatosis: Results From the Study of Health in Pomerania,” <em>Thyroid</em>, vol. 22, no. 6, pp. 568–574, 2012, doi: <a href="https://doi.org/http://dx.doi.org/10.1089/thy.2011.0279">http://dx.doi.org/10.1089/thy.2011.0279</a>.</p>
-</div>
-<div id="ref-LauEtAl:2010">
-<p>[19] K. Lau <em>et al.</em>, “The association between fatty liver disease and blood pressure in a population-based prospective cohort study,” <em>Journal of Hypertension</em>, vol. 28, no. 9, pp. 1829–1835, 2010, doi: <a href="https://doi.org/http://dx.doi.org/10.1097/HJH.0b013e32833c211b">http://dx.doi.org/10.1097/HJH.0b013e32833c211b</a>.</p>
-</div>
-<div id="ref-StickelEtAl:2011">
-<p>[20] F. Stickel <em>et al.</em>, “Genetic variation in the PNPLA3 gene is associated with alcoholic liver injury in caucasians,” <em>Hepatology</em>, vol. 53, no. 1, pp. 86–95, 2011, doi: <a href="https://doi.org/http://dx.doi.org/10.1002/hep.24017">http://dx.doi.org/10.1002/hep.24017</a>.</p>
-</div>
-<div id="ref-Targher:2010">
-<p>[21] G. Targher, C. P. Day, and E. Bonora, “Risk of Cardiovascular Disease in Patients with Nonalcoholic Fatty Liver Disease,” <em>New England Journal of Medicine</em>, vol. 363, no. 14, pp. 1341–1350, 2010, doi: <a href="https://doi.org/http://dx.doi.org/10.1056/NEJMra0912063">http://dx.doi.org/10.1056/NEJMra0912063</a>.</p>
-</div>
-<div id="ref-Markus:2013">
-<p>[22] M. R. P. Markus <em>et al.</em>, “Hepatic Steatosis Is Associated With Aortic Valve Sclerosis in the General Population: The Study of Health in Pomerania (SHIP),” <em>Arteriosclerosis, Thrombosis, and Vascular Biology</em>, vol. 33, no. 7, pp. 1690–1695, 2013, doi: <a href="https://doi.org/http://dx.doi.org/10.1161/ATVBAHA.112.300556">http://dx.doi.org/10.1161/ATVBAHA.112.300556</a>.</p>
-</div>
-<div id="ref-Hingorani:2013">
-<p>[23] A. D. Hingorani <em>et al.</em>, “Prognosis research strategy (PROGRESS) 4: Stratified medicine research,” <em>BMJ: British Medical Journal</em>, vol. 346, no. e5793, p. 9 pages, 2013, doi: <a href="https://doi.org/http://dx.doi.org/10.1136/bmj.e5793">http://dx.doi.org/10.1136/bmj.e5793</a>.</p>
-</div>
-<div id="ref-Voelzke:Cardiol2013">
-<p>[24] H. Völzke <em>et al.</em>, “A new, accurate predictive model for incident hypertension,” <em>Arteriosclerosis, Thrombosis, and Vascular Biology</em>, vol. 31, no. 11, pp. 2142–2150, 2013, doi: <a href="https://doi.org/http://dx.doi.org/10.1097/HJH.0b013e328364a16d">http://dx.doi.org/10.1097/HJH.0b013e328364a16d</a>.</p>
-</div>
-<div id="ref-AIM13">
-<p>[25] C. Zhanga and R. L. Kodell, “Subpopulation-specific confidence designation for more informative biomedical classification,” <em>Artificial Intelligence in Medicine</em>, vol. 58, no. 3, pp. 155–163, 2013, doi: <a href="https://doi.org/http://dx.doi.org/10.1016/j.artmed.2013.04.008">http://dx.doi.org/10.1016/j.artmed.2013.04.008</a>.</p>
-</div>
-<div id="ref-PinheiroEtAl:ICCABS13">
-<p>[26] F. Pinheiro, M.-H. Kuo, A. Thomo, and J. Barnett, “Extracting association rules from liver cancer data using the FP-growth algorithm,” 2013, doi: <a href="https://doi.org/http://dx.doi.org/10.1109/ICCABS.2013.6629208">http://dx.doi.org/10.1109/ICCABS.2013.6629208</a>.</p>
-</div>
-<div id="ref-HanEtAl:FP-Growth">
-<p>[27] J. Han, J. Pei, and Y. Yin, “Mining frequent patterns without candidate generation,” <em>ACM SIGMOD Record</em>, vol. 29, no. 2, pp. 1–12, 2000.</p>
-</div>
-<div id="ref-BennettsEtAl:Biomechanics2013">
-<p>[28] C. J. Bennetts, T. M. Owings, A. Erdemir, G. Botek, and P. R. Cavanagh, “Clustering and classification of regional peak plantar pressures of diabetic feet,” <em>Journal of biomechanics</em>, vol. 46, no. 1, pp. 19–25, 2013.</p>
-</div>
-<div id="ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006">
-<p>[29] A. De Cock, T. Willems, E. Witvrouw, J. Vanrenterghem, and D. De Clercq, “A functional foot type classification with cluster analysis based on plantar pressure distribution during jogging,” <em>Gait &amp; posture</em>, vol. 23, no. 3, pp. 339–347, 2006.</p>
-</div>
-<div id="ref-DeschampsEtAL:KMeansDiabeticFoot2013">
-<p>[30] K. Deschamps <em>et al.</em>, “Classification of forefoot plantar pressure distribution in persons with diabetes: A novel perspective for the mechanical management of diabetic foot?” <em>PLOS ONE</em>, vol. 8, no. 11, p. e79924, 2013.</p>
-</div>
-<div id="ref-GiacomozziMartelli:PeakPressure2006">
-<p>[31] C. Giacomozzi and F. Martelli, “Peak pressure curve: An effective parameter for early detection of foot functional impairments in diabetic patients,” <em>Gait &amp; posture</em>, vol. 23, no. 4, pp. 464–470, 2006.</p>
-</div>
-</div>
-            </section>
 
-          </div>
-        </div>
-      </div>
-<a href="medical-background.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sdclu.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+  <div class="chapter-nav">
+<div class="prev"><a href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></div>
+<div class="next"><a href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#imm"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
+<li>
+<a class="nav-link" href="#motivation-and-comparison-to-related-work"><span class="header-section-number">3.1</span> Motivation and Comparison to Related Work</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#other-related-work"><span class="header-section-number">3.1.1</span> Other related work</a></li>
+<li><a class="nav-link" href="#previous-work-on-ship"><span class="header-section-number">3.1.2</span> Previous Work on SHIP</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#subpopulation-discovery-workflow-and-interactive-mining-assistant"><span class="header-section-number">3.2</span> Subpopulation Discovery Workflow and Interactive Mining Assistant</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#imm-target"><span class="header-section-number">3.2.1</span> Target variable</a></li>
+<li><a class="nav-link" href="#imm-partitioning"><span class="header-section-number">3.2.2</span> Partitioning the Dataset into Subpopulations</a></li>
+<li><a class="nav-link" href="#imm-classification"><span class="header-section-number">3.2.3</span> Classification Rule Discovery</a></li>
+<li><a class="nav-link" href="#hotspot"><span class="header-section-number">3.2.4</span> HotSpot</a></li>
+<li><a class="nav-link" href="#interactive-medical-miner"><span class="header-section-number">3.2.5</span> Interactive Medical Miner</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#experiments-and-findings"><span class="header-section-number">3.3</span> Experiments and Findings</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#results-of-decision-tree-classifiers"><span class="header-section-number">3.3.1</span> Results of Decision Tree Classifiers</a></li>
+<li><a class="nav-link" href="#discovered-classification-rules"><span class="header-section-number">3.3.2</span> Discovered Classification Rules</a></li>
+<li><a class="nav-link" href="#imm-important-features"><span class="header-section-number">3.3.3</span> Important Features for Each Subpopulation</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#conclusions-on"><span class="header-section-number">3.4</span> Conclusions on …</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": false
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/unmnn/thesis/03-imm.Rmd",
-"text": "Source"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": [["thesis.pdf", "PDF"], ["thesis.docx", "Word"]],
-"toc": {
-"collapse": "subsection"
-}
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -329,5 +2082,4 @@ gitbook.start({
   })();
 </script>
 </body>
-
 </html>
