@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Chapter 8 PAPER | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
+
+    <meta name="author" content="Uli Niemann" />
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.5.3/header-attrs.js"></script>
+    <script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.2.2.9002/tabs.js"></script>
+    <script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
+
+  <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<div id="paper" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> PAPER</h1>
+<!-- E:\Dropbox\KMD\Tinnitus_Charite\Publikationen\20_Phenotyping\200824_Revision-1\200824_SREP_Rev1 -->
+<p>\begin{document}</p>
+<p>% * <a href="mailto:john.hammersley@gmail.com" class="email">john.hammersley@gmail.com</a> 2015-02-09T12:07:31.197Z:
+%
+% Click the title above to edit the author information and abstract
+%
+</p>
+<p>%=========================================================================================
+Tinnitus, the perception of a phantom sound in absence of an external sound source, is a
+complex multi-factorially caused and maintained phenomenon. %
+
+% Hier noch die extremen Kosten einfügen und referenzieren - bei LAncet immer hilfreich - Zitate findest Du in der Einleitung des Gender Grants (Du warst im CC glaube ich?); sonst schicke ich nochmal
+The associated annual economic burden amounts to US$19.4 billion in the
+United States<span class="citation"><a href="references.html#ref-Bhatt:TinnitusAnxietyDepression2017" role="doc-biblioref">[20]</a></span>, and {6.8} billion in the Netherlands alone<span class="citation"><a href="references.html#ref-Maes:TinnitusCosts2013" role="doc-biblioref">[21]</a></span>. %
+%=========================================================================================
+
+Currently, there is no consensus on or gold standard for a therapy form that is effective
+for every patient. %
+%=========================================================================================
+Sound therapy (masking) alone is not sufficient to significantly improve tinnitus
+loudness and severity<span class="citation"><a href="references.html#ref-Hobson:SoundTherapy2012" role="doc-biblioref">[22]</a></span>. %
+%=========================================================================================
+Informational counselling (minimal contact education) was found to be effective for
+subgroups of patients<span class="citation"><a href="references.html#ref-Kroner:Counseling2003" role="doc-biblioref">[23, p. Henry:Counseling1996]</a></span>. %
+%=========================================================================================
+While some studies affirm the efficacy of cognitive behavioural therapy (CBT) in reducing
+tinnitus impairment and distress<span class="citation"><a href="references.html#ref-Hesser:CBTReview2011" role="doc-biblioref">[24]</a></span>, others conclude that CBT is
+not superior to other treatments or no treatment in improving subjective tinnitus
+loudness and quality of life<span class="citation"><a href="references.html#ref-Martinez:CBTReview2007" role="doc-biblioref">[25]</a></span>. %
+%=========================================================================================
+Similarly, tinnitus retraining (TRT) was found to be helpful in reducing tinnitus
+impairment and quality of life in some studies<span class="citation"><a href="references.html#ref-Grewal:TRT2014" role="doc-biblioref">[26, p. Jastreboff:TRT2000]</a></span>,
+but not others<span class="citation"><a href="references.html#ref-Phillips:TRT2010" role="doc-biblioref">[27]</a></span>. %
+%=========================================================================================
+Due to the heterogeneous nature of the tinnitus symptom as well as the unclear
+evidence-base as to its treatment and management, the identification of patient subgroups
+is vital to stratify individual pathophysiology and treatment pathways<span class="citation"><a href="references.html#ref-Langguth:LCA2017" role="doc-biblioref">[2, pp. Tyler:TinnitusClustering2008, Landgrebe:TRI2010]</a></span>. %
+%=========================================================================================</p>
+<p>%=========================================================================================
+Since clinically relevant subgroups have not been established yet, clustering emerges as
+a promising approach to identify distinct tinnitus  in a data-driven,
+hypothesis-free way. %
+%=========================================================================================
+Clustering is the process of grouping subjects into multiple groups or clusters. %
+%=========================================================================================
+The goal is that subjects within a group are similar to another and dissimilar to subjects
+in others groups. %
+%=========================================================================================
+Previous studies found subgroups of tinnitus patients with cluster analysis based on a
+small number of audiometric features<span class="citation"><a href="references.html#ref-Langguth:LCA2017" role="doc-biblioref">[2]</a></span>, a combination of features
+extracted from self-reports, audiometry and
+psychoacoustics<span class="citation"><a href="references.html#ref-Tyler:TinnitusClustering2008" role="doc-biblioref">[3]</a></span>,
+
+or neuroimaging data and
+socio-demographics<span class="citation"><a href="references.html#ref-Schecklmann:BrainResearch2012" role="doc-biblioref">[4]</a></span>. %
+%=========================================================================================
+Although each of these studies provided insights in tinnitus subgroup patterns we believe
+that to increase acceptance amongst medical practitioners, clustering results need to be
+presented with intuitive visualisations that show individual subgroup patterns and enable
+the visual juxtaposition of multiple subgroups with respect to multi-variate data. %
+%=========================================================================================
+With this in mind, Schlee et al. proposed a compact radar chart visualisation
+that allows to juxtapose the degree of health burden between either individuals or
+subgroups based on multi-variate data<span class="citation"><a href="references.html#ref-Schlee:RadarVis2017" role="doc-biblioref">[5]</a></span>. %
+%=========================================================================================
+While their visualisation could be applied to any disease domain, Schlee et al. 
+demonstrated its efficacy showing subgroup differences with respect to measurements of
+tinnitus distress and associated comorbidities.
+%=========================================================================================
+However, Schlee et al. did not aim to visualise clustering results, but
+restricted themselves to pre-defined cohorts such as female vs male patients or patients
+with low vs high tinnitus frequency. %
+%=========================================================================================</p>
+<p>%=========================================================================================
+Hence, the goal of this study is to combine clustering for tinnitus phenotyping with
+visual cluster representation and juxtaposition. %
+%=========================================================================================
+Firstly, we performed cluster analysis and identified distinct phenotypes in patients
+with chronic tinnitus based on 64 (sub-)scales and sociodemographics
+extracted from self-report questionnaires. %
+%=========================================================================================
+Secondly, we created an intuitive radial chart visualisation to display multi-variate
+characteristics of a single cluster, and to facilitate comparison of multiple
+clusters. % and to display treatment effects. %
+%=========================================================================================
+% The goals of this study were (a) to determine an optimal number of phenotypes, (b) to identify features and feature-value ranges that characterize each phenotype, (c) to identify groups of features with similar patterns across clusters and (d) to visualize clusters in an intuitive and interpretable way.
+Prospectively, the results of this study could be used for stratified research designs
+and treatment approaches. % so that phenotype-specific treatment plans can be developed.
+%=========================================================================================</p>
+<p>% For this purpose, we used self-organizing maps to depict a fine-grained grouping and used <span class="math inline">\(X\)</span>-means to automatically identify distinct phenotypes.</p>
+<p>% Tinnitus denotes the audiological condition in which a patient perceives a phantom sound (such as ringing, whistling, hissing or rustling) in absence of an external source~<span class="citation"><a href="references.html#ref-Eggermont:Neuroscience2004" role="doc-biblioref">[30]</a></span>. Tinnitus is a worldwide health problem, with prevalence rates ranging between 12% and 30%~<span class="citation"><a href="references.html#ref-McCormack:Audiology2015" role="doc-biblioref">[32]</a></span>. Besides potential hearing loss~<span class="citation"><a href="references.html#ref-Martines:HearingLoss2010" role="doc-biblioref">[34]</a></span>, chronic tinnitus is frequently associated with concomitant psychological difficulties, including depression<span class="citation"><a href="references.html#ref-Zirke:MentalDisordersTinnitus2013" role="doc-biblioref">[36, pp. Zoeger:TinitusPsychatric2006, Trevis:TinnitusReview2018]</a></span>, anxiety~<span class="citation"><a href="references.html#ref-McCormack:Audiology2015" role="doc-biblioref">[32, p. Zoeger:TinitusPsychatric2006]</a></span>, other somatoform disorders~<span class="citation"><a href="references.html#ref-Andersson:Psychological2002" role="doc-biblioref">[39, p. Hiller:Somatoform1997]</a></span> and insomnia~<span class="citation"><a href="references.html#ref-Wallhausser:Insomnia2013" role="doc-biblioref">[41]</a></span>.</p>
+<p>% Upon presenting at an outpatient clinic, patients with (chronic) tinnitus undergo comprehensive medical and psychological assessments that inform individual case conceptualizations and treatment planning.
+% Whilst complex psychobiological interactions are known to contribute to tinnitus-related distress in chronified presentations, reliable and valid assessment procedures can be time-consuming and cumbersome.
+% To reduce patient burden without compromising on assessment validity, it is thus desirable to identify and measure selected key features of tinnitus-related distress.</p>
+<p>% % At first visit to an outpatient clinic, tinnitus patients usually undergo several medical test and complete multiple questionnaires to gather information on tinnitus-related distress, loudness and frequency as well as associated complications. Subsequently, clinicians analyze the questionnaire answers to derive patient-tailored treatment pathways with best-possible prospect of treatment efficacy.</p>
+<p>% % Although many well-established questionnaire (sub-)scales provide guidance, the final diagnosis of tinnitus severity is still based on the subjective assessment of the clinician.
+% % Furthermore, the accuracy of these scales is dependent on the veracity of the patient’s answers.
+% % This may be questionable since completing multiple lengthy questionnaires can be tedious and cumbersome.
+% % Consequently, the therapy decision made by the clinician may not be optimal.
+% % Thus, an accurate, objective tinnitus severity model is required for an improved therapy planning.
+% % Further, this model should only use the most relevant questions.
+% % Ultimately, the knowledge of relevant and irrelevant questions can be used to reduce the overall amount of questions within a questionnaire.</p>
+% The present paper addresses the following research questions:
+% \begin{enumerate}[label=Q]
+%
+To what extent do features recorded during registration allow for a prediction of tinnitus-related distress after treatment?
+%
+Which features are predictive of tinnitus-related distress before and after treatment completion?
+%
+How many features recorded during registration are really necessary for a good prediction of tinnitus-related distress after treatment?
+%
+<p>
+% \end{enumerate}</p>
+<p>% We build up on the the workflow we proposed in~<span class="citation"><a href="references.html#ref-Niemann:SciRep2019" role="doc-biblioref">[43]</a></span>, which encompasses data preparation steps, machine learning algorithms for the separation of relevant and irrelevant depression in tinnitus patients, as well as an iteratively invoked module that reduces the feature space while sustaining separation quality.</p>
+<p>%=========================================================================================
+Analyses were based on data from  patients with chronic  tinnitus who had been treated at the Tinnitus Center of Charité Universitätsmedizin Berlin, Germany, between January 2011 and October 2015. %
+
+Treatment comprised an intensive, multimodal 7-day program that included informational
+counselling, detailed ear-nose-throat (ENT) as well as medical and psychological diagnostics, cognitive-behaviour therapy interventions, auditory training, relaxation
+exercises, and physiotherapy. %
+
+Ethical approval was granted by Charité Universitaetsmedizin Berlin ethics committee
+(reference number EA1/115/15). %
+All relevant guidelines and regulations were followed. %
+All patients gave informed written consent for data collection. %
+Prior to the analyses, all data had been anonymised.%</p>
+%=========================================================================================
+For clustering, a total of 64 features from 14
+questionnaires was used, comprising 49 compound scores and
+15 single-item measurements:<br />
+%subscale scores, total scores and single 3 items%and sociodemographic information from
+%  questionnaires:
+%unter Umständen tatsächlich die Fragebögen nach Gruppen sortieren (total scores: x,y,z;
+% subscale scores: a,b,c; and sociodemographics?
+%=========================================================================================
+<p>%=========================================================================================
+% Additionally, the patient age was recorded.
+% 4,103
+
+% In total, the baseline recordings (T0) of 1,228 patients who completed
+% all of these questionnaires were used for clustering. %
+% Additionally, for  of these patients (80.5%) post-treatment
+% recordings (T1) were also available and used to visually explore treatment effect
+% differences between clusters. %
+Since all features of the SF8 and some features of the BSF, SWOP and PSQ have higher scores
+with better quality of life, features with a positive wording were
+reversed (new value = maximum feature value <span class="math inline">\(-\)</span> old value) so that the interpretation (higher
+scores represent higher burden) remained consistent. %
+Hereafter, feature names with a *-suffix denote reversed features. %
+Due to widely differing value ranges, each feature was standardised prior to cluster
+analysis via z-score normalisation to have a mean of 0 and standard deviation of 1. %
+%=========================================================================================</p>
+%=========================================================================================
+<p>To identify a distinct set of tinnitus phenotypes, the clustering algorithm X-means was
+employed<span class="citation"><a href="references.html#ref-Pelleg:xmeans2000" role="doc-biblioref">[6]</a></span>. %
+X-means is a parameter-free extension of the popular <span class="math inline">\(K\)</span>-means clustering algorithm that incorporates the Bayesian Information Criterion<span class="citation"><a href="references.html#ref-Schwarz:BIC1978" role="doc-biblioref">[7]</a></span> (BIC) to
+automatically find an appropriate number of clusters <span class="math inline">\(K\)</span> by finding a good trade-off
+between high goodness of fit and a low number of clusters. %
+Let <span class="math inline">\(\mathcal{D}\)</span> be the dataset with <span class="math inline">\(d\)</span> dimensions and <span class="math inline">\(D\)</span> a subset of <span class="math inline">\(\mathcal{D}\)</span>,
+i.e., <span class="math inline">\(D\subseteq \mathcal{D}\)</span>. %
+A <span class="math inline">\(K\)</span>-means clustering on <span class="math inline">\(D\)</span> yields the set of clusters
+<span class="math inline">\(\mathcal{C}=\left\{C_1,\ldots,C_k,\ldots,C_K\right\}\)</span>, where <span class="math inline">\(c_k\)</span> is the centroid of
+cluster <span class="math inline">\(k\)</span>,
+<span class="math inline">\(r_k\)</span> is the number of points in <span class="math inline">\(D\)</span> assigned to <span class="math inline">\(c_k\)</span> and <span class="math inline">\(p\)</span> is the number of free
+parameters, i.e.,
+% <span class="math inline">\(p = (K-1) + d \cdot K + 1\)</span>
+<span class="math inline">\(p = (d+1) \cdot K\)</span>. % (d+1) K???
+The BIC of a cluster <span class="math inline">\(C_k\)</span> using Schwarz criterion is calculated as
+<span class="math inline">\(\text{BIC}(C_k) = \hat{l}_k(\mathcal{D}) - \frac{p_k}{2} \cdot \log |\mathcal{D}|\)</span>,
+where <span class="math inline">\(\hat{l}_k(\mathcal{D})\)</span> is the log-likelihood of <span class="math inline">\(\mathcal{D}\)</span> according to
+<span class="math inline">\(C_k\)</span>. %
+The point probabilities are computed as
+<span class="math inline">\(\hat{P}(x_i)=\frac{r_{(i)}}{|\mathcal{D}|}\cdot \frac{1}{\sqrt{2\pi}\hat{\sigma}}\text{exp}\left(\-\frac{1}{2\hat{\sigma}^2}||x_i-c_{(i)}||\right)\)</span>, where the maximum likelihood estimate for the variance (under the identical spherical
+Gaussian assumption) is
+<span class="math inline">\(\hat{\sigma}^2=\frac{1}{|\mathcal{D}|-K}\sum_{i=1}^{|\mathcal{D}|}\left(x_i - \mu_{(i)}\right)^2\)</span>. %
+The log-likelihood of <span class="math inline">\(\mathcal{D}\)</span> according to <span class="math inline">\(\mathcal{C}\)</span> is <span class="math inline">\(l(\mathcal{D})=\log\prod_{i=1}^{|\mathcal{D}|} P(x_i)=\sum_{i=1}^{|\mathcal{D}|}\left(\log \frac{1}{\sqrt{2\pi}\hat{\sigma}} - \frac{1}{2 \sigma^2} ||x_i-c_{(i)}||^2 + \log \frac{r_{(i)}}{|\mathcal{D}|} \right)\)</span>. %
+%=========================================================================================</p>
+<p>% the BIC of a clustering <span class="math inline">\(C_k\)</span> with <span class="math inline">\(K=k\)</span> is calculated as<br />
+% <span class="math display">\[BIC(C_k,D) = \hat{l}(D,C_k) - \frac{p_k}{2}\log m\]</span>,
+% where <span class="math inline">\(\hat{l}(D,C_k)\)</span> is the log-likelihood of the data w.r.t. <span class="math inline">\(C_k\)</span> and <span class="math inline">\(p_k\)</span> is the number of parameters, <span class="math inline">\(p_k=(k-1)+nk+1\)</span>.
+% Let <span class="math inline">\(D_j\)</span> be the subset of points that is assigned to the <span class="math inline">\(j\)</span>-th centroid, with <span class="math inline">\(j\in 1,\ldots, k\)</span>, and <span class="math inline">\(r=|D_j|\)</span>.
+% The maximum likelihood estimate for the variance, under the identical spherical Gaussian assumption, is:
+% <span class="math display">\[\hat{\sigma}^2=\frac{1}{r-k}\sum_{i\in 1,\ldots,r}(x_i-\mu_i)^2\]</span>.
+% The log-likelihood <span class="math inline">\(\hat{l}(D,C_k)\)</span> is calculated as
+% <span class="math display">\[\hat{l}(D,C_k)=-\frac{N_k}{2}\log(2\pi)-\frac{N_kd}{2}\log(\hat{\sigma}^2)-\frac{N_k-K}{2}+N_k\log N_k-N_k\log N\]</span></p>
+<p>%=========================================================================================
+The X-means algorithm consists of 4 steps: %
+(1)~First, an initial K-means is run with <span class="math inline">\(K=K_{lower}\)</span>. %
+(2)~Then each centroid is bisected into two children which are placed in opposite directions
+along a randomly chosen vector. %
+(3)~A ``local’’ 2-means clustering is run for each pair of children and a BIC score is
+assigned to this new partitioning. %
+% They are moved a distance proportional to the size of the region in opposite directions
+along a randomly chosen vector. %
+(4)~If the BIC score increases with bisection of a centroid, the respective child centroids
+are kept, otherwise, the parent centroid is kept. %
+Steps (2)-(4) are repeated until neither centroid’s BIC score can be improved by
+bisection. %
+We used the R implementation of the X-means algorithm of Ishioka and set <span class="math inline">\(K_{lower}\)</span> to
+2<span class="citation"><a href="references.html#ref-Ishioka:xmeansimplementation2005" role="doc-biblioref">[8]</a></span>. %
+Numbering of clusters as cluster 1, cluster 2, etc. was done arbitrarily.
+%=========================================================================================</p>
+%=========================================================================================
+<p>Visualisation of clusters in high dimensionality is challenging. %
+%=========================================================================================
+The popular scatterplot matrices (SPLOMs) and their extensions intuitively represent the
+relation between pairs of features as matrix where each non-diagonal element is a
+two-dimensional scatterplot<span class="citation"><a href="references.html#ref-Im:GPLOM2013" role="doc-biblioref">[9, p. Klemm:RegressionHeatmap2015]</a></span>. %
+%=========================================================================================
+However, the number of scatterplots grows quadratically with increasing dimensionality which leads to scalability problems such as overplotting.
+%=========================================================================================
+Hence, advanced visualisation techniques have been proposed as a remedy, e.g. density
+contours, hexagon binning, coloring, transparency, layers showing aggregated geometric
+characteristics (minimal spanning trees, alpha shape, convex hull), animation, or
+combinations of multiple techniques such as
+splatterplots<span class="citation"><a href="references.html#ref-Mayorga:Splatterplots2013" role="doc-biblioref">[11]</a></span>. %
+% class-specific smoothed density contours
+%=========================================================================================
+Still, SPLOMs and other traditional visualization techniques such as parallel coordinate
+charts<span class="citation"><a href="references.html#ref-Hartigan:PCC1975" role="doc-biblioref">[12]</a></span> are more suited for rather low-dimensional data with only
+a handful of features.
+%=========================================================================================</p>
+<p>%=========================================================================================
+In case the original data cannot be adequately displayed on low-dimensional projections,
+dimensionality reduction (DR) is often applied as preprocessing step in advance of
+visualisation. %
+%=========================================================================================
+DR algorithms transform a high-dimensional feature space onto a low-dimensional (often 2D)
+projection. %
+%=========================================================================================
+Ideally, the projection preserves important structures of the original data, such as
+clusters, outliers, correlations and other important structures. %
+%=========================================================================================
+Principal component analysis (PCA) is a frequently used DR algorithm that generates a new
+coordinate system with orthogonal dimensions~<span class="citation"><a href="references.html#ref-Hotelling:PCA1933" role="doc-biblioref">[13]</a></span>. %
+%=========================================================================================
+The new dimensions (principal components, PC) are linear combinations of the original
+dimensions and are sorted according to variance. %
+%=========================================================================================
+Each PC carries a loading that characterises how much variability of the data is
+explained. %
+%=========================================================================================
+PCA is primarily suited for normally distributed data. %
+%=========================================================================================
+However, PCA has problems with outliers and is incapable of capturing non-linear relationships. %
+%=========================================================================================
+Another popular DR algorithm is multi-dimensional scaling (MDS) which puts emphasis on preserving distance. %
+%=========================================================================================
+Points that are close in high-dimensional space should also be close in low-dimensional space. %
+%=========================================================================================
+For complex (arbitrarily-shaped) structures, large distance is meaningless because of the curse of dimensionality, thus results may be unsatisfactory. %
+%=========================================================================================
+<span class="math inline">\(t\)</span>-stochastic neighbourhood embedding (<span class="math inline">\(t\)</span>-SNE) is a non-linear dimensionality reduction technique that visualises a matrix of pairwise-similarities<span class="citation"><a href="references.html#ref-VanDerMaaten:tSNE2008" role="doc-biblioref">[15]</a></span>. %
+%=========================================================================================
+The similarities are calculated in a way to both preserve global structures (clusters at different scales) and local structures (distances and neighbours). %
+%=========================================================================================
+<span class="math inline">\(t\)</span>-SNE does not allow for interpretation of the original dimensions. %
+%=========================================================================================
+Further, the technique does not support to add a new observation to the existing projection without recalculation. %
+%=========================================================================================</p>
+%=========================================================================================
+DR techniques cannot be applied here because even if the clustering structure is preserved in the data projection, the semantics of the original features will be lost.
+Discussions with domain experts led to the following requirements for a cluster visualisation:
+<p>%=========================================================================================</p>
+<p>%=========================================================================================
+We therefore introduce a new radial bar chart visualisation as graphical representation of
+a single cluster, enriched with dedicated elements that satisfy the aforementioned
+requirements. %
+In particular, the height of a bar depicts the average value of a feature over the
+patients assigned to that cluster. %
+The radial spatial layout distributes the bars around a circle where each bar starts at the
+black 0 line which represents the feature average over all patients included in this study. %<br />
+Due to the scaling (z-score normalisation) of the features, bars inclined to the outside
+represent feature averages above the overall patient mean and bars inclined to the inside
+represent feature averages below the overall patient mean. %
+This interpretation is visually supported by colour-coded bars using a sequential gradient
+from dark blue (low burden) to yellow (mean burden) to bright red (high burden). %
+Feature names are shown on top of each bar. %
+% The black outer lines highlight the 0-point representing the population average, a value of 1 represents one standard deviation above the population average.
+All values are depicted in terms of standard deviation away from the mean. %
+For example, a value of $-$1 indicates that the cluster average is 1 standard deviation
+smaller than the overall patient average. %
+Intra-cluster standard deviation are represented as grey error lines facing the coloured
+inner circle. %
+% Grey inward lines represent the intra-cluster standard deviation.
+To facilitate quick feature localisation, features were grouped into categories which are
+displayed in the inner circle, alongside the cluster name and the number of patients
+assigned to that cluster. %
+These categories were (in clockwise order): %socio-demographics,
+% 
+tinnitus characteristics,
+physical quality of life, %somatic quality of life,
+experiences of pain, %somatic pain,<br />
+somatic expressions,
+affective symptoms, %psychological symptoms,
+tinnitus-related distress, %psychological tinnitus distress,
+internal resources, %psychological attitudinal factors,
+perceived stress, and %psychological stress, and
+mental %psychological
+quality of life. %
+% 
+%=========================================================================================</p>
+<p>%=========================================================================================
+To provide a graphical overview of all clusters at the same time, we designed a radar
+chart variant where feature averages are represented as points instead of bars which
+allows to show multiple clusters. %
+Within each feature category, the points of a cluster are connected by line segments. %
+Points and line segments are coloured by cluster. %
+%=========================================================================================</p>
+%
+<p>% Although clustering was performed on baseline data only, we decided to explore treatment effects to visually discover potential cluster-specific idiosyncrasies.
+% For this purpose, we extend the radial bar chart by showing both pre-treatment and post-treatment averages as bars placed next to each other.
+% The ends of a pair of bars are connected by a line with an arrow-head pointing to the bar of the post-treatment score.
+% To highlight large treatment effect magnitudes, connecting lines and feature labels are colored in green (decrease by min. <span class="math inline">\(\Delta\cdot\)</span> SD from T0 to T1), red (increase by <span class="math inline">\(\Delta\cdot\)</span> SD) or black (no considerable change), respectively.</p>
+%=========================================================================================
+<p>To provide a graphical overview, an interactive demo of the cluster solutions and the visualisations is available under .
+%
+% . %
+Radar charts were augmented with interactive components:
+by hovering over a bar or a feature label, additional cluster summaries and compact
+feature descriptions are shown as tooltips. %
+Clicking on a feature invokes an additional chart which shows the (normalised)
+distribution of the selected feature stratified by cluster, and if selected, also after
+treatment. %
+Continuous features are shown using semi-transparent boxplots placed on violin plot <span class="citation"><a href="references.html#ref-Hintze:Violin1998" role="doc-biblioref">[18]</a></span> layers whereas for nominal features, category proportions
+alongside their 95% confidence intervals are displayed as points and error lines,
+respectively. %
+%=========================================================================================</p>
+%=========================================================================================
+<p>Kruskal-Wallis test was used for statistical comparison of inter-phenotype differences for
+continuous features (like age), and Pearson’s chi-squared test was used for categorical
+features (like gender). %
+Differences were considered significant if p$&lt;$0.05. %
+Correction for multiple comparison was not conducted due to the exploratory nature of the
+study. %
+Confidence intervals for the means were estimated using %exact Binomial test for proportion features and
+nonparametric basic bootstrap sampling <span class="citation"><a href="references.html#ref-Davidson:Bootstrap1997" role="doc-biblioref">[19]</a></span> with 2,000 samples,
+respectively. %
+%=========================================================================================</p>
+%
+<p>% % 
+% Beyond a small number of phenotypes, it is vital to understand the general variability of local patterns among tinnitus patients.
+% For this purpose, a self-organizing map (SOM) was trained on the dataset.
+% The SOM algorithm creates a one- or two-dimensional manifold in the feature space, called topological map.
+% The goal is to build a relationship-preserving topology, where objects which are similar in the original high-dimensional feature space are close together in the projection.
+% Actual distance magnitudes are disregarded.
+% Unlike other popular dimension reduction algorithms such as principal component analysis~<span class="citation"><a href="references.html#ref-Hotelling:PCA1933" role="doc-biblioref">[13]</a></span>, multi-dimensional scaling~<span class="citation"><a href="references.html#ref-Kruskal:MDS1964" role="doc-biblioref">[44]</a></span> and t-stochastic neighborhood embedding~<span class="citation"><a href="references.html#ref-VanDerMaaten:tSNE2008" role="doc-biblioref">[15]</a></span>, SOMs map objects to discrete (grid) positions in the low-dimensional manifold of the feature space.
+% These so called units (or nodes) are associated with a codebook vector, which corresponds to the average of all objects mapped to that unit and is often referred to as the prototype for the unit, similarly to the centroid in K-means.
+% A new observation, i.e., an observation that was not used for SOM creation, is mapped to the so called winning unit, the unit with smallest distance between its codebook vector and the observation.</p>
+<p>% SOM algorithm parameters include grid type (hexagonal or rectangular),
+% grid dimensions (width and height),
+% initial learning rate <span class="math inline">\(\alpha_0\)</span> and initial neighborhood radius <span class="math inline">\(\sigma_0\)</span>.
+% Briefly, the batch version of the iterative algorithm comprises four steps.
+% In the initialization step, the weights of each codebook vector <span class="math inline">\(w_0(i)\)</span> are randomly populated.
+% In the competition step, for a randomly selected observation <span class="math inline">\(x\)</span> in iteration <span class="math inline">\(t\)</span>, the winning unit <span class="math inline">\(c\)</span> is determined via a distance function <span class="math inline">\(d()\)</span> as <span class="math inline">\(c_t=\argmin_{i\in 1,\ldots,g}d(x,w_t(i))\)</span>, where <span class="math inline">\(g\)</span> is the number of units in the grid.
+% Often, Euclidean distance is used as distance function, i.e., <span class="math inline">\(d(x,y)=\sqrt{\sum_{j=1}^m (x_j-y_j)}\)</span>, where <span class="math inline">\(m\)</span> is the number of dimensions of the dataset.
+% In the cooperation step, all nodes that lie within the neighborhood of <span class="math inline">\(c\)</span> are determined.
+% The neighborhood radius <span class="math inline">\(\sigma_t\)</span> gradually decreases with each iteration.
+% For example, <span class="math inline">\(\sigma_t\)</span> can be calculated using an exponential neighborhood decay function as <span class="math inline">\(\sigma_t=\sigma_0\cdot e^{-\frac{t}{\lambda}}\)</span>, where <span class="math inline">\(\lambda\)</span> is a constant.
+% Then, the degree in participation of unit <span class="math inline">\(i\)</span> in weight-updating is given as <span class="math inline">\(h_t(c,i)=e^{-\frac{d(c,i)^2}{2\sigma_t^2}}\)</span>.
+% In the adaption step, each unit is updated by adjusting the weights towards the selected observation as <span class="math inline">\(w_{t+1}(i)=w_i(t)+\alpha_t h_t(c,i)(x-w_t(i))\)</span>.
+% Finally, <span class="math inline">\(t\)</span> is incremented and the procedure is repeated from the competition step until the maximum number of iterations <span class="math inline">\(T\)</span> is reached or the change of the weights is less than a predefined threshold.</p>
+<p>% We used the R package ~<span class="citation"><a href="references.html#ref-Wehrens:kohonen2018" role="doc-biblioref">[45]</a></span> with a hexagonal grid layout, a height and width of 10, a learning rate with linear decrease from <span class="math inline">\(\alpha_0=0.05\)</span> to <span class="math inline">\(\alpha_T=0.01\)</span> over <span class="math inline">\(T=500\)</span> iterations with an exponential neighborhood decay function.</p>
+%
+<p>% We developed a visualization comparable to variable factor maps which are popular in principal component analysis, where a projection of the original variables onto the the plane spanned by the first two principal components is shown.
+% This plot serves as an intuitive illustration of the correlation between the original variables and the principal components.</p>
+<p>% Here, we were interested in displaying the correlation between features and the SOM grid.<br />
+% More specifically, let <span class="math inline">\(x\)</span> be the vector of x-coordinates of the SOM units, and
+% <span class="math inline">\(w\)</span> is a weight vector with the number of instances assigned to a node.
+% Then, <span class="math inline">\(\bar{x}\)</span> is the weighted mean of the x-coordinate, with <span class="math inline">\(\bar{x}=(\sum_i w_i\cdot x_i)/(\sum_i w_i)\)</span>, and <span class="math inline">\(\bar{v}^f\)</span> is the weighted mean of the codebook vector with respect to feature <span class="math inline">\(f\)</span>, with <span class="math inline">\(\bar{v}^f=(\sum_i w_i\cdot v_i^f)/(\sum_i w_i)\)</span>. The weighted correlation is <span class="math inline">\(\phi=\frac{\sum_i (w_i\cdot(x_i-\bar{x})\cdot(v_i^f-\bar{v}^f))}{\sqrt{(\sum_i(w_i\cdot(x_i-\bar{x})^2))}\cdot \sqrt{(\sum_i(w_i\cdot(v_i^f-\bar{v}^f)^2))}}\)</span>.
+% We drew the SOM grid augmented with a scatter plot where the position of a point represents the value of <span class="math inline">\(\phi\)</span> with respect to the x- and y-coordinate for a particular feature.
+% % It is the SOM grid augmented with a scatter plot which shows for each feature the correlation of the codebook vectors and their position in the grid.
+% For example, if a point is located at the top-left of the grid, this means that observations in the top-left nodes exhibit high values and observations in the bottom-right nodes exhibit low values for this feature.
+% Hence, we identified groups of features that correlated with the SOM coordinates and selectively showed their feature heatmaps.</p>
+<p>%=========================================================================================
+% 
+According to <span class="math inline">\(X\)</span>-means, four clusters (referred to as phenotypes hereafter) represent an
+optimal solution for the given dataset. %
+%=========================================================================================
+The radial barcharts in figure<a href="visual-identification-of-informative-features.html#fig:06-all-radial-barcharts">7.2</a> visualise phenotype-individual
+averages for all features. %
+%=========================================================================================
+Graphical summaries of phenotype value distributions for all features on their original
+scales are provided in Supplementary Fig. S1. %
+%=========================================================================================
+The radar plot in figure<a href="#fig:radar"><strong>??</strong></a> shows average scores for each variable and for
+all clusters. %
+%=========================================================================================
+While the four phenotypes are clearly distinguishable with respect to the psychosomatic
+and somatic variables, the line segments for most features of the group <code>tinnitus  characteristics'' are close to the overall patient average. % %========================================================================================= Phenotype 1 (PT 1) represents the largest subgroup with 697 out of 1,228 patients  (56.8\%). %  %========================================================================================= This patient subgroup is characterised by ostensibly below-average symptom expression across tinnitus-related and broader psychosomatic symptom indices, including affective symptoms, perceived stress, tinnitus-related distress and somatic symptoms, as well as (above-average) quality of life and internal resources (figure\@ref(fig:06-all-radial-barcharts)). % %========================================================================================= Due to their help-seeking behaviour, presentation in clinic and wish to participate in  multimodal treatment, it can be assumed that this group of patients do experience  psychological distress, however aim to present themselves as healthily as possible. % %========================================================================================= We therefore label this phenotype</code>avoidant group’‘. %
+%=========================================================================================
+Patients in this subgroup feature proportionately high levels of education, employment
+and low levels of leave of absence and psychotherapeutic treatment
+(Table<a href="#tab:inter-group-socio"><strong>??</strong></a>). %
+%=========================================================================================
+% Average scores of all psychological symptoms, quality of life, ,
+% subjective stress, tinnitus-related distress, pain and expressions were lowest among all
+% PTs (figure<a href="visual-identification-of-informative-features.html#fig:06-all-radial-barcharts">7.2</a>). %
+% Since their average scores for features in the psychological stress and psychological
+% quality of life categories were particularly low, ranging between $1b.5 to 1.0 SD below
+% population average, this subgroup showed best coping
+% despite approx. population-average tinnitus frequency (). %
+% PT 1 was labeled as , 
+% referring to possibly unrecognized or
+% perceived psychological restrictions and reduced quality of life. %
+% Patients of this subgroup appear to avoid self-attribution of limitation and
+% suffering, but voluntarily went undergone intensive care. %
+% Among all clusters, PT 1 exhibited the largest proportion of persons with Abitur
+% (highest German school graduation), the largest proportion of employed persons, the
+% smallest periods of sick leave and the lowest use of psychotherapeutic treatment, and
+% these patients reported the shortest time period since tinnitus onset
+% (Table<a href="#tab:inter-group-socio"><strong>??</strong></a>). %
+PT 2 comprised 173 patients (14.1%) who reported the highest emotional and somatic
+burden among all PTs (figure<a href="visual-identification-of-informative-features.html#fig:06-all-radial-barcharts">7.2</a>~b). %
+%=========================================================================================
+More specifically, PT 2 represents a patient subgroup with high
+psychosomatic-comorbidity and is thus labelled <code>psychosomatic group''. % %========================================================================================= This patient subgroup shows high tinnitus burden alongside clinically relevant  impairment across all affective indices including depression, anxiety, and perceived  stress. % %========================================================================================= These affective symptoms appear to align with somatoform expressions of distress  including somatic symptoms. % %========================================================================================= Patients of these subgroup report severely reduced quality of life and reduced coping  opportunities with more pessimism, less experienced self-efficacy and optimism. % %========================================================================================= Patients in this subgroup feature a high proportion of patients who live alone, are  unemployed or show an overall lower educational status. % %========================================================================================= Patients in this cluster further appear to consult more doctors, take more leave of  absence and use more psychotherapy. % %========================================================================================= PT 2 patients reported the tinnitus sound to be audible in the entire head  to a greater portion than the other groups. % %========================================================================================= % average scores for 52 out of 53 psychological and somatic variables were  % at least 0.5 standard deviations (SD) above the overall patient mean  % (cf. figure\@ref(fig:06-all-radial-barcharts)~B). % % Among the variables with the highest average scores were \textsf{ISR\_totalpsychiatricsyn}  % (1.55; ICD-10 psychiatric symptome rating score),  % \textsf{ADSL\_depression} (1.51),  % \textsf{BSF\_anxiousdepression} (1.51),  % \textsf{ISR\_additionalitems} (1.50),  % ISR\_depression (1.49) and  % PHQK\_depression (1.49). % % Hence, this PT was labeled \emph{psychosomatic group}. % % PT 2 patients reported the tinnitus sound to be audible in the entire head  % (\textsf{TLQ\_01\_entirehead}) to a greater portion (27.4\%) than the other groups. % % This subgroup had diametrically opposed socio-demographic characteristics to PT 1, i.e.,  % lowest Abitur and employment percentages, as well as highest sick times and use of  % psychotherapeutic treatment among all phenotypes. %  PT 3 contained 187 associated patients (15.2\%) characterised by above-average scores of  features measuring somatic complaints and near-average scores for  affective symptoms (figure\@ref(fig:06-all-radial-barcharts)~c). % %========================================================================================= Since pain scores of \textsf{SF8\_bodilyhealth*} and \textsf{SSKAL\_painfrequency}  were similarly large as PT2, this patient subset was labelled</code>somatic group’‘. %
+%=========================================================================================
+PT 3 represented the oldest subgroup, with the largest proportion of female patients and
+largest reported time period since tinnitus onset. %
+%=========================================================================================
+Unlike PT3, PT 4 (n=171; 13.9%) exhibited above-average scores for affective scores,
+components of quality of life and perceived stress (figure<a href="visual-identification-of-informative-features.html#fig:06-all-radial-barcharts">7.2</a>~d),
+e.g. mental component summary score (; 0.85) and anxious
+depression score (; 0.79). %
+%=========================================================================================
+Hence, we label PT 4 as ``distress group’’. %
+%=========================================================================================
+PT 4 comprises the youngest of the 4 subgroups, with the largest fraction of male patients
+(Table<a href="#tab:inter-group-socio"><strong>??</strong></a>). %
+%=========================================================================================</p>
+% Place tables after the first paragraph in which they are cited.
+<p>% \begin{figure}[t]
+% \contcaption{
+% {}
+%  Phenotype 1 (PT1) characterizes the patient subgroup with lowest health burden among all phenotypes. %
+%  PT2 represents the most suffering subgroup, with all of the psychosomatic and somatic measurement averages exceeding the population mean $+$0.5 standard deviations (SD). %
+% PT3 () exhibits above population average scores for somatic indicators whereas PT4 () is characterized by increased distress scores, including subjective stress and perceived quality of life. %
+% Bars are arranged in a circular layout. %
+% The height of a bar shows a feature’s z-score normalized within-cluster average, and the gray line centered at the top of the bar illustrates the 95% confidence interval. %
+% The color of a bar represents the difference of the within-cluster average from the overall patient average (PA), from $-$1.5 SD below PA (dark blue) to PA (yellow) and $+$1.5 SD above PA (bright red). %
+% Features were grouped into 9 categories defined by tinnitus experts.
+% The categories are shown within the inner circle. %
+% See subsection~ for a description of each questionnaire and the extracted features. %
+% % SO: somatic; PS: psychosomatic.
+% }% Continued caption
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% 
+% % \begin{minipage}{.45}
+% % 
+% % \end{minipage}
+% % \begin{minipage}{.45}
+% 
+% % \end{minipage}
+% % \begin{minipage}{.45}
+% % 
+% % \end{minipage}
+% % \begin{minipage}{.45}
+% % 
+% % \end{minipage}
+% % \begin{minipage}{.45}
+% % 
+% % \end{minipage}
+% % \begin{minipage}{.45}
+% % 
+% % \end{minipage}
+% \caption{{}
+% PT1 characterizes the patient subgroup with greatest health burden among all phenotypes.
+% Bars are arranged in a circular layout. The height of a bar shows a feature’s (z-score normalized) within-cluster average, and the gray line centered at the top of the bar illustrates the 95% confidence interval.
+% % The color of a bar represents the difference of the within-cluster average from the overall patient average (PA), from <span class="math inline">\(-1.5\)</span> standard deviations (SD) below PA (dark blue) to PA (yellow) and +1.5 SD above PA (bright red).
+% Features were grouped into 9 categories provided by tinnitus experts. The categories are shown within the inner circle.
+% See subsection~ for a description of each questionnaire and the extracted features. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% 
+% %trim={left bottom right top}
+% 
+% \caption{{}
+% PT2 describes patients with above-average health burden.
+% See subsection~ for a description of each questionnaire and the extracted features. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% 
+% %trim={left bottom right top}
+% 
+% \caption{{}
+% PT3 characterizes the group of patients with the least health burden.
+% See subsection~ for a description of each questionnaire and the extracted features. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% 
+% %trim={left bottom right top}
+% 
+% \caption{{}
+% PT4 describes patients with below-average scores on somatic pain, somatic quality of life, somatic expressions and psychosomatic tinnitus-related distress, and near-average other psychosomatic features. PT4 contains the largest fraction of male patients over all phenotypes.
+% See subsection~ for a description of each questionnaire and the extracted features. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% 
+% %trim={left bottom right top}
+% 
+% \caption{{}
+% PT5 represents younger patients with near-average scores for somatic features and below-average scores for psychosomatic features.<br />
+% See subsection~ for a description of each questionnaire and the extracted features. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-1cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+% 
+% %trim={left bottom right top}
+% 
+% \caption{{}
+% For each feature, 2 adjacent bars are shown: the left and right bars represent the within-cluster average at baseline (T0) and after treatment (T1), respectively.
+% Each pair of bars is connected with a line with its arrow-head pointing to the bar of the T1 score.
+% To highlight large treatment effect magnitudes, connecting lines and feature labels are colored in green to represent a decrease from T0 to T1 by <span class="math inline">\(&gt;\Delta\cdot\)</span> SD from T0 to T1), red (increase by <span class="math inline">\(\Delta\cdot\)</span> SD) or black (no considerable change), respectively.
+% All 5 clusters improve on at least 4 of the tinnitus-related distress scores (category 6), as well as  and .
+% 1: socio-demographics; 2: tinnitus characteristics; 3: somatic expressions; 4: somatic quality of life; 5: 5: somatic pain; 6: psychosomatic tinnitus-related distress; 7: psychosomatic subjective stress; 8: psychosomatic attitudinal factors; 9: psychosomatic quality of life; 10: psychosomatic psychological symptoms.
+% % c(138,290,233,199,130) / c(176,355,295,240,163)
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% The 298 patients (24.2%) of cluster 4 represent a subgroup with highest coping.<br />
+% Oppositely to the first and second cluster, this subgroup shows below-average scores for all psychosomatic and somatic variables.
+% Among the most distinctive variables with average scores lower than <span class="math inline">\(-1.0\)</span> SD were  (-1.09),  (-1.09),  (-1.08),  (-1.04; tinnitus-related distress),  (-1.03),  (-1.03) and  (-1.02; exhaustion).
+% With respect to socio-demographical information, cluster 4 is considerably different to the other clusters (cf. Table<a href="#tab:inter-group-socio"><strong>??</strong></a>).
+% Notably, cluster 4 comprises considerably more male than female tinnitus patients (62.1%).
+% Further, this subgroup exhibits the highest percentage of patients having Abitur (55.4%), the highest percentage of patients being self-employed (10.4%), as well as patients with the shortest sick leave (1.1 months), and with the shortest duration of psychological treatment (1.8 months) across all clusters.</p>
+<p>% Further, 74.6% of the patients of cluster 3 reported not to receive psychological treatment, the highest percentage of all clusters.</p>
+<p>% In contrast to clusters 1, 2 and 3 which exhibited average variable scores consistently above (1,2) or below (3) the overall patient mean with respect to psychological and somatic variables, clusters 4 and 5 showed variables with opposed relationships.
+% While the 298 patients (24.2%) assigned to cluster 4 reported levels of somatic pain, quality of life, tinnitus-related distress and somatic expressions clearly below average, some of the scores were above average, including PSQ_demand, PSQ_joy and BSF_mood (figure@ref(fig:c4_radial)). % Tinnitus schlägt auf die Stimmung, aber führt nicht zu depressiven Merkmalen.
+% This cluster also comprised the highest percentage of patients with Abitur (67.1%; SOZK_abitur - highest level of school education in Germany), the highest percentage of employed (85.5%) and self-employed (12.4%) patients across all clusters.</p>
+<p>% Cluster 5 (163 patients; 13.3%) represented the oldest of the subgroup with an average age of 56.0$$9.6 years (figure@ref(fig:c5_radial)).
+% While coping with respect to psychological factors was high in comparison with the other clusters, they exhibited above-average somatic pain and partially high tinnitus-related distress scores.
+% % gute mentale Copers</p>
+%
+<p>% Figure@ref(fig:treatment_effects) shows the radial charts augmented with post-treatment scores for each cluster. %
+% The bold label in the inner circle of a chart depicts the number of patients for which recordings were available both at baseline (T0) and after treatment (T1).
+% For example, 138 out of the 176 phenotype 1 patients (cf. Figure@ref(fig:treatment_effects)~A) had complete data in both T0 and T1, and these patients’ scores are visualized here.
+% By green colors of the labels and arrows, Figure@ref(fig:treatment_effects) reveals that patients of all phenotypes improved with respect to the tinnitus-related distress features , , ,  and , i.e., the cluster average decreased by at least 0.25 standard deviations from T0 to T1.<br />
+% Further, the psychosomatic symptom scores  and  were lower in T1 throughout all clusters.</p>
+<p>% </p>
+<p>% 
+% cluster 1: tlq02_whistling were better able to match sound to predefined response options
+% average decrease: no relationship between magnitude of health burden on treatment effect
+% </p>
+<p>% &gt; data_orig_scaled %&gt;% inner_join(tibble(.jour_nr = jour_nr, .cluster = xm$cluster), by = “.jour_nr”) %&gt;% gather(key, value, -c(.jour_nr, .phase, .cluster)) %&gt;% group_by(.phase, .cluster, key) %&gt;% summarise(avg = mean(value), sd = sd(value)) %&gt;% group_by(key, .cluster) %&gt;% arrange(.phase) %&gt;% summarize(diff = avg[1] - avg[2]) %&gt;% group_by(.cluster) %&gt;% summarize(mean(diff))
+% # A tibble: 5 x 2
+% .cluster <code>mean(diff)</code>
+% <dbl> <dbl>
+% 1 1 0.139
+% 2 2 0.160
+% 3 3 0.0782
+% 4 4 0.104
+% 5 5 0.142</p>
+<p>% The largest phenotype (C1; Figure<a href="#fig:radial1"><strong>??</strong></a>) comprises more than half of the included patients (56.3%) and represents tinnitus- patients. % high functioning, avoidant coping
+% This subgroup exhibits best tinnitus coping among the three groups, indicated by below-(population-)average scores for positively poled features, e.g. tinnitus-related distress, depressivity, stress, somatic pain and somatic expressions, as well as above-average scores for (somatic and psychosomatic) quality of life.
+% The smallest phenotype (C2; 13.7% Figure<a href="#fig:radial2"><strong>??</strong></a>) describes patients with severe tinnitus suffering.
+% This  subgroup exhibits high scores for all negatively poled features, especially for psychological symptoms such as depressivity, anger, anxiety, apathy and fatigue as well as subjective stress and somatic pain.
+% In comparison to the whole sample, patients from this subgroup report tinnitus localization in the entire head more often, and in the right ear less often.
+% Further, the cluster exhibits an above-average frequency on foreign residents and patients report more time of sick leave, being under psycho-therapeutic treatment longer and having visited more doctors than the population mean.
+% The third cluster (C3; 30.0%; Figure<a href="#fig:radial3"><strong>??</strong></a>) characterizes patients with high .
+% This cluster can be described as counterpiece to C1, showing similar patterns but in a less pronounced magnitude compared to C2, with all feature means within one standard deviation from the population mean.</p>
+<p>% Whereas there is low variation among the clusters with respect to socio-demographic features, including gender, family status
+% where are they located in the som?</p>
+<p>% \begin{table}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%  % this reduces the vertical spacing between rows
+% 
+% % 
+% \caption{
+% % {}
+% % For each classifier, the best AUC is highlighted in boldface.
+% % Classifiers are ordered by their maximum AUC.
+% % All methods induce at least one model with AUC of 0.790 or higher.
+% % Cells with a ``/’’ indicate that the feature elimination wrapper had already been terminated after a previous iteration. %The bottom row depicts multiple comparison adjusted p-values (Benjamini-Hochberg) of pairwise post-hoc Dunn significance tests in <span class="math inline">\(\bar{x}\)</span> AUC after significant Kruskal-Wallis test.
+% }
+% \begin{tabular}{p{3.4cm}p{3.4cm}p{3.4cm}}
+% 
+% Cluster 1 &amp; Cluster 2 &amp; Cluster 3\
+% Avoidant Group &amp; Psychosomatic Group &amp; Distress Group
+% % C1 Avoidant Group (high functioning;  avoidant coping)
+% % C2 ENT Group (high functioning; adaptive coping)
+% % C3 Psychosomatic Group (low functioning; limited coping)
+% % C4 Distress Group (low functioning, some adaptive coping)
+% \end{tabular}
+% \begin{flushleft} .
+% \end{flushleft}
+% 
+% \end{adjustwidth}
+% \end{table}</p>
+<p>% \begin{figure}[htpb]
+% \begin{adjustwidth}{-5cm}{0in} % 16-13.2 Comment out/remove adjustwidth environment if table fits in text column.
+% %\fbox{
+% 
+% %} %,width = 0.75
+% \caption{{}
+% The phenotype PT1 describes the majority of patients and is characterized by above-average scores of positively poled scales related to quality of life and below-average scores of negatively poled scales related to psychological symptoms, tinnitus-related distress and somatic expressions.
+% Bars depict (standardized) feature means. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htpb]
+% \begin{adjustwidth}{-5cm}{0in} % 16-13.2 Comment out/remove adjustwidth environment if table fits in text column.
+% %\fbox{
+% 
+% %}
+% \caption{{}
+% The phenotype PT2 describes ca. 1/7 of the sample and is characterized by considerably above-average scores of negatively poled scales related to psychological symptoms, tinnitus-related distress and somatic expressions, and considerably below-average scores of positively poled scales related to quality of life.
+% Bars depict (standardized) feature means. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htpb]
+% \begin{adjustwidth}{-5cm}{0in} % 16-13.2 Comment out/remove adjustwidth environment if table fits in text column.
+% %\fbox{
+% 
+% %}
+% \caption{{}
+% The phenotype PT3 describes ca. 1/3 of the sample. PT3 shows similar patterns as PT2, but here all features means fall within one standard deviation of the population mean.
+% Bars depict (standardized) feature means. SO: somatic; PS: psychosomatic.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+%
+<p>% The allocation of patients in the SOM reveals three distinct feature patterns with respect to the correlation of codebook vectors and location in the grid, as shown in Figure<a href="#fig:factormap-heatmaps"><strong>??</strong></a>.<br />
+% Patients assigned to grid nodes located at the north-east exhibit high values for 16 positively poled features (marked in green in Figure<a href="#fig:factormap-heatmaps"><strong>??</strong></a>), e.g. mental health, quality of life and physical health.
+% In contrast, patients with high values for 41 negatively poled features are assigned to nodes in the bottom-left of the grid (yellow color). The set of features includes tinnitus distress, depression, anxiety, exhaustion, fatigue, among others.
+% The third group contains 20 features and is located rather in the center (blue color), meaning that there is no clear correlation between codebook vector values and their position in the grid.
+% Among this third group of features are mostly socio-demographic features and features on tinnitus localization and quality.
+% Generally, nodes in the top-right of the grid appear to be somewhat more densely populated (Figure<a href="#fig:som-grid-radial"><strong>??</strong></a>). % For discussion: patients with compensated tinnitus are more homogeneous
+% Figures<a href="#fig:factormap-heatmaps"><strong>??</strong></a> show heatmaps for the five features with the largest average magnitude in correlation <span class="math inline">\(\phi\)</span> with respect to the x- and y-coordinate.
+% The ``top-right bottom-left’’ divide is clearly highlighted for ADSL_depression (depressive disorder sum score), BI exhaustion score (BI_exhaust) and BI fatigue score (BSF_fatigue) for which patients assigned to nodes in the bottom-left have high values, as well as role emotional score (SF8_emotional) and role social score (SF8_social) for which patients assigned to nodes in the bottom-left have low values.
+% Figures<a href="#fig:factormap-heatmaps"><strong>??</strong></a> depicts the heatmap for age, exemplifying the absence of a clear color pattern between grid position average feature value.
+% Figure<a href="#fig:som-grid-radial"><strong>??</strong></a> shows the mapping between SOM nodes and the <span class="math inline">\(X\)</span>-means cluster of the majority of patients assigned to that node.
+% Patients of the avoidant group (PT1) are located in the north-east of the grid, patients of the psychosomatic group (PT2) in the south-west and and distress group (PT3) in between.
+% % For the SOM visualization, we can infer that there may be three groups of clusters, a large compensated group, a group with severe problems (llow life aquality) and an intermediate group. % for discussion: keine Korrelation von Nationalität bzgl. der Position im Grid</p>
+% % \begin{sidewaysfigure}
+% % \begin{adjustwidth}{0cm}{0cm} % 16-13.2 Comment out/remove adjustwidth environment if table fits in text column.
+% % % 
+% % 
+% % 
+% % 
+% %
+<p>% % 
+% % \end{adjustwidth}
+% % \end{sidewaysfigure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%  %
+% \caption{{}
+% The location of a point represents the weighted correlation of the x- and y-coordinates of the codebook vectors and their values for a particular feature. Three distinct groups of features were identified. Heatmaps for inidividual features.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>% \begin{figure}[htbp]
+% \begin{adjustwidth}{-5cm}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%  %[width = ]
+% \caption{{}
+% Mapping of phenotypes onto SOM grid. Node labels depict the number of patients assigned to the PT1, PT2 and PT3, respectively. Outer radial charts show feature distributions for the patients in four example nodes.
+% }
+% 
+% \end{adjustwidth}
+% \end{figure}</p>
+<p>%=========================================================================================
+In this study, we combined data-driven clustering with a novel visualisation to identify
+and display distinct phenotypes in a large sample of patients with chronic tinnitus. %
+%=========================================================================================
+Patient data were extracted from self-report questionnaires prior to starting a multimodal
+treatment program. %
+%=========================================================================================
+Our analysis suggests four phenotypes of patients with chronic tinnitus. %
+%=========================================================================================</p>
+<p>%=========================================================================================
+% \begin{compactenum}
+% \todo{PB: Ist ca die Hälfte der behandelten Patienten , die hauptsächlich den Tinnitus als einschränkend empfinden. Diese Gruppe gibt nur bedingt psychische oder somatische Begleitsymptome an, ihr Behandlungsschwerpunkt ist das Ohrgeräusch. Hier scheint eine starke Fokussierung auf den Tinnitus vorzuliegen, der als Ursache aller erlebten Einschränkungen interpretiert wird. Es kann spekuliert werden, dass über den Tinnitus vorhandene Belastungen somatisiert werden. Das Wahrnehmen von affektiven Dysbalancen oder veränderter Anspannungs-Entspannungs-Regulation wird darüber vermieden.
+% Obwohl die Tinnitusbelastung unterhalb des Mittels der Gesamtpopulation liegt, versucht diese Gruppe bei schon vorhandenen guten sozialen Ressourcen (besser gebildet und beschäftigt, weniger Inanspruchnahmne Psychotherapie) schnell und lösungsorientiert weitere Umgangsstrategien mit dem Tinnitus zu erlernen. Diese Gruppe wird von Counselling gut profitieren und kann die kognitiv-verhaltenstherapeutischen Aspekte und auch Entspannung, Achtsamkeit und Hörablenkung am schnellsten in den Alltag integrieren.}
+% PT 1 contains about half of the treated patients who mainly
+% perceive the tinnitus as mildly restricting condition. %
+% This subgroup reported only limited presence of psychological or somatic accompanying
+% symptoms; their treatment focus is the the ear noise. %
+% \textcolor{red}{There seems to be a strong focus on the tinnitus,
+% which is interpreted as the cause of all experienced limitations.}
+% It can be speculated that the tinnitus somatises existing stress. %
+% The perception of affective imbalances or altered tension-relaxation regulation is avoided. %
+% Although tinnitus burden is below the average of the total study population, this subgroup
+% begins timely to adopt other strategies for dealing with tinnitus quickly and in a
+% solution-oriented manner, provided that there are already good social resources (better
+% educated and employed, less use of psychotherapy). %
+% This group will benefit from counseling well and can integrate the cognitive-behavioral
+% aspects as well as relaxation, mindfulness and hearing distraction into everyday life as
+% quickly as possible. %
+%=========================================================================================
+</p>
+<p>%=========================================================================================
+The overview and juxtaposition of all clusters shows that some questionnaires and
+characteristics contribute a lot to differences among patient phenotypes. %
+%=========================================================================================
+In particular, patient phenotypes differ substantially with respect to their coping attitudes,
+their stress and their perception of quality of life, as well as their tinnitus
+distress. %
+%=========================================================================================
+Some of the questionnaire items separate well among some of the phenotypes, see e.g. the
+items on perceived pain and complaints. %
+%=========================================================================================
+In contrast, patients do not seem to differ in their perception of tinnitus. %
+%=========================================================================================
+These contributions of the questionnaires to the phenotypes indicate that phenotyping may
+be achievable also with less questionnaires, especially because some of the
+questionnaires are overlapping. %
+%=========================================================================================</p>
+<p>%=========================================================================================
+Previous studies also employed clustering algorithms to identify tinnitus subtypes<span class="citation"><a href="references.html#ref-Langguth:LCA2017" role="doc-biblioref">[2, pp. Tyler:TinnitusClustering2008, vandenBerge2017, Schecklmann:BrainResearch2012]</a></span>. %
+%=========================================================================================
+It is difficult to compare our findings to theirs because of the different set of
+available measurements: whereas the strength of our study was a large pool of self-report
+questionnaire data, Tyler et al. used both self-report
+data and audiometrics<span class="citation"><a href="references.html#ref-Tyler:TinnitusClustering2008" role="doc-biblioref">[3]</a></span>, Schecklmann et al. used
+self-report data and cordiac imaging features<span class="citation"><a href="references.html#ref-Schecklmann:BrainResearch2012" role="doc-biblioref">[4]</a></span>, and
+Langguth et al. used audiometric data<span class="citation"><a href="references.html#ref-Langguth:LCA2017" role="doc-biblioref">[2]</a></span>. %
+Nevertheless, PT 2 (psychosomatic suffering group) appears to match the <code>constant  distressing tinnitus'' subgroup reported by Tyler et al.[@Tyler:TinnitusClustering2008],  as average scores on features measuring tinnitus-related health burden were distinctly  greater than in the other subgroups. %   Of course, the selection of meaningful features is pivotal for the efficacy of any cluster  analysis. %   Schlee et al. argued against the usage of single-item features  like visual analogue scale measurements because of their higher susceptibility to  random measurement errors, lower test-retest reliability and higher vulnerability to  unknown biases[@Schlee:RadarVis2017]. % Due to the exploratory nature of our study, we decided to include both single-item  measurements and compound scores. %  We assigned 11 out of 15 single-item measurements into the category</code>Tinnitus
+characteristics’‘. %
+Figure<a href="#fig:radar"><strong>??</strong></a> (top-right) shows their low discriminative power, as all phenotypes’
+means are close to the population average, with the exception of
+ and .
+
+%=========================================================================================</p>
+<p>%=========================================================================================
+Closest to our radial bar chart visualisation is the radar chart proposed by Schlee and
+colleagues<span class="citation"><a href="references.html#ref-Schlee:RadarVis2017" role="doc-biblioref">[5]</a></span>. %
+Their solution indeed facilitates the comparison of two subgroups by comparing the areas of
+their associated polygons. %
+However, there is still the potential problem of overplotting when one wishes to compare
+more than 2 subgroups as we do. %
+% <a href="https://www.data-to-viz.com/caveat/spider.html" class="uri">https://www.data-to-viz.com/caveat/spider.html</a>
+Hence, we did not opt to fill up the areas spanned by the connected points with colour, to
+avoid a polygonal that fully overlays another one. %
+Further, since the main criterion for comparison is the polygonals’ shapes, inferences
+highly depend on the ordering of features around the plot which can be misleading.
+Schlee et al.<span class="citation"><a href="references.html#ref-Schlee:RadarVis2017" role="doc-biblioref">[5]</a></span> tackled this problem by computing an ordering
+that yields areas that achieve maximum mean surface difference between subgroups and
+minimum surface variance within subgroups. %
+This approach is feasible for up to a moderate ($$20) number of features. %
+In our study with 64 features, we decided to arrange features
+based on semantic categories, e.g. quality of life. %
+This allows to detect and track features easier. %
+Further, our visualisation is not specific to tinnitus but
+could be used to present a compact visual summary of characteristics of any
+condition or index symptoms subgroups. %
+Whether the visualisations will be adopted by clinicians for finding suitable tinnitus
+management strategies needs to be tested. %
+% 
+% 
+Preliminarily, clinicians suggested that graphical summaries of possible patient subtypes
+may alleviate allocation of modular treatment strategies to specific combinations of
+symptom presentations. %
+% In a preliminary evaluation, the clinicians
+% signalized that such a graphical summary of test results for the patient allows for a
+% faster and more efficient diagnostic comparison of the clinical examination with the test
+% results. %
+% Furthermore, the patient can be better addressed with respect to possible contradictions
+% or gaps in the anamnesis. %
+% This benefits above all the consultation and the individual planning of therapy modules,
+% because multimodal approaches to tinnitus therapy are not available everywhere. %
+% 
+%=========================================================================================</p>
+<p>%=========================================================================================</p>
+% 
+<p>
+%=========================================================================================
+A potential limitation of our analysis is the exclusion of patients who did not fill
+all questionnaires during admission. %
+There are several reasons why a patient may not have filled all questionnaires, including
+unfamiliarity with the technical devices (the questionnaires must be filled electronically),
+loss of motivation due to the relatively large number of questionnaires and
+collision with baseline examinations in the lab. %
+The exclusion of these patients may have led to a selection bias. %
+Nonetheless, our analysis over all 15 questionnaires allowed us to acquire insights to the
+contribution of these questionnaires to phenotyping, so that eventually a reduction of
+questionnaires might become possible. %
+Further, our analysis is a static snapshot of phenotypes at baseline.
+Hence, it might be sensitive to possible changes in tinnitus perception and associated
+health burden over time. %
+It is possible that a patient will transition from one phenotype to another in later stages
+of her life or depending on her tinnitus management. %
+Thus, a next step would be to study the effects of treatment to these phenotypes and find
+whether some patient phenotypes benefit more than others. %
+Another limitation comes from the heuristic choice of the number of phenotypes. %</p>
+
+</div>
+
+
+
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 01.12.2020.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

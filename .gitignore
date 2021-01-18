@@ -3,9 +3,11 @@
 .RData
 .Ruserdata
 andere/
-*[.bak,.sav]
+*.bak*
+*.sav*
 code/
 tmp/
 frontiers.txt
 random_notes.md
 thesis.log
+*diss_figures.pptx

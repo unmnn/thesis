@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Subpopulation-Specific Learning and Post-Hoc Model Interpretation | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
+<meta name="author" content="Uli Niemann">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.5.3/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.2.9002/tabs.js"></script><script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
+<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
+<li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
+<li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
+<li class="book-part">EXPLOITING DYNAMICS</li>
+<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Study Participant Change over Time</a></li>
+<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering</a></li>
+<li class="book-part">POST-MINING FOR INTERPRETATION</li>
+<li><a class="" href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></li>
+<li><a class="active" href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
+<li class="book-part">SUMMARY</li>
+<li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
+<li class="book-part">APPENDIX</li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="abbreviations.html">Abbreviations</a></li>
+<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="gender" class="section level1" number="9">
+<h1>
+<span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation<a class="anchor" aria-label="anchor" href="#gender"><i class="fas fa-link"></i></a>
+</h1>
+<div id="brief-chapter-summary-6" class="section level4 unnumbered infobox chapter-summary">
+<h4>Brief Chapter Summary<a class="anchor" aria-label="anchor" href="#brief-chapter-summary-6"><i class="fas fa-link"></i></a>
+</h4>
+<p>We present a workflow to examine how subpopulations differ with respect to their most predictive characteristics in temporal data. To do so, we derive a post-hoc interpretation measure to assess the difference in association of predictors between two subpopulations. We report results for CHA on gender differences (subpopulations of female and male patients) for the two outcomes of tinnitus-related distress and depression, and the effect of treatment for both outcomes.</p>
+</div>
+<div class="infobox chapter-literature">
+<p>This chapter is partly based on:</p>
+<p>Uli Niemann, Benjamin Boecking, Petra Brueggemann, Birgit Mazurek, and Myra Spiliopoulou. “Gender-Specific Differences in Patients With Chronic Tinnitus – Baseline Characteristics and Treatment Effects.” In: <em>Frontiers in Neuroscience</em> 14 (2020), p. 487. DOI: <a href="https://doi.org/10.3389%2Ffnins.2020.00487">10.3389/fnins.2020.00487</a>.</p>
+</div>
+<div id="gender-intro" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> Motivation and Comparison to Related Work<a class="anchor" aria-label="anchor" href="#gender-intro"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>to be written</strong></p>
+</div>
+<div id="gender-measure" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> Comparing Differences in Feature Importance between Two Subpopulations<a class="anchor" aria-label="anchor" href="#gender-measure"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>to be written</strong></p>
+</div>
+<div id="gender-workflow" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> Workflow<a class="anchor" aria-label="anchor" href="#gender-workflow"><i class="fas fa-link"></i></a>
+</h2>
+<div id="learning-tasks" class="section level3" number="9.3.1">
+<h3>
+<span class="header-section-number">9.3.1</span> Learning Tasks<a class="anchor" aria-label="anchor" href="#learning-tasks"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>to be written</strong></p>
+</div>
+<div id="model-evaluation-and-hyperparameter-tuning" class="section level3" number="9.3.2">
+<h3>
+<span class="header-section-number">9.3.2</span> Model Evaluation and Hyperparameter Tuning<a class="anchor" aria-label="anchor" href="#model-evaluation-and-hyperparameter-tuning"><i class="fas fa-link"></i></a>
+</h3>
+</div>
+</div>
+<div id="gender-results" class="section level2" number="9.4">
+<h2>
+<span class="header-section-number">9.4</span> Results<a class="anchor" aria-label="anchor" href="#gender-results"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>to be written</strong></p>
+</div>
+<div id="gender-conclusions" class="section level2" number="9.5">
+<h2>
+<span class="header-section-number">9.5</span> Conclusions on Subpopulation-Specific Differences in Feature Importance<a class="anchor" aria-label="anchor" href="#gender-conclusions"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>to be written</strong></p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></div>
+<div class="next"><a href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#gender"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
+<li><a class="nav-link" href="#gender-intro"><span class="header-section-number">9.1</span> Motivation and Comparison to Related Work</a></li>
+<li><a class="nav-link" href="#gender-measure"><span class="header-section-number">9.2</span> Comparing Differences in Feature Importance between Two Subpopulations</a></li>
+<li>
+<a class="nav-link" href="#gender-workflow"><span class="header-section-number">9.3</span> Workflow</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#learning-tasks"><span class="header-section-number">9.3.1</span> Learning Tasks</a></li>
+<li><a class="nav-link" href="#model-evaluation-and-hyperparameter-tuning"><span class="header-section-number">9.3.2</span> Model Evaluation and Hyperparameter Tuning</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#gender-results"><span class="header-section-number">9.4</span> Results</a></li>
+<li><a class="nav-link" href="#gender-conclusions"><span class="header-section-number">9.5</span> Conclusions on Subpopulation-Specific Differences in Feature Importance</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>
