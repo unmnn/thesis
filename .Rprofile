@@ -32,5 +32,3 @@ make_ttt <- function(x) {
     paste0("`", x, "`")
   }
 }
-
-knitr::opts_chunk$set(fig.pos= "h")

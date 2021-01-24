@@ -27,6 +27,11 @@ link-citations: yes
 always_allow_html: true
 ---
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(fig.pos= "htbp")
+```
+
+
 `r if(knitr:::is_latex_output()) '\\begin{comment}'`
 
 # Welcome! {.unnumbered}
