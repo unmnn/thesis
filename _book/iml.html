@@ -33,10 +33,10 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
-<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
@@ -50,7 +50,6 @@
 <li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="abbreviations.html">Abbreviations</a></li>
 <li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
 </ul>
 
@@ -103,30 +102,30 @@ We discuss these results in Section <a href="iml.html#iml-discussion">8.4</a> a
 <h2>
 <span class="header-section-number">8.1</span> Motivation and Methodological Underpinnings<a class="anchor" aria-label="anchor" href="#iml-motivation"><i class="fas fa-link"></i></a>
 </h2>
-<p>Current state-of-the-art machine learning algorithms, such as gradient boosting <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[81]</a></span> for tabular data and deep learning <span class="citation"><a href="references.html#ref-Goodfellow:DL2016" role="doc-biblioref">[174]</a></span> for unstructured data (images, videos, audio recordings), are widely used to support medical decision-making.
+<p>Current state-of-the-art machine learning algorithms, such as gradient boosting <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[85]</a></span> for tabular data and deep learning <span class="citation"><a href="references.html#ref-Goodfellow:DL2016" role="doc-biblioref">[183]</a></span> for unstructured data (images, videos, audio recordings), are widely used to support medical decision-making.
 These methods produce models which typically achieve better predictive performance than simpler models such as decision trees, rule lists, or linear regression fits.
 However, they are also more complex, making it more difficult to understand why a prediction was made.
 Thus, practitioners may face the dilemma of choosing either an opaque black-box model with high predictive power or a simple, less accurate model that can at least be explained to the domain expert.
-Especially in high-risk domains such as healthcare, where misconceptions can have serious consequences, the ability to explain the reasoning of a model is a highly desirable, if not essential, property of any decision-support system <span class="citation"><a href="references.html#ref-guidotti2018survey" role="doc-biblioref">[175]</a>, <a href="references.html#ref-molnar2020interpretable" role="doc-biblioref">[176]</a></span>.</p>
-<p>As a result, methods that explain the predictions of complex machine learning models have attracted increasing attention in recent years <span class="citation"><a href="references.html#ref-carvalho2019machine" role="doc-biblioref">[177]</a>, <a href="references.html#ref-adadi2018peeking" role="doc-biblioref">[178]</a></span>.
-Existing methods are classified according to different criteria <span class="citation"><a href="references.html#ref-molnar2020interpretable" role="doc-biblioref">[176]</a></span>.
+Especially in high-risk domains such as healthcare, where misconceptions can have serious consequences, the ability to explain the reasoning of a model is a highly desirable, if not essential, property of any decision-support system <span class="citation"><a href="references.html#ref-guidotti2018survey" role="doc-biblioref">[184]</a>, <a href="references.html#ref-molnar2020interpretable" role="doc-biblioref">[185]</a></span>.</p>
+<p>As a result, methods that explain the predictions of complex machine learning models have attracted increasing attention in recent years <span class="citation"><a href="references.html#ref-carvalho2019machine" role="doc-biblioref">[186]</a>, <a href="references.html#ref-adadi2018peeking" role="doc-biblioref">[187]</a></span>.
+Existing methods are classified according to different criteria <span class="citation"><a href="references.html#ref-molnar2020interpretable" role="doc-biblioref">[185]</a></span>.
 For example, a distinction is made between <em>intrinsically interpretable models</em> and <em>post-hoc explanations</em>.
 The former often entails limiting model complexity by choosing algorithms that produce transparent models, such as decision trees or linear regression models.
 Decision trees, for example, can be intuitively visualized with node-link diagrams.
 Features in split conditions near the tree root generally have a higher impact on predictions than features occurring at lower tree levels or within leaf nodes.
-Quantitative measures calculate the overall importance of a feature by the decrease in impurity or variance in nodes where the feature occurs compared to parent nodes <span class="citation"><a href="references.html#ref-kazemitabar2017variable" role="doc-biblioref">[179]</a></span>.
+Quantitative measures calculate the overall importance of a feature by the decrease in impurity or variance in nodes where the feature occurs compared to parent nodes <span class="citation"><a href="references.html#ref-kazemitabar2017variable" role="doc-biblioref">[188]</a></span>.
 Furthermore, the data partitions created by a decision tree can be described by understandable conditions such as “body mass index &gt; 30,” and the decision paths from root to leaf nodes provide insights into feature interactions.
 In addition, they can be used for contrasting predictions for individual instances, e.g., by considering alternative feature values and their effects on model prediction (<em>“If the patient had a body mass index of 25 instead of 30, what difference in terms of prediction would that have.”</em>).
-Disadvantages are that decision trees are not able to capture linear, non-axis-parallel relationships between predictors and response, and they can be unstable with respect to small changes in training data <span class="citation"><a href="references.html#ref-hastie2009elements" role="doc-biblioref">[180]</a></span>.
+Disadvantages are that decision trees are not able to capture linear, non-axis-parallel relationships between predictors and response, and they can be unstable with respect to small changes in training data <span class="citation"><a href="references.html#ref-hastie2009elements" role="doc-biblioref">[189]</a></span>.
 Therefore, they may be unsuitable for very complex learning tasks.</p>
 <p>If a more sophisticated model is trained instead, post-hoc methods can be applied to examine the model after training.
-The output of these methods can be <em>feature summary statistics</em>, <em>model internals</em>, <em>individual observations</em>, and <em>feature summary visualization</em> <span class="citation"><a href="references.html#ref-molnar2020interpretable" role="doc-biblioref">[176]</a></span>.
+The output of these methods can be <em>feature summary statistics</em>, <em>model internals</em>, <em>individual observations</em>, and <em>feature summary visualization</em> <span class="citation"><a href="references.html#ref-molnar2020interpretable" role="doc-biblioref">[185]</a></span>.
 In general, feature summary statistics are individual scores that express the overall importance of a feature to model prediction or the strength of the feature’s interaction with the other features.
 Examples of model internals are the coefficients of a linear model or weight vectors of a neural network.
 Individual observations can describe representatives (or prototypes) of observation subgroups for which the model provides consistent predictions for all subgroup members.
 Individual observations can also be used to provide counterfactual explanations, e.g., to determine the minimum change that will cause the model to predict a different class for a particular observation of interest.</p>
 <p><strong>Partial dependence plots.</strong> Visualizations of feature summaries typically depict trends in the relationship between a subset of features and the predicted response, often in the form of curves or surface plots.
-The <em>partial dependence plot</em> <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[81]</a></span> (PDP) is a widely used tool for visually depicting the marginal effect of one or more predictors on the predicted response of a model.
+The <em>partial dependence plot</em> <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[85]</a></span> (PDP) is a widely used tool for visually depicting the marginal effect of one or more predictors on the predicted response of a model.
 As an example, the PDP in Figure <a href="iml.html#fig:09-pd-intro">8.1</a> (a) shows a roughly S-shaped relationship between the values of the predictor and the values of the response estimated by the model.
 <!-- example: drug effectiveness --></p>
 
@@ -153,12 +152,12 @@ The cardinality of <span class="math inline">\(Q\)</span> is usually chosen to b
 The results are visualized as a line chart (if <span class="math inline">\(|Q|=1\)</span>) or a contour chart (if <span class="math inline">\(|Q|=2\)</span>).
 In practice, a random sample is often drawn from <span class="math inline">\(Q\)</span> to reduce computation time.</p>
 <p>Because averaging across all observations removes information about variability, PD curves can obscure the potentially distinct observation subgroups with substantially different effects between predictors and model output.
-As a remedy, Goldstein et al. <span class="citation"><a href="references.html#ref-Goldstein:ICE2015" role="doc-biblioref">[82]</a></span> proposed <em>individual conditional expectation</em> (ICE) plots showing a curve for each observation.
+As a remedy, Goldstein et al. <span class="citation"><a href="references.html#ref-Goldstein:ICE2015" role="doc-biblioref">[86]</a></span> proposed <em>individual conditional expectation</em> (ICE) plots showing a curve for each observation.
 Figure <a href="iml.html#fig:09-pd-intro">8.1</a> (b) illustrates an example where there are a small number of observations (black curves) that differ from the rest because their PD is constant for the second half of the predictor distribution.
 <!-- In case of large datasets, sampling can help to solve the problem of overplotting. --></p>
 <p><strong>LIME.</strong> Another criterion for distinguishing model interpretation methods is whether their explanations are <em>global</em> or <em>local</em>, i.e., whether the explanations apply to all observations or only to one or a small number of selected observations.
-<em>Local Interpretable Model-Agnostic Explanations</em> <span class="citation"><a href="references.html#ref-RibeiroEtAl:KDD2016" role="doc-biblioref">[181]</a></span> (LIME) is a popular local post-hoc interpretation method.
-The main assumption of LIME is that a complex model is linear on a local scale <span class="citation"><a href="references.html#ref-RibeiroEtAl:KDD2016" role="doc-biblioref">[181]</a></span>.
+<em>Local Interpretable Model-Agnostic Explanations</em> <span class="citation"><a href="references.html#ref-RibeiroEtAl:KDD2016" role="doc-biblioref">[190]</a></span> (LIME) is a popular local post-hoc interpretation method.
+The main assumption of LIME is that a complex model is linear on a local scale <span class="citation"><a href="references.html#ref-RibeiroEtAl:KDD2016" role="doc-biblioref">[190]</a></span>.
 Thus, to explain the predictions of a black-box model for a particular observation of interest <span class="math inline">\(i\)</span>, LIME generates a surrogate model that is intrinsically interpretable and whose predictions are similar to the predictions of the black-box model in the <em>proximity</em> of <span class="math inline">\(i\)</span>.
 The main ideas of LIME are shown in Figure <a href="iml.html#fig:09-lime">8.2</a>.
 Figure <a href="iml.html#fig:09-lime">8.2</a> (a) shows the decision boundary of a black-box model.
@@ -171,7 +170,7 @@ In Figure <a href="iml.html#fig:09-lime">8.2</a> (b), the decision boundary of 
 Finally, model internals are displayed to the user as an explanation, such as the coefficients of a logistic regression model.
 Figure <a href="iml.html#fig:09-lime">8.2</a> (c) shows a feature importance ranking, where the bar height represents the model coefficient of a feature.
 While LIME provides intuitive interpretations and is applicable to both tabular and non-tabular data, there are several design decisions to make and hyperparameters to tune, including neighborhood kernel and width, surrogate model family, feature selection mechanism, number of features considered for the surrogate model, among others.
-The stability of the results of LIME has been questioned <span class="citation"><a href="references.html#ref-alvarez2018robustness" role="doc-biblioref">[182]</a>, <a href="references.html#ref-visani2020optilime" role="doc-biblioref">[183]</a></span>.</p>
+The stability of the results of LIME has been questioned <span class="citation"><a href="references.html#ref-alvarez2018robustness" role="doc-biblioref">[191]</a>, <a href="references.html#ref-visani2020optilime" role="doc-biblioref">[192]</a></span>.</p>
 
 <div class="figure" style="text-align: center">
 <span id="fig:09-lime"></span>
@@ -180,12 +179,12 @@ Figure 8.2: <strong>Illustration of LIME’s main ideas.</strong> (a) A data set
 </p>
 </div>
 <p><em>Model-specific</em> interpretation methods are limited to specific model families, while <em>model-agnostic</em> interpretation methods can be applied to any type of model.
-Model-specific methods are based on model internals and are widely used for neural networks <span class="citation"><a href="references.html#ref-samek2020toward" role="doc-biblioref">[184]</a></span>, e.g. layered relevance propagation <span class="citation"><a href="references.html#ref-bach2015pixel" role="doc-biblioref">[185]</a></span>, which explicitly uses the layered structure of a neural network to infer explanations.
+Model-specific methods are based on model internals and are widely used for neural networks <span class="citation"><a href="references.html#ref-samek2020toward" role="doc-biblioref">[193]</a></span>, e.g. layered relevance propagation <span class="citation"><a href="references.html#ref-bach2015pixel" role="doc-biblioref">[194]</a></span>, which explicitly uses the layered structure of a neural network to infer explanations.
 In contrast, model-agnostic methods are decoupled from the actual learning process and do not have access to algorithmic internals.
 Since they only consider the output of the models, i.e., the predictions, most model-agnostic methods are also post-hoc.
 For example, LIME is a representative of a model-agnostic, post-hoc interpretability method.</p>
-<p><strong>SHAP.</strong> Closely related to LIME is the <em>Shapley Additive Explanations</em> <span class="citation"><a href="references.html#ref-Lundberg:SHAP2017" role="doc-biblioref">[186]</a></span> (SHAP) framework, which derives additive feature attributions to the predictions of a model.
-SHAP is based on <em>Shapley values</em> <span class="citation"><a href="references.html#ref-lipovetsky2001analysis" role="doc-biblioref">[187]</a>–<a href="references.html#ref-shapley1953value" role="doc-biblioref">[189]</a></span>, originally developed for game theory.
+<p><strong>SHAP.</strong> Closely related to LIME is the <em>Shapley Additive Explanations</em> <span class="citation"><a href="references.html#ref-Lundberg:SHAP2017" role="doc-biblioref">[195]</a></span> (SHAP) framework, which derives additive feature attributions to the predictions of a model.
+SHAP is based on <em>Shapley values</em> <span class="citation"><a href="references.html#ref-lipovetsky2001analysis" role="doc-biblioref">[196]</a>–<a href="references.html#ref-shapley1953value" role="doc-biblioref">[198]</a></span>, originally developed for game theory.
 The term “additive” denotes that for a given observation, the model output should be equal to the sum of the attributions of each feature.
 More specifically, for observation <span class="math inline">\(x\)</span>, the model output <span class="math inline">\(\zeta(x)\)</span> is
 <span class="math display" id="eq:shap-additivity">\[\begin{equation}
@@ -202,7 +201,7 @@ Then, for each combination of feature <span class="math inline">\(j\)</span> and
 First, the sum of the feature attributions for an observation is equal to the difference between the average prediction of the model and the actual prediction for that observation (<em>local accuracy</em>).
 Second, if a feature is more important in one model than in another, regardless of which other features are also present, then the importance attributed to that feature should also be higher (<em>symmetry</em> / <em>monotonicity</em>).
 Third, if a feature value is missing, the associated feature importance should be 0 (<em>missingness</em>).
-Several approaches have been proposed to reduce the complexity of Shapley value estimation from exponential to polynomial time, including KernelSHAP <span class="citation"><a href="references.html#ref-Lundberg:SHAP2017" role="doc-biblioref">[186]</a></span>, which works on any model type, and TreeShap <span class="citation"><a href="references.html#ref-Lundberg:TreeSHAP2019" role="doc-biblioref">[190]</a></span> for tree-based models.</p>
+Several approaches have been proposed to reduce the complexity of Shapley value estimation from exponential to polynomial time, including KernelSHAP <span class="citation"><a href="references.html#ref-Lundberg:SHAP2017" role="doc-biblioref">[195]</a></span>, which works on any model type, and TreeShap <span class="citation"><a href="references.html#ref-Lundberg:TreeSHAP2019" role="doc-biblioref">[199]</a></span> for tree-based models.</p>
 <!-- @lundberg2020local -->
 <!-- **INSERT REFERENCES FROM** -->
 <!-- file:///E:/Dropbox/KMD/Data_Science_with_R/DataSciR/12_Interpretable_ML/12_Interpretable_ML.html#p63 -->
@@ -224,17 +223,17 @@ Several approaches have been proposed to reduce the complexity of Shapley value 
 <!-- TODO: BESSERE ÜBERLEITUNGs -->
 <p><strong>Feature Selection.</strong>
 In the context of predictive modeling, feature selection (FS) methods generally aim to reduce the number of predictor features to either (a) maximize model performance or (b) affect model performance as little as possible.
-Some modeling families are sensitive to predictors that are irrelevant to the target feature, such as support vector machines <span class="citation"><a href="references.html#ref-Boser:SVM1992" role="doc-biblioref">[193]</a></span> and neural networks <span class="citation"><a href="references.html#ref-Goodfellow:DL2016" role="doc-biblioref">[174]</a>, <a href="references.html#ref-nnet" role="doc-biblioref">[195]</a></span>.
+Some modeling families are sensitive to predictors that are irrelevant to the target feature, such as support vector machines <span class="citation"><a href="references.html#ref-Boser:SVM1992" role="doc-biblioref">[202]</a></span> and neural networks <span class="citation"><a href="references.html#ref-Goodfellow:DL2016" role="doc-biblioref">[183]</a>, <a href="references.html#ref-nnet" role="doc-biblioref">[204]</a></span>.
 Others, such as linear and logistic regression models, are susceptible to correlated predictors.
 Often domain experts require intrinsically interpretable models, which requires eliminating predictors that do not contribute substantially to model performance.</p>
-<p>Traditionally, FS methods are broadly classified into three categories: embedded, filter, and wrapper <span class="citation"><a href="references.html#ref-Guyon:RFE2003" role="doc-biblioref">[197]</a></span>.
+<p>Traditionally, FS methods are broadly classified into three categories: embedded, filter, and wrapper <span class="citation"><a href="references.html#ref-Guyon:RFE2003" role="doc-biblioref">[206]</a></span>.
 Embedded FS refers to internal mechanisms of modeling algorithms that evaluate the usefulness of features.
-Examples of such algorithms include tree- and rule-based models <span class="citation"><a href="references.html#ref-Quinlan:C451993" role="doc-biblioref">[199]</a>, <a href="references.html#ref-kuhn2013applied" role="doc-biblioref">[200]</a></span>, regularization methods such as Least Absolute Shrinkage and Selection Operator <span class="citation"><a href="references.html#ref-lasso" role="doc-biblioref">[203]</a></span> (LASSO) and Ridge <span class="citation"><a href="references.html#ref-ridge" role="doc-biblioref">[205]</a></span> regression.
+Examples of such algorithms include tree- and rule-based models <span class="citation"><a href="references.html#ref-Quinlan:C451993" role="doc-biblioref">[208]</a>, <a href="references.html#ref-kuhn2013applied" role="doc-biblioref">[209]</a></span>, regularization methods such as Least Absolute Shrinkage and Selection Operator <span class="citation"><a href="references.html#ref-lasso" role="doc-biblioref">[212]</a></span> (LASSO) and Ridge <span class="citation"><a href="references.html#ref-ridge" role="doc-biblioref">[214]</a></span> regression.
 Filtering methods rank predictors only once based on some measure of importance, e.g., correlation with target feature.
 <!-- Fast and simple; tends to oversample predictors. -->
-Popular examples include correlation-based feature selection <span class="citation"><a href="references.html#ref-Hall:CFS2000" role="doc-biblioref">[206]</a></span> and Relief <span class="citation"><a href="references.html#ref-kira1992feature" role="doc-biblioref">[207]</a></span>.
+Popular examples include correlation-based feature selection <span class="citation"><a href="references.html#ref-Hall:CFS2000" role="doc-biblioref">[215]</a></span> and Relief <span class="citation"><a href="references.html#ref-kira1992feature" role="doc-biblioref">[216]</a></span>.
 Wrapper methods rank and refine candidate feature subsets through an iterative search driven by model performance.
-Examples include sequential forward search, recursive backward elimination, and genetic search <span class="citation"><a href="references.html#ref-chandrashekar2014survey" role="doc-biblioref">[208]</a></span>.</p>
+Examples include sequential forward search, recursive backward elimination, and genetic search <span class="citation"><a href="references.html#ref-chandrashekar2014survey" role="doc-biblioref">[217]</a></span>.</p>
 <!-- In contrast to the above-mentioned methods which assess the importance of predictors before or during model training, post-hoc approaches aim to elucidate the importance of the predictors of a complex "black-box" model after it has been built. -->
 <!-- Individual predictor attributions and interaction effects between multipel predictors towards the model decisions are quantified on a global level (i.e., across all observations) and/or a local level (i.e. for a specific observation of interest). -->
 <!-- Popular approaches include LIME [@RibeiroEtAl:KDD2016], SHAP [@Lundberg:SHAP2017, lundberg2020local], Anchors [@ribeiro2018anchors], permutation-based Model Reliance [@Fisher:ModelReliance2019], Accumulated Local Effects (ALE) plots [@apley2019visualizing] and Friedman's $H$-statistic [@Friedman:H-statistic2008]. -->
@@ -250,7 +249,7 @@ Examples include sequential forward search, recursive backward elimination, and 
 <p>In this section, we describe the components of our mining workflow (Figure <a href="iml.html#fig:09-iml-workflow-cropped">8.3</a>).
 We apply the workflow on three classification tasks: prediction of (i) tinnitus-related distress and (ii) depression after treatment in tinnitus patients, as well as (iii) rupture status classification in intracranial aneurysms.
 We refer to these tasks as CHA-Tinnitus, CHA-Depression and AneurD, hereafter.</p>
-<p><strong>TODO: COMPLETE</strong></p>
+<!-- **TODO: COMPLETE** -->
 
 <p>For the CHA dataset, we selected patients with complete data for each of the two classification tasks. For AneurD, we segmented the aneurysms from the raw image data, performed automated centerline and neck curve extraction, and generated the morphological features. We performed correlation analysis to identify relevant correlations between predictors, correlations between predictors and response, and significant differences in correlation between predictors and response between T0 and T1. We embedded model training in an iterative feature elimination wrapper that retained predictors identified as important to the model. We selected the best overall model based on AUC and used post-hoc interpretation methods to identify predictors with the highest attribution to model prediction on a global, subpopulation and observation level.</p>
 <div class="figure" style="text-align: center">
@@ -266,18 +265,18 @@ Figure 8.3: <strong>The mining workflow.</strong>
 <!-- #### Segmentation and Neck Curve Extraction -->
 <p>For AneurD, it was necessary to extract the morphological features first.</p>
 <p><strong>Segmentation and neck curve extraction.</strong>
-Aneurysms and vessels were segmented using a threshold-based approach <span class="citation"><a href="references.html#ref-Glasser2015" role="doc-biblioref">[209]</a></span> from digital subtraction data reconstructed from 3D rotational angiography images.
-Subsequently, the centerline of the vessel was extracted using the Vascular Modeling Toolkit (VMTK, vmtk.org) <span class="citation"><a href="references.html#ref-Antiga2008" role="doc-biblioref">[210]</a></span>.
-Subsequently, the plane separating the aneurysm from its parent vessel was determined using the automatic ostium detection of Saalfeld et al. <span class="citation"><a href="references.html#ref-Saalfeld2018" role="doc-biblioref">[211]</a></span>.</p>
+Aneurysms and vessels were segmented using a threshold-based approach <span class="citation"><a href="references.html#ref-Glasser2015" role="doc-biblioref">[218]</a></span> from digital subtraction data reconstructed from 3D rotational angiography images.
+Subsequently, the centerline of the vessel was extracted using the Vascular Modeling Toolkit (VMTK, vmtk.org) <span class="citation"><a href="references.html#ref-Antiga2008" role="doc-biblioref">[219]</a></span>.
+Subsequently, the plane separating the aneurysm from its parent vessel was determined using the automatic ostium detection of Saalfeld et al. <span class="citation"><a href="references.html#ref-Saalfeld2018" role="doc-biblioref">[220]</a></span>.</p>
 <p><strong>Morphological feature extraction.</strong>
 For each 3D surface mesh, we obtained the neck curve, the dome point <span class="math inline">\(D\)</span>, and the two base points <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span>.
-As described in <span class="citation"><a href="references.html#ref-Saalfeld2018" role="doc-biblioref">[211]</a></span>, <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> were approximated as points on the centerline with largest distance where the rays from <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> to <span class="math inline">\(D\)</span> do not intersect the surface mesh.
-Figure <a href="iml.html#fig:09-morph-parameters">8.4</a> illustrates the extracted parameters, where <span class="math inline">\(H_{max}\)</span>, <span class="math inline">\(W_{max}\)</span>, <span class="math inline">\(H_{ortho}\)</span>, <span class="math inline">\(W_{ortho}\)</span>, and <span class="math inline">\(D_{max}\)</span> (see Figure (a)) describe the aneurysm shape <span class="citation"><a href="references.html#ref-Dhar2008" role="doc-biblioref">[17]</a>, <a href="references.html#ref-LauricEtAl:Neurosurgery2012" role="doc-biblioref">[212]</a></span>.
+As described in <span class="citation"><a href="references.html#ref-Saalfeld2018" role="doc-biblioref">[220]</a></span>, <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> were approximated as points on the centerline with largest distance where the rays from <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> to <span class="math inline">\(D\)</span> do not intersect the surface mesh.
+Figure <a href="iml.html#fig:09-morph-parameters">8.4</a> illustrates the extracted parameters, where <span class="math inline">\(H_{max}\)</span>, <span class="math inline">\(W_{max}\)</span>, <span class="math inline">\(H_{ortho}\)</span>, <span class="math inline">\(W_{ortho}\)</span>, and <span class="math inline">\(D_{max}\)</span> (see Figure (a)) describe the aneurysm shape <span class="citation"><a href="references.html#ref-Dhar2008" role="doc-biblioref">[20]</a>, <a href="references.html#ref-LauricEtAl:Neurosurgery2012" role="doc-biblioref">[221]</a></span>.
 The angle parameters <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, and <span class="math inline">\(\gamma\)</span> (Figure <a href="iml.html#fig:09-morph-parameters">8.4</a> (b)) were extracted based on <span class="math inline">\(B_1\)</span>, <span class="math inline">\(B_2\)</span>, and <span class="math inline">\(D\)</span>, respectively.
 The absolute difference between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> is denoted as <span class="math inline">\(\Delta_{\alpha\beta}\)</span>.
 By separating the aneurysm from its parent vessel by the neck curve, we were able to derive the surface area <span class="math inline">\(A_A\)</span> and volume <span class="math inline">\(V_A\)</span> of the aneurysm (Figure <a href="iml.html#fig:09-morph-parameters">8.4</a> (c)).
 We provide two variants for the surface area of the ostium, <span class="math inline">\(A_{O1}\)</span> and <span class="math inline">\(A_{O2}\)</span> (see Figure <a href="iml.html#fig:09-morph-parameters">8.4</a> (d)).
-<span class="math inline">\(A_{O1}\)</span> is the area of the ostium, i.e., the area of the triangulated ostium surface resulting from the connection of the neck curve points with their centroid <span class="math inline">\(C_{NC}\)</span>, and <span class="math inline">\(A_{O2}\)</span> denotes the area of the neck curve when projected into a plane (cf. <span class="citation"><a href="references.html#ref-Saalfeld2018" role="doc-biblioref">[211]</a></span>).
+<span class="math inline">\(A_{O1}\)</span> is the area of the ostium, i.e., the area of the triangulated ostium surface resulting from the connection of the neck curve points with their centroid <span class="math inline">\(C_{NC}\)</span>, and <span class="math inline">\(A_{O2}\)</span> denotes the area of the neck curve when projected into a plane (cf. <span class="citation"><a href="references.html#ref-Saalfeld2018" role="doc-biblioref">[220]</a></span>).
 Therefore, <span class="math inline">\(A_{O2}\)</span> was extracted as a parameter comparable to other studies that often use a cutting plane to determine the ostium.
 For highly lobulated aneurysms, our method achieves a local optimum and considers only one of the many dome points.
 Although the estimated positions of <span class="math inline">\(B_1\)</span> and <span class="math inline">\(B_2\)</span> may vary slightly, neck curve detection is still performed and morphological parameters are calculated. Table (tab:09-morphological-features) provides an overview of all extracted morphological features.</p>
@@ -567,7 +566,7 @@ Finally, we examined predictors whose correlation with the TQ distress score dif
 </h3>
 <p>In order not to be limited to a particular classification algorithm, but to create a model with the highest possible predictive power, we examined a total of eleven classifiers:</p>
 <ul>
-<li>Least absolute shrinkage and selection operator <span class="citation"><a href="references.html#ref-lasso" role="doc-biblioref">[203]</a></span> (<em>LASSO</em>) and <em>Ridge</em> <span class="citation"><a href="references.html#ref-ridge" role="doc-biblioref">[205]</a></span> are extensions of ordinary least squares (OLS) regression that perform feature selection and regularization to improve both predictive performance and interpretability.
+<li>Least absolute shrinkage and selection operator <span class="citation"><a href="references.html#ref-lasso" role="doc-biblioref">[212]</a></span> (<em>LASSO</em>) and <em>Ridge</em> <span class="citation"><a href="references.html#ref-ridge" role="doc-biblioref">[214]</a></span> are extensions of ordinary least squares (OLS) regression that perform feature selection and regularization to improve both predictive performance and interpretability.
 For a dataset with <span class="math inline">\(n\)</span> observations, <span class="math inline">\(p\)</span> predictor features and a target <span class="math inline">\(y\)</span>, the objective of LASSO and Ridge is to solve
 <span class="math display" id="eq:regression-with-shrinkage">\[\begin{equation}
 \underset{\beta}{\text{argmin}} \underbrace{\sum_{i=1}^n \left( y_i - \left( \beta_0 + \sum_{j=1}^p x_{ij}\beta_j \right) \right)^2}_{\text{Residual Sum of Squares}} + \alpha \lambda \underbrace{\sum_{j=1}^p |\beta_j|}_{\text{L1 Penalty}} + (1-\alpha) \lambda \underbrace{\sum_{j=1}^p \beta_j^2}_{\text{L2 Penalty}}
@@ -581,10 +580,10 @@ Ridge performs better in settings where the response depends on many predictors,
 From the perspective of interpretability, LASSO has the advantage of producing sparser models by reducing the values of some of the predictors’ coefficients to exactly zero.</li>
 <li>Partial least squares is another derivative of OLS regression which first performs a projection to extract latent variables which capture as much of the variability among the predictors as possible while modeling the response well.
 A linear regression is then fit on a preferably small number of latent features from this projection.
-We use the generalized partial least squares (<em>GPLS</em>) implementation from Ding and Gentleman <span class="citation"><a href="references.html#ref-DingEtAl:GPLS2005" role="doc-biblioref">[215]</a></span>.
+We use the generalized partial least squares (<em>GPLS</em>) implementation from Ding and Gentleman <span class="citation"><a href="references.html#ref-DingEtAl:GPLS2005" role="doc-biblioref">[224]</a></span>.
 <!-- accounts for multinomial logit classification scenarios -->
 </li>
-<li>A support vector machine (<em>SVM</em>) <span class="citation"><a href="references.html#ref-Boser:SVM1992" role="doc-biblioref">[193]</a></span> learns linear or nonlinear decision boundaries in the feature space to separate the classes.
+<li>A support vector machine (<em>SVM</em>) <span class="citation"><a href="references.html#ref-Boser:SVM1992" role="doc-biblioref">[202]</a></span> learns linear or nonlinear decision boundaries in the feature space to separate the classes.
 The decision boundary is represented by the training observations that are most difficult to classify, i.e., the <em>support vectors</em>.
 The goal is to find the <em>maximum margin hyperplane</em> which is the separating hyperplane with the maximum margin to the support vectors.
 In case a linear decision boundary does not exist, nonlinear SVM approaches can be used which apply the so called <em>kernel trick</em> to transform the original feature space into a new, higher-dimensional space in which a linear hyperplane can be found to separate the classes.</li>
@@ -595,8 +594,8 @@ Each edge holds a weight that controls the impact on the node it forwards values
 The main goal of a NNET is to adjust the weights of the edges such that the relationship between predictors and response in the underlying data is represented.
 Neural networks extract new useful features from the original predictors that are relevant for classification.
 By combining interconnected nodes to complex predictive features, NNETs are capable of extracting more classification-relevant feature sets compared to expert-driven feature engineering or by dimension reduction techniques.
-NNETs have undergone widespread adoption in the last decade and led to various success stories in computer vision and natural language processing <span class="citation"><a href="references.html#ref-Goodfellow:DL2016" role="doc-biblioref">[174]</a></span>. We used a feed-forward NNET with one intermediary layer (<em>hidden unit</em>) <span class="citation"><a href="references.html#ref-VenablesAndRipley:NNET2002" role="doc-biblioref">[218]</a></span>.</li>
-<li>Weighted k-nearest neighbor <span class="citation"><a href="references.html#ref-Hechenbichler:wknn2004" role="doc-biblioref">[220]</a></span> (<em>WKNN</em>) is a variant of KNN classification.
+NNETs have undergone widespread adoption in the last decade and led to various success stories in computer vision and natural language processing <span class="citation"><a href="references.html#ref-Goodfellow:DL2016" role="doc-biblioref">[183]</a></span>. We used a feed-forward NNET with one intermediary layer (<em>hidden unit</em>) <span class="citation"><a href="references.html#ref-VenablesAndRipley:NNET2002" role="doc-biblioref">[227]</a></span>.</li>
+<li>Weighted k-nearest neighbor <span class="citation"><a href="references.html#ref-Hechenbichler:wknn2004" role="doc-biblioref">[229]</a></span> (<em>WKNN</em>) is a variant of KNN classification.
 To classify an observation with unknown response value, the k <em>nearest</em> training observations are identified and the modus of their response values are taken as prediction.
 Proximity between observations is quantified by a distance measure such as Euclidean distance.
 Whereas in ordinary KNN all neighbors have equal influence on the prediction, weighted KNN takes into account the actual distance magnitudes.
@@ -604,10 +603,10 @@ As a result, WKNN assigns weights to training observations that are inversely pr
 <li>A Naïve Bayes classifier (<em>NB</em>) uses Bayes’ theorem to calculate class membership probabilities.
 <!-- \"i -->
 The naive property refers to the assumption of class-conditional independence among the predictors, which is employed to reduce computational complexity and to obtain more reliable class-conditional probability estimates.</li>
-<li>Classification and regression trees <span class="citation"><a href="references.html#ref-BreimanEtAl:CART1984" role="doc-biblioref">[223]</a></span> (CART),
-C5.0 <span class="citation"><a href="references.html#ref-Quinlan:C451993" role="doc-biblioref">[199]</a></span>,
-random forests <span class="citation"><a href="references.html#ref-Breiman:RandomForests2001" role="doc-biblioref">[171]</a></span> (RF) and
-gradient boosted trees (GBT) <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[81]</a></span> are tree-based models.
+<li>Classification and regression trees <span class="citation"><a href="references.html#ref-BreimanEtAl:CART1984" role="doc-biblioref">[232]</a></span> (CART),
+C5.0 <span class="citation"><a href="references.html#ref-Quinlan:C451993" role="doc-biblioref">[208]</a></span>,
+random forests <span class="citation"><a href="references.html#ref-Breiman:RandomForests2001" role="doc-biblioref">[180]</a></span> (RF) and
+gradient boosted trees (GBT) <span class="citation"><a href="references.html#ref-Friedman:PDP2001" role="doc-biblioref">[85]</a></span> are tree-based models.
 Algorithm from this model family partition the predictor space into a set of non-overlapping hyperrectangles based on combinations of predictor-value conditions, such as “IF age <span class="math inline">\(&gt;\)</span> 52 &amp; body-mass index <span class="math inline">\(&lt;\)</span> 25.”
 A new observation is classified based on the majority class of training data associated with the hyperrectangle to which it belongs.
 Random forests and gradient boosted trees are ensembles of several different decision trees, with each tree casting a vote for the final prediction.
@@ -632,7 +631,7 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 
 <div class="inline-table"><table class="table table-sm">
 <caption>
-<span id="tab:09-hyper-tab">Table 8.2: </span><strong>Overview of hyperparameter tuning grid.</strong> All classifiers were implemented with the statistical programming language R <span class="citation"><a href="references.html#ref-rlanguage" role="doc-biblioref">[225]</a></span> using the package <code>mlr</code> <span class="citation"><a href="references.html#ref-Bischl:mlr2016" role="doc-biblioref">[228]</a></span>, which provides a uniform interface to the listed machine learning algorithms from other R packages. A grid search was used to tune the hyperparameters using area under the ROC curve (AUC) as the evaluation measure. The table provides an overview of each classifier, including the R package used, the tuned hyperparameters and their value ranges. All other hyperparameters were set to default values. * = {linear, polynomial, radial, sigmoid}</caption>
+<span id="tab:09-hyper-tab">Table 8.2: </span><strong>Overview of hyperparameter tuning grid.</strong> All classifiers were implemented with the statistical programming language R <span class="citation"><a href="references.html#ref-rlanguage" role="doc-biblioref">[234]</a></span> using the package <code>mlr</code> <span class="citation"><a href="references.html#ref-Bischl:mlr2016" role="doc-biblioref">[237]</a></span>, which provides a uniform interface to the listed machine learning algorithms from other R packages. A grid search was used to tune the hyperparameters using area under the ROC curve (AUC) as the evaluation measure. The table provides an overview of each classifier, including the R package used, the tuned hyperparameters and their value ranges. All other hyperparameters were set to default values. * = {linear, polynomial, radial, sigmoid}</caption>
 <thead><tr class="header">
 <th align="left"><strong>Algorithm (R package)</strong></th>
 <th align="left"><strong>Parameter</strong></th>
@@ -642,7 +641,7 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">LASSO, Ridge (<code>glmnet</code> <span class="citation"><a href="references.html#ref-lasso" role="doc-biblioref">[203]</a></span>)</td>
+<td align="left">LASSO, Ridge (<code>glmnet</code> <span class="citation"><a href="references.html#ref-lasso" role="doc-biblioref">[212]</a></span>)</td>
 <td align="left"><code>lambda</code></td>
 <td align="left">10<sup>-2</sup>
 </td>
@@ -651,14 +650,14 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 <td align="left">100</td>
 </tr>
 <tr class="even">
-<td align="left">GPLS (<code>caret</code> <span class="citation"><a href="references.html#ref-caret" role="doc-biblioref">[230]</a></span>)</td>
+<td align="left">GPLS (<code>caret</code> <span class="citation"><a href="references.html#ref-caret" role="doc-biblioref">[239]</a></span>)</td>
 <td align="left"><code>ncomp</code></td>
 <td align="left">1</td>
 <td align="left">5</td>
 <td align="left">5</td>
 </tr>
 <tr class="odd">
-<td align="left">SVM (<code>e1071</code> <span class="citation"><a href="references.html#ref-e1071" role="doc-biblioref">[233]</a></span>)</td>
+<td align="left">SVM (<code>e1071</code> <span class="citation"><a href="references.html#ref-e1071" role="doc-biblioref">[242]</a></span>)</td>
 <td align="left"><code>cost</code></td>
 <td align="left">0.01</td>
 <td align="left">3</td>
@@ -679,7 +678,7 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 <td align="left">4*</td>
 </tr>
 <tr class="even">
-<td align="left">NNET (<code>nnet</code> <span class="citation"><a href="references.html#ref-nnet" role="doc-biblioref">[195]</a></span>)</td>
+<td align="left">NNET (<code>nnet</code> <span class="citation"><a href="references.html#ref-nnet" role="doc-biblioref">[204]</a></span>)</td>
 <td align="left"><code>size</code></td>
 <td align="left">1</td>
 <td align="left">13</td>
@@ -694,28 +693,28 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 <td align="left">6</td>
 </tr>
 <tr class="even">
-<td align="left">WKNN (<code>kknn</code> <span class="citation"><a href="references.html#ref-Hechenbichler:wknn2004" role="doc-biblioref">[220]</a></span>)</td>
+<td align="left">WKNN (<code>kknn</code> <span class="citation"><a href="references.html#ref-Hechenbichler:wknn2004" role="doc-biblioref">[229]</a></span>)</td>
 <td align="left"><code>k</code></td>
 <td align="left">1</td>
 <td align="left">77</td>
 <td align="left">20</td>
 </tr>
 <tr class="odd">
-<td align="left">NB (<code>e1071</code> <span class="citation"><a href="references.html#ref-e1071" role="doc-biblioref">[233]</a></span>)</td>
+<td align="left">NB (<code>e1071</code> <span class="citation"><a href="references.html#ref-e1071" role="doc-biblioref">[242]</a></span>)</td>
 <td align="left"><code>laplace</code></td>
 <td align="left">1</td>
 <td align="left">5</td>
 <td align="left">5</td>
 </tr>
 <tr class="even">
-<td align="left">CART (<code>rpart</code> <span class="citation"><a href="references.html#ref-rpart" role="doc-biblioref">[235]</a></span>)</td>
+<td align="left">CART (<code>rpart</code> <span class="citation"><a href="references.html#ref-rpart" role="doc-biblioref">[244]</a></span>)</td>
 <td align="left"><code>cp</code></td>
 <td align="left">0.001</td>
 <td align="left">0.1</td>
 <td align="left">5</td>
 </tr>
 <tr class="odd">
-<td align="left">C5.0 (<code>C50</code> <span class="citation"><a href="references.html#ref-c50" role="doc-biblioref">[237]</a></span>)</td>
+<td align="left">C5.0 (<code>C50</code> <span class="citation"><a href="references.html#ref-c50" role="doc-biblioref">[246]</a></span>)</td>
 <td align="left"><code>CF</code></td>
 <td align="left">0</td>
 <td align="left">0.35</td>
@@ -736,7 +735,7 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 <td align="left">2</td>
 </tr>
 <tr class="even">
-<td align="left">RF (<code>ranger</code> <span class="citation"><a href="references.html#ref-ranger" role="doc-biblioref">[240]</a></span>)</td>
+<td align="left">RF (<code>ranger</code> <span class="citation"><a href="references.html#ref-ranger" role="doc-biblioref">[249]</a></span>)</td>
 <td align="left"><code>mtry</code></td>
 <td align="left">4</td>
 <td align="left">100</td>
@@ -750,7 +749,7 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 <td align="left">6</td>
 </tr>
 <tr class="even">
-<td align="left">GBT (<code>xgboost</code> <span class="citation"><a href="references.html#ref-xgboost" role="doc-biblioref">[243]</a></span>)</td>
+<td align="left">GBT (<code>xgboost</code> <span class="citation"><a href="references.html#ref-xgboost" role="doc-biblioref">[252]</a></span>)</td>
 <td align="left"><code>eta</code></td>
 <td align="left">0.01</td>
 <td align="left">0.4</td>
@@ -802,7 +801,7 @@ A higher AUC suggests that the classifier is better at separating the classes.</
 <!-- For example, the selection of a feature subset contributes to the prevention of overfitting, the avoidance of multicollinearity and the identification of a model with good trade-off between high predictive performance and low complexity, i.e., a low number of features. -->
 <!-- https://stats.stackexchange.com/questions/450703/is-feature-importance-in-random-forest-useless -->
 <p>We developed a feature selection wrapper that successively eliminates a subset of predictors that do not <em>positively</em> contribute to the performance of a model.
-The contribution of a predictor is computed using <em>model reliance</em> <span class="citation"><a href="references.html#ref-Fisher:ModelReliance2018" role="doc-biblioref">[246]</a></span>, which is a generalization of random forest permutation feature importance <span class="citation"><a href="references.html#ref-Breiman:RandomForests2001" role="doc-biblioref">[171]</a></span>.
+The contribution of a predictor is computed using <em>model reliance</em> <span class="citation"><a href="references.html#ref-Fisher:ModelReliance2018" role="doc-biblioref">[255]</a></span>, which is a generalization of random forest permutation feature importance <span class="citation"><a href="references.html#ref-Breiman:RandomForests2001" role="doc-biblioref">[180]</a></span>.
 Model reliance estimates the merit of a predictor <span class="math inline">\(f\)</span> toward a model <span class="math inline">\(\zeta\)</span> by comparing the classification error of <span class="math inline">\(\zeta\)</span> on the original training set <span class="math inline">\(\mathbf{X}_{orig}\)</span> with the classification error of <span class="math inline">\(\zeta\)</span> on a modified version of the training set <span class="math inline">\(\mathbf{X}_{perm}\)</span> where the values of <span class="math inline">\(f\)</span> are randomly permuted.
 In particular, the model reliance <span class="math inline">\(MR\)</span> of a model <span class="math inline">\(\zeta\)</span> on a predictor <span class="math inline">\(f\in F\)</span> is calculated as</p>
 <p><span class="math display" id="eq:model-reliance">\[\begin{equation}
@@ -822,7 +821,7 @@ As random feature permutation introduces some statistical variability, we comput
 <h3>
 <span class="header-section-number">8.2.6</span> Post-Hoc Interpretation<a class="anchor" aria-label="anchor" href="#post-hoc-interpretation"><i class="fas fa-link"></i></a>
 </h3>
-<p><strong>SHAP.</strong> To facilitate model interpretation, the model-agnostic post-hoc framework SHAP <span class="citation"><a href="references.html#ref-Lundberg:SHAP2017" role="doc-biblioref">[186]</a>, <a href="references.html#ref-Lundberg:TreeSHAP2019" role="doc-biblioref">[190]</a></span> was used to assess feature importance for the CHA data.
+<p><strong>SHAP.</strong> To facilitate model interpretation, the model-agnostic post-hoc framework SHAP <span class="citation"><a href="references.html#ref-Lundberg:SHAP2017" role="doc-biblioref">[195]</a>, <a href="references.html#ref-Lundberg:TreeSHAP2019" role="doc-biblioref">[199]</a></span> was used to assess feature importance for the CHA data.
 Briefly, the SHAP value <span class="math inline">\(\phi_f(\zeta,x)\)</span> expresses the estimated importance of a feature <span class="math inline">\(f\)</span> to the prediction of model <span class="math inline">\(\zeta\)</span> for an instance <span class="math inline">\(x\)</span> as change in the expected value of the prediction if for <span class="math inline">\(f\)</span> the feature vector of <span class="math inline">\(x\)</span> is observed instead of being random.
 The SHAP framework composes the model prediction as sum of SHAP values of each feature, i.e., <span class="math inline">\(\zeta(x)=\phi_0(\zeta,x)+\sum_{i=1}^M \phi_i(\zeta,x)\)</span>, where <span class="math inline">\(\phi_0(\zeta,x)\)</span> is the expected value of the model (bias) and <span class="math inline">\(M\)</span> is the number of features.</p>
 <p>SHAP values were calculated for the best model <span class="math inline">\(\zeta_{opt}\)</span> according to AUC.
@@ -933,10 +932,11 @@ Figure 8.8: <strong>SHAP analysis results for the best model (GBT, feature elimi
 </p>
 </div>
 
+<!-- todo: ncol = 4 statt 5 -->
 <div class="figure" style="text-align: center">
 <span id="fig:09-tq-xgboost-shap-per-feature"></span>
-<img src="figures/09-tq-xgboost-shap-per-feature.png" alt="SHAP feature dependence. The relationship between the actual values of a predictor (x-axis) and corresponding SHAP values (y-axis) is shown as points representing a patient and as locally weighted scatterplot smoothing (LOWESS) curves indicating the overall trend. Predictors are ordered by mean absolute SHAP value (see Figure8.8 (a)). Gray histograms and bar charts depict the distributions of the predictors." width="100%"><p class="caption">
-Figure 8.9: <strong>SHAP feature dependence.</strong> The relationship between the actual values of a predictor (x-axis) and corresponding SHAP values (y-axis) is shown as points representing a patient and as locally weighted scatterplot smoothing (LOWESS) curves indicating the overall trend. Predictors are ordered by mean absolute SHAP value (see Figure<a href="iml.html#fig:09-tq-xgboost">8.8</a> (a)). Gray histograms and bar charts depict the distributions of the predictors.
+<img src="figures/09-tq-xgboost-shap-per-feature.png" alt="SHAP feature dependence. The relationship between the actual values of a predictor (x-axis) and corresponding SHAP values (y-axis) is shown as points representing a patient and as locally weighted scatterplot smoothing (LOWESS) curves indicating the overall trend. Predictors are ordered by mean absolute SHAP value (see Figure 8.8 (a)). Gray histograms and bar charts depict the distributions of the predictors." width="100%"><p class="caption">
+Figure 8.9: <strong>SHAP feature dependence.</strong> The relationship between the actual values of a predictor (x-axis) and corresponding SHAP values (y-axis) is shown as points representing a patient and as locally weighted scatterplot smoothing (LOWESS) curves indicating the overall trend. Predictors are ordered by mean absolute SHAP value (see Figure <a href="iml.html#fig:09-tq-xgboost">8.8</a> (a)). Gray histograms and bar charts depict the distributions of the predictors.
 </p>
 </div>
 <p>Even though several predictors exhibit only a low or moderate global importance, some of them have a high attribution towards model prediction for specific subgroups.
@@ -1523,21 +1523,21 @@ AneurD (Section <a href="iml.html#iml-discussion-aneur">8.4.3</a>).</p>
 <h3>
 <span class="header-section-number">8.4.1</span> CHA-Depression<a class="anchor" aria-label="anchor" href="#iml-discussion-depression"><i class="fas fa-link"></i></a>
 </h3>
-<p>Machine learning has been used to build predictive models of depression severity based on structured patient interviews <span class="citation"><a href="references.html#ref-VanLoo:depression_pred2014" role="doc-biblioref">[248]</a>, <a href="references.html#ref-Kessler:MLDepression2016" role="doc-biblioref">[250]</a></span>.
+<p>Machine learning has been used to build predictive models of depression severity based on structured patient interviews <span class="citation"><a href="references.html#ref-VanLoo:depression_pred2014" role="doc-biblioref">[257]</a>, <a href="references.html#ref-Kessler:MLDepression2016" role="doc-biblioref">[259]</a></span>.
 We refrain from quantitative comparison with these studies due to differences in population characteristics and measurements.
 But how good is the best of our models actually?
 A reasonable baseline is a classifier that simply predicts depression status at time T0, which yields 79% accuracy.
 Our models outperform this baseline, although it is likely that they provide a good fit only for our sample, with patient subgroups from other centers yet to be studied.
 However, our models are a promising first step in supporting timely prediction of depression severity and selection of appropriate treatment with only a few questionnaire items.</p>
-<p>Consistent with previous studies <span class="citation"><a href="references.html#ref-Langguth:TinAndDepression2011" role="doc-biblioref">[252]</a></span>, we found a strong association between tinnitus distress and depression severity.
-Furthermore, predictors measuring perceived stress and demands were found to be a significant contributor to depression in tinnitus patients <span class="citation"><a href="references.html#ref-Trevis:TinnitusReview2018" role="doc-biblioref">[254]</a></span>.
+<p>Consistent with previous studies <span class="citation"><a href="references.html#ref-Langguth:TinAndDepression2011" role="doc-biblioref">[261]</a></span>, we found a strong association between tinnitus distress and depression severity.
+Furthermore, predictors measuring perceived stress and demands were found to be a significant contributor to depression in tinnitus patients <span class="citation"><a href="references.html#ref-Trevis:TinnitusReview2018" role="doc-biblioref">[263]</a></span>.
 The fact that predictors were selected from different questionnaires confirms the multifactoriality of depression, whose assessment requires the inclusion of different measurements.
 Therefore, concomitant emotional symptoms and other comorbidities must be taken into account to meet patient-specific needs.
-In a previous study <span class="citation"><a href="references.html#ref-Whooley:2q_depression1997" role="doc-biblioref">[256]</a></span>, high sensitivity in detecting depression was achieved by using only a two-item questionnaire.
-One of the two items was <em>“During the past month, have you often been bothered by feeling down, depressed, or hopeless.”</em>;<span class="citation"><a href="references.html#ref-Whooley:2q_depression1997" role="doc-biblioref">[256]</a></span> which is similar to the ADSL_adsl06 (<em>“In the past week, I have felt depressed.”</em>), which has the second largest absolute coefficient in our best LASSO model.</p>
+In a previous study <span class="citation"><a href="references.html#ref-Whooley:2q_depression1997" role="doc-biblioref">[265]</a></span>, high sensitivity in detecting depression was achieved by using only a two-item questionnaire.
+One of the two items was <em>“During the past month, have you often been bothered by feeling down, depressed, or hopeless.”</em>;<span class="citation"><a href="references.html#ref-Whooley:2q_depression1997" role="doc-biblioref">[265]</a></span> which is similar to the ADSL_adsl06 (<em>“In the past week, I have felt depressed.”</em>), which has the second largest absolute coefficient in our best LASSO model.</p>
 <p>Generally, care must be taken when interpreting the model coefficients:
 for example, we identified a strong relationship between non-German citizenship and depression severity (cf. Figure <a href="iml.html#fig:09-lasso-depression">8.11</a> and Table <a href="iml.html#tab:09-lasso-depression-tab">8.3</a>).
-Although some studies have reported ethnic differences in depression <span class="citation"><a href="references.html#ref-Riolo:DepressionEthnicity2005" role="doc-biblioref">[258]</a>, <a href="references.html#ref-Weinberger:DepressionEthnicity2018" role="doc-biblioref">[260]</a></span>, the occurrence of this item tends to suggest higher perceived social stress in patients of predominantly Turkish origin, due to higher unemployment rates, larger families, poorer housing conditions, etc. in this demographic group.
+Although some studies have reported ethnic differences in depression <span class="citation"><a href="references.html#ref-Riolo:DepressionEthnicity2005" role="doc-biblioref">[267]</a>, <a href="references.html#ref-Weinberger:DepressionEthnicity2018" role="doc-biblioref">[269]</a></span>, the occurrence of this item tends to suggest higher perceived social stress in patients of predominantly Turkish origin, due to higher unemployment rates, larger families, poorer housing conditions, etc. in this demographic group.
 Because only 5.0% of the cohort population were non-German citizens, these results could also be an effect of overfitting.
 Since the associated predictor in the first iteration of feature elimination has a model reliance score of less than 1.0, it is consequently omitted from the sparser models.</p>
 <p>Regarding the stability of the models on smaller feature sets, our results show that simpler models are only slightly inferior to the most predictive model.
@@ -1548,8 +1548,8 @@ Regarding the LASSO classifier, which showed the best performance, it is encoura
 It is noteworthy that neither predictors of tinnitus localization and quality nor sociodemographic predictors were included in this model.
 This finding could be used to reduce the number of questions or entire questionnaires that patients must answer before and after treatment.
 psychological or physical stress for a subject undergoing an examination (e.g., a painful biopsy vs. a blood test).
-For example, Yu et al. <span class="citation"><a href="references.html#ref-yu2020controlling" role="doc-biblioref">[261]</a></span> perform feature selection under a budget, where the cost of feature acquisition is derived from suggestions by medical experts based on total financial burden, patient privacy, and patient inconvenience.
-Kachuee et al. <span class="citation"><a href="references.html#ref-kachuee2019costsensitive" role="doc-biblioref">[262]</a></span> derive feature costs based on the convenience of answering questions, performing medical exams, and blood and urine tests.</p>
+For example, Yu et al. <span class="citation"><a href="references.html#ref-yu2020controlling" role="doc-biblioref">[270]</a></span> perform feature selection under a budget, where the cost of feature acquisition is derived from suggestions by medical experts based on total financial burden, patient privacy, and patient inconvenience.
+Kachuee et al. <span class="citation"><a href="references.html#ref-kachuee2019costsensitive" role="doc-biblioref">[271]</a></span> derive feature costs based on the convenience of answering questions, performing medical exams, and blood and urine tests.</p>
 <p>In terms of clinical relevance, our results should be a first step to guide clinicians in making treatment decisions regarding clinical depression in patients with chronic tinnitus.
 The models could be used to design an appropriate treatment pathway.
 However, before using the models in practice, one must be aware that they are trained on cross-sectional data, i.e., the models separate subclinical and clinical depression based on questionnaire responses and sociodemographic data before treatment.
@@ -1589,8 +1589,8 @@ At the same time, depression, attitudinal factors (self-efficacy, pessimism, com
 Notably, very low self-reported impairment or loudness measured by visual analogue scales do not generally indicate low tinnitus-related distress measured by the TQ.
 One explanation is that simple measurements like TINSKAL_impairment and TINSKAL_loudness are less robust and show higher variability than a compound scale that combines multiple single questionnaire items.
 These findings could be investigated further, e.g., whether there is a relationship towards a subgroup of patients that were more fatigued and thus not less thoroughly filling a large number of questionnaires.</p>
-<p>Our results confirm the intricate interplay between depression and tinnitus-related distress that was elucidated by numerous previous studies <span class="citation"><a href="references.html#ref-Dobie:DepressionTinnitus2003" role="doc-biblioref">[264]</a>, <a href="references.html#ref-Folmer:Tinnitus1999" role="doc-biblioref">[266]</a>, <a href="references.html#ref-Halford:AnxietyDepressionTinnitus1991" role="doc-biblioref">[268]</a>, <a href="references.html#ref-Langguth:TinnitusDepression2011" role="doc-biblioref">[271]</a>, <a href="references.html#ref-Salazar:Depression2019" role="doc-biblioref">[273]</a></span>.
-For our best model, an ADSL score of more than 20 is associated with an increased predicted risk of tinnitus decompensation (cf. Figure <a href="iml.html#fig:09-tq-xgboost-shap-per-feature">8.9</a> (2)) which is close to the cutoff of clinical relevance of depression <span class="citation"><a href="references.html#ref-Hautzinger:ADSL2003" role="doc-biblioref">[41]</a></span>.</p>
+<p>Our results confirm the intricate interplay between depression and tinnitus-related distress that was elucidated by numerous previous studies <span class="citation"><a href="references.html#ref-Dobie:DepressionTinnitus2003" role="doc-biblioref">[273]</a>, <a href="references.html#ref-Folmer:Tinnitus1999" role="doc-biblioref">[275]</a>, <a href="references.html#ref-Halford:AnxietyDepressionTinnitus1991" role="doc-biblioref">[277]</a>, <a href="references.html#ref-Langguth:TinnitusDepression2011" role="doc-biblioref">[280]</a>, <a href="references.html#ref-Salazar:Depression2019" role="doc-biblioref">[282]</a></span>.
+For our best model, an ADSL score of more than 20 is associated with an increased predicted risk of tinnitus decompensation (cf. Figure <a href="iml.html#fig:09-tq-xgboost-shap-per-feature">8.9</a> (2)) which is close to the cutoff of clinical relevance of depression <span class="citation"><a href="references.html#ref-Hautzinger:ADSL2003" role="doc-biblioref">[48]</a></span>.</p>
 <!-- % Besides depression, other associations towards the outcome were identified, including discomfort, sleep problems, graduation, tinnitus duration, loneliness, anger, tinnitus loudness and physical well-being.  -->
 <!-- Some predictors exhibit higher model attribution for  subset of patients, including the two selected features on educational level (SOZK\_graduate and SOZK\_lowersec).  -->
 <!-- This finding is consistent with the clustering on patients based on explanation similarity (cf. Fig~\ref{fig:shap}~C) which revealed two subgroups (clusters 1 and 4) that are characterized by a lower school degree and high degree of reported tinnitus impairment in comparison with the other clusters, including one large subgroup (50\%) that exhibits low depression scores.  -->
@@ -1626,7 +1626,7 @@ Completers were slightly younger than non-completers (mean age 49.8 <span class=
 <!-- To our knowledge, no study has as yet investigated differential treatment responses in completers vs. non-completers;  -->
 <!-- this can be explained by the absence of adequate information on the latter.  -->
 In future work we intend to investigate to what extent insights from completers can be used on subsamples of non-completers.
-Therefore, we can use the DIVA framework of Hielscher et al. <span class="citation"><a href="references.html#ref-Hielscher:DIVA2018" role="doc-biblioref">[274]</a></span>.
+Therefore, we can use the DIVA framework of Hielscher et al. <span class="citation"><a href="references.html#ref-Hielscher:DIVA2018" role="doc-biblioref">[283]</a></span>.
 However, psychological treatment approaches are likely to benefit only those who report psychological problems prior to tinnitus perception or in association with tinnitus perception.</p>
 </div>
 <div id="iml-discussion-aneur" class="section level3" number="8.4.3">
@@ -1634,8 +1634,8 @@ However, psychological treatment approaches are likely to benefit only those who
 <span class="header-section-number">8.4.3</span> AneurD<a class="anchor" aria-label="anchor" href="#iml-discussion-aneur"><i class="fas fa-link"></i></a>
 </h3>
 <p>Our classification results are promising, as morphological parameters alone can provide models with moderate power.
-Because previous studies have found that hemodynamic parameters are also predictive <span class="citation"><a href="references.html#ref-CebralEtAl:Neuroradiology2011" role="doc-biblioref">[275]</a>, <a href="references.html#ref-BergBeuing:CARS2018" role="doc-biblioref">[276]</a></span>, future work includes exploring the potential of combining morphologic and hemodynamic features for classification of rupture status.
-In addition, because our focus for now has been on quantifying the merit of morphologic parameters, we have ignored demographic characteristics, such as age and sex, which also correlate strongly with aneurysm rupture <span class="citation"><a href="references.html#ref-detmer2018development" role="doc-biblioref">[277]</a></span>.
+Because previous studies have found that hemodynamic parameters are also predictive <span class="citation"><a href="references.html#ref-CebralEtAl:Neuroradiology2011" role="doc-biblioref">[284]</a>, <a href="references.html#ref-BergBeuing:CARS2018" role="doc-biblioref">[285]</a></span>, future work includes exploring the potential of combining morphologic and hemodynamic features for classification of rupture status.
+In addition, because our focus for now has been on quantifying the merit of morphologic parameters, we have ignored demographic characteristics, such as age and sex, which also correlate strongly with aneurysm rupture <span class="citation"><a href="references.html#ref-detmer2018development" role="doc-biblioref">[286]</a></span>.
 We expect that adding these patient characteristics will further improve classification performance.
 <!-- tentative todo: könnte man gut bei verteidigung zeigen --></p>
 <p>PDP analysis showed that for the best model (gradient boosted trees), the parameters angle at the dome point <span class="math inline">\(\gamma\)</span>, ellipticity index <span class="math inline">\(EI\)</span>, maximum aneurysm width <span class="math inline">\(W_{max}\)</span>, nonsphericity index <span class="math inline">\(NSI\)</span>, and aneurysm area <span class="math inline">\(A_{O2}\)</span> had the highest attribution (see Figure <a href="iml.html#fig:09-pd-global-aneur">8.13</a> (a)).
@@ -1653,7 +1653,7 @@ Figure 8.16: <strong>PDP curves for top-5 predictors on ALL - GBT for the best m
 </div>
 <p>We observed that classification performance is consistently higher for the subset of sidewall aneurysms vs. bifurcation aneurysms, and that different parameters were found to have high model attribution.
 This could be partially due to the rather small sample size or the already mentioned differences in model families.
-However, Baharoglu et al. <span class="citation"><a href="references.html#ref-BaharogluEtAl:Neurosurgery2012" role="doc-biblioref">[19]</a></span> identified significant differences between sidewall and bifurcation aneurysms with respect to morphological parameters, and how these parameters can predict rupture status.</p>
+However, Baharoglu et al. <span class="citation"><a href="references.html#ref-BaharogluEtAl:Neurosurgery2012" role="doc-biblioref">[22]</a></span> identified significant differences between sidewall and bifurcation aneurysms with respect to morphological parameters, and how these parameters can predict rupture status.</p>
 <p>Some of our findings also suggest some form of higher-level interactions between groups of features.
 For example, the ellipticity index (<span class="math inline">\(EI\)</span>)was found second most important for ALL - GBT and most important for SW - SVM, although differences in <span class="math inline">\(EI\)</span> between unruptured and ruptured aneurysms are not significant (p = 0.323, Wilcoxon rank sum test, <span class="math inline">\(\alpha\)</span> = 0.01).</p>
 <p>There are some limitations to our analysis.
@@ -1735,7 +1735,7 @@ For AneurD, we used PD importance instead of SHAP values, although gradient-boos
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

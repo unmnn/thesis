@@ -45,7 +45,7 @@ Finally, we conclude the chapter with a summary in Section&nbsp;\@ref(phenotypes
 
 ## Motivation and Comparison to Related Work {#phenotypes-motivation}
 
-Challenges for management and treatment of tinnitus are caused to a large extend by its clinical heterogeneity, which includes individual perception, risk factors, comorbidities, degrees of perceived stress and treatment response (cf. Section&nbsp;\@ref(cha)). 
+Challenges for management and treatment of tinnitus are caused to a large extent by its clinical heterogeneity, which includes individual perception, risk factors, comorbidities, degrees of perceived stress and treatment response (cf. Section&nbsp;\@ref(background-data-cha)). 
 These factors make it difficult for clinicians (a) to choose _the_ treatment which is most effective for an individual patient, and (b) to design a unified treatment strategy all patients equally benefit from. 
 The awareness of the existence of distinct patient subgroups may stimulate the development of more effective therapy modules. 
 Since clinically relevant subgroups have not been established yet, clustering emerges as a promising approach to identify characteristic tinnitus _phenotypes_ in a data-driven and hypothesis-free way. 
@@ -63,7 +63,7 @@ However, they did not aim to visualize clustering results, but restricted themse
 Discussions with tinnitus experts about the selection of measurement instruments (hereafter denoted as _features_) for clustering resulted in two main requirements: 
 (1) features should cover the clinical heterogeneity of tinnitus to a great degree, and 
 (2) if available, more robust compound scores should be preferred over single items from a questionnaire. 
-From the routine questionnaire assessment battery (cf. Section&nbsp;\@ref(cha)), we selected a total of 64 features^[The complete list of features is provided in Appendix&nbsp;\@ref(appx-pheno).] from 14 questionnaires. 
+From the routine questionnaire assessment battery (cf. Section&nbsp;\@ref(background-data-cha)), we selected a total of 64 features^[The complete list of features is provided in Appendix&nbsp;\@ref(appx-pheno).] from 14 questionnaires. 
 These include all questionnaire total scores, all questionnaire subscale scores and all items of questionnaires that have neither subscales nor total scores. 
 The features measure 
 (general) tinnitus characteristics, 
@@ -299,7 +299,7 @@ Six out of these ten features were among the top-10 features for all clusters, i
 
 (ref:06-treatment-effects) **Cluster-specific top-10 features with highest average treatment effect magnitude.** Bars depict the intra-cluster average differences between the measurements at T1 and T0 based on the standardized values. Lower values represent better treatment effectiveness. The symbols right to the feature names indicate whether the feature is among the top-10 features for the cluster at position i. For example, the character string `r if(knitr::is_latex_output()){"\\ding{55} \\ding{51} \\ding{55} \\ding{51}"}else{"\U2717 \U2713 \U2717 \U2713"}` for TQ\_intrusiveness (ranked 2nd for PT 1) means that the feature is among the top-10 for PT 1 and PT 3, but not for PT 2 and PT 4. 
 
-```{r 06-treatment-effects, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"50%"}else{"100%"}, fig.cap="(ref:06-treatment-effects)"}
+```{r 06-treatment-effects, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"64.3%"}else{"100%"}, fig.cap="(ref:06-treatment-effects)"}
 knitr::include_graphics("figures/06-treatment-effects.png")
 ```
 
@@ -325,7 +325,7 @@ PT 3 (_somatic group_) appears to represent a patient subgroup that is
 characterized by somatopsychic symptom expression, i.e., physical symptoms that may reflect stress and/or underlying medical conditions. 
 To meet the needs of this patient subgroup, multimodal interventions may include a proportion of body-oriented procedures such as relaxation exercises or physiotherapy, but their effects should be interpreted in terms of both direct and indirect psychological effects (e.g., through increased well-being or affection from others). 
 
-Patients in PT 4 (_stress group_) reported higher than average perceived stress, accompanied by physical exhaustion and anxious-depressed mood. 
+Patients in PT 4 (_distress group_) reported higher than average perceived stress, accompanied by physical exhaustion and anxious-depressed mood. 
 This group is more likely to include younger, employed, and male patients who reported chronic distress and may be susceptible to a burnout syndrome with subjectively reduced mental performance ("hamster wheel"), which is used to describe life situations even in the absence of tinnitus distress. 
 Multimodal therapy should initially focus on stress regulation techniques, including relaxation or individually tailored behavior modification approaches. 
 Similar to PT 2, which has a high psychosomatic burden, patients in PT 4 could also benefit from longer psychotherapeutic or multimodal treatment procedures (inpatient or rehabilitative). 

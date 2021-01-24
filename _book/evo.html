@@ -33,10 +33,10 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
-<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
@@ -50,7 +50,6 @@
 <li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="abbreviations.html">Abbreviations</a></li>
 <li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
 </ul>
 
@@ -88,25 +87,25 @@ Finally, in Section <a href="evo.html#evo-conclusions">6.5</a> we conclude this
 <!-- %Medical Mining supports personalized clinical decision making by discovering hidden knowledge from accumulated medical data. -->
 <p>Epidemiological studies serve as basis for the identification of risk factors associated with a medical condition.
 Machine learning is still rather little used in epidemiology, mainly due to the hypothesis-driven nature of their research.
-However, examples of machine learning applications are the identification of health failure subtypes <span class="citation"><a href="references.html#ref-austin2013using" role="doc-biblioref">[151]</a></span> and the discovery of factors (including biomarkers) that modulate a medical outcome <span class="citation"><a href="references.html#ref-Raju2014" role="doc-biblioref">[152]</a>, <a href="references.html#ref-valavanis2013derivation" role="doc-biblioref">[153]</a></span>.
+However, examples of machine learning applications are the identification of health failure subtypes <span class="citation"><a href="references.html#ref-austin2013using" role="doc-biblioref">[160]</a></span> and the discovery of factors (including biomarkers) that modulate a medical outcome <span class="citation"><a href="references.html#ref-Raju2014" role="doc-biblioref">[161]</a>, <a href="references.html#ref-valavanis2013derivation" role="doc-biblioref">[162]</a></span>.
 In longitudinal cohort studies measurements are performed in multiple study waves, hence researchers obtain access to sequences of recordings.
 In the context of machine learning, extracting and leveraging the inherent temporal information from these sequences may increase model performance and thus, the understanding of the medical condition of interest.</p>
 <p>In clinical applications temporal information is often exploited, predominantly for the analysis of patient records.
-For example, Pechenizkiy et al. <span class="citation"><a href="references.html#ref-PechenizkiyEtAl:CBMS10" role="doc-biblioref">[154]</a></span> analyzed streams of recordings to predict patient rehospitalization after a health failure treatment.
-Sun et al. <span class="citation"><a href="references.html#ref-SunEtAl:ICDM10" role="doc-biblioref">[155]</a></span> computed the similarity between streams of patients from patient monitoring data.
-Combi et al. <span class="citation"><a href="references.html#ref-CombiEtAl:2010" role="doc-biblioref">[156]</a></span> reported on streams of life signals, in particular on the temporal analysis of the timestamped medical records of hospital patients.
+For example, Pechenizkiy et al. <span class="citation"><a href="references.html#ref-PechenizkiyEtAl:CBMS10" role="doc-biblioref">[163]</a></span> analyzed streams of recordings to predict patient rehospitalization after a health failure treatment.
+Sun et al. <span class="citation"><a href="references.html#ref-SunEtAl:ICDM10" role="doc-biblioref">[164]</a></span> computed the similarity between streams of patients from patient monitoring data.
+Combi et al. <span class="citation"><a href="references.html#ref-CombiEtAl:2010" role="doc-biblioref">[165]</a></span> reported on streams of life signals, in particular on the temporal analysis of the timestamped medical records of hospital patients.
 However, participants of an epidemiological, population-based study are not hospital patients – they are a random sample of the studied population, often with skewed class distribution.
 In a <em>longitudinal</em> study of this kind, recordings for the same cohort member are made at each moment.
-Hielscher et al. <span class="citation"><a href="references.html#ref-HielscherEtAl:IDA14" role="doc-biblioref">[157]</a></span> presented a feature engineering approach to extract temporal information from multiple, but few patient recordings in a longitudinal epidemiological study.
+Hielscher et al. <span class="citation"><a href="references.html#ref-HielscherEtAl:IDA14" role="doc-biblioref">[166]</a></span> presented a feature engineering approach to extract temporal information from multiple, but few patient recordings in a longitudinal epidemiological study.
 First, for each assessment clusters of feature-value sequences associated with the target variable are found.
 Afterwards, original and sequence features are used in conjunction for classification.
-Hielscher et al. <span class="citation"><a href="references.html#ref-HielscherEtAl:IDA14" role="doc-biblioref">[157]</a></span> showed that classification performance increases when features with temporal information are incorporated into the feature space.
+Hielscher et al. <span class="citation"><a href="references.html#ref-HielscherEtAl:IDA14" role="doc-biblioref">[166]</a></span> showed that classification performance increases when features with temporal information are incorporated into the feature space.
 Instead of modeling the individual change of measurement values, our approach involves deriving multivariate change descriptors.
 <!-- Hielscher et al.&nbsp;[@HielscherEtAl:IDA14] performed feature engineering on the set of measurements for each assessment collected over multiple wave.  -->
 <!-- They showed that classification performance increases when features with temporal information are incorporated into the feature space.  -->
 <!-- However, they did not consider modeling the change of subgroups of similar cohort participants over time as.  -->
 <!-- TODO: checken ob das klar ist, nachdem die intro eingefügt wurde. -->
-Patient evolution with clustering was studied by Siddiqui et al. <span class="citation"><a href="references.html#ref-SiddiquiEtAl:BIH14" role="doc-biblioref">[158]</a></span> who proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in <span class="citation"><a href="references.html#ref-SiddiquiEtAl:BIH14" role="doc-biblioref">[158]</a></span> are labeled at each moment.
+Patient evolution with clustering was studied by Siddiqui et al. <span class="citation"><a href="references.html#ref-SiddiquiEtAl:BIH14" role="doc-biblioref">[167]</a></span> who proposed a method that predicts the evolution of a patient from timestamped data by clustering them on similarity and predicting cluster movement in the multi-dimensional space. However, the patient data considered in <span class="citation"><a href="references.html#ref-SiddiquiEtAl:BIH14" role="doc-biblioref">[167]</a></span> are labeled at each moment.
 <!-- TODO: checken ob das klar ist, nachdem die intro eingefügt wurde. --></p>
 <!-- Hypothesis-based studies on SHIP are numerous, -->
 <!-- %(leading to hundreds of publications each year), -->
@@ -115,7 +114,7 @@ Patient evolution with clustering was studied by Siddiqui et al. <span class="ci
 <!-- %, but we first create an enhanced set of dimensions that describe the evolution of cohort members and of their clusters. -->
 <!-- %for dimensionality reduction, but we cluster the participants at each moment and derive indices describing the evolution of these clusters. We show that these new variables improve classification quality. -->
 <p>Our workflow combines labeled and unlabeled timestamped data from a longitudinal study to improve classification performance on skewed data.
-As the target variable, we study the multi-factorial disorder hepatic steatosis (fatty liver) on a sample of participants from the longitudinal population-based “Study of Health in Pomerania” (SHIP) <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[5]</a></span>, see Section <a href="background.html#ship">2.6.1</a>.
+As the target variable, we study the multi-factorial disorder hepatic steatosis (fatty liver) on a sample of participants from the longitudinal population-based “Study of Health in Pomerania” (SHIP) <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[6]</a></span>, see Section <a href="background.html#background-data-ship">2.2.1</a>.
 For the SHIP cohort, the assessments (interviews, medical tests, etc.) were recorded in three <em>moments</em> (SHIP-0, SHIP-1 and SHIP-2), that are ca. 5 years apart.
 Temporal information is often used when analyzing patient data in a hospital, but there the time granularity is different.
 For example, in an intensive care unit, timestamped data are collected at a fast pace, i.e., every minute or even every second.
@@ -131,7 +130,7 @@ In SHIP-0, MRT was unavailable.
 Instead, liver fat accumulation was derived from ultrasound – a procedure with lower clinical accuracy.
 In SHIP-1, the calculation was omitted altogether.
 As a consequence, for a given SHIP participant a class label is available in SHIP-2, no label in SHIP-1 and a partially reliable indicator in SHIP-0.
-Since hepatic steatosis is a reversible disorder, label imputation – by means of a growth model <span class="citation"><a href="references.html#ref-SingerWillelt03" role="doc-biblioref">[159]</a></span> – is not possible; participant evolution must be learned with only one moment with labeled data.</p>
+Since hepatic steatosis is a reversible disorder, label imputation – by means of a growth model <span class="citation"><a href="references.html#ref-SingerWillelt03" role="doc-biblioref">[168]</a></span> – is not possible; participant evolution must be learned with only one moment with labeled data.</p>
 <!-- %To summarize, the classification problem we are called to solve under exploitation of historical information is unconventional: the outcome (fatty liver in our study) is reversible, and is only recorded reliably in the third moment and less reliably in the first one. -->
 <!-- %%not a conventional classification problem: each cohort participant should have a label at each wave, but this is not the case. The outcome (fatty liver in our study) is computed by a modern, reliable medical test that was not available in the past. Hence, all cohort participants are labeled at a specific moment, and none has a label at the past moments. Since the moments are very far apart, there is no reliable way of imputing labels to the old data: for no participant can we say that s/he was suffering under fatty liver 10 or 5 years ago. -->
 <!-- %Hence, we have to exploit unlabeled historical data for a classification problem. -->
@@ -164,10 +163,11 @@ Our approach is illustrated in Figure <a href="evo.html#fig:07-concept-workflow"
 We monitor the individual change of participants across the study waves, trace the change of the clusters separately, extract new features (from labeled <em>and</em> unlabeled data) and augment the original data space with our new descriptors of change.
 The complete classification workflow is depicted in Figure <a href="evo.html#fig:07-concept-workflow">6.1</a> (b).</p>
 
+<!-- **TODO: explain parentheses** -->
 <div class="figure" style="text-align: center">
 <span id="fig:07-concept-workflow"></span>
-<img src="figures/07-concept-workflow.png" alt="Concept of evolution feature extraction for classification performance improvement. (a) Clustering of longitudinal cohort data and subsequent generation of evolution features from the change of individuals (red) and whole clusters (green). (b) Overview of the classification workflow. TODO: explain parentheses" width="100%"><p class="caption">
-Figure 6.1: <strong>Concept of evolution feature extraction for classification performance improvement</strong>. (a) Clustering of longitudinal cohort data and subsequent generation of evolution features from the change of individuals (red) and whole clusters (green). (b) Overview of the classification workflow. <strong>TODO: explain parentheses</strong>
+<img src="figures/07-concept-workflow.png" alt="Concept of evolution feature extraction for classification performance improvement. (a) Clustering of longitudinal cohort data and subsequent generation of evolution features from the change of individuals (red) and whole clusters (green). (b) Overview of the classification workflow." width="100%"><p class="caption">
+Figure 6.1: <strong>Concept of evolution feature extraction for classification performance improvement</strong>. (a) Clustering of longitudinal cohort data and subsequent generation of evolution features from the change of individuals (red) and whole clusters (green). (b) Overview of the classification workflow.
 </p>
 </div>
 <p>In the following, we describe the clustering of study participants (Section <a href="evo.html#evo-concept-clustering">6.2.1</a>), the generation of evolution features (Section <a href="evo.html#evo-concept-evo-features">6.2.2</a>), our strategy of undersampling the majority class to balance class distribution (Section <a href="evo.html#evo-concept-undersampling">6.2.3</a>) and our feature selection strategy to extract a subset of <em>informative</em> features as input for classification (Section <a href="evo.html#evo-concept-feature-selection">6.2.4</a>).</p>
@@ -177,7 +177,7 @@ Figure 6.1: <strong>Concept of evolution feature extraction for classification p
 <span class="header-section-number">6.2.1</span> Clustering<a class="anchor" aria-label="anchor" href="#evo-concept-clustering"><i class="fas fa-link"></i></a>
 </h3>
 <p>For clustering, we prefer density-based clustering over partitional algorithms (like K-means), because our data contain extreme cases, the clusters may be arbitrarily shaped and of different sizes, and we cannot determine their number in advance.
-At each moment <span class="math inline">\(t\)</span>, we run the DBSCAN <span class="citation"><a href="references.html#ref-EsterEtAl:DBSCAN96" role="doc-biblioref">[160]</a></span> algorithm to cluster the set <span class="math inline">\(Z(t)\)</span> of recordings of all cohort members observed at <span class="math inline">\(t\)</span>.
+At each moment <span class="math inline">\(t\)</span>, we run the DBSCAN <span class="citation"><a href="references.html#ref-EsterEtAl:DBSCAN96" role="doc-biblioref">[169]</a></span> algorithm to cluster the set <span class="math inline">\(Z(t)\)</span> of recordings of all cohort members observed at <span class="math inline">\(t\)</span>.
 For participant <span class="math inline">\(x\)</span>, <span class="math inline">\(v(x,f,t)\)</span> denotes the value of <span class="math inline">\(x\)</span> for feature <span class="math inline">\(f\in\)</span> feature-set <span class="math inline">\(F\)</span> at <span class="math inline">\(t\)</span>, and <span class="math inline">\(obs(x,F,t)\)</span> the set of all feature recordings for <span class="math inline">\(x\)</span> at <span class="math inline">\(t\)</span> (cf. notation in Table <a href="evo.html#tab:07-nomenclature">6.1</a>).</p>
 
 <div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
@@ -284,7 +284,7 @@ centroid of <span class="math inline">\(c(x,t)\)</span>
 </tbody>
 </table></div>
 <!-- \paragraph{Distance function} --><p><strong>Distance function.</strong>
-For the distance between participants <span class="math inline">\(x,z\)</span> at <span class="math inline">\(t\)</span>, we use the <em>adjusted heterogeneous Euclidean overlap metric</em> <span class="citation"><a href="references.html#ref-HielscherEtAl:IDA14" role="doc-biblioref">[157]</a>, <a href="references.html#ref-Wilson97" role="doc-biblioref">[161]</a></span>, which weights the difference between two values <span class="math inline">\(x,z\)</span> for feature <span class="math inline">\(f\)</span> by the feature’s information gain <span class="math inline">\(G(f)\)</span>, scaled to the largest observed value <span class="math inline">\(G^*\)</span>, defined as:
+For the distance between participants <span class="math inline">\(x,z\)</span> at <span class="math inline">\(t\)</span>, we use the <em>adjusted heterogeneous Euclidean overlap metric</em> <span class="citation"><a href="references.html#ref-HielscherEtAl:IDA14" role="doc-biblioref">[166]</a>, <a href="references.html#ref-Wilson97" role="doc-biblioref">[170]</a></span>, which weights the difference between two values <span class="math inline">\(x,z\)</span> for feature <span class="math inline">\(f\)</span> by the feature’s information gain <span class="math inline">\(G(f)\)</span>, scaled to the largest observed value <span class="math inline">\(G^*\)</span>, defined as:
 <span class="math display" id="eq:heom-adjusted">\[\begin{equation}
 d(x,z,t)=\sqrt{\sum_{f \in F} \left(\frac{G(f)}{G^*}\cdot \delta\left(v(x,f,t),v(z,f,t)\right)\right)^2}.
 \tag{6.1}
@@ -294,14 +294,14 @@ For nominal features, <span class="math inline">\(\delta(a,b)\)</span> is 0 if <
 <!-- \paragraph{Specifying the DBSCAN parameters} -->
 <p><strong>DBSCAN Parameter setting.</strong>
 DBSCAN relies on two parameters: the radius <span class="math inline">\(eps\)</span> of the neighborhood around a data point, and the minimum number <span class="math inline">\(minPts\)</span> of neighbors for a point to be a core point.
-We use the “elbow” heuristic of  <span class="citation"><a href="references.html#ref-EsterEtAl:DBSCAN96" role="doc-biblioref">[160]</a></span> which determines a suitable <span class="math inline">\(eps\)</span> value for a given <span class="math inline">\(minPts\)</span> value, and is illustrated in Figure <a href="evo.html#fig:07-k-dist-graph">6.2</a>.
+We use the “elbow” heuristic of  <span class="citation"><a href="references.html#ref-EsterEtAl:DBSCAN96" role="doc-biblioref">[169]</a></span> which determines a suitable <span class="math inline">\(eps\)</span> value for a given <span class="math inline">\(minPts\)</span> value, and is illustrated in Figure <a href="evo.html#fig:07-k-dist-graph">6.2</a>.
 More specifically, we define a parameter <span class="math inline">\(k\)</span>, and compute for each <span class="math inline">\(x\in{}Z(t)\)</span> the distance k-dist<span class="math inline">\((x,k)\)</span> to its k-th nearest neighbor.
 We sort these distances, draw the k-dist<span class="math inline">\((x,k)\)</span> graph <em>g</em> and span the line <em>l</em> connecting the smallest k-dist() value to the largest one.
 Then, we set <span class="math inline">\(eps\)</span> to the k-dist value with maximum distance between <em>g</em> and <em>l</em>.</p>
 
 <div class="figure" style="text-align: center">
 <span id="fig:07-k-dist-graph"></span>
-<img src="figures/07-k-dist-graph.png" alt="Setting \(eps\) based on the k-dist graph for a given \(minPts\). The k-dist graph g depicts the sorted distances to the points’ k-th next neighbors. A suitable \(eps_{opt}\) can be identified at the position with maximum distance between the k-dist and the line l that connects the first and the last point of g. For DBSCAN clustering with \(minPts\) = k, \(eps_{opt}\), points with k-dist \(\leq\) \(eps_{opt}\) will become core points, else border or noise points." width="50%"><p class="caption">
+<img src="figures/07-k-dist-graph.png" alt="Setting \(eps\) based on the k-dist graph for a given \(minPts\). The k-dist graph g depicts the sorted distances to the points’ k-th next neighbors. A suitable \(eps_{opt}\) can be identified at the position with maximum distance between the k-dist and the line l that connects the first and the last point of g. For DBSCAN clustering with \(minPts\) = k, \(eps_{opt}\), points with k-dist \(\leq\) \(eps_{opt}\) will become core points, else border or noise points." width="75%"><p class="caption">
 Figure 6.2: <strong>Setting <span class="math inline">\(eps\)</span> based on the k-dist graph for a given <span class="math inline">\(minPts\)</span>.</strong> The k-dist graph <em>g</em> depicts the sorted distances to the points’ k-th next neighbors. A suitable <span class="math inline">\(eps_{opt}\)</span> can be identified at the position with maximum distance between the k-dist and the line <em>l</em> that connects the first and the last point of <em>g</em>. For DBSCAN clustering with <span class="math inline">\(minPts\)</span> = k, <span class="math inline">\(eps_{opt}\)</span>, points with k-dist <span class="math inline">\(\leq\)</span> <span class="math inline">\(eps_{opt}\)</span> will become core points, else border or noise points.
 </p>
 </div>
@@ -315,7 +315,7 @@ Figure 6.2: <strong>Setting <span class="math inline">\(eps\)</span> based on th
 For each cohort member <span class="math inline">\(x\)</span> and moment <span class="math inline">\(t\)</span>, we record the cluster containing <span class="math inline">\(x\)</span> (feature 1 in Table <a href="evo.html#tab:07-tab-evo-features">6.2</a>),
 (2) the distance of <span class="math inline">\(x\)</span> to this cluster’s centroid,
 (3) the fraction of positively labeled participants among the <span class="math inline">\(k\)</span> nearest neighbors of <span class="math inline">\(x\)</span>,
-(4) the (graph-based) cohesion <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[162]</a></span> and (5) Silhouette coefficient <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[162]</a></span> of <span class="math inline">\(x\)</span>, and (6) the (graph-based) separation <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[162]</a></span> of <span class="math inline">\(x\)</span> to cohort participants outside this cluster.
+(4) the (graph-based) cohesion <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[171]</a></span> and (5) Silhouette coefficient <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[171]</a></span> of <span class="math inline">\(x\)</span>, and (6) the (graph-based) separation <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[171]</a></span> of <span class="math inline">\(x\)</span> to cohort participants outside this cluster.
 We compute the difference of the cohesion, silhouette and separation values from <span class="math inline">\(t\)</span> to all later moments <span class="math inline">\(\{t' \in T|t'&gt;t\}\)</span> (7-9), and also check how much the values of these metrics change as <span class="math inline">\(x\)</span> moves from <span class="math inline">\(c(x,t)\)</span> to <span class="math inline">\(c(x,t')\)</span> (10-12).
 We record whether <span class="math inline">\(x\)</span> is an outlier, i.e., a DBSCAN noise point at some moment (13).
 For <span class="math inline">\(t\)</span> and <span class="math inline">\(\{t' \in T|t'&gt;t\}\)</span>, we compute the fraction of cohort members who are in the same cluster as <span class="math inline">\(x\)</span> in <span class="math inline">\(t\)</span> and <span class="math inline">\(t'\)</span> (14), and the fraction of common <span class="math inline">\(k\)</span> nearest neighbors (15), and the change of the distance between <span class="math inline">\(x\)</span> and its centroid at <span class="math inline">\(t\)</span>, from <span class="math inline">\(t\)</span> to <span class="math inline">\(t'\)</span> (16).
@@ -386,7 +386,7 @@ fraction of the <span class="math inline">\(k\)</span> nearest neighbors of <spa
 <code>a_t := a(x,t,c(x,t))</code>
 </td>
 <td style="text-align:left;">
-where <span class="math inline">\(a\)</span> is one of {cohesion, silhouette, separation} <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[162]</a></span>; cohesion<span class="math inline">\(_t\)</span> is the cohesion of <span class="math inline">\(x\)</span> at <span class="math inline">\(t\)</span> w.r.t. the members of <span class="math inline">\(c(x,t)\)</span> – and similarly for silhouette and for separation
+where <span class="math inline">\(a\)</span> is one of {cohesion, silhouette, separation} <span class="citation"><a href="references.html#ref-TanDMbook" role="doc-biblioref">[171]</a></span>; cohesion<span class="math inline">\(_t\)</span> is the cohesion of <span class="math inline">\(x\)</span> at <span class="math inline">\(t\)</span> w.r.t. the members of <span class="math inline">\(c(x,t)\)</span> – and similarly for silhouette and for separation
 </td>
 </tr>
 <tr grouplength="6">
@@ -510,7 +510,7 @@ distance <span class="math inline">\(d\)</span> between the locations of the mem
 <h3>
 <span class="header-section-number">6.2.3</span> Undersampling<a class="anchor" aria-label="anchor" href="#evo-concept-undersampling"><i class="fas fa-link"></i></a>
 </h3>
-<p>For imbalanced data, feature selection and classification are often biased in favor of the majority class <span class="citation"><a href="references.html#ref-leevy2018survey" role="doc-biblioref">[163]</a></span>.
+<p>For imbalanced data, feature selection and classification are often biased in favor of the majority class <span class="citation"><a href="references.html#ref-leevy2018survey" role="doc-biblioref">[172]</a></span>.
 To avoid this problem, prior to the application of CFS we undersample the majority class and generate a balanced data set to select features informative with respect to all classes.
 <!-- Let $X_{min}$ and $X_{max}$ be the set of participants belonging to the minority and majority class respectively. We iteratively select participants $x \in X_{max}$ at random and remove the participant from the set, setting $X_{max} = X_{max} \setminus{} x$ until $|X_{max}| = |X_{min}|$ holds true. Then, the feature selection algorithm is given the set $X_{min} \cup X_{max}$ as input.For some positive participatns, some features have extreme values \cite{NiemannEtal:ESWA14}. Oversampling would -->
 <!-- % it is reported that some features show extreme values for some positive participants. -->
@@ -524,10 +524,10 @@ To avoid this problem, prior to the application of CFS we undersample the majori
 <h3>
 <span class="header-section-number">6.2.4</span> Feature Selection<a class="anchor" aria-label="anchor" href="#evo-concept-feature-selection"><i class="fas fa-link"></i></a>
 </h3>
-<p>We use the feature selection method of Hielscher et al. <span class="citation"><a href="references.html#ref-HielscherEtAl:CBMS14" role="doc-biblioref">[164]</a></span> as follows.
-First, we invoke correlation-based feature selection <span class="citation"><a href="references.html#ref-hall2000correlation" role="doc-biblioref">[166]</a></span> (CFS), which builds up a feature set by iteratively inserting to it the feature that adds most “merit” to it.
+<p>We use the feature selection method of Hielscher et al. <span class="citation"><a href="references.html#ref-HielscherEtAl:CBMS14" role="doc-biblioref">[173]</a></span> as follows.
+First, we invoke correlation-based feature selection <span class="citation"><a href="references.html#ref-hall2000correlation" role="doc-biblioref">[175]</a></span> (CFS), which builds up a feature set by iteratively inserting to it the feature that adds most “merit” to it.
 The merit <span class="math inline">\(M_F\)</span> of a feature set <span class="math inline">\(F\)</span> is computed by calculating the information gain for each pair of features in <span class="math inline">\(F\)</span> (lower gain corresponds to low correlation and is thus preferred) and for each feature in <span class="math inline">\(F\)</span> towards the target variable (higher gain is better).
-Continuous features are first discretized with the entropy-based method of Hielscher et al. <span class="citation"><a href="references.html#ref-Fayyad:MDL93" role="doc-biblioref">[125]</a></span>.
+Continuous features are first discretized with the entropy-based method of Hielscher et al. <span class="citation"><a href="references.html#ref-Fayyad:MDL93" role="doc-biblioref">[134]</a></span>.
 We discretize only for feature selection; for clustering and classification we use the original values.</p>
 <p>As shown in Figure <a href="evo.html#fig:07-concept-workflow">6.1</a>, we perform feature selection twice.
 The first time, we consider only features recorded in all moments.
@@ -541,7 +541,7 @@ This final feature set is then used for classification.</p>
 <h2>
 <span class="header-section-number">6.3</span> Evaluation Setup<a class="anchor" aria-label="anchor" href="#evo-evaluation"><i class="fas fa-link"></i></a>
 </h2>
-<p>We evaluate our workflow with 10-fold cross-validation on four off-the-shelf classification algorithms: random forest <span class="citation"><a href="references.html#ref-Breiman:RandomForests2001" role="doc-biblioref">[171]</a></span> (RF), C4.5 decision tree <span class="citation"><a href="references.html#ref-Quinlan:C4.5.1993" role="doc-biblioref">[172]</a></span>, Naïve Bayes (NB) and k-nearest neighbor (kNN).
+<p>We evaluate our workflow with 10-fold cross-validation on four off-the-shelf classification algorithms: random forest <span class="citation"><a href="references.html#ref-Breiman:RandomForests2001" role="doc-biblioref">[180]</a></span> (RF), C4.5 decision tree <span class="citation"><a href="references.html#ref-Quinlan:C4.5.1993" role="doc-biblioref">[181]</a></span>, Naïve Bayes (NB) and k-nearest neighbor (kNN).
 Next, we compare the generalization performance for each algorithm when it is used alone (<em>baseline</em> variant) vs. when incorporated into our workflow (<em>worflow-enhanced</em> variant).
 Further, we study the impact of different combinations of the three workflow components <em>undersampling</em> (<code>U</code>), <em>feature selection</em> (<code>F</code>) and <em>incorporation of generated evolution features</em> (<code>G</code>).
 As shown in Table <a href="evo.html#tab:07-workflow-variants">6.3</a>, <code>Baseline</code> simply invokes the classification algorithm; we use the classification algorithms which achieves the highest F-measure scores.
@@ -550,7 +550,7 @@ Since we undersample only for feature selection and then build the classificatio
 <p>The main parameter is <span class="math inline">\(k\)</span> which is the number of neighbors of a data point: we set <span class="math inline">\(minPts\)</span> = <span class="math inline">\(k\)</span> and use <span class="math inline">\(k\)</span> to derive the values of the DBSCAN parameter <span class="math inline">\(eps\)</span> (cf. Section <a href="evo.html#evo-concept-clustering">6.2.1</a>) and of the parameters for the features <code>same_kNN_</code><span class="math inline">\(k\)</span><code>_t_1_t_2</code> and <code>fraction_Of_POS_kNN_</code><span class="math inline">\(k\)</span><code>_t</code> (cf. Table <a href="evo.html#tab:07-tab-evo-features">6.2</a>).
 Further, the number of nearest neighbors for the k-NN classification algorithm is also set to <span class="math inline">\(k\)</span>.
 We vary <span class="math inline">\(k\)</span> to measure its impact on classification performance.</p>
-<p>Following the findings in Chapters <a href="#03-imm"><strong>??</strong></a> and <a href="#04-sdclu"><strong>??</strong></a> on the differences between female and male participants with respect to the outcome, we run the experiments on the whole dataset (<em>Partition<sub>all</sub></em>), and on the partitions of female (<em>Partition<sub>f</sub></em>) and of male (<em>Partition<sub>m</sub></em>) participants.
+<p>Following the findings in Chapters <a href="imm.html#imm">3</a> and <a href="sdclu.html#sdclu">4</a> on the differences between female and male participants with respect to the outcome, we run the experiments on the whole dataset (<em>Partition<sub>all</sub></em>), and on the partitions of female (<em>Partition<sub>f</sub></em>) and of male (<em>Partition<sub>m</sub></em>) participants.
 Finally, we list the most important features found in <em>Partition<sub>all</sub></em> and its two subsets.
 <!-- Due to space limits, we present only the experiments on the complete dataset \footnote{The experiments on the two partitions are under \url{http://bit.ly/1Dd82KE}.}. -->
 <!-- %Following the findings of \cite{NiemannEtal:ESWA14,HielscherEtAl:CBMS14,HielscherEtAl:IDA14} on the differences between female and male participants with respect to the outcome, we also run our workflow on the partitions of female and male participants; these results are in a supplement  \footnote{ \url{http://www.kmd.ovgu.de/xyz}}. -->
@@ -685,8 +685,8 @@ Therefore, the workflow-enhanced variants outperform their simple counterparts i
 
 <div class="figure" style="text-align: center">
 <span id="fig:07-perf-wf-classifiers"></span>
-<img src="figures/07-perf-wf-classifiers.png" alt="Comparison of classification performance between workflow and baseline. Sensitivity (true positive rate), specificity (false positive rate) and F-measure scores of different classifiers when varying the number k of neighbors to a cohort member which impacts the clustering result. For each classifier two performance curves are shown: a colored one for the workflow-enhanced version and a gray one for the baseline counterpart. Higher values are better for all measures. From [173]." width="100%"><p class="caption">
-Figure 6.3: <strong>Comparison of classification performance between workflow and baseline.</strong> Sensitivity (true positive rate), specificity (false positive rate) and F-measure scores of different classifiers when varying the number k of neighbors to a cohort member which impacts the clustering result. For each classifier two performance curves are shown: a colored one for the workflow-enhanced version and a gray one for the baseline counterpart. Higher values are better for all measures. From <span class="citation"><a href="references.html#ref-Niemann:CBMS2015" role="doc-biblioref">[173]</a></span>.
+<img src="figures/07-perf-wf-classifiers.png" alt="Comparison of classification performance between workflow and baseline. Sensitivity (true positive rate), specificity (false positive rate) and F-measure scores of different classifiers when varying the number k of neighbors to a cohort member which impacts the clustering result. For each classifier two performance curves are shown: a colored one for the workflow-enhanced version and a gray one for the baseline counterpart. Higher values are better for all measures. From [182]." width="100%"><p class="caption">
+Figure 6.3: <strong>Comparison of classification performance between workflow and baseline.</strong> Sensitivity (true positive rate), specificity (false positive rate) and F-measure scores of different classifiers when varying the number k of neighbors to a cohort member which impacts the clustering result. For each classifier two performance curves are shown: a colored one for the workflow-enhanced version and a gray one for the baseline counterpart. Higher values are better for all measures. From <span class="citation"><a href="references.html#ref-Niemann:CBMS2015" role="doc-biblioref">[182]</a></span>.
 </p>
 </div>
 <p>The workflow component-specific analysis results in Figure <a href="evo.html#fig:07-perf-wf-components">6.4</a> show that our complete workflow <code>UFG</code> and the variants <code>UF-</code> and <code>--G</code> outperform <code>---</code> in sensitivity and F-measure.
@@ -694,8 +694,8 @@ The variants <code>-F-</code> and <code>-FG</code> perform well only regarding s
 
 <div class="figure" style="text-align: center">
 <span id="fig:07-perf-wf-components"></span>
-<img src="figures/07-perf-wf-components.png" alt="Comparison of classification performance for workflow components. Sensitivity, specificity and F-measure scores for each workflow variant and the baseline using decision tree for learning. From [173]." width="100%"><p class="caption">
-Figure 6.4: <strong>Comparison of classification performance for workflow components.</strong> Sensitivity, specificity and F-measure scores for each workflow variant and the baseline using decision tree for learning. From <span class="citation"><a href="references.html#ref-Niemann:CBMS2015" role="doc-biblioref">[173]</a></span>.
+<img src="figures/07-perf-wf-components.png" alt="Comparison of classification performance for workflow components. Sensitivity, specificity and F-measure scores for each workflow variant and the baseline using decision tree for learning. From [182]." width="100%"><p class="caption">
+Figure 6.4: <strong>Comparison of classification performance for workflow components.</strong> Sensitivity, specificity and F-measure scores for each workflow variant and the baseline using decision tree for learning. From <span class="citation"><a href="references.html#ref-Niemann:CBMS2015" role="doc-biblioref">[182]</a></span>.
 </p>
 </div>
 <p><strong>Important features.</strong> The performance of the workflow variants which include feature selection indicates that a small number of features is sufficient for class separation.
@@ -737,8 +737,8 @@ Figure 6.7: <strong>Visualization of selected evolution features which contribut
 <h2>
 <span class="header-section-number">6.5</span> Conclusions from Exploiting Study Participant Evolution<a class="anchor" aria-label="anchor" href="#evo-conclusions"><i class="fas fa-link"></i></a>
 </h2>
-<p><strong>TODO:LINK TO RESEARCH QUESTIONS</strong>
-<strong>TODO: say that in the original submission, we also report on static features</strong></p>
+<!-- **TODO:LINK TO RESEARCH QUESTIONS** -->
+<!-- **TODO: say that in the original submission, we also report on static features** -->
 <p>We proposed a workflow for the the classification of longitudinal cohort study data which exploits inherent temporal information by clustering the cohort participants at each moment, linking the clusters and tracing participant evolution over the moments of the study.
 From the clusters and their transitions we extract <em>evolution features</em>, which are added to the feature space and subsequently used for classification.
 The workflow improves the generalization performance with respect to sensitivity and F-measure scores.
@@ -783,7 +783,7 @@ We show that the <em>change</em> of the values of somatographic variables and cl
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

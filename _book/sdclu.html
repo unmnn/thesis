@@ -33,10 +33,10 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
-<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="active" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
@@ -50,7 +50,6 @@
 <li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="abbreviations.html">Abbreviations</a></li>
 <li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
 </ul>
 
@@ -106,9 +105,9 @@ In Section <a href="sdclu.html#sdclu-conclusions">4.5</a>, we summarize our con
 <h2>
 <span class="header-section-number">4.1</span> Motivation and Comparison to Related Work<a class="anchor" aria-label="anchor" href="#sdclu-intro"><i class="fas fa-link"></i></a>
 </h2>
-<p>Subgroup discovery (SD) algorithms aim to uncover <em>interesting</em> relationships between one or more conditions (variables and value ranges) and a target variable in the form of classification rules <span class="citation"><a href="references.html#ref-Herrera11" role="doc-biblioref">[105]</a>, <a href="references.html#ref-Atzmueller15" role="doc-biblioref">[110]</a></span>.
+<p>Subgroup discovery (SD) algorithms aim to uncover <em>interesting</em> relationships between one or more conditions (variables and value ranges) and a target variable in the form of classification rules <span class="citation"><a href="references.html#ref-Herrera11" role="doc-biblioref">[110]</a>, <a href="references.html#ref-Atzmueller15" role="doc-biblioref">[119]</a></span>.
 Compared to more accurate but predominantly opaque black-box models such as neural networks, support vector machines, or random forests, SD algorithms provide higher confidence and interpretability of results, making them highly suitable for domain expert-guided subpopulation discovery.
-SD algorithms have been used in several medical studies where descriptive knowledge needed to be inferred, e.g., to extract potential drug targets from multi-relational data sources for the treatment of dementia <span class="citation"><a href="references.html#ref-Nguyen:Nature15" role="doc-biblioref">[111]</a></span>, to identify predictive auditory-perceptual, speech-acoustic, and articulatory-kinematic features of preschool children with speech sound disorders <span class="citation"><a href="references.html#ref-Vick14" role="doc-biblioref">[112]</a></span>, and to discover discriminative features in patient subpopulations with different admission times to psychiatric emergency departments <span class="citation"><a href="references.html#ref-Carmona11" role="doc-biblioref">[113]</a></span>.</p>
+SD algorithms have been used in several medical studies where descriptive knowledge needed to be inferred, e.g., to extract potential drug targets from multi-relational data sources for the treatment of dementia <span class="citation"><a href="references.html#ref-Nguyen:Nature15" role="doc-biblioref">[120]</a></span>, to identify predictive auditory-perceptual, speech-acoustic, and articulatory-kinematic features of preschool children with speech sound disorders <span class="citation"><a href="references.html#ref-Vick14" role="doc-biblioref">[121]</a></span>, and to discover discriminative features in patient subpopulations with different admission times to psychiatric emergency departments <span class="citation"><a href="references.html#ref-Carmona11" role="doc-biblioref">[122]</a></span>.</p>
 <p>However, SD methods often yield large sets of rules that domain experts are not willing to tediously go through all of them to manually separate interesting from irrelevant and redundant rules.
 A common observation is that there are groups of rules that cover almost the same set of instances, as shown in Figure <a href="sdclu.html#fig:04-rule-redundancy">4.1</a>.
 Instead of presenting <em>all</em> rules found by an SD algorithm at once, we propose to organize rule sets hierarchically so that the domain expert is able to explore a compact set of different concepts, equipped with mechanisms to drill down to specific rules of interest.</p>
@@ -119,12 +118,12 @@ Instead of presenting <em>all</em> rules found by an SD algorithm at once, we pr
 Figure 4.1: <strong>Example of two <em>redundant</em> rules.</strong> Both <span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span> cover the instances 7,8,9,10; <span class="math inline">\(r_2\)</span> additionally covers instance 2. The cover set overlap is due to the high correlation between <em>#Teeth</em> and <em>Age</em>, and between <em>BMI</em> and <em>Waist circumference</em>. Both rules describe the same concept, i.e., <em>elderly overweight people have a higher risk of the outcome</em>.
 </p>
 </div>
-<p>Similar to the HotSpot algorithm described in Section <a href="imm.html#hotspot">3.2.4</a>, popular SD algorithms such as SubgroupMiner <span class="citation"><a href="references.html#ref-Kloesgen:SubgroupMiner2002" role="doc-biblioref">[114]</a></span>,
-SD <span class="citation"><a href="references.html#ref-Gamberger:SD02" role="doc-biblioref">[115]</a></span> and CN2-SD <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[116]</a></span> use a fixed beam width to limit the number of further expanded subgroup candidates at each iteration.
+<p>Similar to the HotSpot algorithm described in Section <a href="imm.html#imm-workflow-hotspot">3.2.5</a>, popular SD algorithms such as SubgroupMiner <span class="citation"><a href="references.html#ref-Kloesgen:SubgroupMiner2002" role="doc-biblioref">[123]</a></span>,
+SD <span class="citation"><a href="references.html#ref-Gamberger:SD02" role="doc-biblioref">[124]</a></span> and CN2-SD <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[125]</a></span> use a fixed beam width to limit the number of further expanded subgroup candidates at each iteration.
 A post-pruning step can be applied to reduce the cardinality of the rule set – e.g., to return the <em>top-k</em> rules – using a quality criterion such as the weighted relative accuracy or the p-value of a statistical test.
 Even when both beam-width search and top-<span class="math inline">\(k\)</span> pruning are applied, the result often still contains redundant rules.
 This is due to the correlation between the (non-target) variables, which leads to a large number of variations of a given finding, cf. Figure <a href="sdclu.html#fig:04-rule-overlap-heatmap">4.2</a> for an illustrative example.
-In particular, top-<span class="math inline">\(k\)</span> pruning leads to different variations of the same concepts (i.e. large instance overlap) <span class="citation"><a href="references.html#ref-VanLeeuwen:DSSD12" role="doc-biblioref">[117]</a></span>.</p>
+In particular, top-<span class="math inline">\(k\)</span> pruning leads to different variations of the same concepts (i.e. large instance overlap) <span class="citation"><a href="references.html#ref-VanLeeuwen:DSSD12" role="doc-biblioref">[126]</a></span>.</p>
 <!-- These rules share probably a high number of instances based on the high correlation of anthropometric measurements and there might be multiple other similar rules describing the same \emph{concept}.  -->
 
 <div class="figure" style="text-align: center">
@@ -133,8 +132,8 @@ In particular, top-<span class="math inline">\(k\)</span> pruning leads to diffe
 Figure 4.2: Graphical representation of 1115 HotSpot rules found on SHIP data on 886 labeled instances. A gray cell indicates that the instance at that x-position is covered by the rule at the associated y-position. Instances and rules are sorted by agglomerative hierarchical clustering. When partitioning into 10 clusters based on the covered instances, the rules in each cluster describe similar subpopulations.
 </p>
 </div>
-<p>Unlike SD, which generates multiple rules that overlap in terms of their coverage sets, predictive rule learning algorithms such as CN2 <span class="citation"><a href="references.html#ref-Clark:CN289" role="doc-biblioref">[118]</a></span> or RIPPER <span class="citation"><a href="references.html#ref-Cohen:RIPPER95" role="doc-biblioref">[119]</a></span> are designed to generate rules that capture different spaces in the data.
-They work iteratively according to a divide-and-conquer strategy <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[104]</a></span>:
+<p>Unlike SD, which generates multiple rules that overlap in terms of their coverage sets, predictive rule learning algorithms such as CN2 <span class="citation"><a href="references.html#ref-Clark:CN289" role="doc-biblioref">[127]</a></span> or RIPPER <span class="citation"><a href="references.html#ref-Cohen:RIPPER95" role="doc-biblioref">[128]</a></span> are designed to generate rules that capture different spaces in the data.
+They work iteratively according to a divide-and-conquer strategy <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[109]</a></span>:
 First, a rule that maximizes the quality function of the algorithm is generated on the set of instances not yet covered.
 Second, all covered instances are removed from the training set.
 This process of rule induction and removal of instances from the training set is repeated until all instances are covered by at least one rule.
@@ -144,7 +143,7 @@ While these algorithms avoid the problem of rule redundancy, important concepts 
 For example, the algorithm might induce a rule that includes instances with a high BMI, but it might not be able to find a slightly weaker association with income because those instances are immediately removed from the instance candidate space.
 In addition, the coverage of rules generally decreases with each iteration.
 Rules with low coverage are negligible in epidemiological studies because they may represent spurious correlations of the study sample.</p>
-<p>Instead of simply eliminating covered instances from rule induction of subsequent iterations, <em>weighted coverage approaches</em> take into account how many times instances have been covered so far in the rule candidate expansion step <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[116]</a></span>.
+<p>Instead of simply eliminating covered instances from rule induction of subsequent iterations, <em>weighted coverage approaches</em> take into account how many times instances have been covered so far in the rule candidate expansion step <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[125]</a></span>.
 While this leniency over removing instances allows for a larger number of rules, a new hyperparameter is introduced to control the tradeoff between reusing already covered instances and minimum rule confidence.
 This parameter is unintuitive and difficult to set, especially for domain experts.
 Moreover, both traditional predictive rule learning algorithms and their weighted covering extensions introduce order dependencies between rules: a rule depends on all previous rules in the rule list and the instances of the target variable it covers, and it may not make sense to interpret a single rule.</p>
@@ -163,13 +162,13 @@ Rules covering the same instances are grouped in the same cluster and are theref
 <h3>
 <span class="header-section-number">4.2.1</span> Rule clustering<a class="anchor" aria-label="anchor" href="#rule-clustering"><i class="fas fa-link"></i></a>
 </h3>
-<p>We use the same notation for classification rule discovery as in Section <a href="imm.html#imm-classification">3.2.3</a>.
+<p>We use the same notation for classification rule discovery as in Section <a href="imm.html#imm-workflow-classification">3.2.3</a>.
 Agglomerative hierarchical clustering iteratively merges similar instances to clusters, in a bottom-up way.
 The order of merging two clusters depends on the linkage strategy: in <em>complete linkage</em> the distance between two clusters is defined as the maximum distance between any two of their instances.
 The pair of clusters minimizing this maximum distance are selected for merging.
 A dendrogram is a tree representation of this stepwise process.
 Optionally, a parameter <span class="math inline">\(k\)</span> can be specified to obtain a specific partitioning.
-We define rule similarity for clustering on the basis of the mutually covered instances as an adaption of the Sørensen–DICE coefficient <span class="citation"><a href="references.html#ref-Dice45" role="doc-biblioref">[120]</a></span>.
+We define rule similarity for clustering on the basis of the mutually covered instances as an adaption of the Sørensen–DICE coefficient <span class="citation"><a href="references.html#ref-Dice45" role="doc-biblioref">[129]</a></span>.
 The distance between two rules <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> with corresponding subpopulations <span class="math inline">\(s(r_1)\)</span>, <span class="math inline">\(s(r_2)\)</span> is given as
 <span class="math display" id="eq:dice">\[\begin{equation}
 \text{dist}(r_1,r_2) = 1 - \frac{2\cdot\left|s(r_1)\cap s(r_2)\right|}{\left|s(r_1)\right| + \left|s(r_2)\right|}.
@@ -251,24 +250,24 @@ representativeness(R_{\zeta},R)=1-
 </h2>
 <p><strong>Datasets.</strong>
 To evaluate our method, we used data from the SHIP study.
-For a description of SHIP, see Section <a href="background.html#ship">2.6.1</a>.
-We considered hepatic steatosis (see section <a href="imm.html#imm-target">3.2.1</a>) and goiter as target variables.
+For a description of SHIP, see Section <a href="background.html#background-data-ship">2.2.1</a>.
+We considered hepatic steatosis (see section <a href="imm.html#imm-workflow-target">3.2.1</a>) and goiter as target variables.
 For the sample <code>HepStea</code>, we derived a binary outcome variable by discretizing the liver fat concentration obtained from the MRI report so that study participants with a concentration no greater than 10% were assigned to the negative class and values greater than 10% were assigned to the positive class indicating the presence of the disease.
 Of 886 participants for whom the MRI report from SHIP-2 was available at that time, 694 (78.3%) were negative and 192 (21.7%) were positive.
 We considered 99 variables selected exclusively from SHIP-0 to assess their long-term effects as expressed 10 years later in SHIP-2.
 For the <code>Goiter</code> sample, the outcome variable was derived by thyroid ultrasound.
-The presence of goiter was defined for a thyroid volume greater than 18ml in women and 25ml in men <span class="citation"><a href="references.html#ref-Gutekunst:88" role="doc-biblioref">[121]</a></span>.
+The presence of goiter was defined for a thyroid volume greater than 18ml in women and 25ml in men <span class="citation"><a href="references.html#ref-Gutekunst:88" role="doc-biblioref">[130]</a></span>.
 Of the 4400 participants for whom the outcome variable is available in TREND-0, 3010 belong to the negative class (68.4%) and 1390 (31.6%) to the positive class.
 Apart from the target variable, we use a total of 182 variables that were pre-selected by a medical expert as potential risk factors.</p>
 <p><strong>SD algorithms.</strong>
-For subgroup discovery, the two algorithms HotSpot <span class="citation"><a href="references.html#ref-Hall:Weka09" role="doc-biblioref">[122]</a></span> (cf. section <a href="imm.html#hotspot">3.2.4</a> and SD-Map <span class="citation"><a href="references.html#ref-Atzmueller:SD-Map:06" role="doc-biblioref">[123]</a></span> are used.
-SD-Map is an exhaustive algorithm that adapts the popular FP-Growth association rule learning method <span class="citation"><a href="references.html#ref-Han:FPGrowth00" role="doc-biblioref">[72]</a></span>.
+For subgroup discovery, the two algorithms HotSpot <span class="citation"><a href="references.html#ref-Hall:Weka09" role="doc-biblioref">[131]</a></span> (cf. Section <a href="imm.html#imm-workflow-hotspot">3.2.5</a> and SD-Map <span class="citation"><a href="references.html#ref-Atzmueller:SD-Map:06" role="doc-biblioref">[132]</a></span> are used.
+SD-Map is an exhaustive algorithm that adapts the popular FP-Growth association rule learning method <span class="citation"><a href="references.html#ref-Han:FPGrowth00" role="doc-biblioref">[76]</a></span>.
 Rules that fall below a minimum coverage threshold are pruned.
 A deep-first search is performed for candidate generation.
 Rules are ranked according to a user-defined quality function.
-We used the implementation from the VIKAMINE framework <span class="citation"><a href="references.html#ref-Atzmueller:VIKAMINE12" role="doc-biblioref">[124]</a></span>.
+We used the implementation from the VIKAMINE framework <span class="citation"><a href="references.html#ref-Atzmueller:VIKAMINE12" role="doc-biblioref">[133]</a></span>.
 The implementation of SD-Map only supports categorical variables.
-Therefore, each numeric variable was discretized using the minimum description length based approach of Fayyad and Irani <span class="citation"><a href="references.html#ref-Fayyad:MDL93" role="doc-biblioref">[125]</a></span>.
+Therefore, each numeric variable was discretized using the minimum description length based approach of Fayyad and Irani <span class="citation"><a href="references.html#ref-Fayyad:MDL93" role="doc-biblioref">[134]</a></span>.
 For SD-Map, we set the minimum coverage threshold to 0.05 to avoid overfitting rules that are too small.
 We use WRA as a quality function and define a minimum threshold of 0.025.
 For HotSpot, we set the support threshold of a rule to be above 0.05.
@@ -399,7 +398,7 @@ SD-Map
 </tr>
 </tbody>
 </table></div>
-<p>The optimal cardinality of <span class="math inline">\(|\zeta_{opt}\)</span> shown in Figure <a href="sdclu.html#fig:04-silh-comparison">4.3</a> could be used as a suggestion, but the expert is free to specify the number of rules they wishes to obtain.
+<p>The optimal cardinality of <span class="math inline">\(|\zeta_{opt}|\)</span> shown in Figure <a href="sdclu.html#fig:04-silh-comparison">4.3</a> could be used as a suggestion, but the expert is free to specify the number of rules they wishes to obtain.
 For example, if the expert considers <span class="math inline">\(|\zeta_{opt}|\)</span> = 100 too large for HotSpot on <code>HepStea</code>, the diagram would show them that a reduction to <span class="math inline">\(|\zeta_{opt}|\)</span> = 58 is possible, reducing <span class="math inline">\(Silh\)</span> only slightly from 0.48 to 0.37.
 Also in the other direction: if <span class="math inline">\(|\zeta_{opt}|\)</span> is rather low, the diagram shows that a small increase does not change <span class="math inline">\(Silh\)</span> much; therefore, the added rules may also be important.
 The expert could even analyze the diagram to derive a range instead of a single value, e.g., the range where <span class="math inline">\(Silh\)</span> is above 90% of its maximum.</p>
@@ -409,7 +408,7 @@ The plots are arranged by rule selection method (rows) and number of representat
 Each graph shows the <span class="math inline">\(adjCovRate\)</span> (y-axis) of instances (x-axis) with respect to <span class="math inline">\(R\)</span> (solid black curve).
 The instances are sorted by the number of rules in <span class="math inline">\(R\)</span> they are covered by, with their respective <span class="math inline">\(covRate\)</span> shown as dots.
 The dotted curve represents a locally weighted scatterplot smoothing (LOWESS) of the points.
-Ideally, both curves are close to each other, meaning that the instances are covered by approximately the same proportion of rules in the cluster proy as the proportion of rules in general.</p>
+Ideally, both curves are close to each other, meaning that the instances are covered by approximately the same proportion of rules in the cluster proxy as the proportion of rules in general.</p>
 
 <!-- **TODO: PUT THE PLOTS OF THE OTHER PARTITIONS INTO THE APPENDIX** -->
 <div class="figure" style="text-align: center">
@@ -429,15 +428,15 @@ Further, for a given <span class="math inline">\(k\)</span>, the representative 
 The prevalence of hepatic steatosis or goiter is significantly higher in each of the subpopulations described by these rules than in the corresponding overall population.
 These subpopulations are characterized by known risk factors for hepatic steatosis, such as large waist circumference and BMI, blood pressure and hypertension, advanced age, and high values in some of the medical tests (ALAT and LDL).
 Furthermore, apolipoprotein A1 (ApoA1), a major protein component of high-density lipoprotein (HDL) particles in plasma, was found to be associated with outcome in elderly patients (see fourth hotspot rule in Tables <a href="sdclu.html#tab:04-findings-hep-stea">4.2</a>).
-Lipoprotein metabolism is considered the main process contributing to the development of fatty liver <span class="citation"><a href="references.html#ref-jiang2013lipoprotein" role="doc-biblioref">[126]</a></span>.
-In addition, Poynard et al <span class="citation"><a href="references.html#ref-poynard1986apolipoprotein" role="doc-biblioref">[127]</a></span> found that patients with hepatic steatosis had higher levels of ApoA1 than patients with hepatic fibrosis, who in turn had higher levels than patients with cirrhosis.
+Lipoprotein metabolism is considered the main process contributing to the development of fatty liver <span class="citation"><a href="references.html#ref-jiang2013lipoprotein" role="doc-biblioref">[135]</a></span>.
+In addition, Poynard et al <span class="citation"><a href="references.html#ref-poynard1986apolipoprotein" role="doc-biblioref">[136]</a></span> found that patients with hepatic steatosis had higher levels of ApoA1 than patients with hepatic fibrosis, who in turn had higher levels than patients with cirrhosis.
 The fifth hotspot rule describes a subpopulation with elevated levels of liver high-sensitivity C-reactive protein (CRP) (approximately 0.80-quantile) and elevated levels of uric acid (approximately 0.36-quantile).
-Lizardi-Cervera et al. <span class="citation"><a href="references.html#ref-lizardi2007association" role="doc-biblioref">[128]</a></span> reported increased levels of ultra-sensitive CRP in subjects with hepatic steatosis independent of other metabolic states.
-Similarly, Keenan et al. <span class="citation"><a href="references.html#ref-keenan2012relation" role="doc-biblioref">[129]</a></span> found elevated uric acid levels in patients with hepatic steatosis independent of metabolic syndrome.</p>
+Lizardi-Cervera et al. <span class="citation"><a href="references.html#ref-lizardi2007association" role="doc-biblioref">[137]</a></span> reported increased levels of ultra-sensitive CRP in subjects with hepatic steatosis independent of other metabolic states.
+Similarly, Keenan et al. <span class="citation"><a href="references.html#ref-keenan2012relation" role="doc-biblioref">[138]</a></span> found elevated uric acid levels in patients with hepatic steatosis independent of metabolic syndrome.</p>
 
 <div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
-<span id="tab:04-findings-hep-stea">Table 4.2: </span><strong>Representative rules (<code>HepStea</code>).</strong> Proxy rules for <span class="math inline">\(k\)</span>=5 on the <code>HepStea</code> sample learned and the positive outcome as target.
+<span id="tab:04-findings-hep-stea">Table 4.2: </span><strong>Representative rules (<code>HepStea</code>).</strong> Proxy rules for <span class="math inline">\(k\)</span> = 5 on the <code>HepStea</code> sample learned and the positive outcome as target.
 </caption>
 <thead><tr>
 <th style="text-align:left;font-weight: bold;">
@@ -641,12 +640,12 @@ body mass index &gt; 26.3 kg/m² <span class="math inline">\(\wedge\)</span> uri
 </table></div>
 <p>Similarly, the identified subpopulations for goiter (see Table <a href="sdclu.html#tab:04-findings-goiter">4.3</a>) are characterized by common risk factors such as increased weight and body mass index and participants prescribed angiotensin II receptor blockers (see second HotSpot rule).
 Furthermore, the first HotSpot rule describes participants with intima-media thickness greater than 0.73 mm (approximately 0.80-quantile).
-Previous studies found associations between intima-media thickness and thyroid-stimulating hormone <span class="citation"><a href="references.html#ref-takamura2009thyroid" role="doc-biblioref">[130]</a></span> and subclinical hypothyroidism
-<span class="citation"><a href="references.html#ref-gao2013carotid" role="doc-biblioref">[131]</a>, <a href="references.html#ref-unal2017association" role="doc-biblioref">[132]</a></span>.
+Previous studies found associations between intima-media thickness and thyroid-stimulating hormone <span class="citation"><a href="references.html#ref-takamura2009thyroid" role="doc-biblioref">[139]</a></span> and subclinical hypothyroidism
+<span class="citation"><a href="references.html#ref-gao2013carotid" role="doc-biblioref">[140]</a>, <a href="references.html#ref-unal2017association" role="doc-biblioref">[141]</a></span>.
 The condition of the third HotSpot rule describes the duration of an ECG phase.
-Jabbar et al <span class="citation"><a href="references.html#ref-jabbar2017thyroid" role="doc-biblioref">[133]</a></span> summarize in their review that pathological thyroid hormone levels increase the risk of cardiovascular disease.
-This association appears to be especially true in the elderly <span class="citation"><a href="references.html#ref-fazio2004effects" role="doc-biblioref">[134]</a></span>.
-The fourth rule suggests that certain thrombocyte levels indicate increased thyroid volume, which confirms Erikci et al <span class="citation"><a href="references.html#ref-erikci2009effect" role="doc-biblioref">[135]</a></span> who found that hypothyroid patients had higher platelet volume and platelet distribution width than a control group.</p>
+Jabbar et al <span class="citation"><a href="references.html#ref-jabbar2017thyroid" role="doc-biblioref">[142]</a></span> summarize in their review that pathological thyroid hormone levels increase the risk of cardiovascular disease.
+This association appears to be especially true in the elderly <span class="citation"><a href="references.html#ref-fazio2004effects" role="doc-biblioref">[143]</a></span>.
+The fourth rule suggests that certain thrombocyte levels indicate increased thyroid volume, which confirms Erikci et al <span class="citation"><a href="references.html#ref-erikci2009effect" role="doc-biblioref">[144]</a></span> who found that hypothyroid patients had higher platelet volume and platelet distribution width than a control group.</p>
 
 <div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
@@ -901,7 +900,7 @@ SD-Clu was evaluated on two samples from an epidemiological study where an optim
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

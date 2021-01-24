@@ -33,10 +33,10 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="active" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
-<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
@@ -50,7 +50,6 @@
 <li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="abbreviations.html">Abbreviations</a></li>
 <li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
 </ul>
 
@@ -63,132 +62,106 @@
 <h1>
 <span class="header-section-number">2</span> Medical Background &amp; Datasets<a class="anchor" aria-label="anchor" href="#background"><i class="fas fa-link"></i></a>
 </h1>
-<p><strong>Outline</strong></p>
-<ul>
-<li>Types of medical studies</li>
-<li>Short introduction to the medical applications</li>
-</ul>
-<hr>
-<div id="fundamental-terms-and-study-types" class="section level2" number="2.1">
-<h2>
-<span class="header-section-number">2.1</span> Fundamental terms and study types<a class="anchor" aria-label="anchor" href="#fundamental-terms-and-study-types"><i class="fas fa-link"></i></a>
-</h2>
-<p>Typical goals of medical research include identifying long-term determinants and protective factors for an outcome of interest, discovering sub-populations with increased disease prevalence, studying intervention effects by generating statistical (causal) models that explain cause-effect relationships.</p>
-<!--- discover and describe the statistical (causal) relationship between certain factors (genetic abnormalities, pollutants, lifestyle, drugs or medical treatment) on the one hand and certain subsequent health changes, such as illness, improvement or recovery on the other (wiki)-->
-<p>Traditional data analysis pipelines are usually structured as follows:</p>
+<!-- sagen, dass man am anfang jedes Kapitels kurz related work vorstellt -->
+<!-- hier stellt man nur grundlegene medizinische studientypen zur auswertung von datensätzen sowie die in den nachfolgenden Kapiteln behandelten datensätze vor -->
+<!-- - Brief Classification of Medical Study Types -->
+<!-- - Datasets Studied in This Thesis -->
+<p>Medical research on data from clinical and epidemiological studies lays the foundation for decisions about diagnosis and treatment of multifactorial conditions such as diseases and disorders.
+Major goals are to identify long-term determinants and protective factors for an outcome of interest, to discover subpopulations with increased disease prevalence, and to study intervention effects by generating statistical models that explain cause-and-effect relationships.
+To date, analysis of population-based cohort data has been mostly hypothesis-driven.
+Traditional medical data analysis pipelines are usually structured in a <em>hypothesis-driven</em> way as follows:</p>
 <ol style="list-style-type: decimal">
-<li>A medical scholar formulates a hypothesis based on observations in clinical practice or current research. Examples: how does a risk factor like alcohol abuse affects the prevalence of a certain outcome? Which effect does a novel therapy have on patients with depressive symptoms?</li>
-<li>To investigates this hypothesis, a small set of relevant variables is chosen, which might be controlled for confounders.
-Adequate data are collected.
-Variable selection may incorporate controlling for confounders.</li>
-<li>The strength of the associations between the selected variables and the outcome is assessed with regression models and statistical methods.</li>
-<li>Based on the results, inferential statistics are computed and conclusions are drawn which may foster the implementation of novel preventive measures or the application of suited treatment forms to high-risk patients.</li>
+<li>A medical scientist formulates a hypothesis based on observations in clinical practice or current research. Possible examples include: “How does a risk factor such as alcohol abuse affect the prevalence of a particular outcome?” or “What effect does a novel therapy have on patients with depressive symptoms?”</li>
+<li>To test this hypothesis, a small set of relevant variables that can be controlled for confounders is selected. Variable selection may include controlling for confounders. The data necessary to test the hypothesis are then collected.</li>
+<li>The strength of associations between the selected variables and the outcome is assessed using regression models and statistical methods.</li>
+<li>Based on the results, inferential statistical calculations will be performed and conclusions will be drawn that may support the implementation of new preventive interventions or the use of appropriate treatments in high-risk patients.</li>
 </ol>
-<p>Primary medical research can be classified into basic, clinical and epidemiological studies.</p>
-</div>
-<div id="basic-research" class="section level2" number="2.2">
+<p>This chapter is divided into two parts.
+First, we give a brief comparison of medical study types in Section <a href="background.html#background-med-research">2.1</a>.
+Then, in Section <a href="background.html#background-data">2.2</a>, we present the studies and their data samples for which we developed the methods presented in this thesis.</p>
+<div id="background-med-research" class="section level2" number="2.1">
 <h2>
-<span class="header-section-number">2.2</span> Basic research<a class="anchor" aria-label="anchor" href="#basic-research"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.1</span> Brief Comparison of Medical Study Types<a class="anchor" aria-label="anchor" href="#background-med-research"><i class="fas fa-link"></i></a>
 </h2>
-<p>Basic medical research (or experimental research) aims to improve understanding of cellular, molecular and physiological mechanisms of the human health and diseases by conducting cellular and molecular investigations, animal experiments, studies on drug and material properties in strictly controlled laboratory environments <span class="citation"><a href="references.html#ref-Roehrig:Arztebl2009" role="doc-biblioref">[1]</a></span>.
-To investigate (causal) effects of one or more variables of interest on the outcome, all other variables are usually kept constant and only those variables of interest are varied.
-The carefully standardized experimental conditions of basic medical studies ensure a high internal validity, but these conditions often cannot be easily transferred to clinical practice without a loss of generalizability of the results.</p>
-<p>!!! Basic research also includes the development and improvement of analytical (e.g., analytical determination of enzymes, markers, genes) and imaging measurement procedures (e.g., computer tomography, magnetic resonance tomography) as well as gene sequencing (e.g., the relationship between eye color and a specific gene sequence), and the development of biometric procedures such as statistical test procedures, modeling and statistical evaluation strategies.</p>
-<p>A brief overview of important medical study types is given (see also <span class="citation"><a href="references.html#ref-Roehrig:Arztebl2009" role="doc-biblioref">[1]</a>, <a href="references.html#ref-thiese2014observational" role="doc-biblioref">[2]</a></span>.</p>
-</div>
-<div id="clinical-studies" class="section level2" number="2.3">
-<h2>
-<span class="header-section-number">2.3</span> Clinical studies<a class="anchor" aria-label="anchor" href="#clinical-studies"><i class="fas fa-link"></i></a>
-</h2>
-<p>Clinical studies are generally classified into <em>interventional</em> (also: <em>experimental</em>) studies and <em>non-interventional</em> (also: <em>observational</em>) studies.</p>
-<p>The general goal of an interventional study is to compare different treatments within a patient population whose members differ as little as possible, except for the treatment branch.
-A common example is a pharmaceutical study which aims to validate the efficacy and harmlessness of a drug by investigating or establishing main and adverse effects, resorption, metabolization and excretion of the drug.
-Selection bias can be avoided by appropriate measures, in particular by randomly assigning patients to the groups.</p>
-<p>The treatment can be a drug, a surgical procedure or the therapeutic use of a medical product (e.g. stent), but also physiotherapy, acupuncture, psychosocial intervention, rehabilitation, training or diet.</p>
-<p>A <em>randomized controlled trial</em> (RCT) is considered as study design “gold-standard” as it minimizes selection bias a. by randomly allocating patients to treatment and control group, and b.by ensuring equal distribution of known and unknown influencing variables (confounders), such as risk factors, comorbidities and genetic variabilities.
-Thus, RCTs are suitable for obtaining an unambiguous answer to a clear question and proving causality.</p>
-<p>In contrast, non-interventional clinical studies are patient-related observational studies in which patients receive an individually defined therapy (or all patients receive the exact same therapy).
-Data analysis often takes place retrospectively.
-Observational studies are often used to generate hypotheses.
-- example: study that investigates the regular use of drugs in therapies
-the treatment, including diagnosis and monitoring, does not follow a pre-defined trial protocol, but only medical practice</p>
-<div id="prospective" class="section level4" number="2.3.0.1">
-<h4>
-<span class="header-section-number">2.3.0.1</span> prospective<a class="anchor" aria-label="anchor" href="#prospective"><i class="fas fa-link"></i></a>
-</h4>
-<p>Prospective studies can be recognized by the chronological sequence of hypothesis generation and data collection.
-First, the hypotheses to be tested are determined, for example with respect to a new treatment procedure.
+<p><em>Primary medical research</em> can be divided into basic, clinical and epidemiological studies <span class="citation"><a href="references.html#ref-thiese2014observational" role="doc-biblioref">[1]</a>, <a href="references.html#ref-Roehrig:Arztebl2009" role="doc-biblioref">[2]</a></span>.</p>
+<!-- ### Basic research {#background-med-research-basic} -->
+<!-- Grundlagenforschung -->
+<p><strong>Basic research.</strong>
+Basic medical research (or experimental research) aims to improve the understanding of cellular, molecular, and physiological mechanisms of human health and disease by conducting cellular and molecular investigations, animal studies, drug and material property studies in tightly controlled laboratory environments <span class="citation"><a href="references.html#ref-Roehrig:Arztebl2009" role="doc-biblioref">[2]</a></span>.
+To study the effects of one or more variables of interest on outcome, all other variables are usually held constant and only the variables of interest are varied.
+The carefully standardized experimental conditions of basic medical studies ensure high internal validity, but these conditions often cannot be easily transferred to clinical practice without compromising the generalizability of the results.</p>
+<!-- aertzteblatt!!! Basic research also includes the development and improvement of analytical (e.g., analytical determination of enzymes, markers, genes) and imaging measurement procedures (e.g., computer tomography, magnetic resonance tomography) as well as gene sequencing (e.g., the relationship between eye color and a specific gene sequence), and the development of biometric procedures such as statistical test procedures, modeling and statistical evaluation strategies. -->
+<!-- ### Clinical studies {#background-med-research-clinical} -->
+<p><strong>Clinical studies.</strong> Clinical studies are generally classified into <em>interventional</em> or <em>experimental</em> studies, and <em>non-interventional</em> or <em>observational</em> studies.
+The general objective of an intervention study is to compare different treatments within a patient population whose members differ as little as possible except for the treatment arm.
+A common example is a pharmaceutical study that aims to validate the efficacy and safety of a drug by investigating or establishing the drug’s main and side effects, absorption, metabolism, and excretion.
+Selection bias can be avoided by appropriate measures, in particular by randomly assigning patients to groups.
+Treatment may be a medication, surgery, or therapeutic use of a medical device (e.g., stent), as well as physical therapy, acupuncture, psychosocial intervention, rehabilitation, training form, or diet.
+A <em>randomized controlled trial</em> (RCT) is considered the gold standard of study design because it minimizes selection bias (a) by randomly assigning patients to treatment and control groups and (b) by ensuring equal distribution of known and unknown influencing variables (confounders), such as risk factors, comorbidities, and genetic variability.
+RCTs are thus suitable for obtaining an unambiguous answer to a clear question and proving causality.</p>
+<p>Non-interventional clinical trials are patient-based observational studies in which patients either receive an individually defined treatment or all patients receive the exact same treatment.
+An example of a non-interventional design is a study investigating the regular use of drugs in therapies.
+Here, treatment as well as diagnosis and monitoring do not follow a predefined study protocol, but rather follow medical practice alone.
+Data analysis is often retrospective.
+Whether a study design is <em>prospective</em> or <em>retrospective</em> depends on the sequence of hypothesis generation and data collection.
+In prospective studies, hypothesis generation comes before data collection.
+First, the hypotheses to be tested are defined, e.g., regarding a new treatment procedure.
 Then, data are collected specifically for hypothesis testing.
-By formulating testable hypotheses first, it can be ensured that the research questions can actually be answered with the measured data.
-<!--- verification/testing of a hypothesis (e.g. efficacy of a novel treatment procedure)
-- determine which specific hypothesis should be tested and then collect the data accordingly
-- data was collected specifically for this study
-- ensure that research questions can be answered with the given data--></p>
-</div>
-<div id="retrospective" class="section level4" number="2.3.0.2">
-<h4>
-<span class="header-section-number">2.3.0.2</span> retrospective<a class="anchor" aria-label="anchor" href="#retrospective"><i class="fas fa-link"></i></a>
-</h4>
-<p>data collection has already taken place before the start of the study</p>
-<p>examples:</p>
-<p>digitalized medical databases</p>
-</div>
-</div>
-<div id="epidemiological-studies" class="section level2" number="2.4">
-<h2>
-<span class="header-section-number">2.4</span> Epidemiological studies<a class="anchor" aria-label="anchor" href="#epidemiological-studies"><i class="fas fa-link"></i></a>
-</h2>
-<p>TODO: Siehe Buch</p>
-<p>Epidemiological studies are usually interested in the distribution and temporal change of the frequency of diseases and their causes in the general population or in sub-populations.
-Analogous to clinical studies, epidemiology also distinguishes between experimental and observational studies. ???</p>
-<p>A <em>cross-sectional</em> study (or prevalence study) is conducted only once whereas in a <em>longitudinal</em> study, the same study is carried out at several points in time and the results of the individual <em>waves</em> of investigation are compared.
+By first formulating testable hypotheses, it is possible to ensure that the research questions can actually be answered with the measured data.
+A retrospective study design means that data collection took place before the study began.</p>
+<!-- ### Epidemiological studies {#background-med-research-epidemiological} -->
+<!-- https://sphweb.bumc.bu.edu/otlt/MPH-Modules/PH717-QuantCore/PH717-Module4-Cohort-RCT/PH717-Module4-Cohort-RCT_print.html -->
+<p><strong>Epidemiological studies.</strong>
+Epidemiological studies are usually interested in the distribution and change over time of the incidence of diseases and their causes in the general population and in subpopulations.
+<em>Cohort studies</em> examine individuals, some of whom do not have the health outcomes of interest at the beginning of the observation period, and assess exposure status to various health-related conditions.
+The included subjects are then followed up over time in what are called longitudinal studies (as opposed to cross-sectional studies), where the outcomes of interest are recorded in multiple <em>waves</em>.
+With these data, researchers can establish subgroups of subjects by exposure status, sort them by exposure, and compare the incidence or prevalence of disease among exposure categories.
+<!-- example: Framingham Heart Study  -->
 Longitudinal studies are further categorized into <em>trend</em> and <em>panel</em> design.
 In a <em>trend</em> study, each wave can involve a different participant sample, i.e., an individual participant is not followed over time.
 In contrast, a <em>panel</em> study investigates the same population at multiple points in time which allows to also measure <em>intra-individual</em> temporal changes.</p>
-<div id="controlled-vs.-uncontrolled" class="section level4" number="2.4.0.1">
-<h4>
-<span class="header-section-number">2.4.0.1</span> controlled vs. uncontrolled<a class="anchor" aria-label="anchor" href="#controlled-vs.-uncontrolled"><i class="fas fa-link"></i></a>
-</h4>
-<ul>
-<li>epidemiological vs clinical vs experimental study</li>
-<li>what is a cohort</li>
-<li>samples (clinical samples, medical research samples) -&gt; validity?</li>
-</ul>
+<!-- #### controlled vs. uncontrolled -->
+<!-- - epidemiological vs clinical vs experimental study -->
+<!-- - what is a cohort -->
+<!-- - samples (clinical samples, medical research samples) -> validity? -->
+<!-- ## Challenges -->
+<!-- - heterogeneity (numeric, categorical) -->
+<!-- - pre-processing of raw image data (non-tabular data) -->
+<!-- - different requirements for different studies -->
 </div>
-</div>
-<div id="challenges" class="section level2" number="2.5">
+<div id="background-data" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">2.5</span> Challenges<a class="anchor" aria-label="anchor" href="#challenges"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> Datasets Investigated in This Thesis<a class="anchor" aria-label="anchor" href="#background-data"><i class="fas fa-link"></i></a>
 </h2>
+<p>However, with the advent of <em>big data</em> <span class="citation"><a href="references.html#ref-oussous2018big" role="doc-biblioref">[3]</a></span> in various fields, including medicine, the volume and heterogeneity of data is increasing dramatically, making traditional hypothesis-driven workflows increasingly inadequate as important relationships between variables may go undetected.
+In this thesis, we present methods that deal with different aspects of high-dimensional, time-stamped medical data.
+We evaluate our methods on a variety of datasets from diverse study types.
+In this section, we present these data and the associated studies, namely</p>
 <ul>
-<li>heterogeneity (numeric, categorical)</li>
-<li>pre-processing of raw image data (non-tabular data)</li>
-<li>different requirements for different studies</li>
+<li>the Study of Health in Pomerania in Section <a href="background.html#background-data-ship">2.2.1</a>,</li>
+<li>the Diabetic Foot Clinical Trial in Section <a href="background.html#background-data-diabf">2.2.2</a>,</li>
+<li>the Intracranial Aneurysm Angiography Image Dataset <a href="background.html#background-data-aneurd">2.2.3</a>, and</li>
+<li>the Charité Tinnitus Patients Observational Therapy Study Dataset <a href="background.html#background-data-cha">2.2.4</a>.</li>
 </ul>
-</div>
-<div id="medical-applications" class="section level2" number="2.6">
-<h2>
-<span class="header-section-number">2.6</span> Medical Applications<a class="anchor" aria-label="anchor" href="#medical-applications"><i class="fas fa-link"></i></a>
-</h2>
-<div id="ship" class="section level3" number="2.6.1">
+<div id="background-data-ship" class="section level3" number="2.2.1">
 <h3>
-<span class="header-section-number">2.6.1</span> The Study of Health in Pomerania (SHIP)<a class="anchor" aria-label="anchor" href="#ship"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.1</span> The Study of Health in Pomerania (SHIP)<a class="anchor" aria-label="anchor" href="#background-data-ship"><i class="fas fa-link"></i></a>
 </h3>
-<!-- **Study of Health in Pomerania (SHIP)**. The "Study of Health in Pomerania" (SHIP) [@Voelzke:SHIP11] encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region.  -->
+<!-- **Study of Health in Pomerania (SHIP)**. The "Study of Health in Pomerania" (SHIP)&nbsp;[@Voelzke:SHIP11] encompasses two independent cohorts, SHIP-CORE and SHIP-TREND, consisting of participants aged from 20 to 79 years with main residency in the study region.  -->
 <!-- Baseline examinations for SHIP-CORE were performed between 1997 and 2001 (SHIP-0, n=4308). Three follow-up examinations were conducted in intervals of 5 years, continuously adding new variables including MRI scans beginning from the second follow-up (SHIP-2).  -->
 <!-- Baseline information for the SHIP-TREND (TREND-0, n=4420) was collected in 2008-2012.  -->
 <!-- In both cohorts, a broad range of participant information was gathered, including socio-demographics, lifestyle and consumption behavior, medication intake, anthropometric values, blood and urine laboratory values, whole-body magnet resonance imaging, and others. -->
-<p>After the reunification of Germany, it was found that life expectancy was considerably lower in the east than in the west <span class="citation"><a href="references.html#ref-volzke2015prevalence" role="doc-biblioref">[3]</a></span>.
-Furthermore, there were regional differences within the former East Germany, with the lowest life expectancy in the northeast <span class="citation"><a href="references.html#ref-volzke2015prevalence" role="doc-biblioref">[3]</a>, <a href="references.html#ref-wiesner2004life" role="doc-biblioref">[4]</a></span>.
-To investigate the causal relationship between the high mortality in the northeastern German population and its risk factors, the research center for community medicine established the <em>Study of Health in Pomerania</em> (SHIP) <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[5]</a></span>, a longitudinal epidemiological study of two independent cohorts in the northeast of Germany.
-SHIP attempts to describe a wide spectrum of health-related conditions rather than focusing on a specific target disease <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[5]</a></span>.
-In particular, major study goals comprise investigations regarding prevalence of common diseases and their risk factors, correlation and interaction between risk factors and diseases, progression from subclinical to manifest diseases, identification of subgroups with elevated health risk, prediction of incidental diseases, as well as utilization and costs of medical devices. TODO: shorten</p>
+<p>After the reunification of Germany, it was found that life expectancy was significantly lower in the East than in the West <span class="citation"><a href="references.html#ref-volzke2015prevalence" role="doc-biblioref">[4]</a></span>.
+In addition, there were regional differences within the new states, with the lowest life expectancy found in the Northeast <span class="citation"><a href="references.html#ref-volzke2015prevalence" role="doc-biblioref">[4]</a>, <a href="references.html#ref-wiesner2004life" role="doc-biblioref">[5]</a></span>.
+To investigate the causal relationship between high mortality in the northeastern German population and its risk factors, the Community Medicine Research Center in Greifswald established the <em>Study of Health in Pomerania</em> (SHIP) <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[6]</a></span>, a longitudinal epidemiological study of two independent cohorts in northeastern Germany.
+SHIP seeks to describe a broad spectrum of health conditions rather than focusing on a specific target disease <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[6]</a></span>.
+In particular, major study objectives include investigations of the prevalence of common diseases and their risk factors, the correlation and interaction between risk factors and diseases, the progression from subclinical to manifest diseases, the identification of subgroups with increased health risk, the prediction of concomitant diseases, as well as the usage and costs of medical service.</p>
 <p>Cohort inclusion criteria were age from 20 to 79 years, main residency in the study region and German nationality.
 Participants of SHIP underwent an extensive, recurring (ca. every 5-6 years) examination program that encompasses personal interviews, body measurements, exercise electrocardiogram, laboratory analysis, ultrasound examinations and full body magnetic resonance tomography (MRT).
-Figure @ref:(fig:ship-sankey-plot) illustrates participant response and age distribution of show-ups across study waves.
-Baseline examinations for the first cohort were performed between 1997 and 2001 (SHIP-0, N=4308).
-Followup examinations were done in 2002-2006 (SHIP-1, n=3300), 2008-2012 (SHIP-2, n=2333), 2014-2016 (SHIP-3, n=1718) and since 2019 (SHIP-4).
-Baseline information for a second, independent cohort (SHIP-Trend-0, N=4420) was collected between 2008 and 2012 and a followup was conducted between 2016 and 2019.
+Baseline examinations for the first cohort were performed between 1997 and 2001 (SHIP-0, N = 4308).
+Followup examinations were done in 2002-2006 (SHIP-1, n = 3300), 2008-2012 (SHIP-2, n = 2333), 2014 - 2016 (SHIP-3, n = 1718) and since 2019 (SHIP-4).
+Figure <a href="background.html#fig:02-ship-sankey">2.1</a> illustrates participant response and age distribution of show-ups across study waves.
+Baseline information for a second, independent cohort (SHIP-Trend-0, N = 4420) was collected between 2008 and 2012 and a followup was conducted between 2016 and 2019.
 Major strengths of SHIP are a high level of quality assurance, standardized examination protocols, and a high cohort representativeness.</p>
 
 <div class="figure" style="text-align: center">
@@ -198,48 +171,18 @@ Figure 2.1: <strong>Participation response and age distribution of show-ups acro
 </p>
 </div>
 <p>The examination program changed across waves.
-For example, magnetic resonance imaging (MRI) was only conducted since SHIP-2; liver ultrasound was carried out in SHIP-0 and SHIP-2, but not in SHIP-1; dermatological examinations were conducted in SHIP-1 and SHIP-2, but not in SHIP-0.</p>
-<p>In our analyses, we focus on the disorder hepatic steatosis, also known as fatty liver, a condition which is characterized by a high accumulation of fat in the liver and present in ca. 30% of all adults <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[5]</a>, <a href="references.html#ref-volzke2005hepatic" role="doc-biblioref">[6]</a></span>.
-Risk factors include alcohol abuse, obesity, metabolic syndrome, diabetes, and hyperlipidemia <span class="citation"><a href="references.html#ref-antunes2019fatty" role="doc-biblioref">[7]</a></span>.
-A liver biopsy is considered as diagnosis gold standard <span class="citation"><a href="references.html#ref-antunes2019fatty" role="doc-biblioref">[7]</a></span>, but is associated with moderate risk for the patient.
-Non-invasive diagnosis forms include MRT, CT and ultrasound.
-Since hepatic steatosis is mostly asymptomatic, it often remains undiscovered which may develop into a more serious disease, such as steatohepatitis, cirrhosis, liver cell carcinoma or liver failure.</p>
-<!-- Our target variable is derived from the participant's liver fat percentage computed from MRI scans.  -->
-<!-- More specifically, participant with a liver fat concentration of 10% or less are mapped to class A ("negative" class, i.e., absence of the disorder); values greater than 10% and lower than 25% are mapped to class B (increased liver fat / fatty liver tendency); values greater than 25% are mapped to class C (high liver fat).  -->
-<!-- We consider classes B and C as "positive".  -->
-<!-- Although the cut-off value of 10% is higher than the value of 5% suggested by [@KuehnEtAl:2011] for separation between subjects with and without hepatic steatosis.  -->
-<!-- However, the primary interest from the medical perspective was the identification of important variables for individuals that are likely to be ill.  -->
-<!-- The selection of a high cut-off value exacerbated class imbalance and made the data analysis more challenging.  -->
+For example, magnetic resonance imaging (MRI) was not performed until SHIP-2; liver ultrasound was performed in SHIP-0 and SHIP-2 but not in SHIP-1; dermatologic examinations were performed in SHIP-1 and SHIP-2 but not in SHIP-0.</p>
+<p>In our analyses, we focus on the disorder <em>hepatic steatosis</em>, also known as fatty liver, which is characterized by high accumulation of fat in the liver and occurs in approximately 30% of all adults <span class="citation"><a href="references.html#ref-Voelzke:SHIP11" role="doc-biblioref">[6]</a>, <a href="references.html#ref-volzke2005hepatic" role="doc-biblioref">[7]</a></span>.
+Risk factors include alcohol abuse, obesity, metabolic syndrome, diabetes, and hyperlipidemia <span class="citation"><a href="references.html#ref-antunes2019fatty" role="doc-biblioref">[8]</a></span>.
+Liver biopsy is considered the diagnostic gold standard <span class="citation"><a href="references.html#ref-antunes2019fatty" role="doc-biblioref">[8]</a></span> but is associated with intermediate risk for the patient.
+Non-invasive diagnostic modalities include MRI, CT, and ultrasound.
+Because hepatic steatosis is usually asymptomatic, it often goes undetected, which can develop into more serious disease, such as steatohepatitis, cirrhosis, hepatocellular carcinoma, or even liver failure.</p>
+<p>Methods developed for and applied to the SHIP dataset are covered in Chapters <a href="imm.html#imm">3</a>, <a href="sdclu.html#sdclu">4</a> and <a href="evo.html#evo">6</a>.</p>
 <!--#### Findings so far
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4390827/#R2
 Consumption of both alcohol and tobacco is decreasing in the population of northeastern Germany.
 
-Physical inactivity is decreasing in older adults, but increasing in younger women.
 
-The prevalence of both obesity and diabetes mellitus is rising sharply.
-
-Preventive measures should more specifically target obesity-->
-<!--
-Currently data for the three study waves SHIP-0, SHIP-
-1 and SHIP-2 exists. The baseline examinations of SHIP-
-0 (n=4308) were performed between 1997 and 2001, and
-the followups SHIP-1 (n=3300) between 2002-2006 and
-SHIP-2 (n=2333) between 2008-2012. We focus on the
-liver disorder hepatic steatosis, also known as fatty liver,
-and a subset of 886 study participants (hereafter denoted
-as SHIP-886) which participated in all three waves. The
-class variable is derived from a liver-fat measurement of
-a MRT examination that was only conducted during SHIP-
-2 [2], [3]: participants with a liver fat concentration value
-of less than 25% are assigned the negative class, i.e. they
-are treated as not suffering from hepatic steatosis, whereas
-participants with greater values are assigned the positive
-class. Of the 886 study participants, XXX belong to the
-positive class and XXX to the negative class. Additionally
-to the inspection of all 886 study participants, we consider
-the female participants (Subsetf ) and male participants
-(Subsetm) separately, similarly to [2] and [3]. Subsetf
-contains XXX individuals of which XX% are positive and-->
 <!--The variables include sociodemographics, medical tests, ultrasound and whole-body MRT %, as well as variables from interviews on lifestyle, ailments etc
 \cite{NiemannEtal:ESWA14,HielscherEtAl:CBMS14}.
 %\textcolor[rgb]{0,0,1}{ The first moment, SHIP-0, contains n=4308 participants (recordings from 1997 to 2001); the recordings of the second moment SHIP-1 (n=3300 of the 4308 participants) were made in 2002-2006. MRT was recorded only in the third moment SHIP-2 (2008-2012, n= 2333).}
@@ -264,135 +207,132 @@ We use a random sample of 888 SHIP participants, 462 female ones (positive: 19\%
 %
 %\color{black}-->
 </div>
-<div id="the-diabetic-foot-clinical-trial-df" class="section level3" number="2.6.2">
+<div id="background-data-diabf" class="section level3" number="2.2.2">
 <h3>
-<span class="header-section-number">2.6.2</span> The Diabetic Foot Clinical Trial (DF)<a class="anchor" aria-label="anchor" href="#the-diabetic-foot-clinical-trial-df"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.2</span> The Diabetic Foot Clinical Trial (DiabF)<a class="anchor" aria-label="anchor" href="#background-data-diabf"><i class="fas fa-link"></i></a>
 </h3>
 <!-- **The diabetic foot clinical study dataset (DFD)**. While SHIP investigates associations between risk factors of common diseases and health-related conditions in general, the "diabetic foot clinical study"&nbsp;[@Niemann:PONE2016;@Niemann:EBioMedicine2020]  -->
-<!-- <!-- is a case-control study specifically investigating  -->
-<p>–&gt;
+<!-- is a case-control study specifically investigating  -->
 <!-- investigates differences between diabetes patients diagnosed with severe polyneuropathy and healthy controls. -->
 <!-- In a pre-specified sequence of actions alternating between two postures, standing and sitting, custom-made sensor-bearing insoles placed in a closed shoe measured changes of a subject's plantar pressures and temperatures with high frequency over time.  -->
-<!-- These measurements allowed for the analysis of pathophysiological and sensation-related differences between the two groups.  --></p>
-<p><em>Diabetic foot syndrom</em> is an umbrella term of foot-related problems in diabetes patients.
-Up to one out of four diabetes patients develop a foot ulcer during their lifetime <span class="citation"><a href="references.html#ref-RN1" role="doc-biblioref">[8]</a></span> with many of them facing amputations in the next four years <span class="citation"><a href="references.html#ref-RN2" role="doc-biblioref">[9]</a></span>.
-More than 85% of foot amputations relate to foot ulcers <span class="citation"><a href="references.html#ref-RN3" role="doc-biblioref">[10]</a>, <a href="references.html#ref-RN4" role="doc-biblioref">[11]</a></span>.
-The rate of foot amputations among diabetic patients has been estimated to be 17–40 times higher than in the general population <span class="citation"><a href="references.html#ref-fard2007assessment" role="doc-biblioref">[13]</a></span>.
-DFS patients are predisposed to a peripheral sensoric neuropathy, which, for example, have the consequence that patients are unaware of the temperature of their feet, or the pressure they apply on them.
-Affected individuals may even injure themselves without noticing.
-Excessive plantar pressure loads may aggravate tissue destruction, increasing the lifetime risk of a foot ulceration <span class="citation"><a href="references.html#ref-SinghEtAl:PreventingFootUlcers2005" role="doc-biblioref">[15]</a></span>.
-However, the understanding of the pathomechanisms underlying tissue destruction without trauma is limited.</p>
+<!-- These measurements allowed for the analysis of pathophysiological and sensation-related differences between the two groups.  -->
+<p>Diabetic foot syndrome is an umbrella term for foot-related problems in diabetic patients.
+Up to one in four diabetic patients will develop a foot ulcer during their lifetime <span class="citation"><a href="references.html#ref-RN1" role="doc-biblioref">[9]</a></span>, with many at risk of amputations in the next four years <span class="citation"><a href="references.html#ref-RN2" role="doc-biblioref">[10]</a></span>.
+More than 85% of foot amputations are due to foot ulcers <span class="citation"><a href="references.html#ref-RN3" role="doc-biblioref">[11]</a>, <a href="references.html#ref-RN4" role="doc-biblioref">[12]</a></span>.
+The rate of foot amputations in diabetic patients is estimated to be 17-40 times higher than in the general population <span class="citation"><a href="references.html#ref-fard2007assessment" role="doc-biblioref">[14]</a></span>.
+DFS patients are predisposed to peripheral sensory neuropathy, which results, for example, in patients being unaware of the temperature of their feet or the pressure applied to them.
+Affected individuals may even injure themselves without realizing it.
+Excessive plantar pressures can exacerbate tissue destruction and increase the lifetime risk of foot ulceration <span class="citation"><a href="references.html#ref-SinghEtAl:PreventingFootUlcers2005" role="doc-biblioref">[16]</a></span>.
+However, understanding of the pathomechanisms underlying tissue destruction in the absence of trauma is limited.</p>
 <!--therapeutic footwear-->
-<p>At the Medical Faculty of the Otto von Guericke University Magdeburg, an experimental study with 31 healthy volunteers and 30 diabetes patients diagnosed with severe polyneuropathy was conducted to quantify pressure- and posture-dependent changes of plantar temperatures as a surrogate of tissue perfusion.
+<p>At the university hospital of Magdeburg, Germany, an experimental study with 31 healthy volunteers and 30 diabetes patients diagnosed with severe polyneuropathy was conducted to quantify pressure- and posture-dependent changes of plantar temperatures as a surrogate of tissue perfusion.
 For this purpose, plantar pressure and temperature changes in the feet were recorded during extended phases of standing.
-Custom-made shoe insoles <!--!!! cite Grützner-->
-equipped with eight temperature sensors and eight pressure sensors at preselected positions were used for data acquisition (<a href="background.html#fig:02-df-infrared-sole-sensor-positions-plot">2.2</a> (a)).
+Custom-made shoe insoles <span class="citation"><a href="references.html#ref-GruetznerEtAl:SmartDiabeticInsole2015" role="doc-biblioref">[17]</a></span> equipped with eight temperature sensors and eight pressure sensors at preselected positions were used for data acquisition (<a href="background.html#fig:02-df-infrared-sole-sensor-positions-plot">2.2</a> (a)).
 The insoles were positioned into closed protective shoes specifically developed for diabetes patients.
 Within such shoes the temperature increases over time due to exchange with the body temperature of the user and is also affected by the environmental temperature.
 To closely monitor the in-shoe temperature changes one sensor was placed at the bottom of the insole without contact to the feet, which was denoted “ambient temperature sensor.”</p>
 
+<!-- reduce line width  -->
 <div class="figure">
 <span id="fig:02-df-infrared-sole-sensor-positions-plot"></span>
-<img src="figures/02-df-infrared-sole-sensor-positions.png" alt="(a) Sensor positioning in relation to foot placement. (b) Infrared images of a healthy volunteer in a seated position without pressure application to the feet (before) and following positioning of a 20 kg weight on both upper thighs. A time-dependent decrease of temperature was detected predominantly in the forefoot, visualized by yellow color during the pressure load. Within 1 min of pressure release, a rapid temperature rise was detected." width="100%"><p class="caption">
-Figure 2.2: (a) Sensor positioning in relation to foot placement. (b) Infrared images of a healthy volunteer in a seated position without pressure application to the feet (before) and following positioning of a 20 kg weight on both upper thighs. A time-dependent decrease of temperature was detected predominantly in the forefoot, visualized by yellow color during the pressure load. Within 1 min of pressure release, a rapid temperature rise was detected.
+<img src="figures/02-df-infrared-sole-sensor-positions.png" alt="Positions of pressure- and temperature sensors on insole (a) and temporal, pressure-dependent temperature change. (a) Sensor positioning on the insole in relation to foot placement. (b) Termographic infrared images showing a healthy subject in a seated position with no pressure applied to the feet (before) and after placement of a 20 kg weight on both thighs. The measured temperature ranged from 29°C (blue) to 34°C (red). A time-dependent temperature decrease was observed predominantly in the forefoot region, visualized by yellow color during pressure application. A rapid temperature increase was noted within 1 min after pressure relief. MTB: metatarsal bone. Images adapted from [18]." width="100%"><p class="caption">
+Figure 2.2: <strong>Positions of pressure- and temperature sensors on insole (a) and temporal, pressure-dependent temperature change.</strong> (a) Sensor positioning on the insole in relation to foot placement. (b) Termographic infrared images showing a healthy subject in a seated position with no pressure applied to the feet (before) and after placement of a 20 kg weight on both thighs. The measured temperature ranged from 29°C (blue) to 34°C (red). A time-dependent temperature decrease was observed predominantly in the forefoot region, visualized by yellow color during pressure application. A rapid temperature increase was noted within 1 min after pressure relief. MTB: metatarsal bone. Images adapted from <span class="citation"><a href="references.html#ref-Niemann:EBioMedicine2020" role="doc-biblioref">[18]</a></span>.
 </p>
 </div>
-<p>The data acquisition started immediately after putting on the shoes.
-The participants were asked to follow a predefined sequence of actions, that are alternating postures of standing (stance phase) and seating (pause).
-The sessions consisted of six stance episodes, lasting 5, 10, 20, 5, 10 and 20 minutes each, separated by seating episodes lasting 5 min each.
-<!--In between, the participants were asked to take up a sitting position for 5 minutes, and to release the pressure off their feet. -->
-The participants were instructed to apply pressure equally on both feet while standing.
-Participants did not receive immediate feedback of the actual pressure application during the sessions, however study nurses verbally encouraged to keep the pressure without release while standing.
-In the seated position the participants were instructed to release pressure for 5 minutes, while still keeping contact to the insole.
-The participants were explicitly asked to adhere to these instructions, e.g. they should not temporarily release pressure during a stance episode.
-The study protocol furthermore encompassed that the measurements were performed twice, once at room temperature of ca 22°C and once outdoors with an ambient temperature of ca. 16°C.
+<p>Data collection began immediately after the shoes were put on.
+Participants were asked to follow a predefined sequence of actions, i.e., alternating between standing (stance phase) and sitting (pause).
+Sessions consisted of 6 standing episodes lasting 5, 10, 20, 5, 10, and 20 minutes, respectively, separated by sitting episodes lasting 5 minutes each.
+Participants were instructed to apply equal pressure to both feet while standing.
+Participants did not receive immediate feedback on the actual application of pressure during the sessions, but they were verbally encouraged by the study nurses to maintain pressure while standing without releasing it.
+In the seated position, participants were instructed to release pressure for 5 minutes while maintaining contact with the insole.
+Participants were explicitly asked to adhere to these instructions, i.e., not to temporarily release pressure during a standing episode.
+The study protocol further included that the measurements were performed twice, once at room temperature of approximately 22°C and once outdoors at an ambient temperature of approximately 16°C.
 The two measurements were performed on two independent days.</p>
-<p>The termographic images in Figure <a href="background.html#fig:02-df-infrared-sole-sensor-positions-plot">2.2</a> (b) exemplarily visualize changes of plantar temperature, for a healthy volunteer in a seated position, before pressure application (1), after placement of a 20 kg weight on the front of the upper thighs (2-6), and after removal of the additional weight (7-8).
-During pressure load, a gradual temporal temperature decrease was detected predominantly in the forefoot.
-After pressure release, a rapid temperature rise within 1 min was observed.</p>
+<p>The termographic images in Figure <a href="background.html#fig:02-df-infrared-sole-sensor-positions-plot">2.2</a> (b) visualize exemplary changes in plantar temperature in a healthy subject in a sitting position before pressure application (1), after placing a 20 kg weight on the front of the thigh (2-6), and after removing the additional weight (7-8).
+During pressure application, a gradual temporal decrease in temperature was noted predominantly in the forefoot.
+After pressure relief, a rapid temperature increase was observed within 1 min.</p>
+<p>Methods developed for and applied to the DiabF dataset are covered in Chapter <a href="diabfoot.html#diabfoot">7</a>.</p>
 </div>
-<div id="the-intracranial-aneurysm-angiography-image-dataset-iad" class="section level3" number="2.6.3">
+<div id="background-data-aneurd" class="section level3" number="2.2.3">
 <h3>
-<span class="header-section-number">2.6.3</span> The Intracranial Aneurysm Angiography Image Dataset (IAD)<a class="anchor" aria-label="anchor" href="#the-intracranial-aneurysm-angiography-image-dataset-iad"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.3</span> The Intracranial Aneurysm Angiography Image Dataset (AneurD)<a class="anchor" aria-label="anchor" href="#background-data-aneurd"><i class="fas fa-link"></i></a>
 </h3>
 <!-- **The intracranial aneurysm angiography image dataset (IAD)**. The "intracranial aneurysm angiography image dataset" (AD) contains angiographical image data of 74 patients with a total of 100 intracranial aneurysms&nbsp;[@Niemann:CBMS2018].  -->
 <!-- Intracranial aneurysms are pathologic dilations of the intracranial vessel wall, bearing the risk of rupture and thus subarachnoidal hemorrhages with often fatal consequences for the patient.  -->
 <!-- Since treatment may cause severe complications as well, the goal is to generate models that can separate between ruptured and non-ruptured aneurysms.  -->
-<p>Retrospective clinical</p>
 <p>Intracranial aneurysms are pathologic dilations of the intracranial vessel wall, often in form of a dilation. <!--outward bulging-->
 They bear a a risk of rupture which then lead to subarachnoidal hemorrhages with often fatal consequences for the patient.
-Since treatment can also cause severe complications, extensive studies were conducted to assess the patient-individual rupture risk based on various parameters, including aneurysm symptomatology, size and location, as well as patient age and gender <span class="citation"><a href="references.html#ref-Wermer2007" role="doc-biblioref">[16]</a></span>.
-Further studies identified parameters, such as aspect ratio, undulation index and nonsphericity index as statistically significant with respect to aneurysm rupture status <span class="citation"><a href="references.html#ref-Dhar2008" role="doc-biblioref">[17]</a>, <a href="references.html#ref-Xiang2011" role="doc-biblioref">[18]</a></span>.<br>
+Since treatment can also cause severe complications, extensive studies were conducted to assess the patient-individual rupture risk based on various parameters, including aneurysm symptomatology, size and location, as well as patient age and gender <span class="citation"><a href="references.html#ref-Wermer2007" role="doc-biblioref">[19]</a></span>.
+Further studies identified parameters, such as aspect ratio, undulation index and nonsphericity index as statistically significant with respect to aneurysm rupture status <span class="citation"><a href="references.html#ref-Dhar2008" role="doc-biblioref">[20]</a>, <a href="references.html#ref-Xiang2011" role="doc-biblioref">[21]</a></span>.<br>
 However, although these studies allow for a retrospective analysis, the clinician needs further guidance in case an asymptomatic aneurysm (as accidental finding) was detected and the rupture risk should be determined.</p>
-<p>We developed methods for the <em>“Intracranial Aneurysm Angiography Image Dataset”</em> (IAD) comprising 3D rotational angiography data from 74 patients (age: 33-85 years, 17 male and 57 female patients) of the university hospital of Magdeburg, Germany, adding up to a total of 100 intracranial aneurysms.
+<p>We developed methods for the retrospective <em>“Intracranial Aneurysm Angiography Image Dataset”</em> (IAD) comprising 3D rotational angiography data from 74 patients (age: 33-85 years, 17 male and 57 female patients) of the university hospital of Magdeburg, Germany, adding up to a total of 100 intracranial aneurysms.
 We identified two primary goals for this dataset: (i) build models that can accurately predict rupture status based on morphological parameters only, and (ii) assess the importance of these parameters to the models with optimal accuracy.</p>
-<!-- We model our classification problem with a two-class target feature (\emph{unruptured} vs. \emph{ruptured}), using the 100 samples described in subsection~\ref{subsec:data_acquisition} and the 22 morphological parameters from Table~\ref{tab:features} as input features. %   -->
-<p>Inspired by the results of Baharoglu et al. <span class="citation"><a href="references.html#ref-BaharogluEtAl:Neurosurgery2012" role="doc-biblioref">[19]</a></span> who found differences between sidewall and bifurcation aneurysms (cf. Figure <a href="background.html#fig:02-aneurd-sw-bf">2.3</a>) regarding the relationship of several morphological parameters and rupture status, we learn distinct models for the subset of sidewall aneurysms (9 (37.5%) of 24 ruptured) and for the subset of bifurcation aneurysms (29 (46.8%) of 62 ruptured).
-Moreover, we run experiments on a combined group (43 of 100 ruptures) which includes 14 samples that could not be clearly determined to be either sidewall or bifurcation aneurysms.</p>
+<p>Motivated by the results of Baharoglu et al. <span class="citation"><a href="references.html#ref-BaharogluEtAl:Neurosurgery2012" role="doc-biblioref">[22]</a></span> who found differences between sidewall and bifurcation aneurysms (cf. Figure <a href="background.html#fig:02-aneurd-sw-bf">2.3</a>) in terms of the relationship of several morphological parameters and rupture status, we learn different models for the subset of sidewall aneurysms (9 (37.5%) of 24 ruptured) and for the subset of bifurcation aneurysms (29 (46.8%) of 62 ruptured).
+In addition, we run experiments on a combined group (43 of 100 ruptures) containing 14 additional samples that could not be clearly determined to be either sidewall or bifurcation aneurysms.</p>
 
 <div class="figure" style="text-align: center">
 <span id="fig:02-aneurd-sw-bf"></span>
-<img src="figures/02-aneurd-sw-bf.png" alt="Sidewall and bifurcation aneurysm. Illustration of a sidewall aneurysm at the side of the parent vessel wall (left) and a bifurcation aneurysm at a vessel bifurcation (right)." width="67%"><p class="caption">
-Figure 2.3: <strong>Sidewall and bifurcation aneurysm.</strong> Illustration of a sidewall aneurysm at the side of the parent vessel wall (left) and a bifurcation aneurysm at a vessel bifurcation (right).
+<img src="figures/02-aneurd-sw-bf.png" alt="Sidewall and bifurcation aneurysm. Illustration of a sidewall aneurysm at the side of the parent vessel wall (left) and a bifurcation aneurysm at a vessel bifurcation (right). Image adapted from [23]." width="67%"><p class="caption">
+Figure 2.3: <strong>Sidewall and bifurcation aneurysm.</strong> Illustration of a sidewall aneurysm at the side of the parent vessel wall (left) and a bifurcation aneurysm at a vessel bifurcation (right). Image adapted from <span class="citation"><a href="references.html#ref-Niemann:CBMS2018" role="doc-biblioref">[23]</a></span>.
 </p>
 </div>
 <!--!!! DEMOGRAPHIC INFORMATION AS IMAGES?-->
 <!--Sylvia: erste Ergebnisse von RUSKLAINER zeigen.-->
+<p>Methods developed for and applied to the AneurD dataset are covered in Chapter <a href="iml.html#iml">8</a>.</p>
 </div>
-<div id="cha" class="section level3" number="2.6.4">
+<div id="background-data-cha" class="section level3" number="2.2.4">
 <h3>
-<span class="header-section-number">2.6.4</span> The Tinnitus Patients Observational Therapy Study Dataset (CHA)<a class="anchor" aria-label="anchor" href="#cha"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2.4</span> The Charité Tinnitus Patients Observational Therapy Study Dataset (CHA)<a class="anchor" aria-label="anchor" href="#background-data-cha"><i class="fas fa-link"></i></a>
 </h3>
 <!-- **The Charité tinnitus patients observational therapy study dataset (CHA)**. This dataset contains information on a cohort of a total of 3,971 tinnitus patients who had been treated at the Tinnitus Center of the Charité University Medicine in Berlin between January 2011 and October 2015.  -->
 <!-- All patients had been suffering from tinnitus for 3 months or longer, were 18 years of age or older and had sufficient knowledge of the German language.  -->
-<!-- <!-- Treatment comprised a 7-day multi-modal treatment encompassing tinnitus-specific components, CBT, physiotherapy and information counselling.  -->
-<p>–&gt;
+<!-- Treatment comprised a 7-day multi-modal treatment encompassing tinnitus-specific components, CBT, physiotherapy and information counselling.  -->
 <!-- At registration, patients were asked to complete 15 questionnaires on socio-demographics, tinnitus-related distress, frequency, loudness, localization and quality as well as physical and mental health status, including levels of depression and perceived stress.  -->
-<!-- <!-- Clinicians analyzed the questionnaire answers to derive patient-tailored treatment pathways. --> –&gt;
-<!-- To assess efficacy of the treatment, patients filled the same battery of questionnaires a second time.  --></p>
-<p>Tinnitus is the perception of a phantom sound in absence of an external sound source.
-It is a complex multi-factorially caused and maintained phenomenon, and estimated to affect between 10% and 15% of the adult population <span class="citation"><a href="references.html#ref-Baguley:Tinnitus2013" role="doc-biblioref">[20]</a></span>.
-The associated annual economic burden amounts to US$19.4 billion in the
-United States <span class="citation"><a href="references.html#ref-Bhatt:TinnitusAnxietyDepression2017" role="doc-biblioref">[21]</a></span> and €6.8 billion in the Netherlands alone <span class="citation"><a href="references.html#ref-Maes:TinnitusCosts2013" role="doc-biblioref">[22]</a></span>.
-Clinical assessment of tinnitus is challenging due patient heterogeneities with respect to perception of tinnitus (laterality, pitch, sound characteristics, frequency, permanence, chronicity), risk factors (including hearing loss, temporomandibular joint disorder, aging), comorbidities (including hyperacusis, depression, sleep disorders), perceived distress, and treatment response <span class="citation"><a href="references.html#ref-Cederroth2019" role="doc-biblioref">[23]</a></span>.
-These differences make the identification of a suitable and effective form of treatment difficult.
-Currently, there does not exist a therapy gold standard: sound therapy (masking), informational counseling (minimal contact education), cognitive behavioral therapy and tinnitus retraining were found to be effective for some patients, but there is also evidence that not all patients benefit equally from these treatment forms <span class="citation"><a href="references.html#ref-Hobson:SoundTherapy2012" role="doc-biblioref">[24]</a>–<a href="references.html#ref-Phillips:TRT2010" role="doc-biblioref">[28]</a></span>.</p>
-<p>Due to the heterogeneous nature of the tinnitus symptom as well as the unclear
-evidence-base as to its treatment and management, the identification of patient subgroups is vital to stratify individual pathophysiology and treatment pathways <span class="citation"><a href="references.html#ref-Langguth:LCA2017" role="doc-biblioref">[29]</a>–<a href="references.html#ref-Landgrebe:TRI2010" role="doc-biblioref">[31]</a></span>.</p>
-<p>The “tinnitus patients observational therapy study dataset” (<em>CHA</em>) comprises self-report data from 4,103 tinnitus patients who had been treated at the Tinnitus Center of Charité University Medicine Berlin between January 2011 and October 2015.
-All patients were 18 years of age or older and had been suffering from tinnitus for at least 3 months.
-Exclusion criteria were presence of acute psychotic illness or addiction disorder, deafness and insufficient knowledge of the German language.
-Treatment comprised a multimodal 7-day program that included intensive and daily informational counseling, detailed ear-nose-throat as well as psychological diagnostics, cognitive behavior therapy interventions, hearing exercises, progressive muscle relaxation and physiotherapy.
-At baseline (<em>T0</em>; before therapy commencement) and after treatment (<em>T1</em>), patients were asked to complete multiple self-report questionnaires.
-These questionnaires were selected to obtain a comprehensive tinnitus assessment, including tinnitus-related distress and the psychosomatic background of tinnitus with anxiety, depression, general quality of life and experienced physical impairments.
-Table <a href="background.html#tab:02-cha-questionnaires">2.1</a> provides an overview of all questionnaires used in the analysis.
-Most questionnaires contain multiple-choice items with answers on a Likert scale. For example, the TQ contains 52 statements, such as “I am unable to enjoy listening to music because of the noises.” and respondents can give 3 possible answers: “not true” (encoded as 0), “partly true” (1) and “true” (2).
-Some questionnaires also comprise aggregated variables, called “subscales” and “total scores.”
-For example, the TQ total score (TQ_distress) is calculated as sum of 40 item values, where 2 items are used twice <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[34]</a></span>, yielding a value range from 0 to 84, where higher values represent higher tinnitus-related distress.
-The cutoff value 46 <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[34]</a></span> is used to distinguish between <em>compensated</em> (0-46) and <em>decompensated</em> (47-84) tinnitus.
-Further, for each questionnaire, the average time to answer an item was recorded. Figure @ref:(fig:02-cha-patient-demographics-plot) provides a graphical illustration of demographics for 3,803 (92.7%) patients with complete data for the SOZ questionnaire and TQ score.</p>
+<!-- Clinicians analyzed the questionnaire answers to derive patient-tailored treatment pathways. -->
+<!-- To assess efficacy of the treatment, patients filled the same battery of questionnaires a second time.  -->
+<p>Tinnitus is the perception of a phantom sound in the absence of an external sound source.
+It is a complex, multifactorial caused and maintained phenomenon and is estimated to affect between 10% and 15% of the adult population <span class="citation"><a href="references.html#ref-Baguley:Tinnitus2013" role="doc-biblioref">[24]</a></span>.
+The associated annual economic burden is 19.4 billion USD in the
+United States <span class="citation"><a href="references.html#ref-Bhatt:TinnitusAnxietyDepression2017" role="doc-biblioref">[25]</a></span> and 6.8 billion EUR in the Netherlands alone <span class="citation"><a href="references.html#ref-Maes:TinnitusCosts2013" role="doc-biblioref">[26]</a></span>.
+Clinical evaluation of tinnitus is challenging due to patient heterogeneity in tinnitus perception (laterality, pitch, noise characteristics, frequency, duration, chronicity), risk factors (including hearing loss, temporomandibular joint disorder, aging), comorbidities (including hyperacusis, depression, sleep disorders), perceived distress, and treatment response <span class="citation"><a href="references.html#ref-Cederroth2019" role="doc-biblioref">[27]</a></span>.
+These differences complicate the identification of an appropriate and effective treatment modality.
+Currently, there is no treatment gold standard: sound therapy (masking), informational counseling (minimal contact education), cognitive behavioral therapy, and tinnitus retraining have been shown to be effective for some patients, but there is also evidence that not all patients benefit equally from these forms of treatment <span class="citation"><a href="references.html#ref-Hobson:SoundTherapy2012" role="doc-biblioref">[28]</a>–<a href="references.html#ref-Phillips:TRT2010" role="doc-biblioref">[32]</a></span>.
+Due to the heterogeneous nature of the tinnitus symptom, as well as the unclear evidence base regarding its treatment and management, identification of patient subgroups is critical to stratify individual pathophysiology and treatment pathways <span class="citation"><a href="references.html#ref-Langguth:LCA2017" role="doc-biblioref">[33]</a>–<a href="references.html#ref-Landgrebe:TRI2010" role="doc-biblioref">[35]</a></span>.</p>
+<p>The <em>“Charité tinnitus patients observational therapy study dataset” (CHA)</em> includes self-report data from 4,103 tinnitus patients treated at the Tinnitus Center of Charité Universitätsmedizin Berlin, Germany, between January 2011 and October 2015.
+All patients were 18 years of age or older and had suffered from tinnitus for at least 3 months.
+Exclusion criteria were the presence of acute psychotic illness or addiction, deafness, and insufficient knowledge of the German language.
+Treatment included a 7-day multimodal program with intensive and daily informational counseling, detailed ear-nose-throat as well as psychological diagnosis, cognitive behavioral therapy interventions, hearing exercises, progressive muscle relaxation, and physical therapy.
+At baseline (<em>T0</em>; before the start of therapy) and after treatment (<em>T1</em>), patients were asked to complete several self-report questionnaires.
+These questionnaires were selected to obtain a comprehensive assessment of tinnitus, including tinnitus-related distress and the psychosomatic background of tinnitus with anxiety, depression, general quality of life, and experienced physical impairments.</p>
+<p>Table <a href="background.html#tab:02-cha-questionnaires">2.1</a> provides an overview of all questionnaires used in our analyses.
+Most questionnaires contain multiple-choice items with answers on a Likert scale. For example, the “Tinnitus Questionnaire” <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[38]</a></span> (TQ) contains 52 statements, such as “I am unable to enjoy listening to music because of the noises.” and respondents can give 3 possible answers: “not true” (coded as 0), “partly true” (1), and “true” (2).
+Some questionnaires also include aggregate variables called “subscales” and “total scores.”
+For example, the TQ total score (TQ_distress) is calculated as the sum of 40 item values, with 2 items used twice <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[38]</a></span> resulting in a range of values from 0 to 84, with higher values representing higher tinnitus-related distress.
+The cutoff value 46 <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[38]</a></span> is used to distinguish between <em>compensated</em> (0-46) and <em>decompensated</em> (47-84) tinnitus.
+Furthermore, the average time to answer an item was recorded for each questionnaire.
+Figure <a href="background.html#fig:02-cha-patient-demographics-plot">2.4</a> provides a graphical representation of demographic data for 3,803 (92.7%) patients with complete data for the sociodemographics questionnaire <span class="citation"><a href="references.html#ref-brueggemann:sozk-reference" role="doc-biblioref">[41]</a></span> (SOZK) and TQ score.</p>
 
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
 <caption>
-<span id="tab:02-cha-questionnaires">Table 2.1: </span>Description of questionnaires that form the basis for CHA.</caption>
+<span id="tab:02-cha-questionnaires">Table 2.1: </span><strong>Description of questionnaires that form the basis for CHA.</strong> |F|: total number of items, subscales and total scales.</caption>
 <colgroup>
 <col width="3%">
-<col width="24%">
+<col width="25%">
 <col width="21%">
-<col width="44%">
+<col width="43%">
 <col width="5%">
 </colgroup>
 <thead><tr class="header">
 <th align="right">  </th>
 <th align="left"><strong>Name</strong></th>
 <th align="left"><strong>Scope</strong></th>
-<th align="left"><strong>Scales</strong></th>
+<th align="left"><strong>Subscales</strong></th>
 <th align="right"><strong>|F|</strong></th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="right">1</td>
-<td align="left">ACSA: Anamnestic Comparative Self-Assessment <span class="citation"><a href="references.html#ref-Bernheim:ACSA1993" role="doc-biblioref">[35]</a></span>
+<td align="left">ACSA: Anamnestic Comparative Self-Assessment <span class="citation"><a href="references.html#ref-Bernheim:ACSA1993" role="doc-biblioref">[42]</a></span>
 </td>
 <td align="left">Quality of life</td>
 <td align="left">–</td>
@@ -400,7 +340,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">2</td>
-<td align="left">ADSL: General Depression Scale <span class="citation"><a href="references.html#ref-Radloff:adsl1977" role="doc-biblioref">[38]</a>, <a href="references.html#ref-Hautzinger:ADSL2003" role="doc-biblioref">[41]</a></span>
+<td align="left">ADSL: General Depression Scale <span class="citation"><a href="references.html#ref-Radloff:adsl1977" role="doc-biblioref">[45]</a>, <a href="references.html#ref-Hautzinger:ADSL2003" role="doc-biblioref">[48]</a></span>
 </td>
 <td align="left">Depressive symptoms</td>
 <td align="left">–</td>
@@ -408,7 +348,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="odd">
 <td align="right">3</td>
-<td align="left">BI: Berlin Complaint Inventory <span class="citation"><a href="references.html#ref-Horhold:BI1997" role="doc-biblioref">[43]</a></span>
+<td align="left">BI: Berlin Complaint Inventory <span class="citation"><a href="references.html#ref-Horhold:BI1997" role="doc-biblioref">[50]</a></span>
 </td>
 <td align="left">General well-being, autonomic nervous system, pain and emotionality</td>
 <td align="left">Exhaustion, abdominal symptoms, limb pain, heart symptoms</td>
@@ -416,7 +356,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">4</td>
-<td align="left">BSF: Berlin Mood Questionnaire <span class="citation"><a href="references.html#ref-Horhold:BSF1993" role="doc-biblioref">[45]</a></span>
+<td align="left">BSF: Berlin Mood Questionnaire <span class="citation"><a href="references.html#ref-Horhold:BSF1993" role="doc-biblioref">[52]</a></span>
 </td>
 <td align="left">Mood</td>
 <td align="left">Anger, anxious depression, apathy, elevated mood, fatigue and mindset</td>
@@ -424,7 +364,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="odd">
 <td align="right">5</td>
-<td align="left">ISR: ICD-10 Symptom Rating <span class="citation"><a href="references.html#ref-Tritt:ICD2008" role="doc-biblioref">[46]</a></span>
+<td align="left">ISR: ICD-10 Symptom Rating <span class="citation"><a href="references.html#ref-Tritt:ICD2008" role="doc-biblioref">[53]</a></span>
 </td>
 <td align="left">Mental disorders</td>
 <td align="left">Anxiety, depression, obsessive-compulsive syndrome, somatoform syndrome, eating disorder, additional items</td>
@@ -432,15 +372,15 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">6</td>
-<td align="left">PHQK: (Short-form) Patient Health Questionnaire <span class="citation"><a href="references.html#ref-Spitzer:PHQK1999" role="doc-biblioref">[47]</a></span>
+<td align="left">PHQK: (Short-form) Patient Health Questionnaire <span class="citation"><a href="references.html#ref-Spitzer:PHQK1999" role="doc-biblioref">[54]</a></span>
 </td>
 <td align="left">Symptoms of depression and anxiety</td>
 <td align="left">–</td>
-<td align="right">17</td>
+<td align="right">16</td>
 </tr>
 <tr class="odd">
 <td align="right">7</td>
-<td align="left">PSQ: Perceived Stress Questionnaire <span class="citation"><a href="references.html#ref-Fliege:PSQ2005" role="doc-biblioref">[50]</a></span>
+<td align="left">PSQ: Perceived Stress Questionnaire <span class="citation"><a href="references.html#ref-Fliege:PSQ2005" role="doc-biblioref">[57]</a></span>
 </td>
 <td align="left">Stress</td>
 <td align="left">Demand, tension, joy, worries</td>
@@ -448,11 +388,11 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">8</td>
-<td align="left">SES: Pain Perception Scale <span class="citation"><a href="references.html#ref-Geissner:SES1996" role="doc-biblioref">[51]</a></span>
+<td align="left">SES: Pain Perception Scale <span class="citation"><a href="references.html#ref-Geissner:SES1996" role="doc-biblioref">[58]</a></span>
 </td>
 <td align="left">Pain</td>
 <td align="left">Affective pain, sensoric pain</td>
-<td align="right">26</td>
+<td align="right">29</td>
 </tr>
 <tr class="odd">
 <td align="right">9</td>
@@ -463,7 +403,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">10</td>
-<td align="left">SF8: Short Form 8 Health Survey <span class="citation"><a href="references.html#ref-Bullinger:SF2008" role="doc-biblioref">[54]</a></span>
+<td align="left">SF8: Short Form 8 Health Survey <span class="citation"><a href="references.html#ref-Bullinger:SF2008" role="doc-biblioref">[61]</a></span>
 </td>
 <td align="left">Health-related quality of life</td>
 <td align="left">Bodily health, overall health, mental health, physical functioning, role emotional, role physical, vitality, mental component, physical component</td>
@@ -471,7 +411,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="odd">
 <td align="right">11</td>
-<td align="left">SOZK: A socio-demographics questionnaire <span class="citation"><a href="references.html#ref-brueggemann:sozk-reference" role="doc-biblioref">[57]</a></span>
+<td align="left">SOZK: A socio-demographics questionnaire <span class="citation"><a href="references.html#ref-brueggemann:sozk-reference" role="doc-biblioref">[41]</a></span>
 </td>
 <td align="left">Gender, partnership status, education, employment status, among others</td>
 <td align="left">–</td>
@@ -479,7 +419,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">12</td>
-<td align="left">SWOP: Self-Efficacy- Optimism-Pessimism Scale questionnaire <span class="citation"><a href="references.html#ref-Scholler:SWOP1999" role="doc-biblioref">[59]</a></span>
+<td align="left">SWOP: Self-Efficacy- Optimism-Pessimism Scale questionnaire <span class="citation"><a href="references.html#ref-Scholler:SWOP1999" role="doc-biblioref">[63]</a></span>
 </td>
 <td align="left">Self efficacy, optimism, pessimism</td>
 <td align="left">–</td>
@@ -494,7 +434,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="even">
 <td align="right">14</td>
-<td align="left">TLQ: Tinnitus Localization and Quality questionnaire <span class="citation"><a href="references.html#ref-Goebel:TLQ1992" role="doc-biblioref">[62]</a></span>
+<td align="left">TLQ: Tinnitus Localization and Quality questionnaire <span class="citation"><a href="references.html#ref-Goebel:TLQ1992" role="doc-biblioref">[66]</a></span>
 </td>
 <td align="left">Location (left, right, bilateral, entire head) and sound of tinnitus</td>
 <td align="left">–</td>
@@ -502,7 +442,7 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 <tr class="odd">
 <td align="right">15</td>
-<td align="left">TQ: Tinnitus Questionnaire (German version) <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[34]</a></span>
+<td align="left">TQ: Tinnitus Questionnaire (German version) <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[38]</a></span>
 </td>
 <td align="left">Tinnitus-related distress and tinnitus severity</td>
 <td align="left">Emotional and cognitive burden, persistence of sound, hearing difficulties, sleep difficulties and somatic complaints</td>
@@ -510,24 +450,24 @@ Further, for each questionnaire, the average time to answer an item was recorded
 </tr>
 </tbody>
 </table></div>
-<!-- **\#** | **Abbr.** | **Name** | **Scope** | **(Sub-)scales** | **Number of features** --><!-- --: | :-- | :--- | :---- | :---- | --:  --><!-- 1   | ACSA | Anamnestic Comparative Self-Assessment [@Bernheim:ACSA1993] | Quality of life | - | 1 --><!-- 2   | ADSL | General Depression Scale (Allgemeine Depressionsskala) [@Radloff:adsl1977; @Hautzinger:ADSL2003] | Depressive symptoms | - | 22 --><!-- 3   | BI | Berlin Complaint Inventory (Berliner Beschwerdeinventar) [@Horhold:BI1997] | General well-being, autonomic nervous system, pain and emotionality | Exhaustion, abdominal symptoms, limb pain, heart symptoms | 29 --><!-- 4   | BSF | Berlin Mood Questionnaire (Berliner Stimmungsfragebogen) [@Horhold:BSF1993] | Mood | Anger, anxious depression, apathy, elevated mood, fatigue and mindset | 36 --><!-- 5   | ISR | ICD-10 Symptom Rating [@Tritt:ICD2008] | Mental disorders | Anxiety, depression, obsessive-compulsive syndrome, somatoform syndrome, eating disorder, additional items | 36 --><!-- 6   | PHQK | (Short-form) Patient Health Questionnaire [@Spitzer:PHQK1999] | Symptoms of depression and anxiety | - | 17 --><!-- 7   | PSQ | Perceived Stress Questionnaire [@Fliege:PSQ2005] | Stress | Demand, tension, joy, worries | 35 --><!-- 8   | SES | Pain Perception Scale (Schmerzempfindungsskala) [@Geissner:SES1996] | Pain | Affective pain, sensoric pain | 26 --><!-- 9   | SSKAL | Visual Analogue Scales Pain | Pain impairment, frequency and intensity | - | 3 --><!-- 10   | SF8 | Short Form 8 Health Survey [@Bullinger:SF2008] | Health-related quality of life | Bodily health, overall health, mental healt, physical functioning, role emotional, role physical, vitality, mental component, physical component| 18 --><!-- 11   | SOZK | A socio-demographics questionnaire [@brueggemann:sozk-reference] | Gender, partnership status, education, employment status, among others | - | 27 --><!-- 12   | SWOP | Self-Efficacy- Optimism-Pessimism Scale questionnaire (Selbstwirksamkeits-Optimismus-Pessimismus-Skala [@Scholler:SWOP1999] | Self efficacy, optimism, pessimism | - | 12 --><!-- 13   | TINSKAL | Visual analogue scales | Tinnitus loudness, frequency and distress | - | 3 --><!-- 14   | TLQ | Tinnitus Localization and Quality questionnaire [@Goebel:TLQ1992] | Location (left, right, bilateral, entire head) and sound of tinnitus | - | 8 --><!-- 15   | TQ | Tinnitus Questionnaire (German version) [@GoebelHiller:TF1998] | Tinnitus-related distress and tinnitus severity | Emotional and cognitive burden, persistence of sound, hearing difficulties, sleep difficulties and somatic complaints | 60 --><!-- Table: (\#tab:cha_questionnaires) Description of questionnaires that form the basis for CHA.  --><div class="figure">
+<div class="figure">
 <span id="fig:02-cha-patient-demographics-plot"></span>
 <img src="figures/02-cha-patients-summary.png" alt="Patient demographics (CHA). Overview of patient demographics by degree of tinnitus distress measured before therapy commencement." width="100%"><p class="caption">
 Figure 2.4: <strong>Patient demographics (CHA).</strong> Overview of patient demographics by degree of tinnitus distress measured before therapy commencement.
 </p>
 </div>
+<p>Methods developed for and applied to the CHA dataset are covered in Chapters <a href="phenotypes.html#phenotypes">5</a>, <a href="iml.html#iml">8</a> and <a href="gender.html#gender">9</a>.</p>
 <!-- ## MONICA -->
 <!-- **MONICA**. This dataset is derived from the Danish population of the WHO project MONICA (Multinational MONItoring of trends and determinants in CArdiovascular disease). -->
-<!-- MONICA is a longitudinal epidemiological cohort study focusing on risk factors of cardio-vascular diseases, as well as causes and trends regarding the differences in the mortality between countries [@WHO:MONICA1989].  -->
+<!-- MONICA is a longitudinal epidemiological cohort study focusing on risk factors of cardio-vascular diseases, as well as causes and trends regarding the differences in the mortality between countries&nbsp;[@WHO:MONICA1989].  -->
 <!-- Overall, 37 centers from 21 countries participated in the cohort study conducted between 1976 and 2002.  -->
 <!-- Accomplishments of the project include the establishment of a profound database for prevention research and improvements on treatment of cardio-vascular diseases due to the identification of risk factors such as increased cholesterol and nicotine levels.  -->
-<!-- In the Danish MONICA cohort, over 30,000 residents from the south-western of Copenhagen County, aged between 25 and 74 years, participated in three waves from  1982 to 1991 [@Bronnum:DanMONICA2001].  -->
+<!-- In the Danish MONICA cohort, over 30,000 residents from the south-western of Copenhagen County, aged between 25 and 74 years, participated in three waves from  1982 to 1991&nbsp;[@Bronnum:DanMONICA2001].  -->
 <!-- The baseline examinations were conducted in 1982-1986 (DAN-MONICA I) with the first two follow-ups in 1986-1987 (DAN-MONICA II) and in 1991-1992 (DAN-MONICA III).  -->
-<!-- <!-- %Our dataset contains 400 variables from the first three study waves for a random sample of 4,000 participants. -->
-<p>–&gt;
-<!-- <!-- %The variables include questionnaire answers with participant information on socio-demographics, medication, lifestyle and psychological factors, as well as anthropometrics, genetic markers and laboratory values.  --> –&gt;
-<!-- <!-- %Our binary target variable \texttt{heart\_blood\_disease} denotes whether at least one of the following disorders or conditions are present in the second follow-up: heart attack, stroke, blood clot in brain, hypertension, other heart disease. % --> –&gt;
-<!-- <!-- %Out of 2648 participants, 688 are positive w.r.t. \texttt{heart\_blood\_disease} ($\approx 26\%$). --> –&gt;</p>
+<!-- %Our dataset contains 400 variables from the first three study waves for a random sample of 4,000 participants. -->
+<!-- %The variables include questionnaire answers with participant information on socio-demographics, medication, lifestyle and psychological factors, as well as anthropometrics, genetic markers and laboratory values.  -->
+<!-- %Our binary target variable \texttt{heart\_blood\_disease} denotes whether at least one of the following disorders or conditions are present in the second follow-up: heart attack, stroke, blood clot in brain, hypertension, other heart disease. % -->
+<!-- %Out of 2648 participants, 688 are positive w.r.t. \texttt{heart\_blood\_disease} ($\approx 26\%$). -->
 
 </div>
 </div>
@@ -542,17 +482,13 @@ Figure 2.4: <strong>Patient demographics (CHA).</strong> Overview of patient dem
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#background"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
-<li><a class="nav-link" href="#fundamental-terms-and-study-types"><span class="header-section-number">2.1</span> Fundamental terms and study types</a></li>
-<li><a class="nav-link" href="#basic-research"><span class="header-section-number">2.2</span> Basic research</a></li>
-<li><a class="nav-link" href="#clinical-studies"><span class="header-section-number">2.3</span> Clinical studies</a></li>
-<li><a class="nav-link" href="#epidemiological-studies"><span class="header-section-number">2.4</span> Epidemiological studies</a></li>
-<li><a class="nav-link" href="#challenges"><span class="header-section-number">2.5</span> Challenges</a></li>
+<li><a class="nav-link" href="#background-med-research"><span class="header-section-number">2.1</span> Brief Comparison of Medical Study Types</a></li>
 <li>
-<a class="nav-link" href="#medical-applications"><span class="header-section-number">2.6</span> Medical Applications</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ship"><span class="header-section-number">2.6.1</span> The Study of Health in Pomerania (SHIP)</a></li>
-<li><a class="nav-link" href="#the-diabetic-foot-clinical-trial-df"><span class="header-section-number">2.6.2</span> The Diabetic Foot Clinical Trial (DF)</a></li>
-<li><a class="nav-link" href="#the-intracranial-aneurysm-angiography-image-dataset-iad"><span class="header-section-number">2.6.3</span> The Intracranial Aneurysm Angiography Image Dataset (IAD)</a></li>
-<li><a class="nav-link" href="#cha"><span class="header-section-number">2.6.4</span> The Tinnitus Patients Observational Therapy Study Dataset (CHA)</a></li>
+<a class="nav-link" href="#background-data"><span class="header-section-number">2.2</span> Datasets Investigated in This Thesis</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#background-data-ship"><span class="header-section-number">2.2.1</span> The Study of Health in Pomerania (SHIP)</a></li>
+<li><a class="nav-link" href="#background-data-diabf"><span class="header-section-number">2.2.2</span> The Diabetic Foot Clinical Trial (DiabF)</a></li>
+<li><a class="nav-link" href="#background-data-aneurd"><span class="header-section-number">2.2.3</span> The Intracranial Aneurysm Angiography Image Dataset (AneurD)</a></li>
+<li><a class="nav-link" href="#background-data-cha"><span class="header-section-number">2.2.4</span> The Charité Tinnitus Patients Observational Therapy Study Dataset (CHA)</a></li>
 </ul>
 </li>
 </ul>
@@ -571,7 +507,7 @@ Figure 2.4: <strong>Patient demographics (CHA).</strong> Overview of patient dem
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

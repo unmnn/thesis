@@ -73,7 +73,7 @@ Patient evolution with clustering was studied by Siddiqui et al. [@SiddiquiEtAl:
 <!-- %for dimensionality reduction, but we cluster the participants at each moment and derive indices describing the evolution of these clusters. We show that these new variables improve classification quality. -->
 
 Our workflow combines labeled and unlabeled timestamped data from a longitudinal study to improve classification performance on skewed data. 
-As the target variable, we study the multi-factorial disorder hepatic steatosis (fatty liver) on a sample of participants from the longitudinal population-based "Study of Health in Pomerania" (SHIP)&nbsp;[@Voelzke:SHIP11], see Section&nbsp;\@ref(ship). 
+As the target variable, we study the multi-factorial disorder hepatic steatosis (fatty liver) on a sample of participants from the longitudinal population-based "Study of Health in Pomerania" (SHIP)&nbsp;[@Voelzke:SHIP11], see Section&nbsp;\@ref(background-data-ship). 
 For the SHIP cohort, the assessments (interviews, medical tests, etc.) were recorded in three _moments_ (SHIP-0, SHIP-1 and SHIP-2), that are ca. 5 years apart. 
 Temporal information is often used when analyzing patient data in a hospital, but there the time granularity is different. 
 For example, in an intensive care unit, timestamped data are collected at a fast pace, i.e., every minute or even every second. 
@@ -127,7 +127,9 @@ Our approach is illustrated in Figure \@ref(fig:07-concept-workflow)&nbsp;(a).
 We monitor the individual change of participants across the study waves, trace the change of the clusters separately, extract new features (from labeled _and_ unlabeled data) and augment the original data space with our new descriptors of change.
 The complete classification workflow is depicted in Figure \@ref(fig:07-concept-workflow)&nbsp;(b). 
 
-(ref:07-concept-workflow) **Concept of evolution feature extraction for classification performance improvement**. (a) Clustering of longitudinal cohort data and subsequent generation of evolution features from the change of individuals (red) and whole clusters (green). (b) Overview of the classification workflow. **TODO: explain parentheses**
+(ref:07-concept-workflow) **Concept of evolution feature extraction for classification performance improvement**. (a) Clustering of longitudinal cohort data and subsequent generation of evolution features from the change of individuals (red) and whole clusters (green). (b) Overview of the classification workflow. 
+
+<!-- **TODO: explain parentheses** -->
 
 ```{r 07-concept-workflow, echo=FALSE, fig.align='center', out.width="100%", fig.cap="(ref:07-concept-workflow)"}
 knitr::include_graphics("figures/07-concept-workflow.png")
@@ -170,7 +172,7 @@ tibble::tribble(
 ```
 
 <!-- \paragraph{Distance function} -->
-**Distance function.** 
+`r start_paragraph("Distance function.")` 
 For the distance between participants $x,z$ at $t$, we use the _adjusted heterogeneous Euclidean overlap metric_&nbsp;[@HielscherEtAl:IDA14; @Wilson97], which weights the difference between two values $x,z$ for feature $f$ by the feature's information gain $G(f)$, scaled to the largest observed value $G^*$, defined as:
 \begin{equation}
 d(x,z,t)=\sqrt{\sum_{f \in F} \left(\frac{G(f)}{G^*}\cdot \delta\left(v(x,f,t),v(z,f,t)\right)\right)^2}.
@@ -180,7 +182,7 @@ For continuous features, $\delta(a,b)$ is the min-max-scaled difference between 
 For nominal features, $\delta(a,b)$ is 0 if $a=b$, and 1 otherwise.
 
 <!-- \paragraph{Specifying the DBSCAN parameters} -->
-**DBSCAN Parameter setting.**
+`r start_paragraph("DBSCAN Parameter setting.")`
 DBSCAN relies on two parameters: the radius $eps$ of the neighborhood around a data point, and the minimum number $minPts$ of neighbors for a point to be a core point.
 We use the "elbow" heuristic of &nbsp;[@EsterEtAl:DBSCAN96] which determines a suitable $eps$ value for a given $minPts$ value, and is illustrated in Figure&nbsp;\@ref(fig:07-k-dist-graph). 
 More specifically, we define a parameter $k$, and compute for each $x\in{}Z(t)$ the distance k-dist$(x,k)$ to its k-th nearest neighbor.
@@ -189,7 +191,7 @@ Then, we set $eps$ to the k-dist value with maximum distance between _g_ and _l_
 
 (ref:07-k-dist-graph) **Setting $eps$ based on the k-dist graph for a given $minPts$.** The k-dist graph _g_ depicts the sorted distances to the points' k-th next neighbors. A suitable $eps_{opt}$ can be identified at the position with maximum distance between the k-dist and the line _l_ that connects the first and the last point of _g_. For DBSCAN clustering with $minPts$ = k, $eps_{opt}$, points with k-dist $\leq$ $eps_{opt}$ will become core points, else border or noise points.
 
-```{r 07-k-dist-graph, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"34%"}else{"50%"}, fig.cap="(ref:07-k-dist-graph)"}
+```{r 07-k-dist-graph, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"43%"}else{"75%"}, fig.cap="(ref:07-k-dist-graph)"}
 knitr::include_graphics("figures/07-k-dist-graph.png")
 ```
 
@@ -303,7 +305,7 @@ The main parameter is $k$ which is the number of neighbors of a data point: we s
 Further, the number of nearest neighbors for the k-NN classification algorithm is also set to $k$. 
 We vary $k$ to measure its impact on classification performance. 
 
-Following the findings in Chapters&nbsp;\@ref(03-imm) and&nbsp;\@ref(04-sdclu) on the differences between female and male participants with respect to the outcome, we run the experiments on the whole dataset (_Partition~all~_), and on the partitions of female (_Partition~f~_) and of male (_Partition~m~_) participants. 
+Following the findings in Chapters&nbsp;\@ref(imm) and&nbsp;\@ref(sdclu) on the differences between female and male participants with respect to the outcome, we run the experiments on the whole dataset (_Partition~all~_), and on the partitions of female (_Partition~f~_) and of male (_Partition~m~_) participants. 
 Finally, we list the most important features found in _Partition~all~_ and its two subsets.
 <!-- Due to space limits, we present only the experiments on the complete dataset \footnote{The experiments on the two partitions are under \url{http://bit.ly/1Dd82KE}.}. -->
 <!-- %Following the findings of \cite{NiemannEtal:ESWA14,HielscherEtAl:CBMS14,HielscherEtAl:IDA14} on the differences between female and male participants with respect to the outcome, we also run our workflow on the partitions of female and male participants; these results are in a supplement  \footnote{ \url{http://www.kmd.ovgu.de/xyz}}. -->
@@ -372,7 +374,7 @@ The variants `-F-` and `-FG` perform well only regarding specificity, which sugg
 knitr::include_graphics("figures/07-perf-wf-components.png")
 ```
 
-**Important features.** The performance of the workflow variants which include feature selection indicates that a small number of features is sufficient for class separation. 
+`r start_paragraph("Important features.")` The performance of the workflow variants which include feature selection indicates that a small number of features is sufficient for class separation. 
 Hereafter, for each partition we report on the evolution features selected for classification and among the top-15 features according to information gain. 
 Figure&nbsp;\@ref(fig:07-imp-features-all) shows that for Partition~All~ 3 out of these 15 features are generated evolution features. 
 The boxplots (a) and (c) in Figure&nbsp;\@ref(fig:07-imp-features-all) refer to differences between values recorded in two moments. 
@@ -408,8 +410,8 @@ knitr::include_graphics("figures/07-imp-features-men.png")
 
 ## Conclusions from Exploiting Study Participant Evolution {#evo-conclusions}
 
-**TODO:LINK TO RESEARCH QUESTIONS**
-**TODO: say that in the original submission, we also report on static features**
+<!-- **TODO:LINK TO RESEARCH QUESTIONS** -->
+<!-- **TODO: say that in the original submission, we also report on static features** -->
 
 We proposed a workflow for the the classification of longitudinal cohort study data which exploits inherent temporal information by clustering the cohort participants at each moment, linking the clusters and tracing participant evolution over the moments of the study. 
 From the clusters and their transitions we extract _evolution features_, which are added to the feature space and subsequently used for classification. 

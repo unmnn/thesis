@@ -71,7 +71,7 @@ Instead of presenting _all_ rules found by an SD algorithm at once, we propose t
 knitr::include_graphics("figures/04-rule-redundancy.png")
 ```
 
-Similar to the HotSpot algorithm described in Section&nbsp;\@ref(hotspot), popular SD algorithms such as SubgroupMiner&nbsp;[@Kloesgen:SubgroupMiner2002], 
+Similar to the HotSpot algorithm described in Section&nbsp;\@ref(imm-workflow-hotspot), popular SD algorithms such as SubgroupMiner&nbsp;[@Kloesgen:SubgroupMiner2002], 
 SD&nbsp;[@Gamberger:SD02] and CN2-SD&nbsp;[@Lavravc:CN2-SD04] use a fixed beam width to limit the number of further expanded subgroup candidates at each iteration. 
 A post-pruning step can be applied to reduce the cardinality of the rule set -- e.g., to return the _top-k_ rules -- using a quality criterion such as the weighted relative accuracy or the p-value of a statistical test. 
 Even when both beam-width search and top-$k$ pruning are applied, the result often still contains redundant rules. 
@@ -114,7 +114,7 @@ Rules covering the same instances are grouped in the same cluster and are theref
 
 ### Rule clustering 
 
-We use the same notation for classification rule discovery as in Section&nbsp;\@ref(imm-classification).
+We use the same notation for classification rule discovery as in Section&nbsp;\@ref(imm-workflow-classification).
 Agglomerative hierarchical clustering iteratively merges similar instances to clusters, in a bottom-up way. 
 The order of merging two clusters depends on the linkage strategy: in _complete linkage_ the distance between two clusters is defined as the maximum distance between any two of their instances. 
 The pair of clusters minimizing this maximum distance are selected for merging. 
@@ -196,10 +196,10 @@ representativeness(R_{\zeta},R)=1-
 
 ## Experimental Setup {#sdclu-experiments}
 
-**Datasets.** 
+`r start_paragraph("Datasets.")` 
 To evaluate our method, we used data from the SHIP study. 
-For a description of SHIP, see Section&nbsp;\@ref(ship). 
-We considered hepatic steatosis (see section&nbsp;\@ref(imm-target)) and goiter as target variables. 
+For a description of SHIP, see Section&nbsp;\@ref(background-data-ship). 
+We considered hepatic steatosis (see section&nbsp;\@ref(imm-workflow-target)) and goiter as target variables. 
 For the sample `HepStea`, we derived a binary outcome variable by discretizing the liver fat concentration obtained from the MRI report so that study participants with a concentration no greater than 10% were assigned to the negative class and values greater than 10% were assigned to the positive class indicating the presence of the disease. 
 Of 886 participants for whom the MRI report from SHIP-2 was available at that time, 694 (78.3%) were negative and 192 (21.7%) were positive. 
 We considered 99 variables selected exclusively from SHIP-0 to assess their long-term effects as expressed 10 years later in SHIP-2. 
@@ -208,8 +208,8 @@ The presence of goiter was defined for a thyroid volume greater than 18ml in wom
 Of the 4400 participants for whom the outcome variable is available in TREND-0, 3010 belong to the negative class (68.4%) and 1390 (31.6%) to the positive class.
 Apart from the target variable, we use a total of 182 variables that were pre-selected by a medical expert as potential risk factors. 
 
-**SD algorithms.**
-For subgroup discovery, the two algorithms HotSpot&nbsp;[@Hall:Weka09] (cf. section&nbsp;\@ref(hotspot) and SD-Map&nbsp;[@Atzmueller:SD-Map:06] are used. 
+`r start_paragraph("SD algorithms.")`
+For subgroup discovery, the two algorithms HotSpot&nbsp;[@Hall:Weka09] (cf. Section&nbsp;\@ref(imm-workflow-hotspot) and SD-Map&nbsp;[@Atzmueller:SD-Map:06] are used. 
 SD-Map is an exhaustive algorithm that adapts the popular FP-Growth association rule learning method&nbsp;[@Han:FPGrowth00]. 
 Rules that fall below a minimum coverage threshold are pruned. 
 A deep-first search is performed for candidate generation. 
@@ -256,7 +256,7 @@ knitr::kable(
   # kableExtra::row_spec(0, bold = TRUE)
 ```
 
-The optimal cardinality of $|\zeta_{opt}$ shown in Figure&nbsp;\@ref(fig:04-silh-comparison) could be used as a suggestion, but the expert is free to specify the number of rules they wishes to obtain. 
+The optimal cardinality of $|\zeta_{opt}|$ shown in Figure&nbsp;\@ref(fig:04-silh-comparison) could be used as a suggestion, but the expert is free to specify the number of rules they wishes to obtain. 
 For example, if the expert considers $|\zeta_{opt}|$ = 100 too large for HotSpot on `HepStea`, the diagram would show them that a reduction to $|\zeta_{opt}|$ = 58 is possible, reducing $Silh$ only slightly from 0.48 to 0.37. 
 Also in the other direction: if $|\zeta_{opt}|$ is rather low, the diagram shows that a small increase does not change $Silh$ much; therefore, the added rules may also be important. 
 The expert could even analyze the diagram to derive a range instead of a single value, e.g., the range where $Silh$ is above 90% of its maximum. 
@@ -267,7 +267,7 @@ The plots are arranged by rule selection method (rows) and number of representat
 Each graph shows the $adjCovRate$ (y-axis) of instances (x-axis) with respect to $R$ (solid black curve). 
 The instances are sorted by the number of rules in $R$ they are covered by, with their respective $covRate$ shown as dots. 
 The dotted curve represents a locally weighted scatterplot smoothing (LOWESS) of the points. 
-Ideally, both curves are close to each other, meaning that the instances are covered by approximately the same proportion of rules in the cluster proy as the proportion of rules in general. 
+Ideally, both curves are close to each other, meaning that the instances are covered by approximately the same proportion of rules in the cluster proxy as the proportion of rules in general. 
 
 
 (ref:04-representativeness-hepStea-hotSpot) **Evaluation of $representativeness$ on `HepStea` using the HotSpot algorithm.** $representativeness$ of SD-Clu and three baseline approaches for different numbers of clusters $k$ on the `HepStea` sample using HotSpot. Points depict an instance's $adjCovRate$ with respect to the set of representative rules of the approach (row) and $k$ (column). Instances are sorted by $covRate$ with respect to $R$ , i.e., the set of all rules) in descending order, shown by a solid black curve. A dotted curve depicts a LOWESS regression fit on the points. The similarity between solid and dotted curve illustrates $representativeness$ of the top-$k$ rules of the respective approach. This is illustrated by the dark gray area in-between solid curve and dotted curve where smaller areas are better and reflect higher $representativeness$ values. 
@@ -294,7 +294,7 @@ The fifth hotspot rule describes a subpopulation with elevated levels of liver h
 Lizardi-Cervera et al.&nbsp;[@lizardi2007association] reported increased levels of ultra-sensitive CRP in subjects with hepatic steatosis independent of other metabolic states. 
 Similarly, Keenan et al.&nbsp;[@keenan2012relation] found elevated uric acid levels in patients with hepatic steatosis independent of metabolic syndrome. 
 
-(ref:04-findings-hep-stea) **Representative rules (`HepStea`).** Proxy rules for $k$=5 on the `HepStea` sample learned and the positive outcome as target. 
+(ref:04-findings-hep-stea) **Representative rules (`HepStea`).** Proxy rules for $k$ = 5 on the `HepStea` sample learned and the positive outcome as target. 
 
 ```{r 04-findings-hep-stea, echo=FALSE}
 `%>%` <- dplyr::`%>%`

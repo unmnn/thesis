@@ -29,13 +29,22 @@ always_allow_html: true
 
 `r if(knitr:::is_latex_output()) '\\begin{comment}'`
 
-# Preface {.unnumbered}
+# Welcome! {.unnumbered}
 
-`r rmarkdown::metadata$description`
+<!-- &#x1F393; -->
+<!-- `r rmarkdown::metadata$description` -->
 
-Use the navigation bar at the top to download the complete manuscript as PDF or Word document.
+I'm Uli and this is an HTML preview of my thesis entitled _"Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data"_. 
 
-```{r 00_navigation-download, echo=FALSE, out.width="50%", include=knitr::is_html_output(), out.extra='style="background-color: #000000; padding:1px;"'}
+I will hopefully submit the final manuscript on March 25, 2021.
+
+The current writing progress per chapter is shown below. 
+
+You can download the [PDF version](https://github.com/unmnn/thesis/blob/master/_book/thesis.pdf) from the GitHub repository.
+
+<!-- Use the navigation bar at the top to download the complete manuscript as PDF or Word document. -->
+
+```{r 00_navigation-download, eval = FALSE, echo=FALSE, out.width="50%", include=knitr::is_html_output(), out.extra='style="background-color: #000000; padding:1px;"'}
 knitr::include_graphics("images/00_navigation-download.png")
 ```
 
@@ -48,35 +57,35 @@ knitr::include_graphics("images/00_navigation-download.png")
 <!-- [Google Doc](https://docs.google.com/document/d/1dElyZIQOyGReac6V_NEfME0YL9mac7SSeLlnOKgIJOE/edit?usp=sharing) -->
 
 
-## Outline / List of Chapters {.unnumbered}
+## Chapter Progress {.unnumbered}
 
 1 &#128994; Introduction\
-2 &#x1F535; Medical Background\
+2 &#128994; Medical Background\
 
 PART I SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA
 
-3 &#x1F535; Interactive Discovery and Inspection of Subpopulations\
+3 &#128994; Interactive Discovery and Inspection of Subpopulations\
 4 &#128994; Identification of Distinct Subpopulations\
 5 &#128994; Visual Identification of Informative Features\
 
 PART II EXPLOITING DYNAMICS
 
-6 &#x1F535; Extraction of Evolution Features for Cohort Data\
-7 &#x1F534; Extraction of Features From Short Temporal Sequences\
+6 &#128994; Extraction of Evolution Features for Cohort Data\
+7 &#x1F534; Extraction of Features From Short Temporal Sequences (_to be written until 14.02_)\
 
 PART III POST-MINING FOR INTERPRETATION
 
-8 &#128994; Post-hoc Interpretation of Classification Models\
-9 &#x1F534; Subpopulation-specific Learning and Post-hoc Model Interpretation\
+8 &#128994; Post-Hoc Interpretation of Classification Models\
+9 &#x1F534; Subpopulation-Specific Learning and Post-Hoc Model Interpretation (_to be written until 07.02_)\
 
 PART IV SUMMARY
 
-10 &#x1F534; Conclusion and Future Work\
+10 &#x1F534; Conclusion and Future Work (_to be written until 21.02_)\
 
 Legend:  
-&#x1F3C1;&#x1F3C1; = submission ready  
+&#x1F3C1;&#x1F3C1; = submission-ready  
 &#x1F3C1; = feedback from reviewers incorporated  
-&#128994; = draft is ready  
+&#128994; = (preliminary) draft is ready  
 &#x1F535; = maturing  
 &#x1F534; = unwritten
 

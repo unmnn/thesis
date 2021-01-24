@@ -33,10 +33,10 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="active" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
-<li class="book-part">SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA</li>
+<li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
@@ -50,7 +50,6 @@
 <li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="abbreviations.html">Abbreviations</a></li>
 <li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
 </ul>
 
@@ -167,13 +166,12 @@ Our task is to extract, process and display the most relevant (temporal) pattern
 <p>This thesis presents solutions to support medical researchers in the data-driven analysis of high-dimensional, temporal medical data.
 Design decisions and developments were partly inspired by suggestions from the respective domain experts and cooperation partners, including a specialist for internal medicine, an epidemiologist with statistical expertise, a diabetes expert and three tinnitus specialists.
 The thesis is organized into three parts and ten chapters tackling the aforementioned research question and challenges.
-PART I covers methods for discovering subpopulations in high-dimensional data.
-PART II focuses specifically on temporal aspects of medical datasets and provides approaches that extract informative representations from latent temporal data.
-PART III addresses post-hoc analysis of machine learning models and includes solutions to derive model-, observation-, and subpopulation-level insights from otherwise “opaque” black boxes.</p>
+Part I covers methods for discovering subpopulations in high-dimensional data.
+Part II focuses specifically on temporal aspects of medical datasets and provides approaches that extract informative representations from latent temporal data.
+Part II addresses post-hoc analysis of machine learning models and includes solutions to derive model-, observation-, and subpopulation-level insights from otherwise “opaque” black boxes.</p>
 <ul>
 <li>Chapter <a href="background.html#background">2</a> (<em>Medical Background</em>) presents relevant medical background information, a brief comparison of medical study types and an overview of the case studies our solutions are tailored to.</li>
-<li>Chapter <a href="imm.html#imm">3</a> (<em>Interactive Discovery and Inspection of Subpopulations</em>) presents a workflow for the <strong>TODO</strong>
-</li>
+<li>Chapter <a href="imm.html#imm">3</a> (<em>Interactive Discovery and Inspection of Subpopulations</em>) presents a workflow for interactive data-driven analysis of population-based cohort data using hepatic steatosis as an example. Our mining workflow includes steps (i) to identify subpopulations that have different distributions with respect to the target variable, (ii) to classify each subpopulation taking class imbalance into account, and (iii) to identify variables associated with the outcome. We show that our workflow is suited (a) to identify subpopulations before classification to reduce class imbalance, and (b) to drill-down on the derived models to identify important variables and subpopulations worthy of further investigation.</li>
 <li>Chapter <a href="sdclu.html#sdclu">4</a> (<em>Identifying Distinct Subpopulations</em>) examines redundancy in large rule sets describing subpopulations. We present a workflow that extracts a smaller number of representative rules. These rules are selected to avoid instance overlap as much as possible, thus covering different concepts in the data space. We evaluate our workflow on two samples of the longitudinal cohort study for each of two target variables, respectively.</li>
 <li>Chapter <a href="phenotypes.html#phenotypes">5</a> (<em>Visual Identification of Informative Features</em>) describes our approach to identify distinct tinnitus phenotypes with parameter-free clustering, and presents novel visualizations to juxtapose phenotypes in a high-dimensional feature space and to explore phenotype-specific characteristics.</li>
 <li>Chapter <a href="evo.html#evo">6</a> (<em>Constructing Evolution Features to Capture Study Participant Change over Time</em>) present a framework for cohort analysis in longitudinal cohort studies which constructs “evolution features” from latent temporal information describing the change of cohort participants over time. We show that exploiting these novel features improves the generalization performance of classification models and report on results for the longitudinal cohort study.</li>
@@ -185,11 +183,11 @@ We report our results on three applications: (i) tinnitus-related distress in ti
 <li>Chapter <a href="gender.html#gender">9</a> (<em>Subpopulation-Specific Learning and Post-Hoc Model Interpretation</em>) describes an approach that examines how subpopulations differ with respect to their most predictive characteristics in temporal data. To do so, we derive a post-hoc interpretation measure to assess the difference in association of predictors between two subpopulations. We report results for CHA on gender differences (subpopulations of female and male patients) for the two outcomes of tinnitus-related distress and depression, and the effect of treatment for both outcomes.</li>
 <li>Chapter <a href="summary.html#summary">10</a> (<em>Conclusion and Future Work</em>) concludes the thesis by giving a summary of the contributions and detailed perspectives for the presented work.</li>
 </ul>
-<!-- - a workflow and interactive application for data preparation, mining, and inspection of patterns for epidemiological data [@Niemann:ESWA2014; @Niemann:IMM2014], --><!-- - a feature engineering framework for modeling and exploitation of the cohort participant evolution over time to improve classification quality  [@Niemann:CBMS2015; @Niemann:SciRep2020], --><!-- - a mechanism for feature extraction from raw multi-variate time-series to identify relevant subgroups in patients and healthy controls and [@Niemann:CBMS2016; @Niemann:PONE2016], --><!-- - a clustering-based algorithm that hierarchically reorganizes classification rule sets and summarizes all important concepts wihle maintaining diversity between the rule clusters to reduce pattern redundancy [@Niemann:CBMS2017], --><!-- - a pipeline for feature extraction, classification with post-mining functionalities such as feature ranking and inspection [@Niemann:CBMS2018], and --><!-- - results that confirm findings from medical literature or results that can be validated in independent studies. --><!-- Article | **RQ1** | **RQ2** | **RQ3** | Datasets --><!-- :-- | :--: | :--: | :--: | :-- --><!-- [@Niemann:ESWA2014] | $\checkmark$ |  |  $\checkmark$ | SHIP --><!-- [@Niemann:IMM2014] | $\checkmark$ |  | $\checkmark$  | SHIP --><!-- [@NiemannEtAl:FCDS2014] | $\checkmark$ |  |   | SHIP --><!-- [@Niemann:CBMS2015] | $\checkmark$ | $\checkmark$ |   | SHIP --><!-- [@Niemann:CBMS2016] | $\checkmark$ | $\checkmark$ |   | DFD --><!-- [@Niemann:PONE2016] | $\checkmark$ | $\checkmark$ |   | DFD --><!-- [@Niemann:CBMS2017] | $\checkmark$ |  |   | SHIP --><!-- [@Niemann:CBMS2018] | $\checkmark$ |  |   | IAD --><!-- [@Niemann:EBioMedicine2020] | $\checkmark$ |  | $\checkmark$ | DFD --><!-- [@Niemann:SREP2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:PONE2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:Frontiers2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:SREP_Pheno2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:SciRep2020] | $\checkmark$ | $\checkmark$ |   | SHIP, MONICA --><!-- Table: (\#tab:mapping) Mapping of published and planned articles to research questions.  --><!-- !!! always say which paper a section is based on-->
+<!-- - a workflow and interactive application for data preparation, mining, and inspection of patterns for epidemiological data [@Niemann:ESWA2014; @Niemann:IMM2014], --><!-- - a feature engineering framework for modeling and exploitation of the cohort participant evolution over time to improve classification quality  [@Niemann:CBMS2015; @Niemann:SciRep2020], --><!-- - a mechanism for feature extraction from raw multi-variate time-series to identify relevant subgroups in patients and healthy controls and [@Niemann:CBMS2016; @Niemann:PONE2016], --><!-- - a clustering-based algorithm that hierarchically reorganizes classification rule sets and summarizes all important concepts wihle maintaining diversity between the rule clusters to reduce pattern redundancy [@Niemann:CBMS2017], --><!-- - a pipeline for feature extraction, classification with post-mining functionalities such as feature ranking and inspection [@Niemann:CBMS2018], and --><!-- - results that confirm findings from medical literature or results that can be validated in independent studies. --><!-- Article | **RQ1** | **RQ2** | **RQ3** | Datasets --><!-- :-- | :--: | :--: | :--: | :-- --><!-- [@Niemann:ESWA2014] | $\checkmark$ |  |  $\checkmark$ | SHIP --><!-- [@Niemann:IMM2014] | $\checkmark$ |  | $\checkmark$  | SHIP --><!-- [@NiemannEtAl:FCDS2014] | $\checkmark$ |  |   | SHIP --><!-- [@Niemann:CBMS2015] | $\checkmark$ | $\checkmark$ |   | SHIP --><!-- [@Niemann:CBMS2016] | $\checkmark$ | $\checkmark$ |   | DFD --><!-- [@Niemann:PONE2016] | $\checkmark$ | $\checkmark$ |   | DFD --><!-- [@Niemann:CBMS2017] | $\checkmark$ |  |   | SHIP --><!-- [@Niemann:CBMS2018] | $\checkmark$ |  |   | IAD --><!-- [@Niemann:EBioMedicine2020] | $\checkmark$ |  | $\checkmark$ | DFD --><!-- [@Niemann:SREP2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:PONE2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:Frontiers2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:SREP_Pheno2020] | $\checkmark$ |  | $\checkmark$ | CHA --><!-- [@Niemann:SciRep2020] | $\checkmark$ | $\checkmark$ |   | SHIP, MONICA --><!-- Table: (\#tab:mapping) Mapping of published and planned articles to research questions.  -->
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="index.html">Preface</a></div>
+<div class="prev"><a href="index.html">Welcome!</a></div>
 <div class="next"><a href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
@@ -213,7 +211,7 @@ We report our results on three applications: (i) tinnitus-related distress in ti
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 18.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

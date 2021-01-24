@@ -29,3 +29,8 @@ In YAML:
 header-includes:
   - \usepackage{pifont}
 ```
+
+
+
+
+- \*\*(.+?)\*\* -> `r start_paragraph("\1")`

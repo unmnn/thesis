@@ -84,14 +84,14 @@ Examples of model internals are the coefficients of a linear model or weight vec
 Individual observations can describe representatives (or prototypes) of observation subgroups for which the model provides consistent predictions for all subgroup members. 
 Individual observations can also be used to provide counterfactual explanations, e.g., to determine the minimum change that will cause the model to predict a different class for a particular observation of interest.
 
-**Partial dependence plots.** Visualizations of feature summaries typically depict trends in the relationship between a subset of features and the predicted response, often in the form of curves or surface plots.
+`r start_paragraph("Partial dependence plots.")` Visualizations of feature summaries typically depict trends in the relationship between a subset of features and the predicted response, often in the form of curves or surface plots.
 The _partial dependence plot_&nbsp;[@Friedman:PDP2001] (PDP) is a widely used tool for visually depicting the marginal effect of one or more predictors on the predicted response of a model.
 As an example, the PDP in Figure \@ref(fig:09-pd-intro)&nbsp;(a) shows a roughly S-shaped relationship between the values of the predictor and the values of the response estimated by the model. 
 <!-- example: drug effectiveness -->
 
 (ref:09-pd-intro) **Illustrations of a partial dependence plot (PDP) and an individual conditional expectation (ICE) plot on artificial data.** (a) PDP for a predictor on an artificial dataset. Points represent a sample of the predictor distribution. (b) PDP augmented with ICE curves. There are 2 distinct subsets of observations for which the PD is different in the upper half of the predictor distribution.
 
-```{r 09-pd-intro, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"50%"}else{"100%"}, fig.cap="(ref:09-pd-intro)"}
+```{r 09-pd-intro, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"64%"}else{"100%"}, fig.cap="(ref:09-pd-intro)"}
 knitr::include_graphics("figures/09-pd-intro.png")
 ```
 
@@ -121,7 +121,7 @@ As a remedy, Goldstein et al.&nbsp;[@Goldstein:ICE2015] proposed _individual con
 Figure \@ref(fig:09-pd-intro)&nbsp;(b) illustrates an example where there are a small number of observations (black curves) that differ from the rest because their PD is constant for the second half of the predictor distribution.
 <!-- In case of large datasets, sampling can help to solve the problem of overplotting. -->
 
-**LIME.** Another criterion for distinguishing model interpretation methods is whether their explanations are _global_ or _local_, i.e., whether the explanations apply to all observations or only to one or a small number of selected observations.
+`r start_paragraph("LIME.")` Another criterion for distinguishing model interpretation methods is whether their explanations are _global_ or _local_, i.e., whether the explanations apply to all observations or only to one or a small number of selected observations.
 _Local Interpretable Model-Agnostic Explanations_&nbsp;[@RibeiroEtAl:KDD2016] (LIME) is a popular local post-hoc interpretation method.
 The main assumption of LIME is that a complex model is linear on a local scale&nbsp;[@RibeiroEtAl:KDD2016].
 Thus, to explain the predictions of a black-box model for a particular observation of interest $i$, LIME generates a surrogate model that is intrinsically interpretable and whose predictions are similar to the predictions of the black-box model in the _proximity_ of $i$.
@@ -151,7 +151,7 @@ In contrast, model-agnostic methods are decoupled from the actual learning proce
 Since they only consider the output of the models, i.e., the predictions, most model-agnostic methods are also post-hoc.
 For example, LIME is a representative of a model-agnostic, post-hoc interpretability method.
 
-**SHAP.** Closely related to LIME is the _Shapley Additive Explanations_&nbsp;[@Lundberg:SHAP2017] (SHAP) framework, which derives additive feature attributions to the predictions of a model.
+`r start_paragraph("SHAP.")` Closely related to LIME is the _Shapley Additive Explanations_&nbsp;[@Lundberg:SHAP2017] (SHAP) framework, which derives additive feature attributions to the predictions of a model.
 SHAP is based on _Shapley values_&nbsp;[@lipovetsky2001analysis; @vstrumbelj2014explaining; @shapley1953value], originally developed for game theory.
 The term "additive" denotes that for a given observation, the model output should be equal to the sum of the attributions of each feature.
 More specifically, for observation $x$, the model output $\zeta(x)$ is
@@ -203,7 +203,7 @@ Several approaches have been proposed to reduce the complexity of Shapley value 
 
 <!-- TODO: BESSERE ÜBERLEITUNGs -->
 
-**Feature Selection.**
+`r start_paragraph("Feature Selection.")`
 In the context of predictive modeling, feature selection (FS) methods generally aim to reduce the number of predictor features to either (a) maximize model performance or (b) affect model performance as little as possible. 
 Some modeling families are sensitive to predictors that are irrelevant to the target feature, such as support vector machines&nbsp;[@Boser:SVM1992] and neural networks&nbsp;[@nnet; @Goodfellow:DL2016].
 Others, such as linear and logistic regression models, are susceptible to correlated predictors.
@@ -232,7 +232,7 @@ In this section, we describe the components of our mining workflow (Figure&nbsp;
 We apply the workflow on three classification tasks: prediction of (i) tinnitus-related distress and (ii) depression after treatment in tinnitus patients, as well as (iii) rupture status classification in intracranial aneurysms. 
 We refer to these tasks as CHA-Tinnitus, CHA-Depression and AneurD, hereafter.
 
-**TODO: COMPLETE**
+<!-- **TODO: COMPLETE** -->
 
 (ref:09-iml-workflow-cropped) **The mining workflow.** 
 
@@ -248,12 +248,12 @@ knitr::include_graphics("figures/09-iml-workflow-cropped.png")
 
 For AneurD, it was necessary to extract the morphological features first. 
 
-**Segmentation and neck curve extraction.** 
+`r start_paragraph("Segmentation and neck curve extraction.")` 
 Aneurysms and vessels were segmented using a threshold-based approach&nbsp;[@Glasser2015] from digital subtraction data reconstructed from 3D rotational angiography images.
 Subsequently, the centerline of the vessel was extracted using the Vascular Modeling Toolkit (VMTK, vmtk.org)&nbsp;[@Antiga2008].
 Subsequently, the plane separating the aneurysm from its parent vessel was determined using the automatic ostium detection of Saalfeld et al.&nbsp;[@Saalfeld2018].
 
-**Morphological feature extraction.** 
+`r start_paragraph("Morphological feature extraction.")` 
 For each 3D surface mesh, we obtained the neck curve, the dome point $D$, and the two base points $B_1$ and $B_2$.
 As described in&nbsp;[@Saalfeld2018], $B_1$ and $B_2$ were approximated as points on the centerline with largest distance where the rays from $B_1$ and $B_2$ to $D$ do not intersect the surface mesh.
 Figure&nbsp;\@ref(fig:09-morph-parameters) illustrates the extracted parameters, where $H_{max}$, $W_{max}$, $H_{ortho}$, $W_{ortho}$, and $D_{max}$ (see Figure&nbsp;(a)) describe the aneurysm shape&nbsp;[@Dhar2008; @LauricEtAl:Neurosurgery2012].
@@ -449,7 +449,7 @@ As random feature permutation introduces some statistical variability, we comput
 
 ### Post-Hoc Interpretation
 
-**SHAP.** To facilitate model interpretation, the model-agnostic post-hoc framework SHAP&nbsp;[@Lundberg:SHAP2017; @Lundberg:TreeSHAP2019] was used to assess feature importance for the CHA data.
+`r start_paragraph("SHAP.")` To facilitate model interpretation, the model-agnostic post-hoc framework SHAP&nbsp;[@Lundberg:SHAP2017; @Lundberg:TreeSHAP2019] was used to assess feature importance for the CHA data.
 Briefly, the SHAP value $\phi_f(\zeta,x)$ expresses the estimated importance of a feature $f$ to the prediction of model $\zeta$ for an instance $x$ as change in the expected value of the prediction if for $f$ the feature vector of $x$ is observed instead of being random.
 The SHAP framework composes the model prediction as sum of SHAP values of each feature, i.e.,  $\zeta(x)=\phi_0(\zeta,x)+\sum_{i=1}^M \phi_i(\zeta,x)$, where $\phi_0(\zeta,x)$ is the expected value of the model (bias) and $M$ is the number of features.
 
@@ -458,7 +458,7 @@ A ranking of T0 feature attribution towards $\zeta_{opt}$ was determined by calc
 where $A(j)$ is the attribution of the $j$-th feature.
 The $N\times M$ SHAP matrix was clustered with agglomerative hierarchical clustering to identify subgroups of patients with similar SHAP values.
 
-**PDP feature importance.** We derive a _global_ feature importance from the PD of a predictor.
+`r start_paragraph("PDP feature importance.")` We derive a _global_ feature importance from the PD of a predictor.
 Our assumption is that predictors with high PD variability are more important.
 For example, consider the two PD curves in Figure \@ref(fig:09-pd-intro)&nbsp;(c): the predicted response changes considerably with different predictor values for blue PD curve whereas the green PD curve is basically a flat line.
 Therefore, the predictor with the blue PD curve should have a higher importance score than the predictor with the green PD curve.
@@ -474,7 +474,7 @@ where $k$ is the number of (sampled) values from the distribution of $f$.
 
 (ref:09-pd-intro-2) **Illustration of partial dependence importance.** Partial dependence importance \(I_f\) for 2 toy PD curves.
 
-```{r 09-pd-intro-2, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"50%"}else{"100%"}, fig.cap="(ref:09-pd-intro-2)"}
+```{r 09-pd-intro-2, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"64%"}else{"100%"}, fig.cap="(ref:09-pd-intro-2)"}
 knitr::include_graphics("figures/09-pd-intro-2.png")
 ```
 
@@ -499,7 +499,7 @@ AneurD (Section&nbsp;\@ref(iml-results-aneur)).
 
 ### Results for CHA-Tinnitus {#iml-results-tinnitus}
 
-**Correlational analysis.** Figure \@ref(fig:09-cor)&nbsp;(a) shows all pairwise correlations among the predictors in T0.
+`r start_paragraph("Correlational analysis.")` Figure \@ref(fig:09-cor)&nbsp;(a) shows all pairwise correlations among the predictors in T0.
 We identified two major subgroups with moderate to high intra-group correlations and low or negative inter-group correlations.
 The larger group (cf. upper black square in Figure \@ref(fig:09-cor)&nbsp;(a)) comprises 114 predictors (ca. 55.6%) representing negatively worded items and scores where higher values represent a higher disease burden, e.g. the ADSL\_depression and BI\_overallcomplaints.
 Consequently, the smaller group (cf. lower black square in Figure \@ref(fig:09-cor)&nbsp;(a)) contains 47 predictors (ca. 22.9%) with positive wording, e.g. the SF8 mental health score (SF8\_mental) and the BSF elevated mood score (BSF\_mood).
@@ -523,7 +523,7 @@ Correlation before treatment is larger for each of these predictors.
 knitr::include_graphics("figures/09-cor.png")
 ```
 
-**Predictive performance of classification models.** The performances of all 11 classifiers across each feature elimination iterations are shown in Figure&nbsp;\@ref(fig:09-results-pone).
+`r start_paragraph("Predictive performance of classification models.")` The performances of all 11 classifiers across each feature elimination iterations are shown in Figure&nbsp;\@ref(fig:09-results-pone).
 The gradient boosted trees model (GBT) yields highest AUC (iteration i = 7, AUC = 0.890 $\pm$ 0.04; mean$\pm$SD), using only 26 predictors (ca. 13%).
 <!-- % (cf.~\nameref{appendix:features-best}).  -->
 The RIDGE classifier achievs second-best performance (i=2, AUC: 0.876 $\pm$ 0.05), relying on 127 features, followed by the random forest model (i=3, AUC: 0.872 $\pm$ 0.05) using 77 features.
@@ -543,7 +543,7 @@ In fact, with the exception of WKNN, all classification methods benefit from fea
 For GBT, the gain in AUC from 185 features to 26 features (i = 11) is 0.01.
 This model achieves both maximum AUC and a good trade-off between high predictive performance and low model complexity, and we thus decided to further investigate this model.
 
-**Feature importance.** For the best model, the attributions of the 26 selected features are shown in Figure \@ref(fig:09-tq-xgboost)&nbsp;(a).
+`r start_paragraph("Feature importance.")` For the best model, the attributions of the 26 selected features are shown in Figure \@ref(fig:09-tq-xgboost)&nbsp;(a).
 Among the 26 features are 6 scores, 12 single items, 4 demographic features (number of visited doctors, university-level education, lower secondary education, tinnitus duration) and 4 features measuring the average time spent completing an item.
 The TINSKAL tinnitus impairment score (TINSKAL\_impairment) represents the predictor with highest model attribution as it exhibits the highest average absolute SHAP value (change in log odds) of 0.448.
 The ADSL depressivity score (ADSL\_depression) and a single question from ADSL (ADSL\_adsl11: _"During the past week my sleep was restless."_) are ranked second and third most important, respectively.
@@ -567,7 +567,9 @@ Besides TINSKAL\_impairment, the features ADSL\_depression, TINSKAL\_loudness, B
 knitr::include_graphics("figures/09-tq-xgboost.png")
 ```
 
-(ref:09-tq-xgboost-shap-per-feature) **SHAP feature dependence.** The relationship between the actual values of a predictor (x-axis) and corresponding SHAP values (y-axis) is shown as points representing a patient and as locally weighted scatterplot smoothing (LOWESS) curves indicating the overall trend. Predictors are ordered by mean absolute SHAP value (see Figure\@ref(fig:09-tq-xgboost)&nbsp;(a)). Gray histograms and bar charts depict the distributions of the predictors.
+(ref:09-tq-xgboost-shap-per-feature) **SHAP feature dependence.** The relationship between the actual values of a predictor (x-axis) and corresponding SHAP values (y-axis) is shown as points representing a patient and as locally weighted scatterplot smoothing (LOWESS) curves indicating the overall trend. Predictors are ordered by mean absolute SHAP value (see Figure&nbsp;\@ref(fig:09-tq-xgboost)&nbsp;(a)). Gray histograms and bar charts depict the distributions of the predictors.
+
+<!-- todo: ncol = 4 statt 5 -->
 
 ```{r 09-tq-xgboost-shap-per-feature, echo=FALSE, fig.align='center', out.width="100%", fig.cap="(ref:09-tq-xgboost-shap-per-feature)"}
 knitr::include_graphics("figures/09-tq-xgboost-shap-per-feature.png")
@@ -595,7 +597,7 @@ With respect to average patient-sum of SHAP values, cluster 3 lies in between cl
 
 ### Results for CHA-Depression {#iml-results-depression}
 
-**Predictive performance of classification models.**
+`r start_paragraph("Predictive performance of classification models.")`
 Figure&nbsp;\@ref(fig:09-results-srep) depicts the performance of all classification methods across iterations.
 The LASSO classifier achieved maximum AUC over all classification algorithms (iteration i = 1, AUC = 0.867 $\pm$ 0.037; mean $\pm$ SD), followed by Ridge (i = 1, AUC = 0.864 $\pm$ 0.040) and GBT (i = 1, AUC = 0.862 $\pm$ 0.038).
 When considering only the best model per classifier, the models are similar in performance, ranging in AUC from 0.809 (C5.0) to 0.867 (LASSO).
@@ -614,13 +616,13 @@ Further, the model used 5 predictors from the socio-demographics questionnaire (
 
 (ref:09-lasso-depression) **Coefficients of LASSO model.** Cross-validation (CV) median (points) $\pm$ median absolute deviation (line ranges) of coefficients for the best LASSO model (i = 1). The frequency of non-zero coefficients in 10-fold CV is given in parentheses right to the predictor name. From 185 features in total, 40 features exhibit a non-zero model coefficient for at least one CV fold.
 
-```{r 09-lasso-depression, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"50%"}else{"100%"}, fig.cap="(ref:09-lasso-depression)"}
+```{r 09-lasso-depression, echo=FALSE, fig.align='center', out.width=if(knitr::is_latex_output()){"64.3%"}else{"100%"}, fig.cap="(ref:09-lasso-depression)"}
 knitr::include_graphics("figures/09-lasso-depression.png")
 ```
 
 Table&nbsp;\@ref(tab:09-lasso-depression-tab) provides a description for each of the predictors from Figure&nbsp;\@ref(fig:09-lasso-depression).
 
-**Effect of feature elimination of classification performance.** All classifiers but SVM show high stability in performance on smaller feature subsets.
+`r start_paragraph("Effect of feature elimination of classification performance.")` All classifiers but SVM show high stability in performance on smaller feature subsets.
 From Figure&nbsp;\@ref(fig:09-results-srep), we see that for LASSO the difference in AUC when trained on 185 features (i = 1) vs. when trained on 6 features (i = 7) is only -0.017.
 Several classifiers benefited from feature selection in terms of predictive performance.
 For GPLS, NNET, CART, C5.0 and RF, max. AUC is achieved on a feature subset.
@@ -676,7 +678,7 @@ tibble::tribble(
                                                       "TQ_distress",                                                                                                           "Total tinnitus distress score", " 0.001"
                                                 ) %>%
   purrr::set_names(c("Feature", "Description", "Coef.")) %>%
-  kableExtra::kbl(booktabs = TRUE, linesep = "", 
+  kableExtra::kbl(booktabs = TRUE, linesep = "", longtable = TRUE,
                   align = "llr",
                   caption = "(ref:09-lasso-depression-tab)") %>%
   kableExtra::kable_classic() %>%
