@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>A Variables selected for phenotyping | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
+<title>A Overview of Variables Selected for Phenotyping | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</title>
 <meta name="author" content="Uli Niemann">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.5.3/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.2.9002/tabs.js"></script><script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -35,22 +35,22 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
+<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background and Datasets</a></li>
 <li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
 <li class="book-part">EXPLOITING DYNAMICS</li>
-<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Study Participant Change over Time</a></li>
-<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering</a></li>
+<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Change over Time</a></li>
+<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction from Short Temporal Sequences for Clustering</a></li>
 <li class="book-part">POST-MINING FOR INTERPRETATION</li>
 <li><a class="" href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></li>
 <li><a class="" href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
-<li class="book-part">SUMMARY</li>
-<li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
+<li class="book-part">CONCLUSION</li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">10</span> Summary and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="active" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
+<li><a class="active" href="appx-pheno.html"><span class="header-section-number">A</span> Overview of Variables Selected for Phenotyping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -60,78 +60,98 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="appx-pheno" class="section level1" number="11">
 <h1>
-<span class="header-section-number">A</span> Variables selected for phenotyping<a class="anchor" aria-label="anchor" href="#appx-pheno"><i class="fas fa-link"></i></a>
+<span class="header-section-number">A</span> Overview of Variables Selected for Phenotyping<a class="anchor" aria-label="anchor" href="#appx-pheno"><i class="fas fa-link"></i></a>
 </h1>
-<!-- feature names: consist of two parts separated by the first underscore -->
-<!-- ACSA is questionnaire, qualityoflife depicts the actual measurement -->
-<!-- asterisk means reversed -->
-<ul>
-<li>ACSA_qualityoflife*: Quality of life during the last 2 weeks</li>
-<li>ADSL_depression: Depressive disorder sum score</li>
-<li>BI_abdominalsymptoms: Abdominal symptoms score</li>
-<li>BI_fatigue: Fatigue score</li>
-<li>BI_heartsymptoms: Heart symptoms score</li>
-<li>BI_limbpain: Limb pain score</li>
-<li>BI_overallcomplaints: Overall complaints sum score</li>
-<li>BSF_anger: Anger score</li>
-<li>BSF_anxdepression: Anxious depression score</li>
-<li>BSF_apathy: Apathy score</li>
-<li>BSF_elevatedmood*: Elevated mood score</li>
-<li>BSF_fatigue: Fatigue score</li>
-<li>BSF_mindset*: Positive mindset score</li>
-<li>ISR_additionalitems: Additional items score</li>
-<li>ISR_anxiety: Anxiety score</li>
-<li>ISR_compulsivesyn: Obsessive-compulsive syndrome score</li>
-<li>ISR_depression: Depression score</li>
-<li>ISR_eatingdisorder: Eating disorder score</li>
-<li>ISR_somatosyn: Somatoform syndrome score</li>
-<li>ISR_totalpsychiatricsyn: Total psychiatric syndrome score</li>
-<li>PHQK_depression: Presence of depression</li>
-<li>PHQK_panicsyn: Presence of panic syndrome</li>
-<li>PSQ_demand: Demand score</li>
-<li>PSQ_joy*: Joy score</li>
-<li>PSQ_stress: Total perceived stress sum score</li>
-<li>PSQ_tension: Tension score</li>
-<li>PSQ_worries: Worries score</li>
-<li>SES_affectivepain: Affective pain</li>
-<li>SES_sensoricpain: Sensoric pain</li>
-<li>SF8_bodilyhealth*: Bodily health score</li>
-<li>SF8_mentalcomp*: Mental component summary score</li>
-<li>SF8_mentalhealth*: Mental health score</li>
-<li>SF8_overallhealth*: Overall health score</li>
-<li>SF8_physicalcomp*: Physical component summary score</li>
-<li>SF8_physicalfunct*: Physical functioning score</li>
-<li>SF8_roleemotional*: Role emotional score</li>
-<li>SF8_rolephysical*: Role physical score</li>
-<li>SF8_socialfunct*: Social functioning score</li>
-<li>SF8_vitality*: Vitality score</li>
-<li>SSKAL_painfrequency: Visual analog scale pain frequency</li>
-<li>SSKAL_painimpairment: Visual analog scale pain impairment</li>
-<li>SSKAL_painseverity: Visual analog scale pain severity</li>
-<li>SWOP_optimism*: Optimism score</li>
-<li>SWOP_pessimism: Pessimism score</li>
-<li>SWOP_selfefficacy*: Self-efficacy score</li>
-<li>TINSKAL_frequency: Tinnitus frequency</li>
-<li>TINSKAL_impairment: Tinnitus impairment</li>
-<li>TINSKAL_loudness: Tinnitus loudness</li>
-<li>TLQ_01_bothears: Tinnitus location: both ears</li>
-<li>TLQ_01_entirehead: Tinnitus location: entire head</li>
-<li>TLQ_01_leftear: Tinnitus location: left ear</li>
-<li>TLQ_01_rightear: Tinnitus location: right ear</li>
-<li>TLQ_02_hissing: Tinnitus noise: hissing</li>
-<li>TLQ_02_ringing: Tinnitus noise: ringing</li>
-<li>TLQ_02_rustling: Tinnitus noise: rustling</li>
-<li>TLQ_02_whistling: Tinnitus noise: whistling</li>
-<li>TQ_auditoryperceptdiff: Auditory perceptual difficulties score</li>
-<li>TQ_cognitivedistress: Cognitive distress score</li>
-<li>TQ_distress: Total tinnitus distress score</li>
-<li>TQ_emodistress: Emotional distress score</li>
-<li>TQ_intrusiveness: Intrusiveness score</li>
-<li>TQ_psychodistress: Psychological distress score</li>
-<li>TQ_sleepdisturbances: Sleep disturbances score</li>
-<li>TQ_somacomplaints: Somatic complaints score</li>
-</ul>
+<p>For each of the 64 variables selected for phenotyping in Chapter <a href="phenotypes.html#phenotypes">5</a>, phenotype-stratified distributions and a brief description are shown below.
+Half-violin/half-boxplot geometries represent numerical variables;
+bar graphs represent categorical variables.
+The order of the variables is analogous to the clockwise arrangement in Figures <a href="phenotypes.html#fig:05-all-radial-barcharts-export">5.2</a> and <a href="phenotypes.html#fig:05-radar">5.3</a>.
+Variables with an asterisk at the end of their name were reversed to ensure higher scores consistently represent higher health burden across all variables.</p>
+<p>The prefix of a variable’s name denotes the respective questionnaire:
+ACSA: Anamnestic Comparative Self-Assessment <span class="citation"><a href="references.html#ref-Bernheim:ACSA1993" role="doc-biblioref">[55]</a></span>;
+ADSL: General Depression Scale <span class="citation"><a href="references.html#ref-Radloff:adsl1977" role="doc-biblioref">[56]</a>, <a href="references.html#ref-Hautzinger:ADSL2003" role="doc-biblioref">[57]</a></span>;
+BI: Berlin Complaint Inventory <span class="citation"><a href="references.html#ref-Horhold:BI1997" role="doc-biblioref">[58]</a></span>;
+BSF: Berlin Mood Questionnaire <span class="citation"><a href="references.html#ref-Horhold:BSF1993" role="doc-biblioref">[59]</a></span>;
+ISR: ICD-10 Symptom Rating <span class="citation"><a href="references.html#ref-Tritt:ICD2008" role="doc-biblioref">[60]</a></span>;
+PHQK: (Short-form) Patient Health Questionnaire <span class="citation"><a href="references.html#ref-Spitzer:PHQK1999" role="doc-biblioref">[61]</a></span>;
+PSQ: Perceived Stress Questionnaire <span class="citation"><a href="references.html#ref-Fliege:PSQ2005" role="doc-biblioref">[62]</a></span>;
+SES: Pain Perception Scale <span class="citation"><a href="references.html#ref-Geissner:SES1996" role="doc-biblioref">[63]</a></span>;
+SF8: Short Form 8 Health Survey <span class="citation"><a href="references.html#ref-Bullinger:SF2008" role="doc-biblioref">[64]</a></span>;
+SOZK: A socio-demographics questionnaire <span class="citation"><a href="references.html#ref-brueggemann:sozk-reference" role="doc-biblioref">[65]</a></span>;
+SWOP: Self-Efficacy- Optimism-Pessimism Scale questionnaire <span class="citation"><a href="references.html#ref-Scholler:SWOP1999" role="doc-biblioref">[66]</a></span>;
+TINSKAL: Visual analog scales;
+TLQ: Tinnitus Localization and Quality questionnaire <span class="citation"><a href="references.html#ref-Goebel:TLQ1992" role="doc-biblioref">[67]</a></span>;
+TQ: Tinnitus Questionnaire (German version) <span class="citation"><a href="references.html#ref-GoebelHiller:TF1998" role="doc-biblioref">[68]</a></span>.</p>
+<div class="inline-figure"><img src="figures/93-p1.png" width="100%" style="display: block; margin: auto;"></div>
+<div class="inline-figure"><img src="figures/93-p2.png" width="100%" style="display: block; margin: auto;"></div>
+<div class="inline-figure"><img src="figures/93-p3.png" width="100%" style="display: block; margin: auto;"></div>
+<!-- - ACSA\_qualityoflife\*: Quality of life during the last 2 weeks -->
+<!-- - ADSL\_depression: Depressive disorder sum score -->
+<!-- - BI\_abdominalsymptoms: Abdominal symptoms score -->
+<!-- - BI\_fatigue: Fatigue score -->
+<!-- - BI\_heartsymptoms: Heart symptoms score -->
+<!-- - BI\_limbpain: Limb pain score -->
+<!-- - BI\_overallcomplaints: Overall complaints sum score -->
+<!-- - BSF\_anger: Anger score -->
+<!-- - BSF\_anxdepression: Anxious depression score -->
+<!-- - BSF\_apathy: Apathy score -->
+<!-- - BSF\_elevatedmood\*: Elevated mood score -->
+<!-- - BSF\_fatigue: Fatigue score -->
+<!-- - BSF\_mindset\*: Positive mindset score -->
+<!-- - ISR\_additionalitems: Additional items score -->
+<!-- - ISR\_anxiety: Anxiety score -->
+<!-- - ISR\_compulsivesyn: Obsessive-compulsive syndrome score -->
+<!-- - ISR\_depression: Depression score -->
+<!-- - ISR\_eatingdisorder: Eating disorder score -->
+<!-- - ISR\_somatosyn: Somatoform syndrome score -->
+<!-- - ISR\_totalpsychiatricsyn: Total psychiatric syndrome score -->
+<!-- - PHQK\_depression: Presence of depression -->
+<!-- - PHQK\_panicsyn: Presence of panic syndrome -->
+<!-- - PSQ\_demand: Demand score -->
+<!-- - PSQ\_joy\*: Joy score -->
+<!-- - PSQ\_stress: Total perceived stress sum score -->
+<!-- - PSQ\_tension: Tension score -->
+<!-- - PSQ\_worries: Worries score -->
+<!-- - SES\_affectivepain: Affective pain -->
+<!-- - SES\_sensoricpain: Sensoric pain -->
+<!-- - SF8\_bodilyhealth\*: Bodily health score -->
+<!-- - SF8\_mentalcomp\*: Mental component summary score -->
+<!-- - SF8\_mentalhealth\*: Mental health score -->
+<!-- - SF8\_overallhealth\*: Overall health score -->
+<!-- - SF8\_physicalcomp\*: Physical component summary score -->
+<!-- - SF8\_physicalfunct\*: Physical functioning score -->
+<!-- - SF8\_roleemotional\*: Role emotional score -->
+<!-- - SF8\_rolephysical\*: Role physical score -->
+<!-- - SF8\_socialfunct\*: Social functioning score -->
+<!-- - SF8\_vitality\*: Vitality score -->
+<!-- - SSKAL\_painfrequency: Visual analog scale pain frequency -->
+<!-- - SSKAL\_painimpairment: Visual analog scale pain impairment -->
+<!-- - SSKAL\_painseverity: Visual analog scale pain severity -->
+<!-- - SWOP\_optimism\*: Optimism score -->
+<!-- - SWOP\_pessimism: Pessimism score -->
+<!-- - SWOP\_selfefficacy\*: Self-efficacy score -->
+<!-- - TINSKAL\_frequency: Tinnitus frequency -->
+<!-- - TINSKAL\_impairment: Tinnitus impairment -->
+<!-- - TINSKAL\_loudness: Tinnitus loudness -->
+<!-- - TLQ\_01\_bothears: Tinnitus location: both ears -->
+<!-- - TLQ\_01\_entirehead: Tinnitus location: entire head -->
+<!-- - TLQ\_01\_leftear: Tinnitus location: left ear -->
+<!-- - TLQ\_01\_rightear: Tinnitus location: right ear -->
+<!-- - TLQ\_02\_hissing: Tinnitus noise: hissing -->
+<!-- - TLQ\_02\_ringing: Tinnitus noise: ringing -->
+<!-- - TLQ\_02\_rustling: Tinnitus noise: rustling -->
+<!-- - TLQ\_02\_whistling: Tinnitus noise: whistling -->
+<!-- - TQ\_auditoryperceptdiff: Auditory perceptual difficulties score -->
+<!-- - TQ\_cognitivedistress: Cognitive distress score -->
+<!-- - TQ\_distress: Total tinnitus distress score -->
+<!-- - TQ\_emodistress: Emotional distress score -->
+<!-- - TQ\_intrusiveness: Intrusiveness score -->
+<!-- - TQ\_psychodistress: Psychological distress score -->
+<!-- - TQ\_sleepdisturbances: Sleep disturbances score -->
+<!-- - TQ\_somacomplaints: Somatic complaints score -->
+
 </div>
+
 
 
 
@@ -144,7 +164,7 @@
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#appx-pheno"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#appx-pheno"><span class="header-section-number">A</span> Overview of Variables Selected for Phenotyping</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -160,7 +180,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</strong>" was written by Uli Niemann. It was last built on 09.03.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

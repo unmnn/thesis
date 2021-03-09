@@ -1,8 +1,8 @@
 ---
-title: "Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data"
+title: "Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data"
 author: "Uli Niemann"
 date: "`r format(Sys.Date(), '%d.%m.%Y')`"
-description: "This is a preview of the current status of Uli's thesis."
+# description: "This is a preview of the current status of Uli's thesis."
 url: "https://ulis-thesis.netlify.app/"
 github-repo: unmnn/thesis
 site: bookdown::bookdown_site
@@ -31,61 +31,108 @@ always_allow_html: true
 knitr::opts_chunk$set(fig.pos= "htbp")
 ```
 
-
 `r if(knitr:::is_latex_output()) '\\begin{comment}'`
 
 # Welcome! {.unnumbered}
 
-<!-- &#x1F393; -->
-<!-- `r rmarkdown::metadata$description` -->
+This is the HTML version of the PhD thesis titled _"`r rmarkdown::metadata$title`"_, submitted to the Otto von Guericke University Magdeburg by Uli Niemann on March 23, 2021. 
 
-I'm Uli and this is an HTML preview of my thesis entitled _"Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data"_. 
+The submitted [PDF document](https://github.com/unmnn/thesis/blob/master/_book/2021_Niemann_Dissertation_submitted.pdf) can be downloaded from the accompanying GitHub repository.
 
-I will hopefully submit the final manuscript on March 25, 2021.
+`r if(knitr:::is_latex_output()) '\\end{comment}'`
 
-The current writing progress per chapter is shown below. 
+## Abstract {.unnumbered}
 
-You can download the [PDF version](https://github.com/unmnn/thesis/blob/master/_book/thesis.pdf) from the GitHub repository.
+_Subpopulation discovery_ is an essential objective of data analysis in medical research and contributes to the prevention and treatment of adverse medical conditions. 
+Characteristic subpopulations are detected, for example, by identifying long-term determinants of diseases or by revealing patient subgroups with differential responses to treatment. 
 
-<!-- Use the navigation bar at the top to download the complete manuscript as PDF or Word document. -->
+Traditional medical data analysis has been mostly hypothesis-driven. 
+With the increasing volume and heterogeneity of medical data, these workflows are becoming impractical, as important relationships between variables may go undetected. 
+Besides, medical studies often involve measurements that are collected repeatedly over time. 
+Investigating hidden temporal information can potentially lead to new insights.
+While machine learning has the potential of automatically detecting previously unknown subpopulations, the results of complex black-box models must be made understandable. 
+Therefore, the medical expert must be equipped with tools to understand, explore, and visualize the models, breaking down individual patterns to extract actionable insights.
 
-```{r 00_navigation-download, eval = FALSE, echo=FALSE, out.width="50%", include=knitr::is_html_output(), out.extra='style="background-color: #000000; padding:1px;"'}
-knitr::include_graphics("images/00_navigation-download.png")
-```
+This thesis proposes machine learning-based solutions for expert-driven subpopulation discovery in high-dimensional timestamped medical data.
 
-<!-- ## Timeline {.unnumbered} -->
+The first part presents workflows to detect _comprehensible_ and _distinct_ subpopulations described by classification rules and clusters. 
+We present novel visualizations and interactive tools to inspect and juxtapose the high-dimensional subpopulations and compare their change over time.
 
-<!-- <iframe width="600px" max-width="100%" height="300px" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPYVbwFC1moei3kda9ONwnIonZLVXU1rczkQZ-1wS2rfHxdgN5FSfwE-G5sHv33WZUcdnTXuictySO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe> -->
+The second part covers workflows to exploit temporal information.
+We present a framework to extract _evolution features_ that characterize the subpopulations' change over time. 
+Furthermore, we provide a method to build representations from short temporal sequences.
 
-<!-- [Google Spreadsheet](https://docs.google.com/spreadsheets/d/1GYhEgQLxlNm5qJtD7QhNaAR1s7wsV_A-FDOLP6hFAA0/edit?usp=sharing) -->
+The third part addresses the topic of _post-hoc interpretation_ of complex black-box models.
+We propose an end-to-end data analysis workflow that includes steps for data augmentation, modeling, nesting model training with feature elimination, and post-hoc analysis of the trained models. 
+This workflow returns statistics and visualizations representing global feature importance, instance-individual feature importance, and subpopulation-specific feature importance for a machine learning model of any type.
+Besides, we provide a solution for visualizing differences between _two_ a priori defined subpopulations.
 
-<!-- [Google Doc](https://docs.google.com/document/d/1dElyZIQOyGReac6V_NEfME0YL9mac7SSeLlnOKgIJOE/edit?usp=sharing) -->
+The proposed methods are evaluated with datasets from four medical studies: 
 
+- a longitudinal population study,
+- an observational therapy study with data on self-report questionnaire responses from tinnitus patients,
+- a clinical experiment with timestamped plantar pressure and temperature recordings from diabetes patients and healthy volunteers, and 
+- a retrospective clinical study with image data on intracranial aneurysms.
+
+## Zusammenfassung {.unnumbered}
+
+Die _Entdeckung von Subpopulationen_ stellt ein wesentliches Ziel der Datenanalyse in der medizinischen Forschung dar und trägt zur Vorbeugung und Behandlung von Erkrankungen bei. 
+Charakteristische Subpopulationen werden beispielsweise durch die Identifizierung von Langzeitdeterminanten von Krankheiten oder durch die Bestimmung von Patientensubgruppen mit differenziellem Ansprechen auf eine Behandlung entdeckt.
+
+Die traditionelle medizinische Datenanalyse war bisher überwiegend hypothesengetrieben. 
+Mit der zunehmenden Menge und Heterogenität medizinischer Daten werden diese Workflows zunehmend ungeeignet, da wichtige Beziehungen zwischen Variablen unentdeckt bleiben können. 
+Außerdem beinhalten medizinische Studien oft Messungen, die im Laufe der Zeit wiederholt erhoben werden. 
+Das Extrahieren verborgener zeitlicher Informationen kann potenziell zu neuen Erkenntnissen führen. 
+Während maschinelles Lernen das Potenzial hat, bisher unbekannte Subpopulationen automatisch zu erkennen, müssen die Ergebnisse komplexer Black-Box-Modelle verständlich gemacht werden. 
+Dies erfordert, medizinische Expertinnen und Experten mit Werkzeugen auszustatten, die es ihnen ermöglichen, die Modelle zu interpretieren, zu explorieren und zu visualisieren, um individuelle Muster aufzuschlüsseln und daraus handlungsrelevante Erkenntnisse zu gewinnen.
+
+In dieser Arbeit werden auf maschinellem Lernen basierende Lösungen für die expertengesteuerte Entdeckung von Subpopulationen in hochdimensionalen, zeitgestempelten medizinischen Daten vorgeschlagen.
+
+Der erste Teil stellt Workflows vor, um _verständliche_ und _unterscheidbare_ Subpopulationen zu erkennen, die durch Klassifikationsregeln und Cluster beschrieben werden. 
+Wir stellen neuartige Visualisierungen und interaktive Werkzeuge vor, um die hochdimensionalen Subpopulationen zu inspizieren und gegenüberzustellen sowie ihre Veränderung über die Zeit zu vergleichen.
+
+Der zweite Teil befasst sich mit Workflows zur Modellierung zeitlicher Informationen. 
+Wir stellen ein Framework zur Extrahierung von _Evolutionsvariablen_ vor, die die zeitliche Veränderung der Subpopulationen beschreiben. 
+Außerdem wird ein Verfahren zur Erstellung von Repräsentationen aus kurzen zeitlichen Sequenzen vorgestellt.
+
+Der dritte Teil befasst sich mit dem Thema der _Post-hoc-Interpretation_ von komplexen Black-Box-Modellen. 
+Wir stellen einen Ende-zu-Ende-Datenanalyse-Workflow vor, der Schritte zur Datenanreicherung, Modellierung, Verzahnung von Modelltraining mit Variablen-Eliminierung und Post-hoc-Analyse der trainierten Modelle umfasst. 
+Dieser Workflow liefert Kenngrößen und Visualisierungen, die die globale, instanz-individuelle und subpopulationsspezifische Variablenbedeutsamkeit für ein maschinelles Lernmodell jedweden Typs darstellen. 
+Außerdem wird eine Visualisierung von Unterschieden zwischen _zwei_ apriorisch definierten Subpopulationen präsentiert.
+
+Die vorgeschlagenen Methoden werden anhand von Datensätzen aus vier medizinischen Studien evaluiert:
+
+- eine longitudinale Bevölkerungsstudie,
+- eine beobachtende Therapiestudie mit Daten zu Selbstbeurteilungsfragebögen von Tinnitus-Patienten,
+- ein klinisches Experiment mit zeitgestempelten Plantardruck- und Temperaturaufzeichnungen von Diabetes-Patienten und gesunden Probanden, und
+- eine retrospektive klinische Studie mit Bilddaten zu intrakraniellen Aneurysmen.
+
+`r if(knitr:::is_latex_output()) '\\begin{comment}'`
 
 ## Chapter Progress {.unnumbered}
 
-1 &#128994; Introduction\
-2 &#128994; Medical Background\
+1 &#x1F3C1;&#x1F3C1; Introduction\
+2 &#x1F3C1;&#x1F3C1; Medical Background and Datasets\
 
 PART I SUBPOPULATION DISCOVERY IN HIGH-DIMENSIONAL DATA
 
-3 &#128994; Interactive Discovery and Inspection of Subpopulations\
-4 &#128994; Identification of Distinct Subpopulations\
-5 &#128994; Visual Identification of Informative Features\
+3 &#x1F3C1;&#x1F3C1; Interactive Discovery and Inspection of Subpopulations\
+4 &#x1F3C1;&#x1F3C1; Identification of Distinct Subpopulations\
+5 &#x1F3C1;&#x1F3C1; Visual Identification of Informative Features\
 
 PART II EXPLOITING DYNAMICS
 
-6 &#128994; Extraction of Evolution Features for Cohort Data\
-7 &#x1F534; Extraction of Features From Short Temporal Sequences (_to be written until 14.02_)\
+6 &#x1F3C1;&#x1F3C1; Extraction of Evolution Features to Capture Change over Time\
+7 &#x1F3C1;&#x1F3C1; Extraction of Features From Short Temporal Sequences\
 
 PART III POST-MINING FOR INTERPRETATION
 
-8 &#128994; Post-Hoc Interpretation of Classification Models\
-9 &#x1F534; Subpopulation-Specific Learning and Post-Hoc Model Interpretation (_to be written until 07.02_)\
+8 &#x1F3C1;&#x1F3C1; Post-Hoc Interpretation of Classification Models\
+9 &#x1F3C1;&#x1F3C1; Subpopulation-Specific Learning and Post-Hoc Model Interpretation\
 
-PART IV SUMMARY
+PART IV CONCLUSION
 
-10 &#x1F534; Conclusion and Future Work (_to be written until 21.02_)\
+10 &#x1F3C1;&#x1F3C1; Summary and Future Work\
 
 Legend:  
 &#x1F3C1;&#x1F3C1; = submission-ready  
@@ -95,4 +142,3 @@ Legend:
 &#x1F534; = unwritten
 
 `r if(knitr:::is_latex_output()) '\\end{comment}'`
-

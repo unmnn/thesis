@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Summary and Future Work | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</title>
+<meta name="author" content="Uli Niemann">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.2.9002/tabs.js"></script><script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS --><link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome!</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background and Datasets</a></li>
+<li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
+<li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
+<li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
+<li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
+<li class="book-part">EXPLOITING DYNAMICS</li>
+<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Change over Time</a></li>
+<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction from Short Temporal Sequences for Clustering</a></li>
+<li class="book-part">POST-MINING FOR INTERPRETATION</li>
+<li><a class="" href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></li>
+<li><a class="" href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
+<li class="book-part">CONCLUSION</li>
+<li><a class="active" href="conclusion.html"><span class="header-section-number">10</span> Summary and Future Work</a></li>
+<li class="book-part">APPENDIX</li>
+<li><a class="" href="references.html">References</a></li>
+<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Overview of Variables Selected for Phenotyping</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="conclusion" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Summary and Future Work<a class="anchor" aria-label="anchor" href="#conclusion"><i class="fas fa-link"></i></a>
+</h1>
+<p><em>Data-driven</em> machine learning solutions can complement the traditionally <em>hypothesis-driven</em> workflows of medical research by discovering characteristic <em>subpopulations</em> of patients and study participants.
+Knowledge about characteristic subpopulations can be the starting point for further investigation, e.g., identifying (long-term) risk factors, determining differences in treatment response, and building robust statistical models that explain cause-effect relationships for a medical condition of interest.</p>
+<p>This thesis has proposed solutions to assist expert-driven subpopulation discovery in high-dimensional timestamped medical data.
+Section <a href="conclusion.html#conclusion-summary">10.1</a> reviews whether we have addressed our core research question and the three challenges presented in Chapter <a href="intro.html#intro">1</a>.
+Finally, we discuss directions for future work in Section <a href="conclusion.html#conclusion-future-work">10.2</a>.</p>
+<div id="conclusion-summary" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Summary<a class="anchor" aria-label="anchor" href="#conclusion-summary"><i class="fas fa-link"></i></a>
+</h2>
+<p>Our solutions for subpopulation discovery in Part I have tackled the challenge:</p>
+<p><strong>GOAL1:</strong> <em>Comprehensibility and distinctiveness of subpopulations</em></p>
+<p>We have dealt with this challenge by proposing the three workflows presented in Chapters <a href="imm.html#imm">3</a>, <a href="sdclu.html#sdclu">4</a>, and <a href="phenotypes.html#phenotypes">5</a>.</p>
+<p>Chapter <a href="imm.html#imm">3</a> has presented a workflow and an interactive application for subpopulation discovery in cohort data.
+By leveraging classification rules, our workflow enables building self-explaining and concise descriptions of subpopulations with distributions regarding the target variable.
+Our application <em>Interactive Medical Miner</em> allows for interactive expert-driven subpopulation discovery with features to drill-down on the derived models and explore subpopulations worthy of further investigation.
+As a proof of concept, we have validated our workflow on a SHIP dataset, focusing on hepatic steatosis (“fatty liver”) as the target variable.
+We have confirmed variables and value ranges shown to be associated with the target variable, including obesity, age, sex, high serum concentrations of the liver enzyme Gamma-glutamyltransferase (GGT), and genetic markers.</p>
+<p>Chapter <a href="sdclu.html#sdclu">4</a> has extended this workflow by tackling the problem of redundancy in large rule sets, introducing an algorithm that extracts a small number of representative classification rules.
+These so-called <em>proxy rules</em> minimize instance overlap across rule groups, thus covering different subpopulations.
+We have demonstrated that our algorithm delivers <em>more distinct</em> rules compared to the baselines on SHIP data samples with hepatic steatosis and goiter as target variables, respectively.
+Besides the variables found in Chapter <a href="imm.html#imm">3</a>, the conditions of proxy rules involve hypertension and low physical health for hepatic steatosis, and high intima-media thickness and angiotensin II receptor blocker intake for goiter.</p>
+<p>The solutions in Chapters <a href="imm.html#imm">3</a> and <a href="sdclu.html#sdclu">4</a> assume the availability of a target variable, which in many medical applications is unknown or too costly to obtain.
+Hence, Chapter <a href="phenotypes.html#phenotypes">5</a> has proposed a workflow for unsupervised subpopulation discovery, visualization, and interactive exploration in the absence of a ground truth.
+This workflow (i) exploits a clustering algorithm that automatically determines an appropriate number of clusters, (ii) provides visualization techniques that show essential characteristics of high-dimensional clusters compactly, and (iii) serves medical experts with a web application to further investigate and juxtapose the found subpopulations further, including treatment effect indicators.
+We have showcased our workflow’s efficacy by identifying and juxtaposing four distinct tinnitus patient <em>phenotypes</em> in the CHA dataset.</p>
+<p>While the aforementioned solutions are designed primarily for static data, Part II of this thesis has addressed the exploitation of temporal information in medical data, translated to the challenge:</p>
+<p><strong>GOAL2:</strong> <em>Exploitation of time</em></p>
+<p>We have presented our solutions to this challenge in Chapters <a href="evo.html#evo">6</a> and <a href="diabfoot.html#diabfoot">7</a>.</p>
+<p>Chapter <a href="evo.html#evo">6</a> has proposed a framework to extract evolution features from timestamped medical data, i.e., tiny streams with up to five time points that are months or years apart (which is often the case in population studies).
+These change descriptors quantify the study participants’ change over time.
+We have shown that augmenting the original feature space with evolution features improves classification performance.
+Using a SHIP data sample,
+we have shown that somatic changes and changes of cluster quality indices over time are associated with hepatic steatosis.</p>
+<p>Chapter <a href="diabfoot.html#diabfoot">7</a> has focused on data with many recordings over a short time period and proposes a clustering approach to build representations from new similarity measures applicable to raw multivariate (sensor) timeseries.
+We have validated our approach by identifying plantar pressure patterns in patients with diabetic foot syndrome and healthy volunteers.</p>
+<p>Part III has presented solutions for models that cannot be interpreted intrinsically.
+Because medical decisions have serious consequences, more accurate models are increasingly preferred in research as they suggest a higher degree of confidence in their output.
+However, post-modeling methods are needed to translate the findings of these black-box models into an expert-understandable form, leading to the challenge:</p>
+<p><strong>GOAL3:</strong> <em>Post-hoc interpretation of complex black-box models</em></p>
+<p>Chapter <a href="iml.html#iml">8</a> has proposed an end-to-end data analysis workflow with steps for data augmentation, modeling, interleaving model training with feature elimination, and post-hoc analysis of the trained models.
+Our workflow yields (for any type of model) statistics and visualizations representing global feature importance, instance-individual feature importance, and subpopulation-specific feature importance.
+We have validated our workflow on three modeling tasks: (i) tinnitus-related distress after treatment in tinnitus patients, (ii) depression at baseline in tinnitus patients, and (iii) rupture risk in intracranial aneurysms.</p>
+<p>Finally, Chapter <a href="gender.html#gender">9</a> has presented a solution to examine how pre-defined subpopulations differ concerning their most predictive characteristics.
+We have derived a post-hoc interpretation measure to assess differences in the predictors’ associations between two subpopulations.
+We have validated our solution by finding gender and sex differences (subpopulations of female and male patients) for the target variables tinnitus-related distress, depression, and liver fat concentration.</p>
+</div>
+<div id="conclusion-future-work" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Future Work<a class="anchor" aria-label="anchor" href="#conclusion-future-work"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Causal subpopulation discovery.</strong>
+While our machine learning solutions can initiate the generation of new hypotheses,
+they are limited to discovering mere <em>associations</em> between variables, not <em>cause-effect relationships</em>.
+For example, we have shown that depression strongly correlates with distress in tinnitus patients (recall Chapters <a href="phenotypes.html#phenotypes">5</a> and <a href="iml.html#iml">8</a>).
+The <em>direction</em> of the relationship cannot be inferred – does tinnitus distress cause depression or vice versa?
+Or can the correlation instead be explained by a <em>confounder</em>, i.e., a “lurking” third variable, such as low physical health or socioeconomic status?
+Pearl and Mackenzie <span class="citation"><a href="references.html#ref-Pearl:BookOfWhy2018" role="doc-biblioref">[299]</a></span> give an example of the <em>Simpson’s paradox</em>, a phenomenon where traditional correlation analysis even contradicts true cause-effect relationships.
+When considering only pairwise relationships, the data suggested that people who exercise more had increased cholesterol levels.
+However, this relationship was masked by age.
+Older participants exhibited higher activity levels in the study population.
+In an age-stratified analysis, it became evident that more exercise leads to a decrease in cholesterol levels.</p>
+<p>In causal inference, relationships between variables are modeled as a directed acyclic graph (DAG) where the nodes represent the variables and the edges the direction of causality <span class="citation"><a href="references.html#ref-Pearl:BookOfWhy2018" role="doc-biblioref">[299]</a>, <a href="references.html#ref-Hernan:CausalityBook2020" role="doc-biblioref">[301]</a></span>.
+Schölkopf <span class="citation"><a href="references.html#ref-scholkopf2019causality" role="doc-biblioref">[300]</a></span> described potential links between machine learning and causal inference.
+Yu et al. <span class="citation"><a href="references.html#ref-yu2020causality" role="doc-biblioref">[302]</a></span> reviewed causal feature selection methods, which assume that the optimal feature subset for a target variable is equal to its <em>Markov boundary</em>.
+The Markov boundary comprises nodes with outgoing (<em>parents</em>) or incoming (<em>children</em>) edges to the target and other parents of child nodes (<em>spouses</em>) in the DAG (Figure <a href="conclusion.html#fig:10-markov-boundary">10.1</a>).
+The assumption is that by conditioning on a target variable’s Markov boundary, all other variables in the DAG become independent of the target <span class="citation"><a href="references.html#ref-yu2020causality" role="doc-biblioref">[302]</a></span>.
+Hence, a possible direction for future work is to investigate the potential of combining our methods with causal inference, for example, by leveraging causal feature selection for predictive modeling.
+Here, we are interested in determining whether features in the Markov boundary are sufficient to predict the response and how causal approaches compare against their non-causal counterparts regarding classification performance.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:10-markov-boundary"></span>
+<img src="figures/10-markov-boundary.png" alt="Illustrative example of a directed acyclic graph and Markov boundary for the target X. The other labeled variables P-W constitute the Markov boundary of X, consisting of its parents, children and any additional parents of its children (“spouses”)." width="100%"><p class="caption">
+Figure 10.1: <strong>Illustrative example of a directed acyclic graph and Markov boundary for the target X.</strong> The other labeled variables P-W constitute the Markov boundary of X, consisting of its parents, children and any additional parents of its children (“spouses”).
+</p>
+</div>
+<p><strong>Domain adaption.</strong>
+For the time being, the findings on the datasets investigated in this thesis cannot be replicated on other datasets.
+For example, we expect that the models of our evolution feature framework (Chapter <a href="evo.html#evo">6</a>) built for SHIP will perform poorly when applied to data samples from other population studies, such as MONICA <span class="citation"><a href="references.html#ref-who1988world" role="doc-biblioref">[13]</a></span>, KORA <span class="citation"><a href="references.html#ref-holle2005kora" role="doc-biblioref">[14]</a></span>, or the Rotterdam Study <span class="citation"><a href="references.html#ref-hofman2009rotterdam" role="doc-biblioref">[15]</a></span>.
+<em>Domain adaption</em> deals with transferring knowledge from the <em>source</em> to the <em>target domain</em>.
+Lemberger and Panico <span class="citation"><a href="references.html#ref-lemberger2020primer" role="doc-biblioref">[303]</a></span> summarized four major challenges in domain adaption:</p>
+<ul>
+<li>
+<em>Prior shift</em> refers to a difference between the source (A) and the target (B) domain in the target variable’s distribution. For example, in this situation, the liver fat concentration in A is (on average) higher than in B. This could be due to differences in sampling, e.g., when for A, a higher percentage of subjects with pre-existing conditions were drawn.</li>
+<li>
+<em>Covariate shift</em> refers to a difference in the predictors’ distributions in A and B, while the relationships between the predictors and the target variable are assumed to be the same. For example, subjects in A are older than subjects in B, while at the same time, a high body mass index is predictive in both domains.</li>
+<li>
+<em>Concept shift</em> refers to a difference in the relationship between the predictors and the target variable. For example, while in A, smoking is observed in subjects with increased liver fat concentration, smokers in B generally exhibit lower liver fat values than non-smokers.</li>
+<li>
+<em>Subspace mapping</em> refers to the situation where the feature sets in A and B are different. For example, hepatic steatosis is determined by ultrasound in A and by MRT in B. Besides, different questionnaires were used in A and B to assess life quality, and neither of the questionnaires in A was used in B and vice versa.</li>
+</ul>
+<p>Future efforts include leveraging methods from domain adaption, for example, to transfer the tinnitus phenotypes from Chapter <a href="phenotypes.html#phenotypes">5</a> detected in CHA to patient data of other tinnitus centers with different baseline characteristics.</p>
+<p><strong>Parsimonious and cost-aware learning.</strong> Our methods disregard the fact that features are not always available for free.
+Feature acquisition in medical research is associated with certain <em>costs</em>, divided into the financial expense and the health burden for the patient undergoing a potentially painful and invasive examination <span class="citation"><a href="references.html#ref-kachuee2019costsensitive" role="doc-biblioref">[271]</a></span>.
+<!-- Costs can be measured not only by the financial expense of a test, but also by the inconvenience for a subject undergoing an examination.  -->
+For example, a biopsy usually has a higher diagnostic value than a simple blood test but is also more expensive and physically and mentally stressful for the patient.
+Yu et al. <span class="citation"><a href="references.html#ref-yu2020controlling" role="doc-biblioref">[270]</a></span> perform feature selection under a budget to balance model performance and feature acquisition cost.
+Consequently, their models favor cheaper features like demographics and questionnaire responses over costly ones requiring more expensive or strenuous physical examinations or laboratory tests.
+Recall Chapters <a href="imm.html#imm">3</a> and <a href="sdclu.html#sdclu">4</a>, where both somatic and ultrasound variables appeared in the classification rules describing subpopulations with increased liver fat concentration.
+Our methods do not distinguish between variables of simple body measurements (e.g., to obtain a participant’s waist circumference or body weight) and elaborate imaging procedures.
+Future research includes implementing mechanisms to enable cost-aware learning.</p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></div>
+<div class="next"><a href="references.html">References</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#conclusion"><span class="header-section-number">10</span> Summary and Future Work</a></li>
+<li><a class="nav-link" href="#conclusion-summary"><span class="header-section-number">10.1</span> Summary</a></li>
+<li><a class="nav-link" href="#conclusion-future-work"><span class="header-section-number">10.2</span> Future Work</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</strong>" was written by Uli Niemann. It was last built on 09.03.2021.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+</html>

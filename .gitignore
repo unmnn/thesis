@@ -7,11 +7,9 @@ andere/
 *.sav*
 code/
 tmp/
-frontiers.txt
 random_notes.md
-thesis.log
 *diss_figures.pptx
 aenderungen-overleaf.txt
 alpha.bst
-abstract.md
 _bookdown_files/
+thesis.*

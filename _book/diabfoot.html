@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 7 Feature Extraction From Short Temporal Sequences for Clustering | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
+<title>Chapter 7 Feature Extraction from Short Temporal Sequences for Clustering | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</title>
 <meta name="author" content="Uli Niemann">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.5.3/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.2.9002/tabs.js"></script><script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -35,22 +35,22 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
+<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background and Datasets</a></li>
 <li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
 <li class="book-part">EXPLOITING DYNAMICS</li>
-<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Study Participant Change over Time</a></li>
-<li><a class="active" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering</a></li>
+<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Change over Time</a></li>
+<li><a class="active" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction from Short Temporal Sequences for Clustering</a></li>
 <li class="book-part">POST-MINING FOR INTERPRETATION</li>
 <li><a class="" href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></li>
 <li><a class="" href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
-<li class="book-part">SUMMARY</li>
-<li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
+<li class="book-part">CONCLUSION</li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">10</span> Summary and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
+<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Overview of Variables Selected for Phenotyping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -60,62 +60,783 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="diabfoot" class="section level1" number="7">
 <h1>
-<span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering<a class="anchor" aria-label="anchor" href="#diabfoot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7</span> Feature Extraction from Short Temporal Sequences for Clustering<a class="anchor" aria-label="anchor" href="#diabfoot"><i class="fas fa-link"></i></a>
 </h1>
 <div id="brief-chapter-summary-4" class="section level4 unnumbered infobox chapter-summary">
 <h4>Brief Chapter Summary<a class="anchor" aria-label="anchor" href="#brief-chapter-summary-4"><i class="fas fa-link"></i></a>
 </h4>
-<p>We present an approach to build representations from short temporal sequences via clustering by the example of pressure- and posture-dependent plantar temperature and pressure in patients with diabetic foot syndrome.</p>
+<p>Embedded mHealth devices continuously record vital functions.
+These temporal sequences arrive mostly as raw sensor measurements, requiring the extraction of meaningful features.
+We propose similarity measures for short temporal sequences to build representations of distinct subpopulations.
+We validate our approach by identifying characteristic plantar pressure profiles from recordings of a controlled experiment with diabetic foot syndrome patients and non-diabetic volunteers.</p>
 </div>
-<div class="infobox chapter-literature">
+<div class="lit chapter-literature">
 <p>This chapter is partly based on:</p>
 <ul>
-<li>Uli Niemann, Myra Spiliopoulou, Fred Samland, Thorsten Szczepanski, Jens Grützner, Antao Ming, Juliane Kellersmann, Jan Malanowski, Silke Klose, and Peter R. Mertens. “Learning Pressure Patterns for Patients with Diabetic Foot Syndrome.” In: <em>Proc. of IEEE Int. Symposium on Computer-Based Medical Systems (CBMS)</em>. 2016, pp. 54–59. DOI: <a href="https://doi.org/10.1109%2FCBMS.2016.31">10.1109/CBMS.2016.31</a>.</li>
-<li>Uli Niemann, Myra Spiliopoulou, Thorsten Szczepanski, Fred Samland, Jens Grützner, Dominik Senk, Antao Ming, Juliane Kellersmann, Jan Malanowski, Silke Klose, and Peter R. Mertens. “Comparative Clustering of Plantar Pressure Distributions in Diabetics with Polyneuropathy May Be Applied to Reveal Inappropriate Biomechanical Stress.” In: <em>PLOS ONE</em> 11.8 (2016), pp. 1–12. DOI: <a href="https://doi.org/10.1371%2Fjournal.pone.0161326">10.1371/journal.pone.0161326</a>.</li>
-<li>Uli Niemann, Myra Spiliopoulou, Jan Malanowski, Juliane Kellersmann, Thorsten Szczepanski, Silke Klose, Eirini Dedonaki, Isabell Walter, Antao Ming, and Peter R. Mertens. “Plantar temperatures in stance position: A comparative study with healthy volunteers and diabetes patients diagnosed with sensoric neuropathy.” In: <em>EBioMedicine</em> 54 (2020), p. 102712. DOI: <a href="https://doi.org/10.1016%2Fj.ebiom.2020.102712">10.1016/j.ebiom.2020.102712</a>.</li>
+<li>Uli Niemann, Myra Spiliopoulou, Fred Samland, Thorsten Szczepanski, Jens Grützner, Antao Ming, Juliane Kellersmann, Jan Malanowski, Silke Klose, and Peter R. Mertens. “Learning Pressure Patterns for Patients with Diabetic Foot Syndrome.” In: <em>Computer-Based Medical Systems (CBMS)</em>. 2016, pp. 54-59. DOI: <a href="https://doi.org/10.1109%2FCBMS.2016.31">10.1109/CBMS.2016.31</a>.</li>
+<li>Uli Niemann, Myra Spiliopoulou, Thorsten Szczepanski, Fred Samland, Jens Grützner, Dominik Senk, Antao Ming, Juliane Kellersmann, Jan Malanowski, Silke Klose, and Peter R. Mertens. “Comparative Clustering of Plantar Pressure Distributions in Diabetics with Polyneuropathy May Be Applied to Reveal Inappropriate Biomechanical Stress.” In: <em>PLOS ONE</em> 11.8 (2016), pp. 1-12. DOI: <a href="https://doi.org/10.1371%2Fjournal.pone.0161326">10.1371/journal.pone.0161326</a>.</li>
+<li>Uli Niemann, Myra Spiliopoulou, Jan Malanowski, Juliane Kellersmann, Thorsten Szczepanski, Silke Klose, Eirini Dedonaki, Isabell Walter, Antao Ming, and Peter R. Mertens. “Plantar temperatures in stance position: A comparative study with healthy volunteers and diabetes patients diagnosed with sensoric neuropathy.” In: <em>EBioMedicine</em> 54.102712 (2020), pp. 1-11. DOI: <a href="https://doi.org/10.1016%2Fj.ebiom.2020.102712">10.1016/j.ebiom.2020.102712</a>.</li>
 </ul>
 </div>
-<!-- ## Motivation and Comparison to Related Work {#diabfoot-intro} -->
-<p><strong>to be written</strong></p>
-<!-- ## Comparing Differences in Feature Importance between Two Subpopulations {#gender-measure} -->
-<!-- **to be written** -->
-<!-- ## Workflow {#gender-workflow} -->
-<!-- ### Learning Tasks -->
-<!-- **to be written** -->
-<!-- ### Model Evaluation and Hyperparameter Tuning -->
-<!-- ## Results {#gender-results} -->
-<!-- **to be written** -->
-<!-- ## Conclusions on Subpopulation-Specific Differences in Feature Importance {#gender-conclusions} -->
-<!-- **to be written** -->
-<!-- TODO: move this paragraph  -->
-<!-- \subsubsection{CBMS16} -->
-<!-- **Clustering.**  -->
-<!-- Clustering algorithms are applied to a variety of application domains. -->
-<!-- For example, clustering is traditionally used for the identification of patient groups, who apply pressure on their feet in a similar way&nbsp;[@BennettsEtAl:Biomechanics2013; @DeCockEtAl:FootTypeClusteringPlantarPressure2006; @DeschampsEtAL:KMeansDiabeticFoot2013; @GiacomozziMartelli:PeakPressure2006], whereby k-means is the typically the algorithm of choice. -->
-<!-- In&nbsp;[@GiacomozziMartelli:PeakPressure2006], Giacomozzi and Martelli -->
-<!-- studied the plantar pressure curves of patients with diabetic foot and of control persons, and clustered them on the similarity of the curves with respect to shape and amplitude. They juxtaposed the clusters with respect to predefined groups: for instance, all persons of the group with increased peak pressure and muscle weakness and/or limited mobility of the joints were in one cluster&nbsp;[@GiacomozziMartelli:PeakPressure2006].  -->
-<!-- However, each cluster contained persons from many groups. -->
-<!-- Deschamps et al. recorded walking trials for patients and controls and studied the relative regional impulses recorded in six forefoot regions&nbsp;[@DeschampsEtAL:KMeansDiabeticFoot2013]: similarly to&nbsp;[@GiacomozziMartelli:PeakPressure2006], they also found one cluster that consists only of diabetic patients.  -->
-<!-- Other scholars focused on patients only and strived to understand the variability of pressure distributions among patients and to stratify the patients on plantar pressure similarity. -->
-<!-- De Cock et al. studied the pressure distributions recorded during jogging, whereby they concentrated on recordings of the six forefoot regions&nbsp;[@DeCockEtAl:FootTypeClusteringPlantarPressure2006]: they used k-means with k=4 and then -->
-<!-- compared differences in peak pressure and in regional impulse among the identified clusters. -->
-<!-- Bennetts et al. studied how patients applied pressure when they stood, and performed clustering on peak pressure  -->
-<!-- distinguishing among seven plantar regions&nbsp;[@BennettsEtAl:Biomechanics2013].  -->
-<!-- They compared the clusters on mean peak pressure and studied how the number of clusters k affected the results. -->
-<!-- Similarly to &nbsp;[@BennettsEtAl:Biomechanics2013,DeCockEtAl:FootTypeClusteringPlantarPressure2006], we focus on patient stratification with clustering. As in &nbsp;[@BennettsEtAl:Biomechanics2013,GiacomozziMartelli:PeakPressure2006], we consider all regions of the foot, not forefoot only. Unlike all aforementioned methods who determined similarity in a single way and then used $k$-means for clustering, we consider alternative ways of modeling similarity with respect to pressure, we juxtapose the clusters built by different clustering algorithms in terms of quality, and -->
-<!-- we deliver visualization aids for the inspection of the most representative instance (patient foot) in each cluster. -->
-<!-- The tasks of modeling similarity, learning clusters with different algorithms, comparing them and inspecting the results, constitute a complete mining workflow. In &nbsp;[@GlasserEtAl:CBMS13,NiemannEtAl:CBMS15], we proposed workflows that encompass the specification of similarity between instances, the tuning of clustering algorithms (in &nbsp;[@NiemannEtAl:CBMS15]) and the assessment of quality. However, these workflows concern the juxtaposition of patients to healthy people, while here we concentrate on the stratification of patients only and build the workflow accordingly. -->
+<p>Nowadays, mHealth devices, such as smart wearables, are ubiquitous in everyday life <span class="citation"><a href="references.html#ref-gerhardt2018mhealth" role="doc-biblioref">[194]</a></span>.
+These embedded systems continuously record and process various vital functions and send feedback to the user, for example, via popup notifications or dashboard reports.
+Thus, they are designed to help live healthier by contributing to more effective exercise or a better diet.
+mHealth solutions are also increasingly being used in clinical settings.
+Pattern recognition in timestamped mHealth data is used to timely detect adverse health events.</p>
+<p>For example, in diabetes patients with sensory neuropathy, repeated excessive pressure loads can aggravate plantar tissue destruction and ultimately lead to foot ulcers, in the worst case, even to amputation <span class="citation"><a href="references.html#ref-RN7" role="doc-biblioref">[195]</a></span>.
+Since frequent clinical examinations would be too costly and bothersome for the patient <span class="citation"><a href="references.html#ref-ming2019study" role="doc-biblioref">[196]</a></span>, sensor-equipped systems for the patient’s shoe insoles are developed.
+These systems measure foot pressures and temperatures continuously and transmit recordings wirelessly to a smart device, which processes the data to send offloading instructions when potentially harmful pressures are detected <span class="citation"><a href="references.html#ref-abbott2019" role="doc-biblioref">[197]</a></span> or temperature differences between left and right foot exceed pre-specified thresholds <span class="citation"><a href="references.html#ref-ming2019study" role="doc-biblioref">[196]</a></span>.
+However, a universal pressure threshold with high sensitivity and specificity with respect to ulcer development has not yet been determined <span class="citation"><a href="references.html#ref-Waldecker:FootAnkleSurgery2012" role="doc-biblioref">[198]</a>, <a href="references.html#ref-fernando2018importance" role="doc-biblioref">[199]</a></span>.
+Besides, when a significant difference in temperature between the left and right foot is noted, it is often already too late to warn the patient, as ulceration has already begun.
+Evidence suggests that there are subpopulations with distinct plantar pressure patterns requiring different preventive measures, for example, different <em>peak pressure</em> thresholds <span class="citation"><a href="references.html#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">[200]</a>–<a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span>.</p>
+<p>In the previous chapters, we presented methods for analyzing static data (Chapters <a href="imm.html#imm">3</a>–<a href="phenotypes.html#phenotypes">5</a>) and timestamped data (Chapter <a href="evo.html#evo">6</a>) with a small number of time points.
+Raw mHealth data comprises hundreds or more time points, thus requiring the extraction of meaningful features before any actual data analysis.
+This chapter proposes similarity measures for short temporal sequences to create representations of distinct subpopulations from mHealth data.
+The DIAB data described in Section <a href="background.html#background-data-diab">2.2.3</a> serve as proof-of-concept validation.</p>
+<p>This chapter is organized as follows.
+Section <a href="diabfoot.html#diabfoot-intro">7.1</a> describes the medical background of diabetic foot syndrome and reviews previous subtyping approaches to detect plantar pressure patterns.
+Section <a href="diabfoot.html#diabfoot-approach">7.2</a> presents our approaches for modeling regional plantar pressure similarity and identifying distinct foot profiles by clustering.
+We report on our results in Section <a href="diabfoot.html#diabfoot-results">7.3</a> and compare them to similar studies in Section <a href="diabfoot.html#diabfoot-discussion">7.4</a>.
+We conclude the chapter in Section <a href="diabfoot.html#diabfoot-conclusion">7.5</a>.</p>
+<!-- **SPÄTER**In an experimental study, using a sensor-equipped insole connected to a smartphone app via Bluetooth, plantar pressure measurements were taken in neuropathic diabetic patients and healthy volunteers at a frequency of a few seconds. -->
+<!-- A key objective is to detect plantar pressure profiles, i.e., different pressure loading patterns within the study group.  -->
+<!-- The knowledge of distinct subpopulations could be used in the long term for early warning of improper loading or developing foot complications such as ulcerations. -->
+<div id="diabfoot-intro" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Medical Background<a class="anchor" aria-label="anchor" href="#diabfoot-intro"><i class="fas fa-link"></i></a>
+</h2>
+<!-- - health monitoring liegt im trend -> smart wearables -->
+<!-- - aufzeichnen von Herzfrequenz -->
+<!-- - für diabetiker vielversprechend um frühzeitig gefährliche Veränderungen am Fuß zu erkennen -->
+<p>Diabetic foot syndrome (DFS) has a substantial negative impact on life quality <span class="citation"><a href="references.html#ref-RN1" role="doc-biblioref">[69]</a></span>.
+Affected patients have higher mortality <span class="citation"><a href="references.html#ref-RN1" role="doc-biblioref">[69]</a>, <a href="references.html#ref-moulik2003amputationmortality" role="doc-biblioref">[204]</a></span> and are at higher risk of foot ulcerations <span class="citation"><a href="references.html#ref-SinghEtAl:PreventingFootUlcers2005" role="doc-biblioref">[74]</a></span>.
+More than 85% of foot amputations relate to foot ulcers <span class="citation"><a href="references.html#ref-RN3" role="doc-biblioref">[71]</a>, <a href="references.html#ref-RN4" role="doc-biblioref">[72]</a></span>.</p>
+<p>Peripheral sensory neuropathy is most predisposing for foot problems in diabetes patients <span class="citation"><a href="references.html#ref-RN7" role="doc-biblioref">[195]</a></span>.
+In sensory neuropathy, damaging events and injuries go unnoticed, and continued insults can exacerbate tissue destruction.
+However, understanding of the underlying pathomechanisms of tissue destruction in the absence of trauma is limited.</p>
+<p>Lower extremity (micro)blood flow of diabetes patients was compared with healthy controls to establish a causal relationship between decreased blood flow and the occurrence of diabetic foot syndrome <span class="citation"><a href="references.html#ref-RN12" role="doc-biblioref">[73]</a>, <a href="references.html#ref-RN11" role="doc-biblioref">[205]</a>–<a href="references.html#ref-RN16" role="doc-biblioref">[209]</a></span>.
+Persistent elevated plantar pressure is a major risk factor for ulceration in diabetes patients <span class="citation"><a href="references.html#ref-VevesEtAl:Diabetologia1992" role="doc-biblioref">[210]</a>–<a href="references.html#ref-LaveryEtAl:DiabetesCare2003" role="doc-biblioref">[212]</a></span>.
+Custom-made footwear and orthopedic shoes are used for ulcer prevention and individual therapy <span class="citation"><a href="references.html#ref-Frykberg:DiabeticFootGuideline2006" role="doc-biblioref">[213]</a>–<a href="references.html#ref-Rizzo:DiabeticFootwear2012" role="doc-biblioref">[215]</a></span>.
+However, a pressure threshold with high sensitivity and specificity with respect to ulcer development has not yet been determined <span class="citation"><a href="references.html#ref-Waldecker:FootAnkleSurgery2012" role="doc-biblioref">[198]</a>, <a href="references.html#ref-fernando2018importance" role="doc-biblioref">[199]</a></span>.
+Researchers also investigate how pressure is applied to each foot region.
+Bennetts et al. <span class="citation"><a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span> suggested differences between foot types and biomechanics that result in differences in pressure distribution between regions of the same foot.
+Deschamps et al. <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span> proposed a stratification of patients based on their plantar pressure pattern homogeneity. This approach may avoid the pitfall of smoothing away variations within a pathophysiological subgroup.</p>
+<p>In the absence of a ground truth, clustering is often used to derive subgroups of patients who share similarities in pressure distribution, usually focusing on <em>peak plantar pressure</em>, i.e., the maximum observed pressure recorded for a single measurement, for example, the maximum pressure at a sensor during a step <span class="citation"><a href="references.html#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">[200]</a>–<a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span>.
+Giacomozzi and Martelli <span class="citation"><a href="references.html#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">[200]</a></span> examined the plantar pressure curves of DFS patients and control subjects.
+They performed clustering based on the curves’ similarity in shape and amplitude.
+They juxtaposed the clusters to predefined subgroups: For example, all subjects in the group with increased peak pressure and muscle weakness or limited joint mobility were assigned to one cluster <span class="citation"><a href="references.html#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">[200]</a></span>.
+De Cock et al. <span class="citation"><a href="references.html#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">[201]</a></span> examined peak pressure measured at different foot regions during jogging and identified four pressure patterns with different pressure centers.
+For example, the “M2 pattern” is the cluster where the maximum of the mean total regional impulse is located at the second metatarsal bone.
+Bennetts et al. <span class="citation"><a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span> considered seven plantar regions and formed subgroups of patients with similar peak pressure distributions in these regions.
+Deschamps et al. <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span> focused only on plantar forefoot peak pressure distribution and studied both patients and controls.
+They formed clusters of patients with similar forefoot pressure distributions and identified a cluster consisting only of diabetes patients.</p>
+<p>Similar to <span class="citation"><a href="references.html#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">[201]</a>, <a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span>, we focus on patient stratification with clustering.
+As in <span class="citation"><a href="references.html#ref-GiacomozziMartelli:PeakPressure2006" role="doc-biblioref">[200]</a>, <a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span>, we consider all foot regions, not just the forefoot.
+In contrast to all the aforementioned methods that determined similarity in a single way and then used k-means for clustering, we present alternative ways of modeling similarity in terms of plantar pressure and we contrast the clusters formed by different clustering algorithms in terms of their quality.
+Besides, we provide visualization aids for inspecting the most representative instance (patient foot) in each cluster.</p>
+<p>Initially, the study experiment was performed exclusively on patients.
+Volunteer data became available only gradually.
+Hence, this chapter is divided into two parts:
+In part A, we present alternative distance measures for regional plantar pressure load and evaluate them by clustering experiment data from diabetes patients.
+In part B, we use the best distance measure from part A to cluster the subgroups of diabetes patients, healthy volunteers, and a combined group separately.</p>
+</div>
+<div id="diabfoot-approach" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Modeling Similarity of Regional Plantar Pressure<a class="anchor" aria-label="anchor" href="#diabfoot-approach"><i class="fas fa-link"></i></a>
+</h2>
+<p>Our approach includes feature extraction (Section <a href="diabfoot.html#diabfoot-approach-feature-extraction">7.2.1</a>),
+plantar pressure distribution similarity modeling (Section <a href="diabfoot.html#diabfoot-approach-similarity-measures">7.2.2</a>),
+clustering of study participant feet (Section <a href="diabfoot.html#diabfoot-approach-clustering">7.2.3</a>), clustering evaluation (Section <a href="diabfoot.html#diabfoot-approach-evaluation">7.2.4</a>), and visualization.
+We present these steps below.</p>
+<div id="diabfoot-approach-feature-extraction" class="section level3" number="7.2.1">
+<h3>
+<span class="header-section-number">7.2.1</span> Feature Extraction from Short Time Series<a class="anchor" aria-label="anchor" href="#diabfoot-approach-feature-extraction"><i class="fas fa-link"></i></a>
+</h3>
+<p>The pressure measurements for one foot of an example participant are shown in Figure <a href="diabfoot.html#fig:07-kontur">7.1</a>.
+For each experiment, each foot, and each of the eight sensors, the pressure recordings result in a time series.
+Within each time series, <em>stance episodes</em>, i.e., phases in which the patient was standing, are indicated by dashed boxes.
+During these episodes, the example patient applied more pressure to the central sensors MTB-3 and Calcaneus than Digitus-1 and Lateral, suggesting a balanced pressure pattern.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:07-kontur"></span>
+<img src="figures/07-kontur.png" alt="Insole sensor locations and pressure time curve examples. Sensor locations on the insole (center) and four pressure time curves of representative foot regions of an example patient. Dotted boxes highlight time intervals where the patient was asked to stand and apply pressure. These lasted over 5, 10, and 20 minutes, respectively. D1: Digitus-1; MTB: metatarsal bone. The figure is adapted from [216]." width="100%"><p class="caption">
+Figure 7.1: <strong>Insole sensor locations and pressure time curve examples.</strong> Sensor locations on the insole (center) and four pressure time curves of representative foot regions of an example patient. Dotted boxes highlight time intervals where the patient was asked to stand and apply pressure. These lasted over 5, 10, and 20 minutes, respectively. D1: Digitus-1; MTB: metatarsal bone. The figure is adapted from <span class="citation"><a href="references.html#ref-Niemann:PONE2016" role="doc-biblioref">[216]</a></span>.
+</p>
+</div>
+<p>For each session <span class="math inline">\(i\)</span>, i.e., for each experiment, participant and foot separately, the minimum and maximum observed pressure values over all sensors were identified, <span class="math inline">\(r_{i}^{\text{min}}\)</span> and <span class="math inline">\(r_{i}^{\text{max}}\)</span>, respectively.
+Then, within each session <span class="math inline">\(i\)</span> and for each sensor <span class="math inline">\(s\)</span> each observed pressure value <span class="math inline">\(r_{i,s}\)</span> was normalized into the <em>relative plantar pressure</em> (RPP) value</p>
+<p><span class="math display" id="eq:rpp">\[\begin{equation}
+r^*_{i,s}=(r_{i,s}-r_{i}^{\text{min}})/(r_{i}^{\text{max}}-r_{i}^{\text{min}}).
+\tag{7.1}
+\end{equation}\]</span></p>
+<!-- , and the median $\text{median}(i,s)$ for each sensor $s$ over all  _stance episodes_ of session $i$ was derived.  -->
+<!-- The median was opted instead of the average, to minimize the impact of outlier values, that might be caused e.g. through unconscious movements of the participants while they were standing.  -->
+<!-- Thus, a session $i$ was modeled as a vector of the 8 median values of the sensors. -->
+</div>
+<div id="diabfoot-approach-similarity-measures" class="section level3" number="7.2.2">
+<h3>
+<span class="header-section-number">7.2.2</span> Distance Measures<a class="anchor" aria-label="anchor" href="#diabfoot-approach-similarity-measures"><i class="fas fa-link"></i></a>
+</h3>
+<p>We consider three alternative ways of modeling plantar pressure similarity:</p>
+<ul>
+<li>similarity based on relative plantar pressure,</li>
+<li>similarity based on pressure distribution in pairs of sensors, and</li>
+<li>similarity based on centers of pressure.</li>
+</ul>
+<p><strong>Similarity based on relative plantar pressure.</strong>
+We define the distance <span class="math inline">\(d_{\text{RPP}}\)</span> between sessions <span class="math inline">\(i,j\)</span> as Euclidean distance between the mean RPP over the eight plantar regions:</p>
+<p><span class="math display" id="eq:simrpp">\[\begin{equation}
+d_{\text{RPP}}(i,j) = \sqrt{\sum_{s} \left( \mu(r^*_{i,s}) - \mu(r^*_{j,s}) \right)^2},
+\tag{7.2}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mu(r^*_{i,s})\)</span> is the average RPP in session <span class="math inline">\(i\)</span> at region <span class="math inline">\(s\)</span>.</p>
+<p><strong>Similarity based on pressure distribution in pairs of sensors.</strong>
+For each pair of regions <span class="math inline">\(s,t\)</span> of a session <span class="math inline">\(i\)</span>, a simple linear regression model <span class="math inline">\(X_t = \beta_0+\beta_1X_s\)</span> is derived, capturing the linear relationship between the plantar pressure recordings at <span class="math inline">\(s\)</span> and those at <span class="math inline">\(t\)</span>.
+Figure <a href="diabfoot.html#fig:07-simpairs">7.2</a> shows an example of the MTB-3 and MTB-4 sensors with three feet.
+While <em>a</em> generally applied less pressure than <em>b</em>, the linear relationship between the recordings at MTB-3 and MTB-4 is similar, as indicated by the nearly parallel regression fit.
+Compared to <em>a</em> and <em>b</em>, the regression fit of c has a smaller slope, indicating an increase in pressure at MTB-3 is associated with a smaller increase in pressure at MTB-4.
+The regression lines also differ in the goodness of fit.
+For example, the residual values are, on average, smaller for <em>b</em> than for <em>c</em>.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:07-simpairs"></span>
+<img src="figures/07-simpairs.png" alt="Example of three RPP distributions. For three example feet a, b, and c, RPP values for MTB-3 (x-axis) and MTB-4 (y-axis) are shown. Regression lines are fitted to each set of points. The angular distance values \(\Theta(\cdot)\) are small for the pairs of regression lines (a,b), while \(\Theta(a,c)\) and \(\Theta(b,c)\) are large, quantifying that the slope of the fit for c is different from the fit for a and b, respectively. MTB: metatarsal bone." width="70%"><p class="caption">
+Figure 7.2: <strong>Example of three RPP distributions.</strong> For three example feet a, b, and c, RPP values for MTB-3 (x-axis) and MTB-4 (y-axis) are shown. Regression lines are fitted to each set of points. The angular distance values <span class="math inline">\(\Theta(\cdot)\)</span> are small for the pairs of regression lines (a,b), while <span class="math inline">\(\Theta(a,c)\)</span> and <span class="math inline">\(\Theta(b,c)\)</span> are large, quantifying that the slope of the fit for c is different from the fit for a and b, respectively. MTB: metatarsal bone.
+</p>
+</div>
+<p>Two feet are similar if the slopes of most of the <span class="math inline">\(\binom{8}{2}\)</span>
+regression lines are similar, taking into account the goodness of fit of each line.
+Let <span class="math inline">\(i\)</span> be a session, and let <span class="math inline">\(s,t\)</span> be two plantar regions.
+The regression line’s slope between <span class="math inline">\(s\)</span> and <span class="math inline">\(t\)</span> for session <span class="math inline">\(i\)</span> is denoted as <span class="math inline">\(m(i,s,t)\)</span> and the Pearson correlation coefficient as <span class="math inline">\(cor(i,s,t)\)</span>, quantifying the goodness of fit of the regression lines.
+The dissimilarity between two sessions <span class="math inline">\(i,j\)</span> for these two regions is then defined as the difference between the slopes of the regression lines <span class="math inline">\(m(i,s,t)\)</span> and <span class="math inline">\(m(j,s,t)\)</span>, given by</p>
+<p><span class="math display" id="eq:theta">\[\begin{equation}
+\Theta(i,j,s,t) = \tan^{-1}\left(\frac{m(i,s,t)-m(j,s,t)}{1+m(i,s,t)\cdot m(j,s,t)}\right).
+\tag{7.3}
+\end{equation}\]</span></p>
+<p>We then sum the angular distances over all pairs of plantar regions to obtain a value expressing the distance between two feet <span class="math inline">\(d_{\text{pairs}}(i,j)\)</span>, defined as</p>
+<p><span class="math display" id="eq:simpairs">\[\begin{equation}
+d_{\text{pairs}}=1-\sum_{r}\sum_{s} \Theta(i,j,s,t)\cdot \frac{|cor(i,s,t)| + |cor(j,s,t)|}{2}
+\tag{7.4}
+\end{equation}\]</span>
+(if <span class="math inline">\(i\neq j\)</span>; otherwise 0), where <span class="math inline">\(cor(i,s,t)\)</span> is the Pearson correlation coefficient between the plantar pressure records of <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> for foot <span class="math inline">\(i\)</span>.
+Because the angular distance depends on the goodness of fit of the regression, angular distances of more reliable regression lines were assigned a higher weight in the distance calculation.</p>
+<!-- $f (x) = \left\{ -->
+<!-- \begin{array}{ll} -->
+<!-- 5 & x \geq 0 \\ -->
+<!-- 23 & \, \textrm{sonst} \\ -->
+<!-- \end{array} -->
+<!-- \right. $ -->
+<p><strong>Similarity based on centers of pressure.</strong>
+<!-- \paragraph{Similarity on centers of pressure}  -->
+For the third variant of similarity, we cluster the average RPPs in each region.
+Two feet are similar when most of the k centroids are similar.
+For each region, we call k-means multiple times with different k and select the run with the optimal Silhouette coefficient.
+However, due to a possibly different number of clusters for the different regions, we consider that the distance between two centroids may be smaller for a clustering with many clusters than for a clustering with only a few clusters. Therefore, we add a weighting factor so that the <span class="math inline">\(d_{\text{centers}}(i,j)\)</span> is defined as:</p>
+<p><span class="math display" id="eq:simcenters">\[\begin{equation}
+d_{\text{centers}}(i,j) = \sum_{s}{}\left|ctr(i,s) - ctr(j,s)\right| \cdot \log(|C(s)|)/\sum_{t}\log(|C(t)|)
+\tag{7.5}
+\end{equation}\]</span>
+where <span class="math inline">\(ctr(i,r)\)</span> is the centroid of the cluster to which <span class="math inline">\(i\)</span> has been assigned with respect to clustering for sensor <span class="math inline">\(s\)</span> and <span class="math inline">\(|C(s)|\)</span> is the number of clusters for the clustering of <span class="math inline">\(s\)</span>.</p>
+</div>
+<div id="diabfoot-approach-clustering" class="section level3" number="7.2.3">
+<h3>
+<span class="header-section-number">7.2.3</span> Identifying Foot Profiles by Clustering<a class="anchor" aria-label="anchor" href="#diabfoot-approach-clustering"><i class="fas fa-link"></i></a>
+</h3>
+<p>To identify distinct pressure pattern subgroups, we carry out k-medoids <span class="citation"><a href="references.html#ref-Kaufman:PAM87" role="doc-biblioref">[217]</a></span>, DBSCAN <span class="citation"><a href="references.html#ref-EsterEtAl:DBSCAN96" role="doc-biblioref">[185]</a></span>, and agglomerative hierarchical clustering.</p>
+<p><strong>k-medoids.</strong>
+Like k-means and X-means (recall Section <a href="phenotypes.html#phenotypes-phenotyping-xmeans">5.2.1</a>), a k-medoids cluster is represented by an instance for which the sum of the distances to all observations of the same cluster is minimal.
+The difference between a k-means centroid and a k-medoids medoid is that the latter must be an actual observation.
+In contrast, a centroid is an artificial observation derived from mean values.
+Compared to k-means, k-medoids can be more robust to outliers <span class="citation"><a href="references.html#ref-SinghEtAl:k-meansMedoidsComparison2011" role="doc-biblioref">[218]</a></span> and has, at least for this application, an arguably more intuitive cluster representation: The
+medoid can be interpreted as the most representative foot in the cluster, whereas a centroid can be very different from the pressure distribution of any patient within the cluster.
+Thus, this notation allows us to use clustering to examine temporal patterns of plantar pressure by visualizing the cluster medoids’ RPP time curve.</p>
+<p><strong>DBSCAN.</strong>
+DBSCAN <span class="citation"><a href="references.html#ref-EsterEtAl:DBSCAN96" role="doc-biblioref">[185]</a></span> partitions instances into clusters based on their estimated density distribution and builds clusters of arbitrary shape and size. Pressure distributions of feet that differ considerably from any cluster are declared as outliers, which may be abnormal pressure patterns of patients potentially requiring medical supervision.
+DBSCAN has two parameters: the radius <span class="math inline">\(eps\)</span> defining the “neighborhood” of an instance and the minimum number <span class="math inline">\(minPts\)</span> of neighbors for an instance to be a core point (recall Section <a href="evo.html#evo-concept-clustering">6.3.1</a>).</p>
+<p><strong>Hierarchical clustering.</strong>
+In agglomerative hierarchical clustering, similar instances are iteratively merged into clusters in a bottom-up fashion.
+The order in which two clusters are merged depends on the linkage strategy: In <em>complete linkage</em>, the distance between two clusters is defined as the maximum distance between a pair of instances (one from each cluster).
+The two clusters that minimize this maximum distance are selected for merging.
+Using a dendrogram, it is possible to break down the “tree” of clusters to understand the progressive merging process.
+Optionally, a parameter <span class="math inline">\(k\)</span> can be specified to obtain a specific partitioning with <span class="math inline">\(k\)</span> clusters.</p>
+</div>
+<div id="diabfoot-approach-evaluation" class="section level3" number="7.2.4">
+<h3>
+<span class="header-section-number">7.2.4</span> Evaluation Setup<a class="anchor" aria-label="anchor" href="#diabfoot-approach-evaluation"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Preprocessing.</strong>
+Some of the sensor recordings were identified as noisy or erroneous.
+To reduce the impact of such <em>extreme</em> recordings, these values were replaced with the median of all recordings for the sensor in that session.
+Following the <em>inner fence</em> outlier definition in boxplots <span class="citation"><a href="references.html#ref-hoaglin2003john" role="doc-biblioref">[219]</a></span>, a value <span class="math inline">\(x\)</span> was flagged as extreme if it fell outside the range <span class="math inline">\([Q_1 - 1. 5 \cdot (Q_3 - Q_1), Q_3 + 1.5 \cdot (Q_3 - Q_1)]\)</span>, where <span class="math inline">\(Q_i\)</span> is the <span class="math inline">\(i\)</span><sup>th</sup> quartile and <span class="math inline">\((Q_3 - Q_1)\)</span> is the interquartile range over all sensors in <span class="math inline">\(i\)</span>.
+Then the time curves were smoothed using locally weighted scatterplot smoothing (LOWESS) <span class="citation"><a href="references.html#ref-Cleveland:LOWESS1981" role="doc-biblioref">[137]</a></span> with a smoother span of 5%.
+Recordings from all stance episodes were used for distance calculation and clustering.</p>
+<p><strong>Experimental setup.</strong>
+For part A, we use the three distance measures from Section <a href="diabfoot.html#diabfoot-approach-similarity-measures">7.2.2</a> to cluster the participant feet, using the algorithms k-medoids, DBSCAN, and hierarchical agglomerative clustering (Section <a href="diabfoot.html#diabfoot-approach-clustering">7.2.3</a>).
+For DBSCAN, we estimate an appropriate value of <span class="math inline">\(eps\)</span> using the elbow method presented in Section <a href="evo.html#evo-concept-clustering">6.3.1</a>, where <span class="math inline">\(k\)</span> is set to <span class="math inline">\(minPts\)</span>.
+For hierarchical clustering, we cut the dendrogram to obtain <span class="math inline">\(k\)</span> clusters.
+Cluster quality was measured by the Silhouette coefficient (recall Section <a href="sdclu.html#sdclu-method-proxy-rules">4.2.1</a>).
+For k-medoids, we vary k from 2 to 10.
+For DBSCAN, we set <span class="math inline">\(minPts\)</span> from 2 to 10 and automatically determine <span class="math inline">\(eps\)</span>.
+For hierarchical clustering, we set the number of clusters from 2 to 10 and use single linkage, complete linkage, and average linkage, respectively.
+For part B, we restrict to the best performing combination of distance measure and clustering algorithm of part A.</p>
+<p><strong>Included datasets.</strong>
+In part A, foot insole sensor recordings of 20 patients (5 female, 15 male, 66.2 ± 8.4 years) with type 1 or type 2 diabetes and sensomotoric peripheral polyneuropathy were available.
+19 participants performed the experiment twice, the remaining participant only once.
+For 34 of these 39 experiments, recordings of both feet were available, reaching a total of 73 experiment datasets.</p>
+<p>For part B, data for 25<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;The data for this chapter became available only gradually. Data analysis for part B was conducted after part A. At that time, additional data of diabetes patients were available. We only considered data from patients for whom recordings for both feet were available.&lt;/p&gt;"><sup>3</sup></a> diabetes patients (6 females, 19 males, age 64.8 ± 9.8 years) and 18 non-diabetic healthy volunteers (10 females, 8 males, age 62.9 ± 7.6 years) were available.
+For all 43 sessions, both feet’ sensor recordings were available, which were used independently, reaching a total of 86 session datasets.</p>
+</div>
+</div>
+<div id="diabfoot-results" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Validation on DIAB<a class="anchor" aria-label="anchor" href="#diabfoot-results"><i class="fas fa-link"></i></a>
+</h2>
+<div id="results-on-part-a" class="section level3" number="7.3.1">
+<h3>
+<span class="header-section-number">7.3.1</span> Results on Part A<a class="anchor" aria-label="anchor" href="#results-on-part-a"><i class="fas fa-link"></i></a>
+</h3>
+<p>Table <a href="diabfoot.html#tab:07-results-cbms">7.1</a> shows the clustering results.
+The maximum Silhouette score is achieved by k-medoids with <span class="math inline">\(d_{\text{RPP}}\)</span> (k = 4; Silh = 0.78).
+The number of clusters found by the 3 clustering algorithms differs: while k-medoids finds 4 clusters for each distance measure, DBSCAN returns one large cluster and some outliers (i.e., noise points); for hierarchical clustering, the number of clusters varies the most, from 2 to 10.
+k-medoids outperforms DBSCAN and agglomerative hierarchical clustering for all three distance measures.
+Besides, <span class="math inline">\(d_{\text{RPP}}\)</span> outperforms all other distance measures with respect to the three algorithms.</p>
+
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:07-results-cbms">Table 7.1: </span><strong>Clustering results (part A).</strong> Optimal number of clusters <span class="math inline">\(k_{opt}\)</span> and Silhouette coefficient <span class="math inline">\(Silh_{opt}\)</span> for each distance measure and algorithm.
+</caption>
+<thead><tr>
+<th style="text-align:left;">
+Algorithm
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(k_{opt}\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(Silh_{opt}\)</span>
+</th>
+</tr></thead>
+<tbody>
+<tr grouplength="3">
+<td colspan="3" style="border-bottom: 0;">
+<strong><span class="math inline">\(d_{\text{RPP}}\)</span></strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+k-medoids
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.78
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+DBSCAN
+</td>
+<td style="text-align:right;">
+1 + 14 noise points
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Hierarchical (single linkage)
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="3" style="border-bottom: 0;">
+<strong><span class="math inline">\(d_{\text{pairs}}\)</span></strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+k-medoids
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.31
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+DBSCAN
+</td>
+<td style="text-align:right;">
+1 + 2 noise points
+</td>
+<td style="text-align:right;">
+0.13
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Hierarchical (average linkage)
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+</tr>
+<tr grouplength="3">
+<td colspan="3" style="border-bottom: 0;">
+<strong><span class="math inline">\(d_{\text{centers}}\)</span></strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+k-medoids
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+DBSCAN
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:left; padding-left:  2em;" indentlevel="1">
+Hierarchical (average linkage)
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0.18
+</td>
+</tr>
+</tbody>
+</table></div>
+<p>For the best clustering (<span class="math inline">\(d_{\text{RPP}}\)</span>, k-medoids), a boxplot-based visualization of the RPP distributions of the medoids for each sensor is shown in Figure <a href="diabfoot.html#fig:07-cbms-clusters">7.3</a>.
+While the RPP distribution of medoid 1 is balanced, medoid 2 has a pressure focus on the centrally located MTB-3; medoid 3 has an overall higher pressure load, especially for Digitus-1, MTB-2, MTB-3, MTB-5, and Lateral, while medoid 4 represents a “skewed” pattern with increasing pressure from the medial to the lateral forefoot (as measured at MTB-5).
+The substantial differences in the RPP distribution of these medoids suggest high variability in how DFS patients apply pressure to their feet.
+Determining patient subpopulations serves as a basis for reducing the risk of DFS-related foot complications by supporting early detection, treatment, and prevention <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a>, <a href="references.html#ref-LaveryEtAl:DiabetesCare2003" role="doc-biblioref">[212]</a>, <a href="references.html#ref-CavanaghEtAl:OffLoading2010" role="doc-biblioref">[214]</a>, <a href="references.html#ref-BarnEtAl:PLOS15" role="doc-biblioref">[220]</a>–<a href="references.html#ref-Bus:OffloadingDiabeticFoot2012" role="doc-biblioref">[222]</a></span>, for example, by personalized footwear tailored to patient needs <span class="citation"><a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span>.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:07-cbms-clusters"></span>
+<img src="figures/07-cbms-clusters.png" alt="Cluster medoids of the best clustering. Visualization of the RPP distribution of the medoids of the best clustering (\(d_{\text{RPP}}\); k = 4). The boxplot panel background color represents the median RPP, from light gray (low median RPP) to dark blue (high median RPP). D1: Digitus-1; MTB: metatarsal bone; C: Calcaneus." width="100%"><p class="caption">
+Figure 7.3: <strong>Cluster medoids of the best clustering.</strong> Visualization of the RPP distribution of the medoids of the best clustering (<span class="math inline">\(d_{\text{RPP}}\)</span>; k = 4). The boxplot panel background color represents the median RPP, from light gray (low median RPP) to dark blue (high median RPP). D1: Digitus-1; MTB: metatarsal bone; C: Calcaneus.
+</p>
+</div>
+<p>The optimal clustering resulted in 4 subgroups.
+This number is consistent with the results of Deschamps et al. <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span> (for the diabetes group) and De Cock et al. <span class="citation"><a href="references.html#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">[201]</a></span>.
+Furthermore, some of our findings are similar to the study of Bennetts et al. <span class="citation"><a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span>.
+The RPP distribution of the second cluster’s medoid corresponds to the “central pattern” of De Cock et al. <span class="citation"><a href="references.html#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">[201]</a></span> and cluster 2 of Deschamps et al. <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span>.
+Being the medoid of the largest of the four clusters (n = 25 out of 73 feet (ca. 34%)), it is characterized by low to medium RPP the with focal point of pressure on the central forefoot regions MTB-3.
+Our fourth medoid is similar to cluster 4 of Deschamps et al. <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span>.
+However, while cluster 4 is the second largest in our study (n = 22 feet (ca. 30%)), the relative proportion in Deschamps et al. <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span> is much smaller (n = 30 of 194 feet (ca. 15%)).
+While RPP pressure is rather low in the medial regions, median RPP gradually increases toward the lateral forefoot regions.
+The balanced, moderate pressure on all regions of the first medoid (n = 12 (ca. 16%)) represents a well-distributed pressure loading pattern.
+It is similar to the largest cluster (cluster 4) of Bennets et al. <span class="citation"><a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span>.
+The overall high pressure loading of the third medoid may be an indicator of an adverse posture.
+Patients from cluster 3 (n = 14 (ca. 19%)) may be overloading their feet and should therefore be warned more urgently than the other subgroups.</p>
+<!-- The similarities in some clusters we found and clusters found in [@DeCockEtAl:FootTypeClusteringPlantarPressure2006; @DeschampsEtAL:KMeansDiabeticFoot2013; @BennettsEtAl:Biomechanics2013] suggest that some patients exert pressure in specific regions and in a very pronounced manner.  -->
+<!-- However, not all findings can be replicated due to differences in study protocol.  -->
+<!-- k-medoids clustering was run for $k=\left\{2,3,\ldots,10\right\}$. The optimal number of clusters was determined by the Silhouette coefficient $Silh$ which is defined as -->
+<!-- \begin{equation} -->
+<!-- Silh = 1/n\sum_{p=1}^{n}\frac{b(p)-a(p)}{\max\left\{a(p),b(p)\right\}}, -->
+<!-- \end{equation} -->
+<!-- where $a(p)$ is the average distance between a instance $p$ and all other instances of the same cluster (cluster peers), $b(p)$ is the average distance from $p$ to the instances of the nearest cluster and $n$ is the total number of instances in the dataset. The value of $Silh$ ranges from $-1$ to $1$. Values near $1$ are preferred since they express a high compactness of cluster peers and a large distance of instances to other clusters. When on average instances are closer to another cluster's instances than to their cluster peers, $Si$ becomes negative indicating that the cluster membership assignment is inappropriate. % -->
+<!-- %A drawback of the silhouette coefficient is the disregard of cluster size. -->
+<!-- % -->
+<!-- Clustering was consecutively performed for the diabetic group (\Diabetics, number of session datasets $n=50$), controls (healthy volunteers, number of session datasets $n=36$) and a combination of both groups where a random sample of diabetes patients was randomly selected (\BothGroups, number of session datasets $n=36+36=72$). % -->
+<!-- Clustering and best clustering selection have been performed in R version 3.2.2. -->
+</div>
+<div id="results-on-part-b" class="section level3" number="7.3.2">
+<h3>
+<span class="header-section-number">7.3.2</span> Results on Part B<a class="anchor" aria-label="anchor" href="#results-on-part-b"><i class="fas fa-link"></i></a>
+</h3>
+<p>Figure <a href="diabfoot.html#fig:07-pone-silhouette">7.4</a> shows the Silhouette coefficient and the optimal number of clusters for each subgroup.
+Patients, controls, and the combination of both groups can be best described with four plantar pressure profiles.
+For the clustering with the optimum k of each group, a summary of the relative plantar pressure distribution for the session datasets of each cluster is provided in Figure <a href="diabfoot.html#fig:07-pone-clusters">7.5</a>.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:07-pone-silhouette"></span>
+<img src="figures/07-pone-silhouette.png" alt="Silhouette coefficient for different numbers of clusters. Silhouette coefficient for each group and k-medoids clustering using the distribution of eight plantar pressure regions with the number of clusters k set between 2 and 10. For each group, the best clustering is obtained with k = 4 clusters." width="70%"><p class="caption">
+Figure 7.4: <strong>Silhouette coefficient for different numbers of clusters.</strong> Silhouette coefficient for each group and k-medoids clustering using the distribution of eight plantar pressure regions with the number of clusters k set between 2 and 10. For each group, the best clustering is obtained with k = 4 clusters.
+</p>
+</div>
+
+<div class="figure" style="text-align: center">
+<span id="fig:07-pone-clusters"></span>
+<img src="figures/07-pone-clusters.png" alt="Summary visualization of intra-cluster RPP distributions. Relative plantar pressure distribution for each cluster and sensor over the whole session (including pauses). Panel background of boxplots depicts median relative plantar pressure with a linear color gradient, from light gray (low relative plantar pressure) to violet (high relative plantar pressure). Pie charts show the percentages of healthy volunteers and diabetes patients for each cluster in the combined group. D1: Digitus-1; MTB: metatarsal bone; C: Calcaneus. The figure is adapted from [216]." width="100%"><p class="caption">
+Figure 7.5: <strong>Summary visualization of intra-cluster RPP distributions.</strong> Relative plantar pressure distribution for each cluster and sensor over the whole session (including pauses). Panel background of boxplots depicts median relative plantar pressure with a linear color gradient, from light gray (low relative plantar pressure) to violet (high relative plantar pressure). Pie charts show the percentages of healthy volunteers and diabetes patients for each cluster in the combined group. D1: Digitus-1; MTB: metatarsal bone; C: Calcaneus. The figure is adapted from <span class="citation"><a href="references.html#ref-Niemann:PONE2016" role="doc-biblioref">[216]</a></span>.
+</p>
+</div>
+<p><strong>Healthy volunteers.</strong>
+<!-- For the group of healthy volunteers, the optimum number of clusters was four. -->
+For cluster 1, representing 50% of the volunteer participants, the median RPP is high in all regions.
+Clusters 2 and 3 show some variability for pressure in the forefoot regions.
+Cluster 4, characterized by low median RPP at MTB-1 and MTB-5, describes only 2 of 36 feet in the volunteer group.</p>
+<p><strong>Diabetes patients.</strong>
+<!-- Fordiabetes patients, four distinct pressure distributions were identified by k-medoids with  -->
+Cluster 1 is the largest subgroup and is characterized by high plantar pressure (median RPP above 80%).
+Cluster 2 represents an evenly balanced median RPP profile.
+Here, median relative plantar pressures for Digitus-1, MTB-1, and MTB-5 range from 30% to 50% of maximum, while median relative plantar pressures for the central forefoot (MTB-2, MTB-3, MTB-4), Lateral, and Calcaneus were recorded between 50% and 75%.
+For cluster 3, the median RPP is above 80% of all regions’ maximum values except for the medial regions Digitus-1 and MTB-1.
+The latter cluster has the highest variance of all four clusters, with a high difference between the first and third quartiles for several regions.
+For cluster 4, high median relative plantar pressures are perceived at all MTB sensors (RPP &gt; 75%) and almost no pressure on Lateral (median RPP &lt; 2%).</p>
+<p>When we perform clustering on the combination of both groups, some clusters of the diabetes patients merge with the ones of controls.
+The optimal number of clusters to describe the pressure distribution best remains 4.
+Clusters 1-3 contain both patients and controls, but cluster 4 summarizes pressure distribution patterns only found in diabetes patients with severe polyneuropathy.</p>
+<p>Table <a href="diabfoot.html#tab:07-pone-comparison">7.2</a> summarizes the data for diabetes patients and healthy volunteers within the combined group’s four clusters.
+In clusters 1-3, the mean values of weight, height, and BMI for patients are higher than those for volunteers.
+Since cluster 4 has the highest values for height, weight, and BMI, it can be assumed that these anthropometric characteristics also influence the measured pressure values and that the class separation cannot be explained exclusively by pathology.</p>
+
+<div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
+<caption>
+<span id="tab:07-pone-comparison">Table 7.2: </span><strong>Baseline characteristics.</strong> Characteristics of diabetes patients (P) and healthy volunteers (V) with respect to the clustering on the combined group.
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;" colspan="1">
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cluster 1
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cluster 2
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cluster 3
+</div>
+</th>
+<th style="padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; font-weight: bold; " colspan="2">
+<div style="border-bottom: 1px solid #111111; margin-bottom: -1px; ">
+Cluster 4
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Characteristic
+</th>
+<th style="text-align:center;font-weight: bold;">
+P
+</th>
+<th style="text-align:center;font-weight: bold;">
+V
+</th>
+<th style="text-align:center;font-weight: bold;">
+P
+</th>
+<th style="text-align:center;font-weight: bold;">
+V
+</th>
+<th style="text-align:center;font-weight: bold;">
+P
+</th>
+<th style="text-align:center;font-weight: bold;">
+V
+</th>
+<th style="text-align:center;font-weight: bold;">
+P
+</th>
+<th style="text-align:center;font-weight: bold;">
+V
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+n
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+13
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex (f/m)
+</td>
+<td style="text-align:center;">
+2/7
+</td>
+<td style="text-align:center;">
+9/10
+</td>
+<td style="text-align:center;">
+4/5
+</td>
+<td style="text-align:center;">
+8/5
+</td>
+<td style="text-align:center;">
+4/6
+</td>
+<td style="text-align:center;">
+3/1
+</td>
+<td style="text-align:center;">
+1/7
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age (years)
+</td>
+<td style="text-align:center;">
+61 <span class="math inline">\(\pm\)</span> 9
+</td>
+<td style="text-align:center;">
+64 <span class="math inline">\(\pm\)</span> 7
+</td>
+<td style="text-align:center;">
+68 <span class="math inline">\(\pm\)</span> 5
+</td>
+<td style="text-align:center;">
+60 <span class="math inline">\(\pm\)</span> 9
+</td>
+<td style="text-align:center;">
+68 <span class="math inline">\(\pm\)</span> 8
+</td>
+<td style="text-align:center;">
+67 <span class="math inline">\(\pm\)</span> 6
+</td>
+<td style="text-align:center;">
+63 <span class="math inline">\(\pm\)</span> 10
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Height (cm)
+</td>
+<td style="text-align:center;">
+178 <span class="math inline">\(\pm\)</span> 5
+</td>
+<td style="text-align:center;">
+172 <span class="math inline">\(\pm\)</span> 8
+</td>
+<td style="text-align:center;">
+173 <span class="math inline">\(\pm\)</span> 5
+</td>
+<td style="text-align:center;">
+169 <span class="math inline">\(\pm\)</span> 12
+</td>
+<td style="text-align:center;">
+173 <span class="math inline">\(\pm\)</span> 6
+</td>
+<td style="text-align:center;">
+166 <span class="math inline">\(\pm\)</span> 11
+</td>
+<td style="text-align:center;">
+178 <span class="math inline">\(\pm\)</span> 6
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weight (kg)
+</td>
+<td style="text-align:center;">
+97 <span class="math inline">\(\pm\)</span> 22
+</td>
+<td style="text-align:center;">
+79 <span class="math inline">\(\pm\)</span> 13
+</td>
+<td style="text-align:center;">
+85 <span class="math inline">\(\pm\)</span> 15
+</td>
+<td style="text-align:center;">
+76 <span class="math inline">\(\pm\)</span> 11
+</td>
+<td style="text-align:center;">
+92 <span class="math inline">\(\pm\)</span> 15
+</td>
+<td style="text-align:center;">
+69 <span class="math inline">\(\pm\)</span> 18
+</td>
+<td style="text-align:center;">
+100 <span class="math inline">\(\pm\)</span> 18
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BMI
+</td>
+<td style="text-align:center;">
+31 <span class="math inline">\(\pm\)</span> 6
+</td>
+<td style="text-align:center;">
+27 <span class="math inline">\(\pm\)</span> 3
+</td>
+<td style="text-align:center;">
+28 <span class="math inline">\(\pm\)</span> 4
+</td>
+<td style="text-align:center;">
+27 <span class="math inline">\(\pm\)</span> 4
+</td>
+<td style="text-align:center;">
+31 <span class="math inline">\(\pm\)</span> 5
+</td>
+<td style="text-align:center;">
+25 <span class="math inline">\(\pm\)</span> 6
+</td>
+<td style="text-align:center;">
+31 <span class="math inline">\(\pm\)</span> 4
+</td>
+<td style="text-align:center;">
+–
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="diabfoot-discussion" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Discussion of the Findings from the Medical Perspective<a class="anchor" aria-label="anchor" href="#diabfoot-discussion"><i class="fas fa-link"></i></a>
+</h2>
+<p>Four pressure clusters each were identified for healthy volunteers and diabetes patients.
+These clusters reflect the way the groups distribute pressure to foot regions vulnerable for ulceration.
+The ultimate goal of these profiles is to reduce ulcer risk: while clinical examination remains essential, pressure distribution analysis, as proposed here, can serve as the basis for preventive strategies <span class="citation"><a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a>, <a href="references.html#ref-LaveryEtAl:DiabetesCare2003" role="doc-biblioref">[212]</a>, <a href="references.html#ref-CavanaghEtAl:OffLoading2010" role="doc-biblioref">[214]</a>, <a href="references.html#ref-BarnEtAl:PLOS15" role="doc-biblioref">[220]</a>–<a href="references.html#ref-DahmenEtAl:TherapeuticFootwear2001" role="doc-biblioref">[223]</a></span>, including the manufacturing of footwear tailored to patient needs <span class="citation"><a href="references.html#ref-BennettsEtAl:Biomechanics2013" role="doc-biblioref">[202]</a></span>.
+An interesting finding is that an unsupervised procedure alone, i.e., without using the target variable (presence of diabetes), generated a cluster consisting exclusively of diabetes patients, see Figure <a href="diabfoot.html#fig:07-pone-clusters">7.5</a> (c).</p>
+<p>This result is remarkable because the study protocol, with its strict sequence of standing and sitting episodes, specifies exactly when and for how long pressure loads are to be applied.
+Furthermore, during the experiment, participants were instructed to adhere to the protocol, i.e., to apply pressure continuously during the standing episodes.
+It is possible that the diabetes patients adhered more strictly to the study protocol due to their neuropathy.
+It can also be assumed that a pain-related fatigue effect occurs more frequently during the second loading phase over 20 min (stance episode 6) compared to the first (stance episode 3), indicated by a larger percentage of recordings of pressure release.
+To quantify these changes, we calculated the percentage of recordings in which the participants released pressure during stance episodes 3 and 6 (Figure <a href="diabfoot.html#fig:07-press-variance">7.6</a>).
+No significant intra-group differences between stance episodes 3 and 6 were found.
+However, the mean percentage of pressure release recordings was significantly different (p &lt; 0.01) between healthy volunteers and diabetes patients with sensoric polyneuropathy.</p>
+
+<div class="figure" style="text-align: center">
+<span id="fig:07-press-variance"></span>
+<img src="figures/07-press-variance.png" alt="Average percentage of recordings without pressure application during 20-minute standing episodes. Intermittent pressure release in diabetes patients with neuropathy occurs less frequently than in healthy controls. The underlying dataset is from our previous publication [31] where 114 propensity-score matched observations (57 from volunteers, 57 from diabetes patients) are analyzed. For intra- and inter-group statistical comparison, a two-sided Student’s t-test is used. The figure is adapted from [31]." width="70%"><p class="caption">
+Figure 7.6: <strong>Average percentage of recordings without pressure application during 20-minute standing episodes.</strong> Intermittent pressure release in diabetes patients with neuropathy occurs less frequently than in healthy controls. The underlying dataset is from our previous publication <span class="citation"><a href="references.html#ref-Niemann:EBioMedicine2020" role="doc-biblioref">[31]</a></span> where 114 propensity-score matched observations (57 from volunteers, 57 from diabetes patients) are analyzed. For intra- and inter-group statistical comparison, a two-sided Student’s t-test is used. The figure is adapted from <span class="citation"><a href="references.html#ref-Niemann:EBioMedicine2020" role="doc-biblioref">[31]</a></span>.
+</p>
+</div>
+<p>Comparing the clusters for healthy subjects and diabetes patients revealed a high overlap in the plantar pressure distribution.
+For example, cluster 1 and cluster 3 of healthy subjects and diabetes patients are characterized by almost identical pressure loading patterns.
+To investigate whether a group-specific pressure distribution could be identified, a cluster analysis was performed for the combination of both groups.
+A random sample of diabetes patients was selected to ensure a balanced distribution between the two groups.
+The observed pressure patterns in Figure <a href="diabfoot.html#fig:07-pone-clusters">7.5</a> (c) support the assumption of common pressure patterns: clusters 1, 2, and 3 comprise the pressure distributions of both groups.
+However, cluster 4 was unique to diabetes patients.
+This pattern is characterized by the lowest median relative plantar pressure on the Lateral and Calcaneus.</p>
+<p>Also, unlike other studies, we avoided k-means because it is sensitive to outliers and because cluster centroids are composite objects, not true feet; rather, we provide a cluster’s medoid, which is the most representative foot in the cluster, while a cluster centroid (under k-means) is a derived vector of averages that may be very different from any patient’s pressure distribution inside the cluster.</p>
+<p>Some of the observed differences compared to related studies could be because of differences in study participants, population sizes, experimental protocols, and measurement devices <span class="citation"><a href="references.html#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">[201]</a>–<a href="references.html#ref-DeschampsEtAL:KMeansDiabeticFoot2013" role="doc-biblioref">[203]</a></span>.
+For example, neither the medial M1 pattern nor the M2 pattern of <span class="citation"><a href="references.html#ref-DeCockEtAl:FootTypeClusteringPlantarPressure2006" role="doc-biblioref">[201]</a></span>, which focuses on either MTB-1 or MTB-2, could be replicated.
+Besides, some of the results were not observed in previous studies, such as the pattern disparity between lateral and other regions in cluster 4 (diabetes patients).</p>
+<!-- As shown in Fig~\ref{fig:BoxplotGrid_all}~C, one cluster (cluster~4)  consists only of patient sessions, accounting for ca. 22\% of sessions of diabetics. However, all other clusters contain both diabetics and controls. Does this imply    that diabetics apply pressure in a similar way as controls in more than 78\% of the sessions? Fig~\ref{fig:Si} provides an indication that this is not necessarily the case. In particular, Fig~\ref{fig:Si} shows that the quality of clusters over the control group is lower than the quality of the clusters over the patients, implying that controls exhibit much more diversity in plantar pressure distribution than patients. Hence, when clustering patients and controls together, the idiosyncrasies of the controls lead to clusters of poor quality, from which conclusions on the similarity between patients and controls should not be drawn. This is also supported by Fig~\ref{fig:PCA_Scatter_Best_Results_each_Group}~C, where we see that the clusters built over both groups together are very close to each other, even overlapping. -->
+<p>Our main finding is that a group of patients (cluster 4) applies plantar pressure in a way that is not found in healthy volunteers.
+To draw conclusions from the other clusters, it is necessary to consider a larger sample of healthy individuals, which would allow reducing idiosyncrasies possibly found here and form homogeneous clusters of healthy individuals.</p>
+<p>The study protocol’s simplicity makes it easily reproducible, but the protocol cannot capture the complexity of foot movement in everyday life.
+Thus, a limitation of the study is to only detect differences in pressure distribution that can be detected by changes in posture.
+When patients apply pressure in an uncontrolled environment, the variance between their pressure profiles will inevitably increase.
+Therefore, a study that considers more effortful activities of the patients (running, cycling, climbing stairs, etc.) is needed to complement the results.</p>
+<p>Another limitation of the results is the small sample size, which prevented examining differences between female and male participants because the gender samples would have been too small for generalization.</p>
+<p>Finally, a long-term follow-up would allow us to determine which patients eventually develop ulceration.
+This would provide a critical endpoint and evaluate whether certain clusters are associated with a higher risk of developing diabetic foot syndrome.</p>
+</div>
+<div id="diabfoot-conclusion" class="section level2" number="7.5">
+<h2>
+<span class="header-section-number">7.5</span> Conclusion<a class="anchor" aria-label="anchor" href="#diabfoot-conclusion"><i class="fas fa-link"></i></a>
+</h2>
+<p>We have proposed three similarity measures for short temporal sequences extracted from raw mHealth data to create representations of distinct subpopulations via clustering.
+The DIAB data served for proof-of-concept validation.
+The similarity measures were based on (i) relative plantar pressure, (ii) pressure distribution in pairs of sensors, and (iii) centers of pressure.
+We found four distinct subpopulations of plantar pressure patterns.</p>
+<p>Our approach needs to be validated on larger cohorts.
+The modeling of similarity can be transferred from pressure to temperature recordings in the plantar regions, possibly closing the gap in early detection of tissue damage and ulcer formation.
+The formation of a diabetes patient cluster emphasizes pathological differences, i.e., impaired sensation and microcirculatory defects leading to tissue damage.
+Our results may lay the groundwork for approaches to identify pressure (and temperature) patterns predictive for emerging foot problems with diabetes in the future.</p>
+
+
 
 </div>
+</div>
+
 
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Study Participant Change over Time</a></div>
+<div class="prev"><a href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Change over Time</a></div>
 <div class="next"><a href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#diabfoot"><span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#diabfoot"><span class="header-section-number">7</span> Feature Extraction from Short Temporal Sequences for Clustering</a></li>
+<li><a class="nav-link" href="#diabfoot-intro"><span class="header-section-number">7.1</span> Medical Background</a></li>
+<li>
+<a class="nav-link" href="#diabfoot-approach"><span class="header-section-number">7.2</span> Modeling Similarity of Regional Plantar Pressure</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#diabfoot-approach-feature-extraction"><span class="header-section-number">7.2.1</span> Feature Extraction from Short Time Series</a></li>
+<li><a class="nav-link" href="#diabfoot-approach-similarity-measures"><span class="header-section-number">7.2.2</span> Distance Measures</a></li>
+<li><a class="nav-link" href="#diabfoot-approach-clustering"><span class="header-section-number">7.2.3</span> Identifying Foot Profiles by Clustering</a></li>
+<li><a class="nav-link" href="#diabfoot-approach-evaluation"><span class="header-section-number">7.2.4</span> Evaluation Setup</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#diabfoot-results"><span class="header-section-number">7.3</span> Validation on DIAB</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#results-on-part-a"><span class="header-section-number">7.3.1</span> Results on Part A</a></li>
+<li><a class="nav-link" href="#results-on-part-b"><span class="header-section-number">7.3.2</span> Results on Part B</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#diabfoot-discussion"><span class="header-section-number">7.4</span> Discussion of the Findings from the Medical Perspective</a></li>
+<li><a class="nav-link" href="#diabfoot-conclusion"><span class="header-section-number">7.5</span> Conclusion</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -131,7 +852,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</strong>" was written by Uli Niemann. It was last built on 09.03.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

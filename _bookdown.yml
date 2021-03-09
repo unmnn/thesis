@@ -3,3 +3,7 @@ language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+# rmd_files: ["index.Rmd"]
+# rmd_files: ["index.Rmd", "04-sdclu.Rmd", "05-pheno.Rmd"]
+# rmd_files: ["index.Rmd", "06-evo.Rmd", "07-diabfoot.Rmd"]
+# rmd_files: ["index.Rmd", "09-gender.Rmd"]

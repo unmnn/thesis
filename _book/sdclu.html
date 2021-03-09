@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Identifying Distinct Subpopulations | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</title>
+<title>Chapter 4 Identifying Distinct Subpopulations | Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</title>
 <meta name="author" content="Uli Niemann">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.5.3/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.6/header-attrs.js"></script><script src="libs/jquery-3.5.1/jquery-3.5.1.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.5.3/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.5.3/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.2.9002/tabs.js"></script><script src="libs/bs3compat-0.2.2.9002/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</a>
+        <a href="index.html" title="">Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -35,22 +35,22 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome!</a></li>
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
-<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background &amp; Datasets</a></li>
+<li><a class="" href="background.html"><span class="header-section-number">2</span> Medical Background and Datasets</a></li>
 <li class="book-part">Subpopulation Discovery in High-Dimensional Data</li>
 <li><a class="" href="imm.html"><span class="header-section-number">3</span> Interactive Discovery and Inspection of Subpopulations</a></li>
 <li><a class="active" href="sdclu.html"><span class="header-section-number">4</span> Identifying Distinct Subpopulations</a></li>
 <li><a class="" href="phenotypes.html"><span class="header-section-number">5</span> Visual Identification of Informative Features</a></li>
 <li class="book-part">EXPLOITING DYNAMICS</li>
-<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Study Participant Change over Time</a></li>
-<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction From Short Temporal Sequences for Clustering</a></li>
+<li><a class="" href="evo.html"><span class="header-section-number">6</span> Constructing Evolution Features to Capture Change over Time</a></li>
+<li><a class="" href="diabfoot.html"><span class="header-section-number">7</span> Feature Extraction from Short Temporal Sequences for Clustering</a></li>
 <li class="book-part">POST-MINING FOR INTERPRETATION</li>
 <li><a class="" href="iml.html"><span class="header-section-number">8</span> Post-Hoc Interpretation of Classification Models</a></li>
 <li><a class="" href="gender.html"><span class="header-section-number">9</span> Subpopulation-Specific Learning and Post-Hoc Model Interpretation</a></li>
-<li class="book-part">SUMMARY</li>
-<li><a class="" href="summary.html"><span class="header-section-number">10</span> Conclusion and Future Work</a></li>
+<li class="book-part">CONCLUSION</li>
+<li><a class="" href="conclusion.html"><span class="header-section-number">10</span> Summary and Future Work</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="references.html">References</a></li>
-<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Variables selected for phenotyping</a></li>
+<li><a class="" href="appx-pheno.html"><span class="header-section-number">A</span> Overview of Variables Selected for Phenotyping</a></li>
 </ul>
 
         <div class="book-extra">
@@ -65,118 +65,127 @@
 <div id="brief-chapter-summary-1" class="section level4 unnumbered infobox chapter-summary">
 <h4>Brief Chapter Summary<a class="anchor" aria-label="anchor" href="#brief-chapter-summary-1"><i class="fas fa-link"></i></a>
 </h4>
-<p>We study redundancy in large rule sets describing subpopulations.
-We present a workflow that extracts a smaller number of representative rules.
-These rules are selected to avoid instance overlap as much as possible, thus covering different concepts in the data space.
-We evaluate our workflow on samples of SHIP with hepatic steatosis and goiter as target variables.</p>
+<p>Subgroup discovery algorithms often generate redundant descriptions of subpopulations.
+We present a workflow to extract a small number of representative rules from a large set of classification rules.
+These so-called <em>proxy rules</em> minimize instance overlaps across rule groups, thus covering different subpopulations.
+We evaluate our workflow on SHIP data samples with hepatic steatosis and goiter as target variables, respectively.</p>
 </div>
-<div class="infobox chapter-literature">
+<div class="lit chapter-literature">
 <p>This chapter is partly based on:</p>
 <p>Uli Niemann, Myra Spiliopoulou, Bernhard Preim, Till Ittermann, and
 Henry Völzke. “Combining Subgroup Discovery and Clustering to Identify
-Diverse Subpopulations in Cohort Study Data.” In: <em>Proc. of IEEE Int.
-Symposium on Computer-Based Medical Systems (CBMS)</em>. 2017, pp. 582-587.
-DOI: <a href="https://doi.org/10.1109%2FCBMS.2017.15">10.1109/CBMS.2017.15</a>.</p>
+Diverse Subpopulations in Cohort Study Data.” In: <em>Computer-Based Medical Systems (CBMS)</em>. 2017, pp. 582-587. DOI: <a href="https://doi.org/10.1109%2FCBMS.2017.15">10.1109/CBMS.2017.15</a>.</p>
 </div>
 <!-- - **distinctiveness**, interestingness, concepts -->
-<p>Epidemiologists search for significant relationships between risk factors and outcome in large and heterogeneous datasets that encompass participant health information gathered from questionnaires and medical examinations.
-In the previous chapter, we described a expert-driven workflow that can help epidemiologists to automatically detect such relationships in form of classification rules, which are descriptions of risk factors and predictive value ranges in for a specific subpopulation and an outcome of interest.
-However, rule induction algorithms often produce large and overlapping rule sets requiring the expert to manually pick the most interesting rules and to remove less interesting or redundant rules.
-This post-filtering step is time-consuming and tedious.
-This chapter presents a clustering-based algorithm that hierarchically reorganizes large rule sets and summarizes all important concepts while maintaining <em>distinctiveness</em> between the clusters.
-For each cluster, a representative rule is shown to the expert who in turn can drill-down to other cluster members.
-We evaluate our algorithm on two subsets of SHIP where the outcomes hepatic steatosis and goiter serve as target variable, respectively.
-Further, we report on effectiveness of our algorithm and we present selected subpopulations.</p>
-<p>This chapter presents SD-Clu, an approach that combines subgroup discovery with clustering to return a set of <span class="math inline">\(k\)</span> representative classification rules.
-Building up on a set of potentially highly overlapping rules generated by a SD algorithm, we leverage hierarchical agglomerative clustering to find groups of rules that cover different sets of instances.
-For each cluster, we nominate one rule as the group’s representative that exhibits best trade-off between rule confidence and coverage towards the target variable.
-We define similarity between a pair of subgroups based on the fraction of mutually covered instances and individually covered instances.
+<p>Epidemiologists search for significant relationships between risk factors and a target variable in large and heterogeneous datasets that encompass participant health information gathered from questionnaires and medical examinations <span class="citation"><a href="references.html#ref-elmore2020jekel" role="doc-biblioref">[80]</a></span>.
+The previous chapter describes an expert-driven workflow that can help epidemiologists automatically detect such relationships in the form of classification rules, which are descriptions of risk factors and predictive value ranges for a specific subpopulation and an target variable of interest.
+However, rule induction algorithms often produce large and overlapping rule sets requiring the expert to manually pick the most informative rules and remove less informative or redundant ones.
+This post-filtering step is time-consuming and tedious.</p>
+<p>This chapter presents a clustering-based algorithm that hierarchically reorganizes large rule sets and summarizes all essential subpopulations while maintaining <em>distinctiveness</em> between the clusters.
+For each cluster, a representative rule is shown to the expert who then can drill down to other cluster members.
+We evaluate our algorithm on two subsets of SHIP where the target variables hepatic steatosis and goiter serve as target variables, respectively.
+Further, we report on the effectiveness of our algorithm, and we present selected subpopulations.</p>
+<p>We propose SD-Clu, an approach that combines subgroup discovery with clustering to return <span class="math inline">\(k\)</span> representative classification rules.
+Building upon a set of potentially highly overlapping rules generated by an SD algorithm, we leverage hierarchical agglomerative clustering to find groups of rules that cover different sets of instances.
+For each cluster, we nominate one rule as the group’s representative that exhibits best tradeoff between rule confidence and coverage towards the target variable.
+We define the similarity between a pair of subgroups based on the fraction of mutually covered instances and individually covered instances.
 Rules covering (almost) the same instances are likely to be condensed into the same cluster and thus more likely to be represented by a proxy rule.
-We evaluate our algorithm on two samples from <em>SHIP</em> investigating the diseases hepatic steatosis and goiter.</p>
+<!-- We evaluate our algorithm on two samples from _SHIP_ investigating the diseases hepatic steatosis and goiter. --></p>
 <p>Section <a href="sdclu.html#sdclu-intro">4.1</a> serves as motivation for the related field of subgroup discovery and redundancy of classification rules.
 <!-- Section&nbsp;\@ref(sec:fundamentals) briefly reviews fundamental notations and quality measures of SD.  -->
 Section <a href="sdclu.html#sdclu-method">4.2</a> presents our SD-Clu algorithm that generates distinct rules.
-Section <a href="sdclu.html#sdclu-experiments">4.3</a> contains the experimental setup.
-In Section <a href="sdclu.html#sdclu-results">4.4</a>, we describe our evaluation results.
-In Section <a href="sdclu.html#sdclu-discussion">4.4.1</a>, we discuss our findings regarding hepatic steatosis and goiter on the SHIP data.
-In Section <a href="sdclu.html#sdclu-conclusions">4.5</a>, we summarize our contributions.
+Section <a href="sdclu.html#sdclu-experiments">4.3</a> describes the experimental setup.
+In Section <a href="sdclu.html#sdclu-results">4.4</a>, we report on our evaluation results.
+In Section <a href="sdclu.html#sdclu-discussion">4.5</a>, we discuss our findings regarding hepatic steatosis and goiter on the SHIP data.
+In Section <a href="sdclu.html#sdclu-conclusion">4.6</a>, we summarize our contributions.
 <!-- and provide an outlook for future work. --></p>
 <div id="sdclu-intro" class="section level2" number="4.1">
 <h2>
 <span class="header-section-number">4.1</span> Motivation and Comparison to Related Work<a class="anchor" aria-label="anchor" href="#sdclu-intro"><i class="fas fa-link"></i></a>
 </h2>
-<p>Subgroup discovery (SD) algorithms aim to uncover <em>interesting</em> relationships between one or more conditions (variables and value ranges) and a target variable in the form of classification rules <span class="citation"><a href="references.html#ref-Herrera11" role="doc-biblioref">[110]</a>, <a href="references.html#ref-Atzmueller15" role="doc-biblioref">[119]</a></span>.
-Compared to more accurate but predominantly opaque black-box models such as neural networks, support vector machines, or random forests, SD algorithms provide higher confidence and interpretability of results, making them highly suitable for domain expert-guided subpopulation discovery.
-SD algorithms have been used in several medical studies where descriptive knowledge needed to be inferred, e.g., to extract potential drug targets from multi-relational data sources for the treatment of dementia <span class="citation"><a href="references.html#ref-Nguyen:Nature15" role="doc-biblioref">[120]</a></span>, to identify predictive auditory-perceptual, speech-acoustic, and articulatory-kinematic features of preschool children with speech sound disorders <span class="citation"><a href="references.html#ref-Vick14" role="doc-biblioref">[121]</a></span>, and to discover discriminative features in patient subpopulations with different admission times to psychiatric emergency departments <span class="citation"><a href="references.html#ref-Carmona11" role="doc-biblioref">[122]</a></span>.</p>
-<p>However, SD methods often yield large sets of rules that domain experts are not willing to tediously go through all of them to manually separate interesting from irrelevant and redundant rules.
+<p><em>Subgroup discovery</em> (SD) algorithms aim to uncover “interesting” relationships between one or more conditions (variables and value ranges) and a target variable in the form of classification rules <span class="citation"><a href="references.html#ref-Herrera11" role="doc-biblioref">[110]</a>, <a href="references.html#ref-Atzmueller15" role="doc-biblioref">[120]</a></span>.
+Compared to more accurate but predominantly opaque black-box models such as neural networks, support vector machines, or random forests, SD algorithms yield more interpretable results, making them highly suitable for domain expert-guided subpopulation discovery.
+SD algorithms have been used in several medical studies where descriptive knowledge needed to be inferred, e.g., to extract potential drug targets from multi-relational data sources for the treatment of dementia <span class="citation"><a href="references.html#ref-Nguyen:Nature15" role="doc-biblioref">[121]</a></span>, to identify predictive auditory-perceptual, speech-acoustic, and articulatory-kinematic features of preschool children with speech sound disorders <span class="citation"><a href="references.html#ref-Vick14" role="doc-biblioref">[122]</a></span>, and to discover discriminative features in patient subpopulations with different admission times to psychiatric emergency departments <span class="citation"><a href="references.html#ref-Carmona11" role="doc-biblioref">[123]</a></span>.</p>
+<p>However, SD methods often yield large sets of rules that domain experts are not willing to tediously go through and manually separate interesting from irrelevant or redundant ones.
 A common observation is that there are groups of rules that cover almost the same set of instances, as shown in Figure <a href="sdclu.html#fig:04-rule-redundancy">4.1</a>.
-Instead of presenting <em>all</em> rules found by an SD algorithm at once, we propose to organize rule sets hierarchically so that the domain expert is able to explore a compact set of different concepts, equipped with mechanisms to drill down to specific rules of interest.</p>
+Instead of presenting <em>all</em> rules found by an SD algorithm at once, we propose to organize rule sets hierarchically so that the domain expert can explore a compact set of different subpopulations, equipped with mechanisms to drill down to specific rules of interest.</p>
 
 <div class="figure" style="text-align: center">
 <span id="fig:04-rule-redundancy"></span>
-<img src="figures/04-rule-redundancy.png" alt="Example of two redundant rules. Both \(r_1\) and \(r_2\) cover the instances 7,8,9,10; \(r_2\) additionally covers instance 2. The cover set overlap is due to the high correlation between #Teeth and Age, and between BMI and Waist circumference. Both rules describe the same concept, i.e., elderly overweight people have a higher risk of the outcome." width="80%"><p class="caption">
-Figure 4.1: <strong>Example of two <em>redundant</em> rules.</strong> Both <span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span> cover the instances 7,8,9,10; <span class="math inline">\(r_2\)</span> additionally covers instance 2. The cover set overlap is due to the high correlation between <em>#Teeth</em> and <em>Age</em>, and between <em>BMI</em> and <em>Waist circumference</em>. Both rules describe the same concept, i.e., <em>elderly overweight people have a higher risk of the outcome</em>.
+<img src="figures/04-rule-redundancy.png" alt="Example of redundant rules. Both \(r_2\) and \(r_3\) cover the instances 7,8,9, and 10; \(r_3\) additionally covers instance 2. The cover set overlap is due to the high correlation between #Teeth and Age; and between BMI and Waist circumference. Both rules describe the same subpopulation, i.e., elderly overweight people are at higher risk of developing the disease." width="100%"><p class="caption">
+Figure 4.1: <strong>Example of <em>redundant</em> rules.</strong> Both <span class="math inline">\(r_2\)</span> and <span class="math inline">\(r_3\)</span> cover the instances 7,8,9, and 10; <span class="math inline">\(r_3\)</span> additionally covers instance 2. The cover set overlap is due to the high correlation between <em>#Teeth</em> and <em>Age</em>; and between <em>BMI</em> and <em>Waist circumference</em>. Both rules describe the same subpopulation, i.e., <em>elderly overweight people are at higher risk of developing the disease</em>.
 </p>
 </div>
-<p>Similar to the HotSpot algorithm described in Section <a href="imm.html#imm-workflow-hotspot">3.2.5</a>, popular SD algorithms such as SubgroupMiner <span class="citation"><a href="references.html#ref-Kloesgen:SubgroupMiner2002" role="doc-biblioref">[123]</a></span>,
-SD <span class="citation"><a href="references.html#ref-Gamberger:SD02" role="doc-biblioref">[124]</a></span> and CN2-SD <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[125]</a></span> use a fixed beam width to limit the number of further expanded subgroup candidates at each iteration.
-A post-pruning step can be applied to reduce the cardinality of the rule set – e.g., to return the <em>top-k</em> rules – using a quality criterion such as the weighted relative accuracy or the p-value of a statistical test.
-Even when both beam-width search and top-<span class="math inline">\(k\)</span> pruning are applied, the result often still contains redundant rules.
+<p>Similar to the HotSpot algorithm described in Section <a href="imm.html#imm-workflow-hotspot">3.2.3</a>, popular SD algorithms such as SubgroupMiner <span class="citation"><a href="references.html#ref-Kloesgen:SubgroupMiner2002" role="doc-biblioref">[124]</a></span>,
+SD <span class="citation"><a href="references.html#ref-Gamberger:SD02" role="doc-biblioref">[125]</a></span>, and CN2-SD <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[126]</a></span> use a fixed beamwidth <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[109]</a></span> to limit the number of further expanded subgroup candidates at each iteration.
+A post-pruning step can be applied to reduce the size of the rule set – e.g., to return the <em>top k</em> rules – using a quality criterion such as the Weighted Relative Accuracy <span class="citation"><a href="references.html#ref-lavravc1999rule" role="doc-biblioref">[127]</a></span> or the p-value of a statistical test.
+Even when both beamwidth search and top k pruning are applied, the result often still contains redundant rules.
 This is due to the correlation between the (non-target) variables, which leads to a large number of variations of a given finding, cf. Figure <a href="sdclu.html#fig:04-rule-overlap-heatmap">4.2</a> for an illustrative example.
-In particular, top-<span class="math inline">\(k\)</span> pruning leads to different variations of the same concepts (i.e. large instance overlap) <span class="citation"><a href="references.html#ref-VanLeeuwen:DSSD12" role="doc-biblioref">[126]</a></span>.</p>
+In particular, top k pruning leads to different variations of the same subpopulation (i.e., high instance overlap among rules) <span class="citation"><a href="references.html#ref-VanLeeuwen:DSSD12" role="doc-biblioref">[128]</a></span>.</p>
 <!-- These rules share probably a high number of instances based on the high correlation of anthropometric measurements and there might be multiple other similar rules describing the same \emph{concept}.  -->
 
 <div class="figure" style="text-align: center">
 <span id="fig:04-rule-overlap-heatmap"></span>
-<img src="figures/04-rule-overlap-heatmap.png" alt="Graphical representation of 1115 HotSpot rules found on SHIP data on 886 labeled instances. A gray cell indicates that the instance at that x-position is covered by the rule at the associated y-position. Instances and rules are sorted by agglomerative hierarchical clustering. When partitioning into 10 clusters based on the covered instances, the rules in each cluster describe similar subpopulations." width="80%"><p class="caption">
-Figure 4.2: Graphical representation of 1115 HotSpot rules found on SHIP data on 886 labeled instances. A gray cell indicates that the instance at that x-position is covered by the rule at the associated y-position. Instances and rules are sorted by agglomerative hierarchical clustering. When partitioning into 10 clusters based on the covered instances, the rules in each cluster describe similar subpopulations.
+<img src="figures/04-rule-overlap-heatmap.png" alt="Illustration of rule redundancy. Graphical representation of 1115 HotSpot rules found on SHIP data on 886 labeled instances. A gray cell indicates that the instance at that x-position is covered by the rule at the associated y-position. Instances and rules are sorted by agglomerative hierarchical clustering. When partitioning into 10 clusters based on the covered instances, each cluster’s rules describe similar subpopulations." width="75%"><p class="caption">
+Figure 4.2: <strong>Illustration of rule redundancy.</strong> Graphical representation of 1115 HotSpot rules found on SHIP data on 886 labeled instances. A gray cell indicates that the instance at that x-position is covered by the rule at the associated y-position. Instances and rules are sorted by agglomerative hierarchical clustering. When partitioning into 10 clusters based on the covered instances, each cluster’s rules describe similar subpopulations.
 </p>
 </div>
-<p>Unlike SD, which generates multiple rules that overlap in terms of their coverage sets, predictive rule learning algorithms such as CN2 <span class="citation"><a href="references.html#ref-Clark:CN289" role="doc-biblioref">[127]</a></span> or RIPPER <span class="citation"><a href="references.html#ref-Cohen:RIPPER95" role="doc-biblioref">[128]</a></span> are designed to generate rules that capture different spaces in the data.
-They work iteratively according to a divide-and-conquer strategy <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[109]</a></span>:
-First, a rule that maximizes the quality function of the algorithm is generated on the set of instances not yet covered.
+<p>Unlike SD algorithms which generate multiple rules that overlap in terms of their coverage sets, predictive rule learning algorithms such as CN2 <span class="citation"><a href="references.html#ref-Clark:CN289" role="doc-biblioref">[129]</a></span> or RIPPER <span class="citation"><a href="references.html#ref-Cohen:RIPPER95" role="doc-biblioref">[130]</a></span> are designed to generate rules that capture different subpopulations.
+They work iteratively according to a divide-and-conquer strategy <span class="citation"><a href="references.html#ref-Fuernkranz:12" role="doc-biblioref">[109]</a></span> as follows:
+First, a rule that maximizes the algorithm’s quality function is generated on the set of instances not yet covered.
 Second, all covered instances are removed from the training set.
 This process of rule induction and removal of instances from the training set is repeated until all instances are covered by at least one rule.
 The output of this algorithm is often a decision list.
 To classify an instance, the prediction of the first rule that covers the instance is used.
-While these algorithms avoid the problem of rule redundancy, important concepts may remain uncovered.
-For example, the algorithm might induce a rule that includes instances with a high BMI, but it might not be able to find a slightly weaker association with income because those instances are immediately removed from the instance candidate space.
-In addition, the coverage of rules generally decreases with each iteration.
+While these algorithms avoid rule redundancy, important subpopulations may remain undiscovered because of order dependencies.
+For example, the algorithm might induce a rule that includes instances with a high BMI, but it might not find a slightly weaker association with income because those instances are immediately removed from the instance candidate space.
+Also, the coverage of rules generally decreases with each iteration.
 Rules with low coverage are negligible in epidemiological studies because they may represent spurious correlations of the study sample.</p>
-<p>Instead of simply eliminating covered instances from rule induction of subsequent iterations, <em>weighted coverage approaches</em> take into account how many times instances have been covered so far in the rule candidate expansion step <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[125]</a></span>.
-While this leniency over removing instances allows for a larger number of rules, a new hyperparameter is introduced to control the tradeoff between reusing already covered instances and minimum rule confidence.
+<p>Instead of merely eliminating covered instances from rule induction of subsequent iterations, <em>weighted covering approaches</em> consider how many times instances have been covered so far in the rule candidate expansion step <span class="citation"><a href="references.html#ref-Lavravc:CN2-SD04" role="doc-biblioref">[126]</a></span>.
+While this leniency in removing instances allows for a larger number of rules, a new hyperparameter is introduced to control the tradeoff between reusing already covered instances and minimum rule confidence.
 This parameter is unintuitive and difficult to set, especially for domain experts.
-Moreover, both traditional predictive rule learning algorithms and their weighted covering extensions introduce order dependencies between rules: a rule depends on all previous rules in the rule list and the instances of the target variable it covers, and it may not make sense to interpret a single rule.</p>
+Moreover, both traditional predictive rule learning algorithms and their weighted covering extensions introduce order dependencies between rules: a rule depends on all previous rules in the rule list and the instances of the target variable it covers.
+It may not make sense to interpret a single rule.</p>
 </div>
 <div id="sdclu-method" class="section level2" number="4.2">
 <h2>
 <span class="header-section-number">4.2</span> Finding Distinct Classification Rules<a class="anchor" aria-label="anchor" href="#sdclu-method"><i class="fas fa-link"></i></a>
 </h2>
-<p>In this section, we present our algorithm SD-Clu, which combines subgroup discovery with clustering to return a set of <span class="math inline">\(k\)</span> distinct classification rules.
+<p>This section presents our algorithm SD-Clu, which combines subgroup discovery with clustering to return a set of <span class="math inline">\(k\)</span> distinct classification rules.
 The algorithm consists of three main steps.
-First, the SD algorithm generates a set of potentially highly overlapping rules.
-Using hierarchical agglomerative clustering, this set of rules is then grouped into a set of distinct rule clusters covering different sets of instances.
-For each cluster, the rule that has the best tradeoff between confidence and coverage of the target variable is appointed as the representative of the group.
+First, the SD algorithm generates a set of (potentially highly overlapping) rules.
+Using hierarchical agglomerative clustering, this set of rules is then grouped into a distinct rule clusters covering different sets of instances.
+For each cluster, the rule with the best tradeoff between confidence and coverage of the target variable is appointed as the representative of the group.
 Rules covering the same instances are grouped in the same cluster and are therefore represented by the same proxy rule.</p>
-<div id="rule-clustering" class="section level3" number="4.2.1">
+<div id="sdclu-method-proxy-rules" class="section level3" number="4.2.1">
 <h3>
-<span class="header-section-number">4.2.1</span> Rule clustering<a class="anchor" aria-label="anchor" href="#rule-clustering"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.1</span> Rule Clustering and the Concept of “Proxy Rules”<a class="anchor" aria-label="anchor" href="#sdclu-method-proxy-rules"><i class="fas fa-link"></i></a>
 </h3>
-<p>We use the same notation for classification rule discovery as in Section <a href="imm.html#imm-workflow-classification">3.2.3</a>.
-Agglomerative hierarchical clustering iteratively merges similar instances to clusters, in a bottom-up way.
-The order of merging two clusters depends on the linkage strategy: in <em>complete linkage</em> the distance between two clusters is defined as the maximum distance between any two of their instances.
-The pair of clusters minimizing this maximum distance are selected for merging.
-A dendrogram is a tree representation of this stepwise process.
-Optionally, a parameter <span class="math inline">\(k\)</span> can be specified to obtain a specific partitioning.
-We define rule similarity for clustering on the basis of the mutually covered instances as an adaption of the Sørensen–DICE coefficient <span class="citation"><a href="references.html#ref-Dice45" role="doc-biblioref">[129]</a></span>.
-The distance between two rules <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> with corresponding subpopulations <span class="math inline">\(s(r_1)\)</span>, <span class="math inline">\(s(r_2)\)</span> is given as
+<p>We use the same notation for classification rule discovery as in Section <a href="imm.html#imm-workflow-classification">3.2.1</a>.
+Agglomerative hierarchical clustering iteratively merges clusters of similar instances in a bottom-up way.
+Here, the instances are rules.
+Hence an alternative definition of a distance measure is required.
+The order of merging two clusters depends on the linkage strategy.
+In <em>complete linkage</em>, the distance between two clusters is defined as the maximum distance between any two of their instances.
+The pair of clusters minimizing this maximum distance is selected for merging.
+<!-- This stepwise merging process can be depicted as dendrogram. -->
+<!-- Optionally, a parameter $k$ can be specified to obtain a specific partitioning.  --></p>
+<p>We define rule similarity for clustering on the basis of the mutually covered instances as an adaption of the Sørensen–DICE coefficient <span class="citation"><a href="references.html#ref-Dice45" role="doc-biblioref">[131]</a></span>.
+The distance between two rules <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> with corresponding subpopulations (cover sets) <span class="math inline">\(s(r_1)\)</span>, <span class="math inline">\(s(r_2)\)</span> is given as
 <span class="math display" id="eq:dice">\[\begin{equation}
 \text{dist}(r_1,r_2) = 1 - \frac{2\cdot\left|s(r_1)\cap s(r_2)\right|}{\left|s(r_1)\right| + \left|s(r_2)\right|}.
 \tag{4.1}
-\end{equation}\]</span>
-The number of clusters can be specified as parameter <span class="math inline">\(k\)</span>.
-Alternatively, we describe an approach that derives an appropriate <span class="math inline">\(k\)</span> from the rule set using a cluster quality function such as the Silhouette coefficient.
-For a clustering <span class="math inline">\(\xi\)</span> and a set of rules <span class="math inline">\(R\)</span>, the Silhouette coefficient is calculated as
+\end{equation}\]</span></p>
+<p>We propose two ways of completing the hierarchical rule clustering process:</p>
+<ol style="list-style-type: decimal">
+<li>Specification of the maximum number of clusters <span class="math inline">\(k\)</span>
+</li>
+<li>Discovery of the optimal <span class="math inline">\(k\)</span> based on an internal clustering index such as the Silhouette coefficient.
+<!-- The number of clusters can be specified as parameter $k$.  -->
+<!-- Alternatively, we describe an approach that derives an appropriate $k$ from the rule set using a cluster quality function such as the Silhouette coefficient.  -->
+</li>
+</ol>
+<p>For a clustering <span class="math inline">\(\xi\)</span> and a set of rules <span class="math inline">\(R\)</span>, the Silhouette coefficient is calculated as
 <span class="math display" id="eq:silh">\[\begin{equation}
 \text{Silh}(R,\xi) = \frac{1}{|R|}\sum_{r\in R}{\frac{b(r)-a(r)}{\max\left\{a(r), b(r)\right\}}}
 \tag{4.2}
@@ -192,10 +201,15 @@ b(r)=\frac{\sum_{y\in{}Z}\text{dist}(r,y)}{|Z|}
 \tag{4.4}
 \end{equation}\]</span>
 is the average dissimilarity between <span class="math inline">\(r\)</span> and the rules in the cluster <span class="math inline">\(Z\in\xi\)</span> which is the closest to the cluster <span class="math inline">\(Y\)</span> containing <span class="math inline">\(r\)</span>.
-Then, we traverse the dendrogram bottom-up, compute the Silhouette for each set of clusters <span class="math inline">\(\xi\)</span> and select as <span class="math inline">\(\xi_{opt}\)</span> the set of clusters with the best Silhouette value.
+Basically, any other cluster quality function could be used.
+We choose the Silhouette coefficient here because of its understandable interpretation.
+The value of the silhouette coefficient can vary between -1 and 1.
+A negative value is undesirable because it represents a case where the average distance to rules in the same cluster is greater than the minimum average distance to rules in another cluster.
+We prefer a positive silhouette coefficient, i.e., a value close to the maximum of 1.</p>
+<p>Then, we traverse the dendrogram bottom-up, compute the Silhouette for each set of clusters <span class="math inline">\(\xi\)</span>, and select as <span class="math inline">\(\xi_{opt}\)</span> the set of clusters with the best Silhouette value.
 The optimal number of clusters is then the cardinality <span class="math inline">\(|\xi_{opt}|\)</span>.
 Finally, we map each cluster <span class="math inline">\(Y\in\xi_{opt}\)</span> to a representative rule.
-To do so, we invoke the rule interestingness measure <em>Weighted Relative Accuracy</em> (WRA hereafter) which balances coverage and confidence gain and is defined as
+To do so, we invoke the rule interestingness measure Weighted Relative Accuracy <span class="citation"><a href="references.html#ref-lavravc1999rule" role="doc-biblioref">[127]</a></span> (WRA hereafter), which balances coverage and confidence gain and is defined as
 <span class="math display" id="eq:wra">\[\begin{equation}
 WRA(r)=Cov(r)\cdot\left(Conf(r)-\frac{n_{T=v}}{N}\right)
 \tag{4.5}
@@ -203,45 +217,50 @@ WRA(r)=Cov(r)\cdot\left(Conf(r)-\frac{n_{T=v}}{N}\right)
 where <span class="math inline">\(N\)</span> is the total number of instances in the dataset and <span class="math inline">\(n_{T=v}\)</span> is the number of instances with the target variable value of interest.
 We compute WRA for each rule <span class="math inline">\(r\in{Y}\)</span> and select as cluster proxy <span class="math inline">\(cp(Y)\)</span> the rule for which WRA is maximum.</p>
 </div>
-<div id="representativeness-of-a-set-of-cluster-proxies" class="section level3" number="4.2.2">
+<div id="representativeness-of-a-set-of-proxy-rules" class="section level3" number="4.2.2">
 <h3>
-<span class="header-section-number">4.2.2</span> Representativeness of a set of cluster proxies<a class="anchor" aria-label="anchor" href="#representativeness-of-a-set-of-cluster-proxies"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2</span> Representativeness of a Set of Proxy Rules<a class="anchor" aria-label="anchor" href="#representativeness-of-a-set-of-proxy-rules"><i class="fas fa-link"></i></a>
 </h3>
-<p>The rule proxies should be a good representation of the total rule set.
+<p>The proxy rules should be a good representation of the total rule set.
 Thus, each instance should be covered equally often by the cluster proxies compared to the total rule set.
-Hence, we define representativeness as difference between the average fraction of proxy rules the instances are covered by and the total average fraction of rules the instances are covered by.
-If the difference between the two ratios is small, then the representativeness of the cluster proxy rules is high.</p>
+Hence, we define representativeness as the difference between the average fraction of proxy rules the instances are covered by and the total average fraction of rules the instances are covered by.
+If the difference between the two ratios is small, then the proxy rules’ representativeness is high.</p>
 <p>Typically, the set of rule clusters <span class="math inline">\(\zeta\)</span> for a set of rules <span class="math inline">\(R\)</span> will be the optimal set of clusters, as described in the previous subsection, but it can be any set of clusters chosen by the user, as long as it contains all rules in <span class="math inline">\(R\)</span>.
-For <span class="math inline">\(\zeta\)</span>, let <span class="math inline">\(R_{\zeta}=\{cp(Y)|Y\in\zeta\}\)</span> denote the set of cluster proxy rules.
+For <span class="math inline">\(\zeta\)</span>, let <span class="math inline">\(R_{\zeta}=\{cp(Y)|Y\in\zeta\}\)</span> denote the set of proxy rules.
 To quantify how representative such a set of rules is, we proceed as follows.
-First, let <span class="math inline">\(U\subseteq{}R\)</span> be an arbitrary subset of the complete set of rules, and let <span class="math inline">\(x\)</span> be an instance.
+First, let <span class="math inline">\(U\subseteq{}R\)</span> be an arbitrary subset of the complete set of rules, and let <span class="math inline">\(x\)</span> be a data instance.
 The <em>coverage rate</em> of <span class="math inline">\(x\)</span> towards <span class="math inline">\(U\)</span> is calculated as
 <span class="math display" id="eq:covRate">\[\begin{equation}
 covRate(x,U) = \frac{\sum_{r\in{}U}isCovered(x,r)}{|U|}
 \tag{4.6}
 \end{equation}\]</span>
-where <span class="math inline">\(isCovered(x,r)\)</span> is equal to 1, if <span class="math inline">\(r\)</span> covers <span class="math inline">\(x\)</span>, i.e., <span class="math inline">\(x\in s(r)\)</span>, and 0 otherwise.
+where <span class="math inline">\(isCovered(x,r)\)</span> is equal to 1, if <span class="math inline">\(r\)</span> covers <span class="math inline">\(x\)</span>, i.e., <span class="math inline">\(x\in s(r)\)</span>, and <span class="math inline">\(0\)</span> otherwise.
 We observe that for a set of rules <span class="math inline">\(U\)</span>, an instance <span class="math inline">\(x\)</span> cannot be covered by more than <span class="math inline">\(|U|\)</span> rules.
 Let <span class="math inline">\(R_x\)</span> be the set of rules that cover instance <span class="math inline">\(x\)</span>, i.e., for <span class="math inline">\(R_x=\{r\in{}U | isCovered(x,r)=1 \}\)</span>.
-For the whole set of instances <span class="math inline">\(X\)</span> we create bins:
+For the whole set of instances <span class="math inline">\(X\)</span>, we create bins:
 <span class="math display" id="eq:bini">\[\begin{equation}
 bin_i(U)= \{x \in{}X | |R_x|=i \}.
 \tag{4.7}
 \end{equation}\]</span>
 Further, let <span class="math inline">\(bin_0(U)= \{x \in{}X | \forall r\in U : isCovered(x,r)=0 \}\)</span>.
-Evidently, an instance <span class="math inline">\(x\)</span> can be covered by <span class="math inline">\(0, 1, \ldots, |U|\)</span> rules, i.e. <span class="math inline">\(covRate(x,U)\)</span> can take one of <span class="math inline">\(|U|+1\)</span> values.
-In contrast, <span class="math inline">\(covRate(x,R)\)</span> can take one of <span class="math inline">\(|R|+1\)</span> values, a usually much larger number. We therefore map the possible values of <span class="math inline">\(covRate(x,R)\)</span> into the much smaller set of possible values by rounding, computing:
+An instance <span class="math inline">\(x\)</span> can be covered by <span class="math inline">\(0, 1, \ldots, |U|\)</span> rules, i.e., <span class="math inline">\(covRate(x,U)\)</span> can take one of <span class="math inline">\(|U|+1\)</span> values.
+In contrast, <span class="math inline">\(covRate(x,R)\)</span> can take one of <span class="math inline">\(|R|+1\)</span> values, a usually much larger number.
+Therefore, we map the possible values of <span class="math inline">\(covRate(x,R)\)</span> into the much smaller set of possible values by rounding, computing:
 <span class="math display" id="eq:adjCovRate">\[\begin{equation}
 adjCovRate(x,U, R)=\frac{\lfloor covRate(x,R)\cdot|U| \rceil}{|U|}
 \tag{4.8}
 \end{equation}\]</span>
 where <span class="math inline">\(\lfloor\rceil\)</span> is the rounding operator.
-Then, for the complete set of instances <span class="math inline">\(X\)</span>, a set of induced rules <span class="math inline">\(R\)</span>, the clustering <span class="math inline">\(\zeta\)</span> over <span class="math inline">\(R\)</span> and the set of cluster proxy rules <span class="math inline">\(R_{\zeta}\)</span>, the <em>representativeness</em> of <span class="math inline">\(R_{\zeta}\)</span> is defined as
+Then, for the complete set of instances <span class="math inline">\(X\)</span>, a set of induced rules <span class="math inline">\(R\)</span>, the clustering <span class="math inline">\(\zeta\)</span> over <span class="math inline">\(R\)</span> and the set of proxy rules <span class="math inline">\(R_{\zeta}\)</span>, the <span class="math inline">\(representativeness\)</span> of <span class="math inline">\(R_{\zeta}\)</span> is defined as
 <span class="math display" id="eq:representativeness">\[\begin{equation}
 representativeness(R_{\zeta},R)=1-
 \frac{1}{|X|}\sum_{x\in{}X} |adjCovRate(x,U,R) - covRate(x,R_{\zeta})|.
 \tag{4.9}
 \end{equation}\]</span></p>
+<p>We investigate how the <span class="math inline">\(representativeness\)</span> changes with an increasing number of proxy rules <span class="math inline">\(k\)</span> for different criteria to select the cluster’s proxy rule.
+Ideally, <span class="math inline">\(representativeness\)</span> is high while <span class="math inline">\(k\)</span> is low.
+In other words, the number of proxy rules should be as small as possible, but these rules should cover all important subpopulations within the data.
+For a fixed <span class="math inline">\(k\)</span>, we compare our strategy of selecting the cluster’s rule with the highest WRA as the proxy rule against three baselines: the top <span class="math inline">\(k\)</span> rules according to (i) WRA, (ii) odds ratio, and (iii) coverage.</p>
 </div>
 </div>
 <div id="sdclu-experiments" class="section level2" number="4.3">
@@ -251,49 +270,50 @@ representativeness(R_{\zeta},R)=1-
 <p><strong>Datasets.</strong>
 To evaluate our method, we used data from the SHIP study.
 For a description of SHIP, see Section <a href="background.html#background-data-ship">2.2.1</a>.
-We considered hepatic steatosis (see section <a href="imm.html#imm-workflow-target">3.2.1</a>) and goiter as target variables.
-For the sample <code>HepStea</code>, we derived a binary outcome variable by discretizing the liver fat concentration obtained from the MRI report so that study participants with a concentration no greater than 10% were assigned to the negative class and values greater than 10% were assigned to the positive class indicating the presence of the disease.
-Of 886 participants for whom the MRI report from SHIP-2 was available at that time, 694 (78.3%) were negative and 192 (21.7%) were positive.
-We considered 99 variables selected exclusively from SHIP-0 to assess their long-term effects as expressed 10 years later in SHIP-2.
-For the <code>Goiter</code> sample, the outcome variable was derived by thyroid ultrasound.
-The presence of goiter was defined for a thyroid volume greater than 18ml in women and 25ml in men <span class="citation"><a href="references.html#ref-Gutekunst:88" role="doc-biblioref">[130]</a></span>.
-Of the 4400 participants for whom the outcome variable is available in TREND-0, 3010 belong to the negative class (68.4%) and 1390 (31.6%) to the positive class.
+We considered hepatic steatosis (see Section <a href="imm.html#imm-workflow-target">3.2.5</a>) and goiter as target variables.
+For the sample <code>HepStea</code>, we derived a binary target variable by discretizing the liver fat concentration obtained from the MRI report, such that study participants with a concentration no greater than 10% were assigned to the negative class, and values greater than 10% were assigned to the positive class indicating the presence of the disease.
+Of 886 participants for whom the MRI report from SHIP-2 was available at that time, 694 (78.3%) were negative, and 192 (21.7%) were positive.
+We considered 99 variables selected exclusively from SHIP-0 to assess their long-term effects expressed ten years later in SHIP-2.
+For the <code>Goiter</code> sample, the target variable was derived by thyroid ultrasound.
+The presence of goiter was defined for a thyroid volume greater than 18 ml in women and 25 ml in men <span class="citation"><a href="references.html#ref-Gutekunst:88" role="doc-biblioref">[132]</a></span>.
+Of the 4400 participants for whom the target variable is available in TREND-0, 3010 belong to the negative class (68.4%) and 1390 (31.6%) to the positive class.
 Apart from the target variable, we use a total of 182 variables that were pre-selected by a medical expert as potential risk factors.</p>
 <p><strong>SD algorithms.</strong>
-For subgroup discovery, the two algorithms HotSpot <span class="citation"><a href="references.html#ref-Hall:Weka09" role="doc-biblioref">[131]</a></span> (cf. Section <a href="imm.html#imm-workflow-hotspot">3.2.5</a> and SD-Map <span class="citation"><a href="references.html#ref-Atzmueller:SD-Map:06" role="doc-biblioref">[132]</a></span> are used.
-SD-Map is an exhaustive algorithm that adapts the popular FP-Growth association rule learning method <span class="citation"><a href="references.html#ref-Han:FPGrowth00" role="doc-biblioref">[76]</a></span>.
+For subgroup discovery, we use our approach from Chapter <a href="imm.html#imm">3</a>, the algorithm HotSpot <span class="citation"><a href="references.html#ref-Hall:Weka09" role="doc-biblioref">[133]</a></span> (Section <a href="imm.html#imm-workflow-hotspot">3.2.3</a>).
+We further try SD-Map <span class="citation"><a href="references.html#ref-Atzmueller:SD-Map:06" role="doc-biblioref">[134]</a></span>, an exhaustive algorithm that adapts the popular FP-Growth association rule learning method <span class="citation"><a href="references.html#ref-Han:FPGrowth00" role="doc-biblioref">[90]</a></span>.
 Rules that fall below a minimum coverage threshold are pruned.
-A deep-first search is performed for candidate generation.
+A depth-first search is performed for candidate generation.
 Rules are ranked according to a user-defined quality function.
-We used the implementation from the VIKAMINE framework <span class="citation"><a href="references.html#ref-Atzmueller:VIKAMINE12" role="doc-biblioref">[133]</a></span>.
+We use the implementation from the VIKAMINE framework <span class="citation"><a href="references.html#ref-Atzmueller:VIKAMINE12" role="doc-biblioref">[135]</a></span>.
 The implementation of SD-Map only supports categorical variables.
-Therefore, each numeric variable was discretized using the minimum description length based approach of Fayyad and Irani <span class="citation"><a href="references.html#ref-Fayyad:MDL93" role="doc-biblioref">[134]</a></span>.
-For SD-Map, we set the minimum coverage threshold to 0.05 to avoid overfitting rules that are too small.
+Therefore, each numeric variable is discretized using the minimum description length based approach of Fayyad and Irani <span class="citation"><a href="references.html#ref-Fayyad:MDL93" role="doc-biblioref">[136]</a></span>.</p>
+<p>For SD-Map, we set the minimum coverage threshold to 0.05 to avoid overfitting, too small rules.
 We use WRA as a quality function and define a minimum threshold of 0.025.
 For HotSpot, we set the support threshold of a rule to be above 0.05.
-The beam width is set to 500.
-In addition, to avoid rather meaningless literals, we restrict the extension of a rule body with another literal to a relative confidence gain of at least 0.3.
-To avoid having many overly specific rules that cover only a small number of study participants, we limit the length of a rule body, i.e., the number of literals to 3.</p>
+The beamwidth is set to 500.
+Furthermore, to avoid rather meaningless literals, we restrict the extension of a rule body with another literal to a relative confidence gain of at least 0.3.
+To avoid having many overly specific rules that cover only a small number of study participants, we limit the length of a rule body, i.e., the number of literals to 3.
+To determine the optimal number of proxy rules <span class="math inline">\(k\)</span>, we compute the Silhouette coefficient for every possible number of clusters.</p>
 </div>
 <div id="sdclu-results" class="section level2" number="4.4">
 <h2>
 <span class="header-section-number">4.4</span> Results<a class="anchor" aria-label="anchor" href="#sdclu-results"><i class="fas fa-link"></i></a>
 </h2>
-<p>In Figure <a href="sdclu.html#fig:04-silh-comparison">4.3</a>, we show the optimal number of clusters for each combination of study sample and SD algorithm.
-Table <a href="sdclu.html#tab:04-silh">4.1</a> shows the optimal <span class="math inline">\(k\)</span> and the ratio of proxy rules vs. total number of rules.
-For example, clustering with optimal silhouette coefficient for the algorithm HotSpot on <code>Goiter</code> has 76 clusters and thus 76 rule cluster proxies (cf. Table <a href="sdclu.html#tab:04-silh">4.1</a>), which is only 21.3% of the total number of rules.
-Thus, if only the cluster proxies are displayed to the expert at the beginning, the time needed to check the rules is reduced.</p>
+<p>Figure <a href="sdclu.html#fig:04-silh-comparison">4.3</a> shows the optimal number of clusters for each study sample combination and SD algorithm.
+Table <a href="sdclu.html#tab:04-silh">4.1</a> lists the optimal <span class="math inline">\(k\)</span> and the ratio of proxy rules vs. the total number of rules.
+For example, clustering with optimal Silhouette coefficient for the algorithm HotSpot on <code>Goiter</code> has 76 clusters and thus 76 proxy rules (cf. Table <a href="sdclu.html#tab:04-silh">4.1</a>), which is only 21.3% of the total number of rules.
+Thus, if only the cluster proxies are initially displayed to the expert, the time needed to check the rules is reduced by 78.7%.</p>
 
 <div class="figure" style="text-align: center">
 <span id="fig:04-silh-comparison"></span>
-<img src="figures/04-silh-comparison.png" alt="Silhouette coefficients (\(Silh\)) of SD-Clu using complete linkage for each combination of dataset and algorithm. The cardinality of the clustering with the highest \(Silh\) score (\(|\zeta_{opt}|\)) is indicated by a dashed vertical line." width="100%"><p class="caption">
-Figure 4.3: <strong>Silhouette coefficients (<span class="math inline">\(Silh\)</span>) of SD-Clu using complete linkage for each combination of dataset and algorithm.</strong> The cardinality of the clustering with the highest <span class="math inline">\(Silh\)</span> score (<span class="math inline">\(|\zeta_{opt}|\)</span>) is indicated by a dashed vertical line.
+<img src="figures/04-silh-comparison.png" alt="Silhouette coefficients (\(Silh\)) of SD-Clu using complete linkage for each combination of dataset and algorithm. The number of clusters \(k\) with the highest \(Silh\) score (\(|\zeta_{opt}|\)) is indicated by a dashed vertical line." width="100%"><p class="caption">
+Figure 4.3: <strong>Silhouette coefficients (<span class="math inline">\(Silh\)</span>) of SD-Clu using complete linkage for each combination of dataset and algorithm.</strong> The number of clusters <span class="math inline">\(k\)</span> with the highest <span class="math inline">\(Silh\)</span> score (<span class="math inline">\(|\zeta_{opt}|\)</span>) is indicated by a dashed vertical line.
 </p>
 </div>
 
 <div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
-<span id="tab:04-silh">Table 4.1: </span><strong>Statistics of best runs per dataset and algorithm.</strong> Number of rules <span class="math inline">\(|R|\)</span>, optimal Silhouette coefficient <span class="math inline">\(Silh(\zeta_{opt})\)</span>, the corresponding cardinality of the optimal clustering <span class="math inline">\(|\zeta_{opt}|\)</span> and percentage of cluster proxies relative to the total number of rules for every combination of data sample and SD algorithm.
+<span id="tab:04-silh">Table 4.1: </span><strong>Statistics of best runs per dataset and algorithm.</strong> Number of rules <span class="math inline">\(|R|\)</span>, optimal Silhouette coefficient <span class="math inline">\(Silh(\zeta_{opt})\)</span>, the corresponding number of rule proxies <span class="math inline">\(k\)</span> of the optimal clustering <span class="math inline">\(|\zeta_{opt}|\)</span> and percentage of rule proxies relative to the total number of rules for every combination of data sample and SD algorithm.
 </caption>
 <thead><tr>
 <th style="text-align:left;">
@@ -312,7 +332,7 @@ Algorithm
 <span class="math inline">\(|\zeta_{opt}|\)</span>
 </th>
 <th style="text-align:right;">
-<span class="math inline">\(\frac{|\zeta_{opt}|}{|R|} [\%]\)</span>
+<span class="math inline">\(\frac{|\zeta_{opt}|}{|R|} (\%)\)</span>
 </th>
 </tr></thead>
 <tbody>
@@ -373,7 +393,7 @@ HotSpot
 76
 </td>
 <td style="text-align:right;">
-21.0
+21.3
 </td>
 </tr>
 <tr>
@@ -393,57 +413,57 @@ SD-Map
 54
 </td>
 <td style="text-align:right;">
-51.6
+50.9
 </td>
 </tr>
 </tbody>
 </table></div>
-<p>The optimal cardinality of <span class="math inline">\(|\zeta_{opt}|\)</span> shown in Figure <a href="sdclu.html#fig:04-silh-comparison">4.3</a> could be used as a suggestion, but the expert is free to specify the number of rules they wishes to obtain.
-For example, if the expert considers <span class="math inline">\(|\zeta_{opt}|\)</span> = 100 too large for HotSpot on <code>HepStea</code>, the diagram would show them that a reduction to <span class="math inline">\(|\zeta_{opt}|\)</span> = 58 is possible, reducing <span class="math inline">\(Silh\)</span> only slightly from 0.48 to 0.37.
-Also in the other direction: if <span class="math inline">\(|\zeta_{opt}|\)</span> is rather low, the diagram shows that a small increase does not change <span class="math inline">\(Silh\)</span> much; therefore, the added rules may also be important.
+<p>The optimal number of clusters <span class="math inline">\(k\)</span> of <span class="math inline">\(|\zeta_{opt}|\)</span> shown in Figure <a href="sdclu.html#fig:04-silh-comparison">4.3</a> could be used as a suggestion, but the expert is free to specify the number of rules they wish to obtain.
+For example, if the expert considers <span class="math inline">\(|\zeta_{opt}|\)</span> = 100 too large for HotSpot on <code>HepStea</code>, the diagram would show them a reduction to <span class="math inline">\(|\zeta_{opt}|\)</span> = 58 is possible, reducing <span class="math inline">\(Silh\)</span> only slightly from 0.48 to 0.37.
+Also in the other direction: if <span class="math inline">\(|\zeta_{opt}|\)</span> is relatively low, the diagram shows that a small increase does not change <span class="math inline">\(Silh\)</span> much; therefore, the added rules may also be important.
 The expert could even analyze the diagram to derive a range instead of a single value, e.g., the range where <span class="math inline">\(Silh\)</span> is above 90% of its maximum.</p>
 <p>To assess the representativeness of the cluster proxies, we compare them with three baseline criteria that return the top <span class="math inline">\(k\)</span> rules according to odds ratio (baseline 1), coverage (baseline 2), and WRA (baseline 3).
 Figure <a href="sdclu.html#fig:04-representativeness-hepStea-hotSpot">4.4</a> juxtaposes the representativeness of SD-Clu and the three baselines for different numbers of rules <span class="math inline">\(k\)</span> returned to the expert for the HotSpot algorithm on the sample <code>HepStea</code>.
-The plots are arranged by rule selection method (rows) and number of representative rules <span class="math inline">\(k\)</span> returned to the expert (columns).
-Each graph shows the <span class="math inline">\(adjCovRate\)</span> (y-axis) of instances (x-axis) with respect to <span class="math inline">\(R\)</span> (solid black curve).
+The plot matrix’ panels are arranged by rule selection method (rows), and the number of representative rules <span class="math inline">\(k\)</span> returned to the expert (columns).
+Each graph shows the <span class="math inline">\(adjCovRate\)</span> (y-axis) of instances (x-axis) for <span class="math inline">\(R\)</span> (solid black curve).
 The instances are sorted by the number of rules in <span class="math inline">\(R\)</span> they are covered by, with their respective <span class="math inline">\(covRate\)</span> shown as dots.
-The dotted curve represents a locally weighted scatterplot smoothing (LOWESS) of the points.
-Ideally, both curves are close to each other, meaning that the instances are covered by approximately the same proportion of rules in the cluster proxy as the proportion of rules in general.</p>
+The dotted curve represents a locally weighted scatterplot smoothing (LOWESS) <span class="citation"><a href="references.html#ref-Cleveland:LOWESS1981" role="doc-biblioref">[137]</a></span> of the points.
+Ideally, both curves are close to each other, meaning that the instances are covered by cluster proxy rules approximately by the same proportion as all rules cover them.</p>
 
-<!-- **TODO: PUT THE PLOTS OF THE OTHER PARTITIONS INTO THE APPENDIX** -->
 <div class="figure" style="text-align: center">
 <span id="fig:04-representativeness-hepStea-hotSpot"></span>
-<img src="figures/04-representativeness-hepStea-hotSpot.png" alt="Evaluation of \(representativeness\) on HepStea using the HotSpot algorithm. \(representativeness\) of SD-Clu and three baseline approaches for different numbers of clusters \(k\) on the HepStea sample using HotSpot. Points depict an instance’s \(adjCovRate\) with respect to the set of representative rules of the approach (row) and \(k\) (column). Instances are sorted by \(covRate\) with respect to \(R\) , i.e., the set of all rules) in descending order, shown by a solid black curve. A dotted curve depicts a LOWESS regression fit on the points. The similarity between solid and dotted curve illustrates \(representativeness\) of the top-\(k\) rules of the respective approach. This is illustrated by the dark gray area in-between solid curve and dotted curve where smaller areas are better and reflect higher \(representativeness\) values." width="100%"><p class="caption">
-Figure 4.4: <strong>Evaluation of <span class="math inline">\(representativeness\)</span> on <code>HepStea</code> using the HotSpot algorithm.</strong> <span class="math inline">\(representativeness\)</span> of SD-Clu and three baseline approaches for different numbers of clusters <span class="math inline">\(k\)</span> on the <code>HepStea</code> sample using HotSpot. Points depict an instance’s <span class="math inline">\(adjCovRate\)</span> with respect to the set of representative rules of the approach (row) and <span class="math inline">\(k\)</span> (column). Instances are sorted by <span class="math inline">\(covRate\)</span> with respect to <span class="math inline">\(R\)</span> , i.e., the set of all rules) in descending order, shown by a solid black curve. A dotted curve depicts a LOWESS regression fit on the points. The similarity between solid and dotted curve illustrates <span class="math inline">\(representativeness\)</span> of the top-<span class="math inline">\(k\)</span> rules of the respective approach. This is illustrated by the dark gray area in-between solid curve and dotted curve where smaller areas are better and reflect higher <span class="math inline">\(representativeness\)</span> values.
+<img src="figures/04-representativeness-hepStea-hotSpot.png" alt="Evaluation of representativeness on HepStea using the HotSpot algorithm. \(representativeness\) of SD-Clu and three baseline approaches for different numbers of clusters \(k\) on the HepStea sample using HotSpot. Points depict an instance’s \(adjCovRate\) for the set of representative rules of the approach (row) and \(k\) (column). Instances are sorted by \(covRate\) with respect to \(R\), i.e., the set of all rules) in descending order, shown by a solid black curve. A dotted curve depicts a LOWESS regression fit on the points. The similarity between solid and dotted curves illustrates \(representativeness\) of the top \(k\) rules of the respective approach, illustrated by the dark gray area in-between solid curve and dotted curves. Smaller areas are better and reflect higher \(representativeness\) values." width="100%"><p class="caption">
+Figure 4.4: <strong>Evaluation of <em>representativeness</em> on <code>HepStea</code> using the HotSpot algorithm.</strong> <span class="math inline">\(representativeness\)</span> of SD-Clu and three baseline approaches for different numbers of clusters <span class="math inline">\(k\)</span> on the <code>HepStea</code> sample using HotSpot. Points depict an instance’s <span class="math inline">\(adjCovRate\)</span> for the set of representative rules of the approach (row) and <span class="math inline">\(k\)</span> (column). Instances are sorted by <span class="math inline">\(covRate\)</span> with respect to <span class="math inline">\(R\)</span>, i.e., the set of all rules) in descending order, shown by a solid black curve. A dotted curve depicts a LOWESS regression fit on the points. The similarity between solid and dotted curves illustrates <span class="math inline">\(representativeness\)</span> of the top <span class="math inline">\(k\)</span> rules of the respective approach, illustrated by the dark gray area in-between solid curve and dotted curves. Smaller areas are better and reflect higher <span class="math inline">\(representativeness\)</span> values.
 </p>
 </div>
-<p>For all approaches, <span class="math inline">\(representativeness\)</span> improves with increasing number of representative rules <span class="math inline">\(k\)</span>.
-For example, <span class="math inline">\(representativeness\)</span> increases from 0.87 to 0.96 for SD-Clu and <span class="math inline">\(k=10\)</span> to <span class="math inline">\(k=50\)</span> which means that the absolute difference between <span class="math inline">\(adjCovRate\)</span> of <span class="math inline">\(\zeta\)</span> and <span class="math inline">\(covRate\)</span> of <span class="math inline">\(R\)</span> over all instances successively decreases.
-Further, for a given <span class="math inline">\(k\)</span>, the representative rules of the baselines are less representative than SD-Clu’s cluster proxy rules, e.g. 0.91, 0.92, 0.91 vs. 0.96 for <span class="math inline">\(k=50\)</span>, respectively (cf. 5th column of plot matrix in Figure <a href="sdclu.html#fig:04-representativeness-hepStea-hotSpot">4.4</a>).</p>
-<div id="sdclu-discussion" class="section level3" number="4.4.1">
-<h3>
-<span class="header-section-number">4.4.1</span> Discussion of Findings<a class="anchor" aria-label="anchor" href="#sdclu-discussion"><i class="fas fa-link"></i></a>
-</h3>
-<p>Tables <a href="sdclu.html#tab:04-findings-hep-stea">4.2</a> and <a href="sdclu.html#tab:04-findings-goiter">4.3</a> show the antecedent, support, and confidence of cluster proxy rules found by two algorithms for <code>HepStea</code> and <code>Goiter</code> with <span class="math inline">\(k\)</span>=5.
+<p>For all approaches, <span class="math inline">\(representativeness\)</span> improves as <span class="math inline">\(k\)</span> increases.
+For example, when we increase <span class="math inline">\(k\)</span> from 10 to 50, <span class="math inline">\(representativeness\)</span> increases from 0.87 to 0.96 for SD-Clu, which means that the absolute difference between <span class="math inline">\(adjCovRate\)</span> of <span class="math inline">\(\zeta\)</span> and <span class="math inline">\(covRate\)</span> of <span class="math inline">\(R\)</span> over all instances successively decreases.
+Further, for a given <span class="math inline">\(k\)</span>, the representative rules of the baselines are less representative than SD-Clu’s proxy rules, e.g., 0.91, 0.92, and 0.91 vs. 0.96 for <span class="math inline">\(k=50\)</span>, respectively (cf. 5th column of plot matrix in Figure <a href="sdclu.html#fig:04-representativeness-hepStea-hotSpot">4.4</a>).</p>
+</div>
+<div id="sdclu-discussion" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> Discussion of Findings<a class="anchor" aria-label="anchor" href="#sdclu-discussion"><i class="fas fa-link"></i></a>
+</h2>
+<p>Tables <a href="sdclu.html#tab:04-findings-hep-stea">4.2</a> and <a href="sdclu.html#tab:04-findings-goiter">4.3</a> show the antecedent, support, and confidence of proxy rules found by two algorithms for <code>HepStea</code> and <code>Goiter</code> with <span class="math inline">\(k\)</span>=5.
 The prevalence of hepatic steatosis or goiter is significantly higher in each of the subpopulations described by these rules than in the corresponding overall population.
-These subpopulations are characterized by known risk factors for hepatic steatosis, such as large waist circumference and BMI, blood pressure and hypertension, advanced age, and high values in some of the medical tests (ALAT and LDL).
-Furthermore, apolipoprotein A1 (ApoA1), a major protein component of high-density lipoprotein (HDL) particles in plasma, was found to be associated with outcome in elderly patients (see fourth hotspot rule in Tables <a href="sdclu.html#tab:04-findings-hep-stea">4.2</a>).
-Lipoprotein metabolism is considered the main process contributing to the development of fatty liver <span class="citation"><a href="references.html#ref-jiang2013lipoprotein" role="doc-biblioref">[135]</a></span>.
-In addition, Poynard et al <span class="citation"><a href="references.html#ref-poynard1986apolipoprotein" role="doc-biblioref">[136]</a></span> found that patients with hepatic steatosis had higher levels of ApoA1 than patients with hepatic fibrosis, who in turn had higher levels than patients with cirrhosis.
-The fifth hotspot rule describes a subpopulation with elevated levels of liver high-sensitivity C-reactive protein (CRP) (approximately 0.80-quantile) and elevated levels of uric acid (approximately 0.36-quantile).
-Lizardi-Cervera et al. <span class="citation"><a href="references.html#ref-lizardi2007association" role="doc-biblioref">[137]</a></span> reported increased levels of ultra-sensitive CRP in subjects with hepatic steatosis independent of other metabolic states.
-Similarly, Keenan et al. <span class="citation"><a href="references.html#ref-keenan2012relation" role="doc-biblioref">[138]</a></span> found elevated uric acid levels in patients with hepatic steatosis independent of metabolic syndrome.</p>
+These subpopulations are characterized by known risk factors for hepatic steatosis, such as large waist circumference and BMI, blood pressure and hypertension, advanced age, and high values in some medical tests (ALAT and LDL).
+Furthermore, apolipoprotein A1 (ApoA1), a major protein component of high-density lipoprotein (HDL) particles in plasma, is associated with target variable in elderly patients (see fourth hotspot rule in Table <a href="sdclu.html#tab:04-findings-hep-stea">4.2</a>).
+Lipoprotein metabolism is considered the main process contributing to the development of fatty liver <span class="citation"><a href="references.html#ref-jiang2013lipoprotein" role="doc-biblioref">[138]</a></span>.
+Besides, Poynard et al. <span class="citation"><a href="references.html#ref-poynard1986apolipoprotein" role="doc-biblioref">[139]</a></span> found that patients with hepatic steatosis had higher levels of ApoA1 than patients with hepatic fibrosis, who in turn had higher levels than patients with cirrhosis.
+The fifth HotSpot rule describes a subpopulation with elevated levels of liver high-sensitivity C-reactive protein (CRP) (approximately 0.80-quantile) and elevated levels of uric acid (approximately 0.36-quantile).
+Lizardi-Cervera et al. <span class="citation"><a href="references.html#ref-lizardi2007association" role="doc-biblioref">[140]</a></span> reported increased ultra-sensitive CRP levels in subjects with hepatic steatosis independent of other metabolic states.
+Similarly, Keenan et al. <span class="citation"><a href="references.html#ref-keenan2012relation" role="doc-biblioref">[141]</a></span> found elevated uric acid levels in patients with hepatic steatosis independent of metabolic syndrome.</p>
 
 <div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
-<span id="tab:04-findings-hep-stea">Table 4.2: </span><strong>Representative rules (<code>HepStea</code>).</strong> Proxy rules for <span class="math inline">\(k\)</span> = 5 on the <code>HepStea</code> sample learned and the positive outcome as target.
+<span id="tab:04-findings-hep-stea">Table 4.2: </span><strong>Representative rules (<code>HepStea</code>).</strong> Proxy rules for <span class="math inline">\(k\)</span> = 5 on the <code>HepStea</code> sample and the positive value of the target variable.
 </caption>
 <thead><tr>
 <th style="text-align:left;font-weight: bold;">
 #
 </th>
 <th style="text-align:left;font-weight: bold;">
-Antecedent of cluster proxy
+Antecedent of proxy rule
 </th>
 <th style="text-align:right;font-weight: bold;">
 Sup
@@ -638,25 +658,25 @@ body mass index &gt; 26.3 kg/m² <span class="math inline">\(\wedge\)</span> uri
 </tr>
 </tbody>
 </table></div>
-<p>Similarly, the identified subpopulations for goiter (see Table <a href="sdclu.html#tab:04-findings-goiter">4.3</a>) are characterized by common risk factors such as increased weight and body mass index and participants prescribed angiotensin II receptor blockers (see second HotSpot rule).
+<p>Similarly, the identified subpopulations for goiter (see Table <a href="sdclu.html#tab:04-findings-goiter">4.3</a>) are characterized by common risk factors, such as increased weight, body mass index and angiotensin II receptor blocker intake (see second HotSpot rule).
 Furthermore, the first HotSpot rule describes participants with intima-media thickness greater than 0.73 mm (approximately 0.80-quantile).
-Previous studies found associations between intima-media thickness and thyroid-stimulating hormone <span class="citation"><a href="references.html#ref-takamura2009thyroid" role="doc-biblioref">[139]</a></span> and subclinical hypothyroidism
-<span class="citation"><a href="references.html#ref-gao2013carotid" role="doc-biblioref">[140]</a>, <a href="references.html#ref-unal2017association" role="doc-biblioref">[141]</a></span>.
+Previous studies found associations between intima-media thickness and thyroid-stimulating hormone <span class="citation"><a href="references.html#ref-takamura2009thyroid" role="doc-biblioref">[142]</a></span> as well as subclinical hypothyroidism <span class="citation"><a href="references.html#ref-gao2013carotid" role="doc-biblioref">[143]</a>, <a href="references.html#ref-unal2017association" role="doc-biblioref">[144]</a></span>.
 The condition of the third HotSpot rule describes the duration of an ECG phase.
-Jabbar et al <span class="citation"><a href="references.html#ref-jabbar2017thyroid" role="doc-biblioref">[142]</a></span> summarize in their review that pathological thyroid hormone levels increase the risk of cardiovascular disease.
-This association appears to be especially true in the elderly <span class="citation"><a href="references.html#ref-fazio2004effects" role="doc-biblioref">[143]</a></span>.
-The fourth rule suggests that certain thrombocyte levels indicate increased thyroid volume, which confirms Erikci et al <span class="citation"><a href="references.html#ref-erikci2009effect" role="doc-biblioref">[144]</a></span> who found that hypothyroid patients had higher platelet volume and platelet distribution width than a control group.</p>
+Jabbar et al. <span class="citation"><a href="references.html#ref-jabbar2017thyroid" role="doc-biblioref">[145]</a></span> summarized that pathological thyroid hormone levels increase the risk of cardiovascular disease.
+This association appears to be especially true in the elderly <span class="citation"><a href="references.html#ref-fazio2004effects" role="doc-biblioref">[146]</a></span>.
+The fourth rule suggests that certain thrombocyte levels indicate increased thyroid volume, which confirms Erikci et al. <span class="citation"><a href="references.html#ref-erikci2009effect" role="doc-biblioref">[147]</a></span>, who found that hypothyroid patients had higher platelet volume and platelet distribution width than a control group.
+This shows that our approach delivers relevant results to the application field; here two chronic reversible conditions.</p>
 
 <div class="inline-table"><table class=" lightable-classic" style='font-family: "Arial Narrow", "Source Sans Pro", sans-serif; margin-left: auto; margin-right: auto;'>
 <caption>
-<span id="tab:04-findings-goiter">Table 4.3: </span><strong>Representative rules (<code>Goiter</code>).</strong> Proxy rules for <span class="math inline">\(k\)</span>=5 on the <code>Goiter</code> sample learned and the positive outcome as target.
+<span id="tab:04-findings-goiter">Table 4.3: </span><strong>Representative rules (<code>Goiter</code>).</strong> Proxy rules for <span class="math inline">\(k\)</span>=5 on the <code>Goiter</code> sample and the positive value of the target variable.
 </caption>
 <thead><tr>
 <th style="text-align:left;font-weight: bold;">
 #
 </th>
 <th style="text-align:left;font-weight: bold;">
-Antecedent of cluster proxy
+Antecedent of proxy rule
 </th>
 <th style="text-align:right;font-weight: bold;">
 Sup
@@ -852,16 +872,20 @@ increased waist circumference = TRUE <span class="math inline">\(\wedge\)</span>
 </tbody>
 </table></div>
 </div>
-</div>
-<div id="sdclu-conclusions" class="section level2" number="4.5">
+<div id="sdclu-conclusion" class="section level2" number="4.6">
 <h2>
-<span class="header-section-number">4.5</span> Conclusions on identifying distinct subpopulations<a class="anchor" aria-label="anchor" href="#sdclu-conclusions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.6</span> Conclusion<a class="anchor" aria-label="anchor" href="#sdclu-conclusion"><i class="fas fa-link"></i></a>
 </h2>
-<p>SD-Clu tackles the problem of high instance overlap in sets of rules generated by subgroup discovery algorithms.
-By limiting the number of rules time spent for rule inspection is reduced.
-SD-Clu nominates a representative rule from a hierarchical clustering from a large set of rules, and thus returns rules that express distinct concepts, i.e., rules that cover different sets of instances.
+<p>We have proposed SD-Clu, an algorithm for rule clustering, identifying cluster-representative rules (“proxy rules”), and minimizing the proxy rules shown to the domain expert.
+Our algorithm tackles the problem of high instance overlap in sets of rules generated by subgroup discovery algorithms.
+By limiting the number of rules, time spent for rule inspection is reduced.
+SD-Clu nominates a representative rule from a hierarchical clustering from a large set of rules and thus returns rules that express distinct subpopulations, i.e., rules that cover different sets of instances.
 The introduced <em>representativeness</em> measure assesses whether instances are similarly often covered by representatives as by the total rule set.
-SD-Clu was evaluated on two samples from an epidemiological study where an optimal set of <em>proxy</em> rules was selected that (i) contains considerably less rules than the total rule set and (ii) is more representative compared to the baseline approaches, respectively.</p>
+SD-Clu was evaluated on two samples from an epidemiological study where an optimal set of <em>proxy</em> rules was selected that (i) contains considerably fewer rules than the total rule set and (ii) is more representative compared to the baseline approaches, respectively.
+SD-Clu can not only be applied for subpopulation discovery in epidemiological data but high-dimensional medical datasets in general.
+In the absence of a concrete target variable, unsupervised methods for detecting subpopulations (or phenotypes) are needed.
+Furthermore, more sophisticated visualizations are needed if subpopulations are characterized by many variables rather than just a few.
+We present our solution to these challenges in the following chapter.</p>
 
 </div>
 </div>
@@ -875,15 +899,14 @@ SD-Clu was evaluated on two samples from an epidemiological study where an optim
 <li><a class="nav-link" href="#sdclu-intro"><span class="header-section-number">4.1</span> Motivation and Comparison to Related Work</a></li>
 <li>
 <a class="nav-link" href="#sdclu-method"><span class="header-section-number">4.2</span> Finding Distinct Classification Rules</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#rule-clustering"><span class="header-section-number">4.2.1</span> Rule clustering</a></li>
-<li><a class="nav-link" href="#representativeness-of-a-set-of-cluster-proxies"><span class="header-section-number">4.2.2</span> Representativeness of a set of cluster proxies</a></li>
+<li><a class="nav-link" href="#sdclu-method-proxy-rules"><span class="header-section-number">4.2.1</span> Rule Clustering and the Concept of “Proxy Rules”</a></li>
+<li><a class="nav-link" href="#representativeness-of-a-set-of-proxy-rules"><span class="header-section-number">4.2.2</span> Representativeness of a Set of Proxy Rules</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#sdclu-experiments"><span class="header-section-number">4.3</span> Experimental Setup</a></li>
-<li>
-<a class="nav-link" href="#sdclu-results"><span class="header-section-number">4.4</span> Results</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#sdclu-discussion"><span class="header-section-number">4.4.1</span> Discussion of Findings</a></li></ul>
-</li>
-<li><a class="nav-link" href="#sdclu-conclusions"><span class="header-section-number">4.5</span> Conclusions on identifying distinct subpopulations</a></li>
+<li><a class="nav-link" href="#sdclu-results"><span class="header-section-number">4.4</span> Results</a></li>
+<li><a class="nav-link" href="#sdclu-discussion"><span class="header-section-number">4.5</span> Discussion of Findings</a></li>
+<li><a class="nav-link" href="#sdclu-conclusion"><span class="header-section-number">4.6</span> Conclusion</a></li>
 </ul>
 
       <div class="book-extra">
@@ -900,7 +923,7 @@ SD-Clu was evaluated on two samples from an epidemiological study where an optim
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Time-Stamped Medical Data</strong>" was written by Uli Niemann. It was last built on 24.01.2021.</p>
+    <p>"<strong>Intelligent Assistance for Expert-Driven Subpopulation Discovery in High-Dimensional Timestamped Medical Data</strong>" was written by Uli Niemann. It was last built on 09.03.2021.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
